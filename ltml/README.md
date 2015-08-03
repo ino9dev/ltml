@@ -32,7 +32,7 @@ LoadTest Model could generate Jmeter Test Plan (jmx file) and other docs.
 
 # Ltml Grammar
 
-
+![Alt text](ltmlgrammar.png)
 
 # Ltml Sample
 
