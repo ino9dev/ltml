@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ltml/src-gen" editDirectory="/ltml.edit/src" editorDirectory="/ltml.editor/src"
+    modelPluginID="ltml" forceOverwrite="true" modelName="Ltml" updateClasspath="false"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="5.0"
+    copyrightFields="false" editPluginID="ltml.edit" editorPluginID="ltml.editor"
+    runtimeVersion="2.9">
+  <genPackages prefix="Ltml" basePackage="com.ino9dev" disposableProviderFactory="true"
+      fileExtensions="ltml" ecorePackage="Ltml.ecore#/">
+    <genClasses ecoreClass="Ltml.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Model/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Statement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Manifest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/manifestname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/version"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//LoadTest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/loadtestname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/loadgroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/schedule"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//LoadGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/loadgroupname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/cc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadGroup/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/iteration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadGroup/loadgenerator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/rampup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadGroup/schedule"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//LoadGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/loadgeneratorname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/ip"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/password"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Schedule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Schedule/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Schedule/end"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Schedule/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Schedule/delay"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Script">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Script/scriptname"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Script/transactions"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Transaction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/transactionanme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/no"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Transaction/params"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/capturefilename"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/text"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Params">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Params/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Params/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

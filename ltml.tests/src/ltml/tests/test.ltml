@@ -1,0 +1,22 @@
+LoadTest {
+
+    tcno 0001
+    cc 200
+    Iteration "INFINITY"
+    RampUp "20/1min"
+    Scripts BP01
+
+}
+
+Script {
+    id BP01
+    Trs {
+        Tr {
+            Name "BP01_01"
+            No 001
+            Method GET
+            URL "http://localhost/"
+            CaptureFileName "image001"
+        }
+    }
+}

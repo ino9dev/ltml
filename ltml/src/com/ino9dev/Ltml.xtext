@@ -1,0 +1,129 @@
+grammar com.ino9dev.Ltml with org.eclipse.xtext.common.Terminals
+
+generate ltml "http://www.ino9dev.com/Ltml"
+
+Model:
+    statements+=Statement*;
+    
+Statement:
+    Manifest
+    |LoadTest
+    |LoadGroup
+    |LoadGenerator
+    |Script
+    |Reports
+    |SL_COMMENT
+;
+
+Manifest:
+    ("Manifest"|"Mn")
+    "{"
+        "Id" name=ID
+        ("Name" manifestname=STRING)?
+        ("Version"|"ver") version=STRING
+    "}"
+;
+
+LoadTest:
+    ("LoadTest"|"Lt")
+    "{"
+        "Id" name=ID
+        ("Name" loadtestname=STRING)?
+        //per loadtest schedule
+        "LoadGroups" loadgroups+=[LoadGroup]
+        (schedule=Schedule)?
+    "}"
+;
+
+LoadGroup:
+    ("LoadGroup"|"Lgrp")
+    "{"
+        "Id" name=ID
+        ("Name" loadgroupname=STRING)?
+        ("ConccurentCount"|"Cc") cc=INT
+        "Script" script=[Script]
+        "Iteration" iteration=("INFINITY"|STRING)
+        "LoadGenerator" loadgenerator=[LoadGenerator]
+        "RampUp" rampup=STRING
+        // per loadgroup schedule
+        (schedule=Schedule)?
+    "}"
+;
+
+LoadGenerator:
+    ("LoadGenerator"|"Lgen")
+    "{"
+        "Id" name=ID
+        ("Name" loadgeneratorname=STRING)?
+        "TargetIp" ip=STRING //todo IPADDR
+        "TargetPort" port=STRING //todo PORT
+        "Location" location=STRING
+        "AuthUsername" username=STRING
+        "AuthPassword" password=STRING
+    "}"
+;
+
+Schedule:
+    "Schedule"
+    "{"
+        (
+        "Start" start=STRING
+        "End" end=STRING
+        |
+        "Duration" duration=INT
+        "Delay" delay=INT
+        )
+    "}"
+;
+
+Script:
+    ("Script"|"Sc")
+    "{"
+        "Id" name=ID
+        "Name" scriptname=STRING
+        ("Transactions"|"Trs") 
+        "{"
+            transactions+=Transaction*
+        "}"
+    "}"
+;
+
+Transaction:
+    ("Transaction" | "Tr")
+    "{"
+        "Id" name=ID
+        "Name" transactionanme=STRING
+        "No" no=INT
+        "Method" method=Method
+        "URL" url=STRING
+        ("Parameters" params+=Params)?
+        ("Body" body=STRING)?
+        ("CaptureFileName" capturefilename=STRING)?
+        ("ResponseExpected" text=STRING "Exist")?
+    "}"
+;
+
+Reports:
+    "Reports"
+    "{"
+        "Summary"
+         |"TransactionsPerSecond"
+         |"ResponseTime"
+         |"ConccurentCount"
+    "}"
+;
+
+Params:
+    "["key=STRING"="value=STRING("&"|"]")
+;
+
+Method:
+    "GET"
+    |"POST"
+    |"DELETE"
+    |"PUT"
+;
+
+//enum Method:
+//    POST="POST"|GET="GET"|DELETE="DELETE"|PUT="PUT"
+//;
