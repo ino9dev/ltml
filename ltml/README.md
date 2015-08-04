@@ -36,7 +36,7 @@ LoadTest Model could generate Jmeter Test Plan (jmx file) and other docs.
 
 # Ltml Sample
 
-'''
+```
 Manifest {
     Id lt20150801
     Version "1.0"
@@ -124,7 +124,7 @@ Reports {
     ResponseTimeOverTime
     ConccurentCountOverTime
 }        
-'''
+```
 
 # License
 
