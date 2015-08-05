@@ -144,7 +144,6 @@ public class LtmlSwitch<T> extends Switch<T>
       {
         Report report = (Report)theEObject;
         T result = caseReport(report);
-        if (result == null) result = caseStatement(report);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

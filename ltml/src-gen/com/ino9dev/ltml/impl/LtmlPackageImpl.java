@@ -206,6 +206,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getStatement_Name()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getManifest()
   {
     return manifestEClass;
@@ -216,7 +226,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getManifest_Name()
+  public EAttribute getManifest_Manifestname()
   {
     return (EAttribute)manifestEClass.getEStructuralFeatures().get(0);
   }
@@ -226,19 +236,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getManifest_Manifestname()
-  {
-    return (EAttribute)manifestEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getManifest_Version()
   {
-    return (EAttribute)manifestEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)manifestEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -256,7 +256,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadTest_Name()
+  public EAttribute getLoadTest_Loadtestname()
   {
     return (EAttribute)loadTestEClass.getEStructuralFeatures().get(0);
   }
@@ -266,9 +266,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadTest_Loadtestname()
+  public EReference getLoadTest_Loadgroups()
   {
-    return (EAttribute)loadTestEClass.getEStructuralFeatures().get(1);
+    return (EReference)loadTestEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -276,7 +276,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLoadTest_Loadgroups()
+  public EReference getLoadTest_Schedule()
   {
     return (EReference)loadTestEClass.getEStructuralFeatures().get(2);
   }
@@ -286,7 +286,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLoadTest_Schedule()
+  public EReference getLoadTest_Report()
   {
     return (EReference)loadTestEClass.getEStructuralFeatures().get(3);
   }
@@ -306,7 +306,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGroup_Name()
+  public EAttribute getLoadGroup_Loadgroupname()
   {
     return (EAttribute)loadGroupEClass.getEStructuralFeatures().get(0);
   }
@@ -316,7 +316,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGroup_Loadgroupname()
+  public EAttribute getLoadGroup_Cc()
   {
     return (EAttribute)loadGroupEClass.getEStructuralFeatures().get(1);
   }
@@ -326,19 +326,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGroup_Cc()
-  {
-    return (EAttribute)loadGroupEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getLoadGroup_Script()
   {
-    return (EReference)loadGroupEClass.getEStructuralFeatures().get(3);
+    return (EReference)loadGroupEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -348,7 +338,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EAttribute getLoadGroup_Iteration()
   {
-    return (EAttribute)loadGroupEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)loadGroupEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -358,7 +348,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EReference getLoadGroup_Loadgenerator()
   {
-    return (EReference)loadGroupEClass.getEStructuralFeatures().get(5);
+    return (EReference)loadGroupEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -368,7 +358,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EAttribute getLoadGroup_Rampup()
   {
-    return (EAttribute)loadGroupEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)loadGroupEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -378,7 +368,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EReference getLoadGroup_Schedule()
   {
-    return (EReference)loadGroupEClass.getEStructuralFeatures().get(7);
+    return (EReference)loadGroupEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -396,7 +386,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGenerator_Name()
+  public EAttribute getLoadGenerator_Loadgeneratorname()
   {
     return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(0);
   }
@@ -406,7 +396,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGenerator_Loadgeneratorname()
+  public EAttribute getLoadGenerator_Ip()
   {
     return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(1);
   }
@@ -416,7 +406,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGenerator_Ip()
+  public EAttribute getLoadGenerator_Port()
   {
     return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(2);
   }
@@ -426,7 +416,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGenerator_Port()
+  public EAttribute getLoadGenerator_Location()
   {
     return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(3);
   }
@@ -436,7 +426,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGenerator_Location()
+  public EAttribute getLoadGenerator_Username()
   {
     return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(4);
   }
@@ -446,19 +436,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGenerator_Username()
-  {
-    return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getLoadGenerator_Password()
   {
-    return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -526,7 +506,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getScript_Name()
+  public EAttribute getScript_Scriptname()
   {
     return (EAttribute)scriptEClass.getEStructuralFeatures().get(0);
   }
@@ -536,19 +516,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getScript_Scriptname()
-  {
-    return (EAttribute)scriptEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getScript_Transactions()
   {
-    return (EReference)scriptEClass.getEStructuralFeatures().get(2);
+    return (EReference)scriptEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -765,20 +735,19 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEReference(modelEClass, MODEL__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__NAME);
 
     manifestEClass = createEClass(MANIFEST);
-    createEAttribute(manifestEClass, MANIFEST__NAME);
     createEAttribute(manifestEClass, MANIFEST__MANIFESTNAME);
     createEAttribute(manifestEClass, MANIFEST__VERSION);
 
     loadTestEClass = createEClass(LOAD_TEST);
-    createEAttribute(loadTestEClass, LOAD_TEST__NAME);
     createEAttribute(loadTestEClass, LOAD_TEST__LOADTESTNAME);
     createEReference(loadTestEClass, LOAD_TEST__LOADGROUPS);
     createEReference(loadTestEClass, LOAD_TEST__SCHEDULE);
+    createEReference(loadTestEClass, LOAD_TEST__REPORT);
 
     loadGroupEClass = createEClass(LOAD_GROUP);
-    createEAttribute(loadGroupEClass, LOAD_GROUP__NAME);
     createEAttribute(loadGroupEClass, LOAD_GROUP__LOADGROUPNAME);
     createEAttribute(loadGroupEClass, LOAD_GROUP__CC);
     createEReference(loadGroupEClass, LOAD_GROUP__SCRIPT);
@@ -788,7 +757,6 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEReference(loadGroupEClass, LOAD_GROUP__SCHEDULE);
 
     loadGeneratorEClass = createEClass(LOAD_GENERATOR);
-    createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__NAME);
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__LOADGENERATORNAME);
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__IP);
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__PORT);
@@ -803,7 +771,6 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(scheduleEClass, SCHEDULE__DELAY);
 
     scriptEClass = createEClass(SCRIPT);
-    createEAttribute(scriptEClass, SCRIPT__NAME);
     createEAttribute(scriptEClass, SCRIPT__SCRIPTNAME);
     createEReference(scriptEClass, SCRIPT__TRANSACTIONS);
 
@@ -863,27 +830,25 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     loadGroupEClass.getESuperTypes().add(this.getStatement());
     loadGeneratorEClass.getESuperTypes().add(this.getStatement());
     scriptEClass.getESuperTypes().add(this.getStatement());
-    reportEClass.getESuperTypes().add(this.getStatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Statements(), this.getStatement(), null, "statements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(manifestEClass, Manifest.class, "Manifest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getManifest_Name(), ecorePackage.getEString(), "name", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getManifest_Manifestname(), ecorePackage.getEString(), "manifestname", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getManifest_Version(), ecorePackage.getEString(), "version", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loadTestEClass, LoadTest.class, "LoadTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLoadTest_Name(), ecorePackage.getEString(), "name", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadTest_Loadtestname(), ecorePackage.getEString(), "loadtestname", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLoadTest_Loadgroups(), this.getLoadGroup(), null, "loadgroups", null, 0, -1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLoadTest_Schedule(), this.getSchedule(), null, "schedule", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLoadTest_Report(), this.getReport(), null, "report", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loadGroupEClass, LoadGroup.class, "LoadGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLoadGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, LoadGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGroup_Loadgroupname(), ecorePackage.getEString(), "loadgroupname", null, 0, 1, LoadGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGroup_Cc(), ecorePackage.getEInt(), "cc", null, 0, 1, LoadGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLoadGroup_Script(), this.getScript(), null, "script", null, 0, 1, LoadGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -893,7 +858,6 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEReference(getLoadGroup_Schedule(), this.getSchedule(), null, "schedule", null, 0, 1, LoadGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loadGeneratorEClass, LoadGenerator.class, "LoadGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLoadGenerator_Name(), ecorePackage.getEString(), "name", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGenerator_Loadgeneratorname(), ecorePackage.getEString(), "loadgeneratorname", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGenerator_Ip(), ecorePackage.getEString(), "ip", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGenerator_Port(), ecorePackage.getEString(), "port", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -908,7 +872,6 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getSchedule_Delay(), ecorePackage.getEInt(), "delay", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getScript_Name(), ecorePackage.getEString(), "name", null, 0, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getScript_Scriptname(), ecorePackage.getEString(), "scriptname", null, 0, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScript_Transactions(), this.getTransaction(), null, "transactions", null, 0, -1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

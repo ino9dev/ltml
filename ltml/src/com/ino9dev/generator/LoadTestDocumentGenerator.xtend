@@ -9,7 +9,7 @@ import com.ino9dev.ltml.LoadTest
 class LoadTestDocumentGenerator implements IGenerator {
     
     override doGenerate(Resource resource, IFileSystemAccess fsa) {
-//        
+        
 //        //to get mnifest
 //        var manifest = resource.allContents.filter(typeof(Manifest)).head
 //        

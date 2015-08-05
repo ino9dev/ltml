@@ -2,6 +2,7 @@
  */
 package com.ino9dev.ltml;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package com.ino9dev.ltml;
  * @model
  * @generated
  */
-public interface Report extends Statement
+public interface Report extends EObject
 {
   /**
    * Returns the value of the '<em><b>Summary</b></em>' attribute.

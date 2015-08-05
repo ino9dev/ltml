@@ -5,7 +5,7 @@ LoadTest {
     Iteration "INFINITY"
     RampUp "20/1min"
     Scripts BP01
-
+    
 }
 
 Script {

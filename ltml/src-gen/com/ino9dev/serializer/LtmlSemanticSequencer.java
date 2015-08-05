@@ -75,8 +75,7 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				}
 				else break;
 			case LtmlPackage.REPORT:
-				if(context == grammarAccess.getReportRule() ||
-				   context == grammarAccess.getStatementRule()) {
+				if(context == grammarAccess.getReportRule()) {
 					sequence_Report(context, (Report) semanticObject); 
 					return; 
 				}
@@ -141,7 +140,14 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID loadtestname=STRING? loadgroups+=[LoadGroup|ID] schedule=Schedule?)
+	 *     (
+	 *         name=ID 
+	 *         loadtestname=STRING? 
+	 *         loadgroups+=[LoadGroup|ID] 
+	 *         loadgroups+=[LoadGroup|ID]* 
+	 *         schedule=Schedule? 
+	 *         report=Report
+	 *     )
 	 */
 	protected void sequence_LoadTest(EObject context, LoadTest semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -187,10 +193,26 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (summary?='Summary' | tps?='TransactionsPerSecond' | resptime?='ResponseTime' | cc?='ConccurentCount')
+	 *     (summary?='Summary' tps?='TransactionsPerSecond' resptime?='ResponseTime' cc?='ConccurentCount')?
 	 */
 	protected void sequence_Report(EObject context, Report semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.REPORT__SUMMARY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.REPORT__SUMMARY));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.REPORT__TPS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.REPORT__TPS));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.REPORT__RESPTIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.REPORT__RESPTIME));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.REPORT__CC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.REPORT__CC));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getReportAccess().getSummarySummaryKeyword_1_2_0(), semanticObject.isSummary());
+		feeder.accept(grammarAccess.getReportAccess().getTpsTransactionsPerSecondKeyword_1_3_0(), semanticObject.isTps());
+		feeder.accept(grammarAccess.getReportAccess().getResptimeResponseTimeKeyword_1_4_0(), semanticObject.isResptime());
+		feeder.accept(grammarAccess.getReportAccess().getCcConccurentCountKeyword_1_5_0(), semanticObject.isCc());
+		feeder.finish();
 	}
 	
 	

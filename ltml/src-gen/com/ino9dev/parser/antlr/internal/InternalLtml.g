@@ -166,19 +166,9 @@ ruleStatement returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
-    |
+    |this_SL_COMMENT_5=RULE_SL_COMMENT
     { 
-        newCompositeNode(grammarAccess.getStatementAccess().getReportParserRuleCall_5()); 
-    }
-    this_Report_5=ruleReport
-    { 
-        $current = $this_Report_5.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |this_SL_COMMENT_6=RULE_SL_COMMENT
-    { 
-    newLeafNode(this_SL_COMMENT_6, grammarAccess.getStatementAccess().getSL_COMMENTTerminalRuleCall_6()); 
+    newLeafNode(this_SL_COMMENT_5, grammarAccess.getStatementAccess().getSL_COMMENTTerminalRuleCall_5()); 
     }
 )
 ;
@@ -384,27 +374,62 @@ ruleLoadTest returns [EObject current=null]
 	}
 
 )
-)(
+)(	otherlv_9=',' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getLoadTestAccess().getCommaKeyword_7_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLoadTestRule());
+	        }
+        }
+	otherlv_10=RULE_ID
+	{
+		newLeafNode(otherlv_10, grammarAccess.getLoadTestAccess().getLoadgroupsLoadGroupCrossReference_7_1_0()); 
+	}
+
+)
+))*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getLoadTestAccess().getScheduleScheduleParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getLoadTestAccess().getScheduleScheduleParserRuleCall_8_0()); 
 	    }
-		lv_schedule_9_0=ruleSchedule		{
+		lv_schedule_11_0=ruleSchedule		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getLoadTestRule());
 	        }
        		set(
        			$current, 
        			"schedule",
-        		lv_schedule_9_0, 
+        		lv_schedule_11_0, 
         		"Schedule");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_10='}' 
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLoadTestAccess().getReportReportParserRuleCall_9_0()); 
+	    }
+		lv_report_12_0=ruleReport		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLoadTestRule());
+	        }
+       		set(
+       			$current, 
+       			"report",
+        		lv_report_12_0, 
+        		"Report");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_13='}' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getLoadTestAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_13, grammarAccess.getLoadTestAccess().getRightCurlyBracketKeyword_10());
     }
 )
 ;
@@ -1318,19 +1343,24 @@ ruleReport returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((	otherlv_0='Report' 
+(	otherlv_0='NoReport' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getReportAccess().getReportKeyword_0_0());
+    	newLeafNode(otherlv_0, grammarAccess.getReportAccess().getNoReportKeyword_0());
     }
-	otherlv_1='{' 
+
+    |(	otherlv_1='Report' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getReportAccess().getLeftCurlyBracketKeyword_0_1());
+    	newLeafNode(otherlv_1, grammarAccess.getReportAccess().getReportKeyword_1_0());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getReportAccess().getLeftCurlyBracketKeyword_1_1());
     }
 (
 (
-		lv_summary_2_0=	'Summary' 
+		lv_summary_3_0=	'Summary' 
     {
-        newLeafNode(lv_summary_2_0, grammarAccess.getReportAccess().getSummarySummaryKeyword_0_2_0());
+        newLeafNode(lv_summary_3_0, grammarAccess.getReportAccess().getSummarySummaryKeyword_1_2_0());
     }
  
 	    {
@@ -1341,12 +1371,11 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-))
-    |(
+)(
 (
-		lv_tps_3_0=	'TransactionsPerSecond' 
+		lv_tps_4_0=	'TransactionsPerSecond' 
     {
-        newLeafNode(lv_tps_3_0, grammarAccess.getReportAccess().getTpsTransactionsPerSecondKeyword_1_0());
+        newLeafNode(lv_tps_4_0, grammarAccess.getReportAccess().getTpsTransactionsPerSecondKeyword_1_3_0());
     }
  
 	    {
@@ -1357,12 +1386,11 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-)
-    |(
+)(
 (
-		lv_resptime_4_0=	'ResponseTime' 
+		lv_resptime_5_0=	'ResponseTime' 
     {
-        newLeafNode(lv_resptime_4_0, grammarAccess.getReportAccess().getResptimeResponseTimeKeyword_2_0());
+        newLeafNode(lv_resptime_5_0, grammarAccess.getReportAccess().getResptimeResponseTimeKeyword_1_4_0());
     }
  
 	    {
@@ -1373,12 +1401,11 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-)
-    |((
+)(
 (
-		lv_cc_5_0=	'ConccurentCount' 
+		lv_cc_6_0=	'ConccurentCount' 
     {
-        newLeafNode(lv_cc_5_0, grammarAccess.getReportAccess().getCcConccurentCountKeyword_3_0_0());
+        newLeafNode(lv_cc_6_0, grammarAccess.getReportAccess().getCcConccurentCountKeyword_1_5_0());
     }
  
 	    {
@@ -1389,9 +1416,9 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-)	otherlv_6='}' 
+)	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_3_1());
+    	newLeafNode(otherlv_7, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_1_6());
     }
 ))
 ;

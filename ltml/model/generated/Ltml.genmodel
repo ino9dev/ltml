@@ -10,20 +10,20 @@
     <genClasses ecoreClass="Ltml.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Model/statements"/>
     </genClasses>
-    <genClasses ecoreClass="Ltml.ecore#//Statement"/>
+    <genClasses ecoreClass="Ltml.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Statement/name"/>
+    </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Manifest">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/manifestname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/version"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadTest">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/loadtestname"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/loadgroups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/schedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/report"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadGroup">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/loadgroupname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/cc"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadGroup/script"/>
@@ -33,7 +33,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadGroup/schedule"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/loadgeneratorname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/ip"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/port"/>
@@ -48,7 +47,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Schedule/delay"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Script">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Script/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Script/scriptname"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Script/transactions"/>
     </genClasses>

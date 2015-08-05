@@ -11,7 +11,6 @@ Statement:
     |LoadGroup
     |LoadGenerator
     |Script
-    |Report
     |SL_COMMENT
 ;
 
@@ -32,6 +31,7 @@ LoadTest:
         //per loadtest schedule
         "LoadGroups" loadgroups+=[LoadGroup] (',' loadgroups+=[LoadGroup])*
         (schedule=Schedule)?
+        (report=Report)
     "}"
 ;
 
@@ -104,12 +104,14 @@ Transaction:
 ;
 
 Report:
+    "NoReport"
+    |
     "Report"
     "{"
-         summary="Summary"?
-         tps="TransactionsPerSecond"?
-         resptime="ResponseTime"?
-         cc="ConccurentCount"?
+         summary?="Summary"
+         tps?="TransactionsPerSecond"
+         resptime?="ResponseTime"
+         cc?="ConccurentCount"
     "}"
 ;
 

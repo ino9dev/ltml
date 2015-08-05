@@ -5,6 +5,7 @@ package com.ino9dev.ltml.impl;
 import com.ino9dev.ltml.LoadGroup;
 import com.ino9dev.ltml.LoadTest;
 import com.ino9dev.ltml.LtmlPackage;
+import com.ino9dev.ltml.Report;
 import com.ino9dev.ltml.Schedule;
 
 import java.util.Collection;
@@ -28,10 +29,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getLoadtestname <em>Loadtestname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getLoadgroups <em>Loadgroups</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getSchedule <em>Schedule</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getReport <em>Report</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,26 +40,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class LoadTestImpl extends StatementImpl implements LoadTest
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getLoadtestname() <em>Loadtestname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -100,6 +81,16 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   protected Schedule schedule;
 
   /**
+   * The cached value of the '{@link #getReport() <em>Report</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReport()
+   * @generated
+   * @ordered
+   */
+  protected Report report;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -118,29 +109,6 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   protected EClass eStaticClass()
   {
     return LtmlPackage.Literals.LOAD_TEST;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_TEST__NAME, oldName, name));
   }
 
   /**
@@ -233,6 +201,54 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
    * <!-- end-user-doc -->
    * @generated
    */
+  public Report getReport()
+  {
+    return report;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetReport(Report newReport, NotificationChain msgs)
+  {
+    Report oldReport = report;
+    report = newReport;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_TEST__REPORT, oldReport, newReport);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReport(Report newReport)
+  {
+    if (newReport != report)
+    {
+      NotificationChain msgs = null;
+      if (report != null)
+        msgs = ((InternalEObject)report).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LtmlPackage.LOAD_TEST__REPORT, null, msgs);
+      if (newReport != null)
+        msgs = ((InternalEObject)newReport).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LtmlPackage.LOAD_TEST__REPORT, null, msgs);
+      msgs = basicSetReport(newReport, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_TEST__REPORT, newReport, newReport));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -240,6 +256,8 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     {
       case LtmlPackage.LOAD_TEST__SCHEDULE:
         return basicSetSchedule(null, msgs);
+      case LtmlPackage.LOAD_TEST__REPORT:
+        return basicSetReport(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -254,14 +272,14 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_TEST__NAME:
-        return getName();
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         return getLoadtestname();
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
         return getLoadgroups();
       case LtmlPackage.LOAD_TEST__SCHEDULE:
         return getSchedule();
+      case LtmlPackage.LOAD_TEST__REPORT:
+        return getReport();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -277,9 +295,6 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_TEST__NAME:
-        setName((String)newValue);
-        return;
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         setLoadtestname((String)newValue);
         return;
@@ -289,6 +304,9 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
         return;
       case LtmlPackage.LOAD_TEST__SCHEDULE:
         setSchedule((Schedule)newValue);
+        return;
+      case LtmlPackage.LOAD_TEST__REPORT:
+        setReport((Report)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -304,9 +322,6 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_TEST__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         setLoadtestname(LOADTESTNAME_EDEFAULT);
         return;
@@ -315,6 +330,9 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
         return;
       case LtmlPackage.LOAD_TEST__SCHEDULE:
         setSchedule((Schedule)null);
+        return;
+      case LtmlPackage.LOAD_TEST__REPORT:
+        setReport((Report)null);
         return;
     }
     super.eUnset(featureID);
@@ -330,14 +348,14 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_TEST__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         return LOADTESTNAME_EDEFAULT == null ? loadtestname != null : !LOADTESTNAME_EDEFAULT.equals(loadtestname);
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
         return loadgroups != null && !loadgroups.isEmpty();
       case LtmlPackage.LOAD_TEST__SCHEDULE:
         return schedule != null;
+      case LtmlPackage.LOAD_TEST__REPORT:
+        return report != null;
     }
     return super.eIsSet(featureID);
   }
@@ -353,9 +371,7 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", loadtestname: ");
+    result.append(" (loadtestname: ");
     result.append(loadtestname);
     result.append(')');
     return result.toString();

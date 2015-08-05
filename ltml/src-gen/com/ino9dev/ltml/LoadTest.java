@@ -12,10 +12,10 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.ino9dev.ltml.LoadTest#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadTest#getLoadtestname <em>Loadtestname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadTest#getLoadgroups <em>Loadgroups</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadTest#getSchedule <em>Schedule</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.LoadTest#getReport <em>Report</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,32 +25,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface LoadTest extends Statement
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see com.ino9dev.ltml.LtmlPackage#getLoadTest_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link com.ino9dev.ltml.LoadTest#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Loadtestname</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -118,5 +92,31 @@ public interface LoadTest extends Statement
    * @generated
    */
   void setSchedule(Schedule value);
+
+  /**
+   * Returns the value of the '<em><b>Report</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Report</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Report</em>' containment reference.
+   * @see #setReport(Report)
+   * @see com.ino9dev.ltml.LtmlPackage#getLoadTest_Report()
+   * @model containment="true"
+   * @generated
+   */
+  Report getReport();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.LoadTest#getReport <em>Report</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Report</em>' containment reference.
+   * @see #getReport()
+   * @generated
+   */
+  void setReport(Report value);
 
 } // LoadTest

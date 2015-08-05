@@ -42,14 +42,13 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLoadGroupParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cLoadGeneratorParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cScriptParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cReportParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cSL_COMMENTTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Statement:
-		//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Report | SL_COMMENT;
+		//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | SL_COMMENT;
 		public ParserRule getRule() { return rule; }
 
-		//Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Report | SL_COMMENT
+		//Manifest | LoadTest | LoadGroup | LoadGenerator | Script | SL_COMMENT
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Manifest
@@ -67,11 +66,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Script
 		public RuleCall getScriptParserRuleCall_4() { return cScriptParserRuleCall_4; }
 
-		//Report
-		public RuleCall getReportParserRuleCall_5() { return cReportParserRuleCall_5; }
-
 		//SL_COMMENT
-		public RuleCall getSL_COMMENTTerminalRuleCall_6() { return cSL_COMMENTTerminalRuleCall_6; }
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
 	}
 
 	public class ManifestElements extends AbstractParserRuleElementFinder {
@@ -172,17 +168,24 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLoadgroupsAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final CrossReference cLoadgroupsLoadGroupCrossReference_6_0 = (CrossReference)cLoadgroupsAssignment_6.eContents().get(0);
 		private final RuleCall cLoadgroupsLoadGroupIDTerminalRuleCall_6_0_1 = (RuleCall)cLoadgroupsLoadGroupCrossReference_6_0.eContents().get(1);
-		private final Assignment cScheduleAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cScheduleScheduleParserRuleCall_7_0 = (RuleCall)cScheduleAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cLoadgroupsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cLoadgroupsLoadGroupCrossReference_7_1_0 = (CrossReference)cLoadgroupsAssignment_7_1.eContents().get(0);
+		private final RuleCall cLoadgroupsLoadGroupIDTerminalRuleCall_7_1_0_1 = (RuleCall)cLoadgroupsLoadGroupCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cScheduleAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cScheduleScheduleParserRuleCall_8_0 = (RuleCall)cScheduleAssignment_8.eContents().get(0);
+		private final Assignment cReportAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cReportReportParserRuleCall_9_0 = (RuleCall)cReportAssignment_9.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//LoadTest:
 		//	("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? //per loadtest schedule
-		//	"LoadGroups" loadgroups+=[LoadGroup] schedule=Schedule? "}";
+		//	"LoadGroups" loadgroups+=[LoadGroup] ("," loadgroups+=[LoadGroup])* schedule=Schedule? report=Report "}";
 		public ParserRule getRule() { return rule; }
 
 		//("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? //per loadtest schedule
-		//"LoadGroups" loadgroups+=[LoadGroup] schedule=Schedule? "}"
+		//"LoadGroups" loadgroups+=[LoadGroup] ("," loadgroups+=[LoadGroup])* schedule=Schedule? report=Report "}"
 		public Group getGroup() { return cGroup; }
 
 		//"LoadTest" | "Lt"
@@ -231,14 +234,35 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getLoadgroupsLoadGroupIDTerminalRuleCall_6_0_1() { return cLoadgroupsLoadGroupIDTerminalRuleCall_6_0_1; }
 
+		//("," loadgroups+=[LoadGroup])*
+		public Group getGroup_7() { return cGroup_7; }
+
+		//","
+		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
+
+		//loadgroups+=[LoadGroup]
+		public Assignment getLoadgroupsAssignment_7_1() { return cLoadgroupsAssignment_7_1; }
+
+		//[LoadGroup]
+		public CrossReference getLoadgroupsLoadGroupCrossReference_7_1_0() { return cLoadgroupsLoadGroupCrossReference_7_1_0; }
+
+		//ID
+		public RuleCall getLoadgroupsLoadGroupIDTerminalRuleCall_7_1_0_1() { return cLoadgroupsLoadGroupIDTerminalRuleCall_7_1_0_1; }
+
 		//schedule=Schedule?
-		public Assignment getScheduleAssignment_7() { return cScheduleAssignment_7; }
+		public Assignment getScheduleAssignment_8() { return cScheduleAssignment_8; }
 
 		//Schedule
-		public RuleCall getScheduleScheduleParserRuleCall_7_0() { return cScheduleScheduleParserRuleCall_7_0; }
+		public RuleCall getScheduleScheduleParserRuleCall_8_0() { return cScheduleScheduleParserRuleCall_8_0; }
+
+		//report=Report
+		public Assignment getReportAssignment_9() { return cReportAssignment_9; }
+
+		//Report
+		public RuleCall getReportReportParserRuleCall_9_0() { return cReportReportParserRuleCall_9_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 
 	public class LoadGroupElements extends AbstractParserRuleElementFinder {
@@ -864,66 +888,67 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class ReportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Report");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cReportKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cSummaryAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final Keyword cSummarySummaryKeyword_0_2_0 = (Keyword)cSummaryAssignment_0_2.eContents().get(0);
-		private final Assignment cTpsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final Keyword cTpsTransactionsPerSecondKeyword_1_0 = (Keyword)cTpsAssignment_1.eContents().get(0);
-		private final Assignment cResptimeAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final Keyword cResptimeResponseTimeKeyword_2_0 = (Keyword)cResptimeAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Assignment cCcAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final Keyword cCcConccurentCountKeyword_3_0_0 = (Keyword)cCcAssignment_3_0.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cNoReportKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cReportKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cSummaryAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final Keyword cSummarySummaryKeyword_1_2_0 = (Keyword)cSummaryAssignment_1_2.eContents().get(0);
+		private final Assignment cTpsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final Keyword cTpsTransactionsPerSecondKeyword_1_3_0 = (Keyword)cTpsAssignment_1_3.eContents().get(0);
+		private final Assignment cResptimeAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final Keyword cResptimeResponseTimeKeyword_1_4_0 = (Keyword)cResptimeAssignment_1_4.eContents().get(0);
+		private final Assignment cCcAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final Keyword cCcConccurentCountKeyword_1_5_0 = (Keyword)cCcAssignment_1_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
 		
 		//Report:
-		//	"Report" "{" summary?="Summary" | tps?="TransactionsPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount"
-		//	"}";
+		//	"NoReport" | "Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime"
+		//	cc?="ConccurentCount" "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Report" "{" summary?="Summary" | tps?="TransactionsPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount" "}"
+		//"NoReport" | "Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime" cc?="ConccurentCount"
+		//"}"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//"Report" "{" summary?="Summary"
-		public Group getGroup_0() { return cGroup_0; }
+		//"NoReport"
+		public Keyword getNoReportKeyword_0() { return cNoReportKeyword_0; }
+
+		//"Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime" cc?="ConccurentCount" "}"
+		public Group getGroup_1() { return cGroup_1; }
 
 		//"Report"
-		public Keyword getReportKeyword_0_0() { return cReportKeyword_0_0; }
+		public Keyword getReportKeyword_1_0() { return cReportKeyword_1_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_0_1() { return cLeftCurlyBracketKeyword_0_1; }
+		public Keyword getLeftCurlyBracketKeyword_1_1() { return cLeftCurlyBracketKeyword_1_1; }
 
 		//summary?="Summary"
-		public Assignment getSummaryAssignment_0_2() { return cSummaryAssignment_0_2; }
+		public Assignment getSummaryAssignment_1_2() { return cSummaryAssignment_1_2; }
 
 		//"Summary"
-		public Keyword getSummarySummaryKeyword_0_2_0() { return cSummarySummaryKeyword_0_2_0; }
+		public Keyword getSummarySummaryKeyword_1_2_0() { return cSummarySummaryKeyword_1_2_0; }
 
 		//tps?="TransactionsPerSecond"
-		public Assignment getTpsAssignment_1() { return cTpsAssignment_1; }
+		public Assignment getTpsAssignment_1_3() { return cTpsAssignment_1_3; }
 
 		//"TransactionsPerSecond"
-		public Keyword getTpsTransactionsPerSecondKeyword_1_0() { return cTpsTransactionsPerSecondKeyword_1_0; }
+		public Keyword getTpsTransactionsPerSecondKeyword_1_3_0() { return cTpsTransactionsPerSecondKeyword_1_3_0; }
 
 		//resptime?="ResponseTime"
-		public Assignment getResptimeAssignment_2() { return cResptimeAssignment_2; }
+		public Assignment getResptimeAssignment_1_4() { return cResptimeAssignment_1_4; }
 
 		//"ResponseTime"
-		public Keyword getResptimeResponseTimeKeyword_2_0() { return cResptimeResponseTimeKeyword_2_0; }
-
-		//cc?="ConccurentCount" "}"
-		public Group getGroup_3() { return cGroup_3; }
+		public Keyword getResptimeResponseTimeKeyword_1_4_0() { return cResptimeResponseTimeKeyword_1_4_0; }
 
 		//cc?="ConccurentCount"
-		public Assignment getCcAssignment_3_0() { return cCcAssignment_3_0; }
+		public Assignment getCcAssignment_1_5() { return cCcAssignment_1_5; }
 
 		//"ConccurentCount"
-		public Keyword getCcConccurentCountKeyword_3_0_0() { return cCcConccurentCountKeyword_3_0_0; }
+		public Keyword getCcConccurentCountKeyword_1_5_0() { return cCcConccurentCountKeyword_1_5_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_1() { return cRightCurlyBracketKeyword_3_1; }
+		public Keyword getRightCurlyBracketKeyword_1_6() { return cRightCurlyBracketKeyword_1_6; }
 	}
 
 	public class ParamsElements extends AbstractParserRuleElementFinder {
@@ -1065,7 +1090,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statement:
-	//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Report | SL_COMMENT;
+	//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | SL_COMMENT;
 	public StatementElements getStatementAccess() {
 		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
 	}
@@ -1086,7 +1111,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	//LoadTest:
 	//	("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? //per loadtest schedule
-	//	"LoadGroups" loadgroups+=[LoadGroup] schedule=Schedule? "}";
+	//	"LoadGroups" loadgroups+=[LoadGroup] ("," loadgroups+=[LoadGroup])* schedule=Schedule? report=Report "}";
 	public LoadTestElements getLoadTestAccess() {
 		return (pLoadTest != null) ? pLoadTest : (pLoadTest = new LoadTestElements());
 	}
@@ -1154,8 +1179,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Report:
-	//	"Report" "{" summary?="Summary" | tps?="TransactionsPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount"
-	//	"}";
+	//	"NoReport" | "Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime"
+	//	cc?="ConccurentCount" "}";
 	public ReportElements getReportAccess() {
 		return (pReport != null) ? pReport : (pReport = new ReportElements());
 	}

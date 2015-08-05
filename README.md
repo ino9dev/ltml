@@ -20,7 +20,7 @@ Thank you.
 ##The Fast Way:  
 
 1. Environment Prerequisite: Java 1.6 or newer; Eclipse 3.8 or 4.2 or newer; Xtext 2.4.  
-2. Download this plugin jarfile and save to eclipse plugin folder(<<eclipse_home>>\plugins)  
+2. Download this plugin jarfile[(here)](https://github.com/ino9dev/ltml/tree/master/ltml/plugin) and save to eclipse plugin folder(\<\<eclipse_home\>\>\plugins)  
 3. Run Eclipse  
 4. Create a Java Project  
 5. Create a Untitled File *.ltml(ex. test.ltml)
@@ -41,7 +41,7 @@ Thank you.
 
 This grammar is defined with Xtext.  
 
-![Alt text](ltmlgrammar.png)
+![Alt text](ltml/ltmlgrammar.png)
 
 # Ltml Sample
 

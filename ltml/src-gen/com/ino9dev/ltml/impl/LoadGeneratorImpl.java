@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getLoadgeneratorname <em>Loadgeneratorname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getIp <em>Ip</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getPort <em>Port</em>}</li>
@@ -32,26 +31,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getLoadgeneratorname() <em>Loadgeneratorname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -191,29 +170,6 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
   protected EClass eStaticClass()
   {
     return LtmlPackage.Literals.LOAD_GENERATOR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_GENERATOR__NAME, oldName, name));
   }
 
   /**
@@ -364,8 +320,6 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_GENERATOR__NAME:
-        return getName();
       case LtmlPackage.LOAD_GENERATOR__LOADGENERATORNAME:
         return getLoadgeneratorname();
       case LtmlPackage.LOAD_GENERATOR__IP:
@@ -392,9 +346,6 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_GENERATOR__NAME:
-        setName((String)newValue);
-        return;
       case LtmlPackage.LOAD_GENERATOR__LOADGENERATORNAME:
         setLoadgeneratorname((String)newValue);
         return;
@@ -427,9 +378,6 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_GENERATOR__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case LtmlPackage.LOAD_GENERATOR__LOADGENERATORNAME:
         setLoadgeneratorname(LOADGENERATORNAME_EDEFAULT);
         return;
@@ -462,8 +410,6 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
   {
     switch (featureID)
     {
-      case LtmlPackage.LOAD_GENERATOR__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.LOAD_GENERATOR__LOADGENERATORNAME:
         return LOADGENERATORNAME_EDEFAULT == null ? loadgeneratorname != null : !LOADGENERATORNAME_EDEFAULT.equals(loadgeneratorname);
       case LtmlPackage.LOAD_GENERATOR__IP:
@@ -491,9 +437,7 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", loadgeneratorname: ");
+    result.append(" (loadgeneratorname: ");
     result.append(loadgeneratorname);
     result.append(", ip: ");
     result.append(ip);

@@ -49,13 +49,14 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScriptAccess().getAlternatives_0(), "rule__Script__Alternatives_0");
 					put(grammarAccess.getScriptAccess().getAlternatives_6(), "rule__Script__Alternatives_6");
 					put(grammarAccess.getTransactionAccess().getAlternatives_0(), "rule__Transaction__Alternatives_0");
-					put(grammarAccess.getReportsAccess().getAlternatives(), "rule__Reports__Alternatives");
+					put(grammarAccess.getReportAccess().getAlternatives(), "rule__Report__Alternatives");
 					put(grammarAccess.getParamsAccess().getAlternatives_4(), "rule__Params__Alternatives_4");
 					put(grammarAccess.getMethodAccess().getAlternatives(), "rule__Method__Alternatives");
 					put(grammarAccess.getManifestAccess().getGroup(), "rule__Manifest__Group__0");
 					put(grammarAccess.getManifestAccess().getGroup_4(), "rule__Manifest__Group_4__0");
 					put(grammarAccess.getLoadTestAccess().getGroup(), "rule__LoadTest__Group__0");
 					put(grammarAccess.getLoadTestAccess().getGroup_4(), "rule__LoadTest__Group_4__0");
+					put(grammarAccess.getLoadTestAccess().getGroup_7(), "rule__LoadTest__Group_7__0");
 					put(grammarAccess.getLoadGroupAccess().getGroup(), "rule__LoadGroup__Group__0");
 					put(grammarAccess.getLoadGroupAccess().getGroup_4(), "rule__LoadGroup__Group_4__0");
 					put(grammarAccess.getLoadGeneratorAccess().getGroup(), "rule__LoadGenerator__Group__0");
@@ -69,8 +70,7 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransactionAccess().getGroup_13(), "rule__Transaction__Group_13__0");
 					put(grammarAccess.getTransactionAccess().getGroup_14(), "rule__Transaction__Group_14__0");
 					put(grammarAccess.getTransactionAccess().getGroup_15(), "rule__Transaction__Group_15__0");
-					put(grammarAccess.getReportsAccess().getGroup_0(), "rule__Reports__Group_0__0");
-					put(grammarAccess.getReportsAccess().getGroup_3(), "rule__Reports__Group_3__0");
+					put(grammarAccess.getReportAccess().getGroup_1(), "rule__Report__Group_1__0");
 					put(grammarAccess.getParamsAccess().getGroup(), "rule__Params__Group__0");
 					put(grammarAccess.getModelAccess().getStatementsAssignment(), "rule__Model__StatementsAssignment");
 					put(grammarAccess.getManifestAccess().getNameAssignment_3(), "rule__Manifest__NameAssignment_3");
@@ -79,7 +79,9 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLoadTestAccess().getNameAssignment_3(), "rule__LoadTest__NameAssignment_3");
 					put(grammarAccess.getLoadTestAccess().getLoadtestnameAssignment_4_1(), "rule__LoadTest__LoadtestnameAssignment_4_1");
 					put(grammarAccess.getLoadTestAccess().getLoadgroupsAssignment_6(), "rule__LoadTest__LoadgroupsAssignment_6");
-					put(grammarAccess.getLoadTestAccess().getScheduleAssignment_7(), "rule__LoadTest__ScheduleAssignment_7");
+					put(grammarAccess.getLoadTestAccess().getLoadgroupsAssignment_7_1(), "rule__LoadTest__LoadgroupsAssignment_7_1");
+					put(grammarAccess.getLoadTestAccess().getScheduleAssignment_8(), "rule__LoadTest__ScheduleAssignment_8");
+					put(grammarAccess.getLoadTestAccess().getReportAssignment_9(), "rule__LoadTest__ReportAssignment_9");
 					put(grammarAccess.getLoadGroupAccess().getNameAssignment_3(), "rule__LoadGroup__NameAssignment_3");
 					put(grammarAccess.getLoadGroupAccess().getLoadgroupnameAssignment_4_1(), "rule__LoadGroup__LoadgroupnameAssignment_4_1");
 					put(grammarAccess.getLoadGroupAccess().getCcAssignment_6(), "rule__LoadGroup__CcAssignment_6");
@@ -111,6 +113,10 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransactionAccess().getBodyAssignment_13_1(), "rule__Transaction__BodyAssignment_13_1");
 					put(grammarAccess.getTransactionAccess().getCapturefilenameAssignment_14_1(), "rule__Transaction__CapturefilenameAssignment_14_1");
 					put(grammarAccess.getTransactionAccess().getTextAssignment_15_1(), "rule__Transaction__TextAssignment_15_1");
+					put(grammarAccess.getReportAccess().getSummaryAssignment_1_2(), "rule__Report__SummaryAssignment_1_2");
+					put(grammarAccess.getReportAccess().getTpsAssignment_1_3(), "rule__Report__TpsAssignment_1_3");
+					put(grammarAccess.getReportAccess().getResptimeAssignment_1_4(), "rule__Report__ResptimeAssignment_1_4");
+					put(grammarAccess.getReportAccess().getCcAssignment_1_5(), "rule__Report__CcAssignment_1_5");
 					put(grammarAccess.getParamsAccess().getKeyAssignment_1(), "rule__Params__KeyAssignment_1");
 					put(grammarAccess.getParamsAccess().getValueAssignment_3(), "rule__Params__ValueAssignment_3");
 				}

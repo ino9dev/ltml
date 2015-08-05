@@ -39,7 +39,7 @@ class TestLtml {
         var rs = new ResourceSetImpl();
         var resource = rs.getResource(URI.createURI("src/ltml/tests/test.ltml"), true);
         var model = resource.getContents().get(0) as Model
-        model.statements.forEach[e|println(e)]
+
     }
     
     @Test
@@ -130,7 +130,7 @@ class TestLtml {
             HitPerSecond
             ResponseTimeOverTime
             ConccurentCountOverTime
-        }        
+        }
         ''')
         
         /*
