@@ -9,6 +9,7 @@ import com.ino9dev.ltml.LtmlPackage;
 import com.ino9dev.ltml.Manifest;
 import com.ino9dev.ltml.Model;
 import com.ino9dev.ltml.Params;
+import com.ino9dev.ltml.Report;
 import com.ino9dev.ltml.Schedule;
 import com.ino9dev.ltml.Script;
 import com.ino9dev.ltml.Transaction;
@@ -70,6 +71,13 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case LtmlPackage.PARAMS:
 				if(context == grammarAccess.getParamsRule()) {
 					sequence_Params(context, (Params) semanticObject); 
+					return; 
+				}
+				else break;
+			case LtmlPackage.REPORT:
+				if(context == grammarAccess.getReportRule() ||
+				   context == grammarAccess.getStatementRule()) {
+					sequence_Report(context, (Report) semanticObject); 
 					return; 
 				}
 				else break;
@@ -174,6 +182,15 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getParamsAccess().getKeySTRINGTerminalRuleCall_1_0(), semanticObject.getKey());
 		feeder.accept(grammarAccess.getParamsAccess().getValueSTRINGTerminalRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (summary?='Summary' | tps?='TransactionsPerSecond' | resptime?='ResponseTime' | cc?='ConccurentCount')
+	 */
+	protected void sequence_Report(EObject context, Report semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

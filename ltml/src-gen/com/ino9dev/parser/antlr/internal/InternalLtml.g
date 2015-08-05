@@ -168,10 +168,11 @@ ruleStatement returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getStatementAccess().getReportsParserRuleCall_5()); 
+        newCompositeNode(grammarAccess.getStatementAccess().getReportParserRuleCall_5()); 
     }
-ruleReports
+    this_Report_5=ruleReport
     { 
+        $current = $this_Report_5.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -1303,67 +1304,97 @@ ruleTransaction returns [EObject current=null]
 
 
 
-// Entry rule entryRuleReports
-entryRuleReports returns [String current=null] 
+// Entry rule entryRuleReport
+entryRuleReport returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getReportsRule()); } 
-	 iv_ruleReports=ruleReports 
-	 { $current=$iv_ruleReports.current.getText(); }  
+	{ newCompositeNode(grammarAccess.getReportRule()); }
+	 iv_ruleReport=ruleReport 
+	 { $current=$iv_ruleReport.current; } 
 	 EOF 
 ;
 
-// Rule Reports
-ruleReports returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+// Rule Report
+ruleReport returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
-	kw='Reports' 
+((	otherlv_0='Report' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getReportsAccess().getReportsKeyword_0_0()); 
+    	newLeafNode(otherlv_0, grammarAccess.getReportAccess().getReportKeyword_0_0());
     }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getReportAccess().getLeftCurlyBracketKeyword_0_1());
+    }
+(
+(
+		lv_summary_2_0=	'Summary' 
+    {
+        newLeafNode(lv_summary_2_0, grammarAccess.getReportAccess().getSummarySummaryKeyword_0_2_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReportRule());
+	        }
+       		setWithLastConsumed($current, "summary", true, "Summary");
+	    }
 
-	kw='{' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getReportsAccess().getLeftCurlyBracketKeyword_0_1()); 
-    }
-
-	kw='Summary' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getReportsAccess().getSummaryKeyword_0_2()); 
-    }
 )
-    |
-	kw='TransactionsPerSecond' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getReportsAccess().getTransactionsPerSecondKeyword_1()); 
-    }
-
-    |
-	kw='ResponseTime' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getReportsAccess().getResponseTimeKeyword_2()); 
-    }
-
+))
     |(
-	kw='ConccurentCount' 
+(
+		lv_tps_3_0=	'TransactionsPerSecond' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getReportsAccess().getConccurentCountKeyword_3_0()); 
+        newLeafNode(lv_tps_3_0, grammarAccess.getReportAccess().getTpsTransactionsPerSecondKeyword_1_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReportRule());
+	        }
+       		setWithLastConsumed($current, "tps", true, "TransactionsPerSecond");
+	    }
 
-	kw='}' 
+)
+)
+    |(
+(
+		lv_resptime_4_0=	'ResponseTime' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getReportsAccess().getRightCurlyBracketKeyword_3_1()); 
+        newLeafNode(lv_resptime_4_0, grammarAccess.getReportAccess().getResptimeResponseTimeKeyword_2_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReportRule());
+	        }
+       		setWithLastConsumed($current, "resptime", true, "ResponseTime");
+	    }
+
+)
+)
+    |((
+(
+		lv_cc_5_0=	'ConccurentCount' 
+    {
+        newLeafNode(lv_cc_5_0, grammarAccess.getReportAccess().getCcConccurentCountKeyword_3_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReportRule());
+	        }
+       		setWithLastConsumed($current, "cc", true, "ConccurentCount");
+	    }
+
+)
+)	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_3_1());
     }
 ))
-    ;
+;
 
 
 

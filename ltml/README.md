@@ -8,6 +8,13 @@ LoadTest Model could generate Jmeter Test Plan (jmx file) and other docs.
 
 `$ git clone git@github.com:ino9dev/ltml.git`
 
+# **Please Note**
+
+This language is still developing.  
+It maybe include not implemented area, bugs, and any changes of specification.  
+Please tell me your advice for improvement or pull request.  
+Thank you.  
+
 # Compile and Build Ltml
 
 ##The Fast Way:  
@@ -31,6 +38,8 @@ LoadTest Model could generate Jmeter Test Plan (jmx file) and other docs.
 8. Write a Ltml and it auto-generate jmx file.
 
 # Ltml Grammar
+
+This grammar is defined with Xtext.  
 
 ![Alt text](ltmlgrammar.png)
 
@@ -72,7 +81,7 @@ LoadGenerator {
 
 Script {
     Id BP01
-    Name "業務A"
+    Name "BusinessProcess01"
     Trs {
         Tr {
             Id BP01_01
@@ -95,7 +104,7 @@ Script {
 
 Script {
     Id BP02
-    Name "BPB"
+    Name "BusinessProcess02"
     Trs {
         Tr {
             Id BP02_01
@@ -128,9 +137,9 @@ Reports {
 
 # License
 
-Copyright (c) [2015] [ino9dev]
+Copyright (c) [2015] [ino9dev]  
 
-License is MIT (MIT license http://opensource.org/licenses/mit-license.php)
+License is MIT (MIT license http://opensource.org/licenses/mit-license.php)  
 
-Learn more at [ino9oni](http://sites.google.com/site/ino9oni/).
-Follow [@inoque](https://twitter.com/inoque) on twitter.
+Learn more at [ino9oni](http://sites.google.com/site/ino9oni/).  
+Follow [@inoque](https://twitter.com/inoque) on twitter.  

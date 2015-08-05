@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getLoadtestname <em>Loadtestname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getLoadgroups <em>Loadgroups</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getSchedule <em>Schedule</em>}</li>
@@ -38,6 +39,26 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class LoadTestImpl extends StatementImpl implements LoadTest
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getLoadtestname() <em>Loadtestname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -97,6 +118,29 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   protected EClass eStaticClass()
   {
     return LtmlPackage.Literals.LOAD_TEST;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_TEST__NAME, oldName, name));
   }
 
   /**
@@ -210,6 +254,8 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_TEST__NAME:
+        return getName();
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         return getLoadtestname();
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
@@ -231,6 +277,9 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_TEST__NAME:
+        setName((String)newValue);
+        return;
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         setLoadtestname((String)newValue);
         return;
@@ -255,6 +304,9 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_TEST__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         setLoadtestname(LOADTESTNAME_EDEFAULT);
         return;
@@ -278,6 +330,8 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_TEST__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         return LOADTESTNAME_EDEFAULT == null ? loadtestname != null : !LOADTESTNAME_EDEFAULT.equals(loadtestname);
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
@@ -299,7 +353,9 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (loadtestname: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", loadtestname: ");
     result.append(loadtestname);
     result.append(')');
     return result.toString();

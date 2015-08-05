@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getManifestname <em>Manifestname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getVersion <em>Version</em>}</li>
  * </ul>
@@ -27,6 +28,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ManifestImpl extends StatementImpl implements Manifest
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getManifestname() <em>Manifestname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -93,6 +114,29 @@ public class ManifestImpl extends StatementImpl implements Manifest
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.MANIFEST__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getManifestname()
   {
     return manifestname;
@@ -144,6 +188,8 @@ public class ManifestImpl extends StatementImpl implements Manifest
   {
     switch (featureID)
     {
+      case LtmlPackage.MANIFEST__NAME:
+        return getName();
       case LtmlPackage.MANIFEST__MANIFESTNAME:
         return getManifestname();
       case LtmlPackage.MANIFEST__VERSION:
@@ -162,6 +208,9 @@ public class ManifestImpl extends StatementImpl implements Manifest
   {
     switch (featureID)
     {
+      case LtmlPackage.MANIFEST__NAME:
+        setName((String)newValue);
+        return;
       case LtmlPackage.MANIFEST__MANIFESTNAME:
         setManifestname((String)newValue);
         return;
@@ -182,6 +231,9 @@ public class ManifestImpl extends StatementImpl implements Manifest
   {
     switch (featureID)
     {
+      case LtmlPackage.MANIFEST__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case LtmlPackage.MANIFEST__MANIFESTNAME:
         setManifestname(MANIFESTNAME_EDEFAULT);
         return;
@@ -202,6 +254,8 @@ public class ManifestImpl extends StatementImpl implements Manifest
   {
     switch (featureID)
     {
+      case LtmlPackage.MANIFEST__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.MANIFEST__MANIFESTNAME:
         return MANIFESTNAME_EDEFAULT == null ? manifestname != null : !MANIFESTNAME_EDEFAULT.equals(manifestname);
       case LtmlPackage.MANIFEST__VERSION:
@@ -221,7 +275,9 @@ public class ManifestImpl extends StatementImpl implements Manifest
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (manifestname: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", manifestname: ");
     result.append(manifestname);
     result.append(", version: ");
     result.append(version);

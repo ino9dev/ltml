@@ -104,6 +104,15 @@ public interface LtmlFactory extends EFactory
   Transaction createTransaction();
 
   /**
+   * Returns a new object of class '<em>Report</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Report</em>'.
+   * @generated
+   */
+  Report createReport();
+
+  /**
    * Returns a new object of class '<em>Params</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

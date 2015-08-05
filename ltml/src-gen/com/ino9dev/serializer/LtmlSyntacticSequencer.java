@@ -27,7 +27,6 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Params_AmpersandKeyword_4_0_or_RightSquareBracketKeyword_4_1;
 	protected AbstractElementAlias match_Script_ScKeyword_0_1_or_ScriptKeyword_0_0;
 	protected AbstractElementAlias match_Script_TransactionsKeyword_6_0_or_TrsKeyword_6_1;
-	protected AbstractElementAlias match_Statement_ReportsParserRuleCall_5_or_SL_COMMENTTerminalRuleCall_6;
 	protected AbstractElementAlias match_Transaction_TrKeyword_0_1_or_TransactionKeyword_0_0;
 	
 	@Inject
@@ -42,34 +41,14 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Params_AmpersandKeyword_4_0_or_RightSquareBracketKeyword_4_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getParamsAccess().getAmpersandKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getParamsAccess().getRightSquareBracketKeyword_4_1()));
 		match_Script_ScKeyword_0_1_or_ScriptKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getScriptAccess().getScKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getScriptAccess().getScriptKeyword_0_0()));
 		match_Script_TransactionsKeyword_6_0_or_TrsKeyword_6_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getScriptAccess().getTransactionsKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getScriptAccess().getTrsKeyword_6_1()));
-		match_Statement_ReportsParserRuleCall_5_or_SL_COMMENTTerminalRuleCall_6 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getReportsParserRuleCall_5()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSL_COMMENTTerminalRuleCall_6()));
 		match_Transaction_TrKeyword_0_1_or_TransactionKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTransactionAccess().getTrKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getTransactionAccess().getTransactionKeyword_0_0()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getReportsRule())
-			return getReportsToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getSL_COMMENTRule())
+		if(ruleCall.getRule() == grammarAccess.getSL_COMMENTRule())
 			return getSL_COMMENTToken(semanticObject, ruleCall, node);
 		return "";
-	}
-	
-	/**
-	 * Reports:
-	 *     "Reports"
-	 *     "{"
-	 *         "Summary"
-	 *          |"TransactionsPerSecond"
-	 *          |"ResponseTime"
-	 *          |"ConccurentCount"
-	 *     "}"
-	 * ;
-	 */
-	protected String getReportsToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "Reports{Summary";
 	}
 	
 	/**
@@ -105,8 +84,6 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Script_ScKeyword_0_1_or_ScriptKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Script_TransactionsKeyword_6_0_or_TrsKeyword_6_1.equals(syntax))
 				emit_Script_TransactionsKeyword_6_0_or_TrsKeyword_6_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Statement_ReportsParserRuleCall_5_or_SL_COMMENTTerminalRuleCall_6.equals(syntax))
-				emit_Statement_ReportsParserRuleCall_5_or_SL_COMMENTTerminalRuleCall_6(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Transaction_TrKeyword_0_1_or_TransactionKeyword_0_0.equals(syntax))
 				emit_Transaction_TrKeyword_0_1_or_TransactionKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -115,7 +92,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'Lgen' | 'LoadGenerator'
+	 *     'LoadGenerator' | 'Lgen'
 	 */
 	protected void emit_LoadGenerator_LgenKeyword_0_1_or_LoadGeneratorKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -123,7 +100,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Cc' | 'ConccurentCount'
+	 *     'ConccurentCount' | 'Cc'
 	 */
 	protected void emit_LoadGroup_CcKeyword_5_1_or_ConccurentCountKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -163,7 +140,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ']' | '&'
+	 *     '&' | ']'
 	 */
 	protected void emit_Params_AmpersandKeyword_4_0_or_RightSquareBracketKeyword_4_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -171,7 +148,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Script' | 'Sc'
+	 *     'Sc' | 'Script'
 	 */
 	protected void emit_Script_ScKeyword_0_1_or_ScriptKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -179,17 +156,9 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Trs' | 'Transactions'
+	 *     'Transactions' | 'Trs'
 	 */
 	protected void emit_Script_TransactionsKeyword_6_0_or_TrsKeyword_6_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     SL_COMMENT | Reports
-	 */
-	protected void emit_Statement_ReportsParserRuleCall_5_or_SL_COMMENTTerminalRuleCall_6(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

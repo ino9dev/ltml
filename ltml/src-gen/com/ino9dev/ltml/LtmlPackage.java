@@ -95,22 +95,13 @@ public interface LtmlPackage extends EPackage
   int STATEMENT = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__NAME = 0;
-
-  /**
    * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 1;
+  int STATEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ManifestImpl <em>Manifest</em>}' class.
@@ -129,7 +120,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MANIFEST__NAME = STATEMENT__NAME;
+  int MANIFEST__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Manifestname</b></em>' attribute.
@@ -138,7 +129,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MANIFEST__MANIFESTNAME = STATEMENT_FEATURE_COUNT + 0;
+  int MANIFEST__MANIFESTNAME = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -147,7 +138,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MANIFEST__VERSION = STATEMENT_FEATURE_COUNT + 1;
+  int MANIFEST__VERSION = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Manifest</em>' class.
@@ -156,7 +147,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MANIFEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int MANIFEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.LoadTestImpl <em>Load Test</em>}' class.
@@ -175,7 +166,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST__NAME = STATEMENT__NAME;
+  int LOAD_TEST__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Loadtestname</b></em>' attribute.
@@ -184,7 +175,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST__LOADTESTNAME = STATEMENT_FEATURE_COUNT + 0;
+  int LOAD_TEST__LOADTESTNAME = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Loadgroups</b></em>' reference list.
@@ -193,7 +184,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST__LOADGROUPS = STATEMENT_FEATURE_COUNT + 1;
+  int LOAD_TEST__LOADGROUPS = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Schedule</b></em>' containment reference.
@@ -202,7 +193,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST__SCHEDULE = STATEMENT_FEATURE_COUNT + 2;
+  int LOAD_TEST__SCHEDULE = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Load Test</em>' class.
@@ -211,7 +202,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int LOAD_TEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.LoadGroupImpl <em>Load Group</em>}' class.
@@ -230,7 +221,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__NAME = STATEMENT__NAME;
+  int LOAD_GROUP__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Loadgroupname</b></em>' attribute.
@@ -239,7 +230,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__LOADGROUPNAME = STATEMENT_FEATURE_COUNT + 0;
+  int LOAD_GROUP__LOADGROUPNAME = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Cc</b></em>' attribute.
@@ -248,7 +239,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__CC = STATEMENT_FEATURE_COUNT + 1;
+  int LOAD_GROUP__CC = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Script</b></em>' reference.
@@ -257,7 +248,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__SCRIPT = STATEMENT_FEATURE_COUNT + 2;
+  int LOAD_GROUP__SCRIPT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Iteration</b></em>' attribute.
@@ -266,7 +257,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__ITERATION = STATEMENT_FEATURE_COUNT + 3;
+  int LOAD_GROUP__ITERATION = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Loadgenerator</b></em>' reference.
@@ -275,7 +266,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__LOADGENERATOR = STATEMENT_FEATURE_COUNT + 4;
+  int LOAD_GROUP__LOADGENERATOR = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Rampup</b></em>' attribute.
@@ -284,7 +275,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__RAMPUP = STATEMENT_FEATURE_COUNT + 5;
+  int LOAD_GROUP__RAMPUP = STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Schedule</b></em>' containment reference.
@@ -293,7 +284,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP__SCHEDULE = STATEMENT_FEATURE_COUNT + 6;
+  int LOAD_GROUP__SCHEDULE = STATEMENT_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Load Group</em>' class.
@@ -302,7 +293,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GROUP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 7;
+  int LOAD_GROUP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.LoadGeneratorImpl <em>Load Generator</em>}' class.
@@ -321,7 +312,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__NAME = STATEMENT__NAME;
+  int LOAD_GENERATOR__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Loadgeneratorname</b></em>' attribute.
@@ -330,7 +321,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__LOADGENERATORNAME = STATEMENT_FEATURE_COUNT + 0;
+  int LOAD_GENERATOR__LOADGENERATORNAME = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Ip</b></em>' attribute.
@@ -339,7 +330,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__IP = STATEMENT_FEATURE_COUNT + 1;
+  int LOAD_GENERATOR__IP = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Port</b></em>' attribute.
@@ -348,7 +339,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__PORT = STATEMENT_FEATURE_COUNT + 2;
+  int LOAD_GENERATOR__PORT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -357,7 +348,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__LOCATION = STATEMENT_FEATURE_COUNT + 3;
+  int LOAD_GENERATOR__LOCATION = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Username</b></em>' attribute.
@@ -366,7 +357,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__USERNAME = STATEMENT_FEATURE_COUNT + 4;
+  int LOAD_GENERATOR__USERNAME = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Password</b></em>' attribute.
@@ -375,7 +366,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__PASSWORD = STATEMENT_FEATURE_COUNT + 5;
+  int LOAD_GENERATOR__PASSWORD = STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Load Generator</em>' class.
@@ -384,7 +375,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 6;
+  int LOAD_GENERATOR_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ScheduleImpl <em>Schedule</em>}' class.
@@ -458,7 +449,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCRIPT__NAME = STATEMENT__NAME;
+  int SCRIPT__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Scriptname</b></em>' attribute.
@@ -467,7 +458,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCRIPT__SCRIPTNAME = STATEMENT_FEATURE_COUNT + 0;
+  int SCRIPT__SCRIPTNAME = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Transactions</b></em>' containment reference list.
@@ -476,7 +467,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCRIPT__TRANSACTIONS = STATEMENT_FEATURE_COUNT + 1;
+  int SCRIPT__TRANSACTIONS = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Script</em>' class.
@@ -485,7 +476,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCRIPT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int SCRIPT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.TransactionImpl <em>Transaction</em>}' class.
@@ -588,6 +579,61 @@ public interface LtmlPackage extends EPackage
   int TRANSACTION_FEATURE_COUNT = 9;
 
   /**
+   * The meta object id for the '{@link com.ino9dev.ltml.impl.ReportImpl <em>Report</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.impl.ReportImpl
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getReport()
+   * @generated
+   */
+  int REPORT = 9;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__SUMMARY = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Tps</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__TPS = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Resptime</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__RESPTIME = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Cc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__CC = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Report</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ParamsImpl <em>Params</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -595,7 +641,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getParams()
    * @generated
    */
-  int PARAMS = 9;
+  int PARAMS = 10;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -657,17 +703,6 @@ public interface LtmlPackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Statement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.ino9dev.ltml.Statement#getName()
-   * @see #getStatement()
-   * @generated
-   */
-  EAttribute getStatement_Name();
-
-  /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.Manifest <em>Manifest</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -676,6 +711,17 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EClass getManifest();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Manifest#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.ino9dev.ltml.Manifest#getName()
+   * @see #getManifest()
+   * @generated
+   */
+  EAttribute getManifest_Name();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Manifest#getManifestname <em>Manifestname</em>}'.
@@ -708,6 +754,17 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EClass getLoadTest();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadTest#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.ino9dev.ltml.LoadTest#getName()
+   * @see #getLoadTest()
+   * @generated
+   */
+  EAttribute getLoadTest_Name();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadTest#getLoadtestname <em>Loadtestname</em>}'.
@@ -751,6 +808,17 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EClass getLoadGroup();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadGroup#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.ino9dev.ltml.LoadGroup#getName()
+   * @see #getLoadGroup()
+   * @generated
+   */
+  EAttribute getLoadGroup_Name();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadGroup#getLoadgroupname <em>Loadgroupname</em>}'.
@@ -838,6 +906,17 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EClass getLoadGenerator();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadGenerator#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.ino9dev.ltml.LoadGenerator#getName()
+   * @see #getLoadGenerator()
+   * @generated
+   */
+  EAttribute getLoadGenerator_Name();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadGenerator#getLoadgeneratorname <em>Loadgeneratorname</em>}'.
@@ -968,6 +1047,17 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EClass getScript();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Script#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.ino9dev.ltml.Script#getName()
+   * @see #getScript()
+   * @generated
+   */
+  EAttribute getScript_Name();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Script#getScriptname <em>Scriptname</em>}'.
@@ -1101,6 +1191,60 @@ public interface LtmlPackage extends EPackage
   EAttribute getTransaction_Text();
 
   /**
+   * Returns the meta object for class '{@link com.ino9dev.ltml.Report <em>Report</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Report</em>'.
+   * @see com.ino9dev.ltml.Report
+   * @generated
+   */
+  EClass getReport();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isSummary <em>Summary</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Summary</em>'.
+   * @see com.ino9dev.ltml.Report#isSummary()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Summary();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isTps <em>Tps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Tps</em>'.
+   * @see com.ino9dev.ltml.Report#isTps()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Tps();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isResptime <em>Resptime</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Resptime</em>'.
+   * @see com.ino9dev.ltml.Report#isResptime()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Resptime();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isCc <em>Cc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cc</em>'.
+   * @see com.ino9dev.ltml.Report#isCc()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Cc();
+
+  /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.Params <em>Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1184,14 +1328,6 @@ public interface LtmlPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STATEMENT__NAME = eINSTANCE.getStatement_Name();
-
-    /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.ManifestImpl <em>Manifest</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1200,6 +1336,14 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EClass MANIFEST = eINSTANCE.getManifest();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MANIFEST__NAME = eINSTANCE.getManifest_Name();
 
     /**
      * The meta object literal for the '<em><b>Manifestname</b></em>' attribute feature.
@@ -1226,6 +1370,14 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EClass LOAD_TEST = eINSTANCE.getLoadTest();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOAD_TEST__NAME = eINSTANCE.getLoadTest_Name();
 
     /**
      * The meta object literal for the '<em><b>Loadtestname</b></em>' attribute feature.
@@ -1260,6 +1412,14 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EClass LOAD_GROUP = eINSTANCE.getLoadGroup();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOAD_GROUP__NAME = eINSTANCE.getLoadGroup_Name();
 
     /**
      * The meta object literal for the '<em><b>Loadgroupname</b></em>' attribute feature.
@@ -1326,6 +1486,14 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EClass LOAD_GENERATOR = eINSTANCE.getLoadGenerator();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOAD_GENERATOR__NAME = eINSTANCE.getLoadGenerator_Name();
 
     /**
      * The meta object literal for the '<em><b>Loadgeneratorname</b></em>' attribute feature.
@@ -1428,6 +1596,14 @@ public interface LtmlPackage extends EPackage
     EClass SCRIPT = eINSTANCE.getScript();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCRIPT__NAME = eINSTANCE.getScript_Name();
+
+    /**
      * The meta object literal for the '<em><b>Scriptname</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1524,6 +1700,48 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EAttribute TRANSACTION__TEXT = eINSTANCE.getTransaction_Text();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.impl.ReportImpl <em>Report</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.impl.ReportImpl
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getReport()
+     * @generated
+     */
+    EClass REPORT = eINSTANCE.getReport();
+
+    /**
+     * The meta object literal for the '<em><b>Summary</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__SUMMARY = eINSTANCE.getReport_Summary();
+
+    /**
+     * The meta object literal for the '<em><b>Tps</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__TPS = eINSTANCE.getReport_Tps();
+
+    /**
+     * The meta object literal for the '<em><b>Resptime</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__RESPTIME = eINSTANCE.getReport_Resptime();
+
+    /**
+     * The meta object literal for the '<em><b>Cc</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__CC = eINSTANCE.getReport_Cc();
 
     /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.ParamsImpl <em>Params</em>}' class.

@@ -42,14 +42,14 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLoadGroupParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cLoadGeneratorParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cScriptParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cReportsParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cReportParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cSL_COMMENTTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Statement:
-		//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Reports | SL_COMMENT;
+		//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Report | SL_COMMENT;
 		public ParserRule getRule() { return rule; }
 
-		//Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Reports | SL_COMMENT
+		//Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Report | SL_COMMENT
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Manifest
@@ -67,8 +67,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Script
 		public RuleCall getScriptParserRuleCall_4() { return cScriptParserRuleCall_4; }
 
-		//Reports
-		public RuleCall getReportsParserRuleCall_5() { return cReportsParserRuleCall_5; }
+		//Report
+		public RuleCall getReportParserRuleCall_5() { return cReportParserRuleCall_5; }
 
 		//SL_COMMENT
 		public RuleCall getSL_COMMENTTerminalRuleCall_6() { return cSL_COMMENTTerminalRuleCall_6; }
@@ -861,49 +861,66 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 	}
 
-	public class ReportsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Reports");
+	public class ReportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Report");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cReportsKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cReportKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cSummaryKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cTransactionsPerSecondKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cResponseTimeKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Assignment cSummaryAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final Keyword cSummarySummaryKeyword_0_2_0 = (Keyword)cSummaryAssignment_0_2.eContents().get(0);
+		private final Assignment cTpsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cTpsTransactionsPerSecondKeyword_1_0 = (Keyword)cTpsAssignment_1.eContents().get(0);
+		private final Assignment cResptimeAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cResptimeResponseTimeKeyword_2_0 = (Keyword)cResptimeAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cConccurentCountKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cCcAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cCcConccurentCountKeyword_3_0_0 = (Keyword)cCcAssignment_3_0.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		
-		//Reports:
-		//	"Reports" "{" "Summary" | "TransactionsPerSecond" | "ResponseTime" | "ConccurentCount" "}";
+		//Report:
+		//	"Report" "{" summary?="Summary" | tps?="TransactionsPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount"
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"Reports" "{" "Summary" | "TransactionsPerSecond" | "ResponseTime" | "ConccurentCount" "}"
+		//"Report" "{" summary?="Summary" | tps?="TransactionsPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount" "}"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//"Reports" "{" "Summary"
+		//"Report" "{" summary?="Summary"
 		public Group getGroup_0() { return cGroup_0; }
 
-		//"Reports"
-		public Keyword getReportsKeyword_0_0() { return cReportsKeyword_0_0; }
+		//"Report"
+		public Keyword getReportKeyword_0_0() { return cReportKeyword_0_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_0_1() { return cLeftCurlyBracketKeyword_0_1; }
 
+		//summary?="Summary"
+		public Assignment getSummaryAssignment_0_2() { return cSummaryAssignment_0_2; }
+
 		//"Summary"
-		public Keyword getSummaryKeyword_0_2() { return cSummaryKeyword_0_2; }
+		public Keyword getSummarySummaryKeyword_0_2_0() { return cSummarySummaryKeyword_0_2_0; }
+
+		//tps?="TransactionsPerSecond"
+		public Assignment getTpsAssignment_1() { return cTpsAssignment_1; }
 
 		//"TransactionsPerSecond"
-		public Keyword getTransactionsPerSecondKeyword_1() { return cTransactionsPerSecondKeyword_1; }
+		public Keyword getTpsTransactionsPerSecondKeyword_1_0() { return cTpsTransactionsPerSecondKeyword_1_0; }
+
+		//resptime?="ResponseTime"
+		public Assignment getResptimeAssignment_2() { return cResptimeAssignment_2; }
 
 		//"ResponseTime"
-		public Keyword getResponseTimeKeyword_2() { return cResponseTimeKeyword_2; }
+		public Keyword getResptimeResponseTimeKeyword_2_0() { return cResptimeResponseTimeKeyword_2_0; }
 
-		//"ConccurentCount" "}"
+		//cc?="ConccurentCount" "}"
 		public Group getGroup_3() { return cGroup_3; }
 
+		//cc?="ConccurentCount"
+		public Assignment getCcAssignment_3_0() { return cCcAssignment_3_0; }
+
 		//"ConccurentCount"
-		public Keyword getConccurentCountKeyword_3_0() { return cConccurentCountKeyword_3_0; }
+		public Keyword getCcConccurentCountKeyword_3_0_0() { return cCcConccurentCountKeyword_3_0_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3_1() { return cRightCurlyBracketKeyword_3_1; }
@@ -965,9 +982,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDELETEKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cPUTKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		
-		////enum Method:
-		////    POST="POST"|GET="GET"|DELETE="DELETE"|PUT="PUT"
-		////; Method:
+		//Method:
 		//	"GET" | "POST" | "DELETE" | "PUT";
 		public ParserRule getRule() { return rule; }
 
@@ -997,7 +1012,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	private ScheduleElements pSchedule;
 	private ScriptElements pScript;
 	private TransactionElements pTransaction;
-	private ReportsElements pReports;
+	private ReportElements pReport;
 	private ParamsElements pParams;
 	private MethodElements pMethod;
 	
@@ -1050,7 +1065,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statement:
-	//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Reports | SL_COMMENT;
+	//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | Report | SL_COMMENT;
 	public StatementElements getStatementAccess() {
 		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
 	}
@@ -1138,14 +1153,15 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransactionAccess().getRule();
 	}
 
-	//Reports:
-	//	"Reports" "{" "Summary" | "TransactionsPerSecond" | "ResponseTime" | "ConccurentCount" "}";
-	public ReportsElements getReportsAccess() {
-		return (pReports != null) ? pReports : (pReports = new ReportsElements());
+	//Report:
+	//	"Report" "{" summary?="Summary" | tps?="TransactionsPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount"
+	//	"}";
+	public ReportElements getReportAccess() {
+		return (pReport != null) ? pReport : (pReport = new ReportElements());
 	}
 	
-	public ParserRule getReportsRule() {
-		return getReportsAccess().getRule();
+	public ParserRule getReportRule() {
+		return getReportAccess().getRule();
 	}
 
 	//Params:
@@ -1158,9 +1174,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getParamsAccess().getRule();
 	}
 
-	////enum Method:
-	////    POST="POST"|GET="GET"|DELETE="DELETE"|PUT="PUT"
-	////; Method:
+	//Method:
 	//	"GET" | "POST" | "DELETE" | "PUT";
 	public MethodElements getMethodAccess() {
 		return (pMethod != null) ? pMethod : (pMethod = new MethodElements());

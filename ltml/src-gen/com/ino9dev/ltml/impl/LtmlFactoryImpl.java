@@ -73,6 +73,7 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
       case LtmlPackage.SCHEDULE: return createSchedule();
       case LtmlPackage.SCRIPT: return createScript();
       case LtmlPackage.TRANSACTION: return createTransaction();
+      case LtmlPackage.REPORT: return createReport();
       case LtmlPackage.PARAMS: return createParams();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -176,6 +177,17 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
   {
     TransactionImpl transaction = new TransactionImpl();
     return transaction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Report createReport()
+  {
+    ReportImpl report = new ReportImpl();
+    return report;
   }
 
   /**

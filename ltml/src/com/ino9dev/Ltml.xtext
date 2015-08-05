@@ -11,7 +11,7 @@ Statement:
     |LoadGroup
     |LoadGenerator
     |Script
-    |Reports
+    |Report
     |SL_COMMENT
 ;
 
@@ -30,7 +30,7 @@ LoadTest:
         "Id" name=ID
         ("Name" loadtestname=STRING)?
         //per loadtest schedule
-        "LoadGroups" loadgroups+=[LoadGroup]
+        "LoadGroups" loadgroups+=[LoadGroup] (',' loadgroups+=[LoadGroup])*
         (schedule=Schedule)?
     "}"
 ;
@@ -103,13 +103,13 @@ Transaction:
     "}"
 ;
 
-Reports:
-    "Reports"
+Report:
+    "Report"
     "{"
-        "Summary"
-         |"TransactionsPerSecond"
-         |"ResponseTime"
-         |"ConccurentCount"
+         summary="Summary"?
+         tps="TransactionsPerSecond"?
+         resptime="ResponseTime"?
+         cc="ConccurentCount"?
     "}"
 ;
 
@@ -123,7 +123,3 @@ Method:
     |"DELETE"
     |"PUT"
 ;
-
-//enum Method:
-//    POST="POST"|GET="GET"|DELETE="DELETE"|PUT="PUT"
-//;
