@@ -135,6 +135,17 @@ Reports {
 }        
 ```
 
+
+# Task list
+- [ ] implement to handle Report syntax and Listener
+- [ ] implement to handle Load Generator syntax and Load Generator without JMeter remote execution
+- [ ] implement to handle difference of locale with load generator
+- [ ] implement to export and generate Document Generator
+- [ ] implement to export and generate Test Image Generator
+- [ ] implement to gather performance data from Load Generator
+- [ ] implement to define performance objects(it normally means SLA)
+- [ ] implement to analysis performance data
+
 # License
 
 Copyright (c) [2015] [ino9dev]  
