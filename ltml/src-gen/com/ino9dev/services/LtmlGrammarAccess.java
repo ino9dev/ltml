@@ -887,68 +887,77 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ReportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Report");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cNoReportKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cReportKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cSummaryAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final Keyword cSummarySummaryKeyword_1_2_0 = (Keyword)cSummaryAssignment_1_2.eContents().get(0);
-		private final Assignment cTpsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final Keyword cTpsTransactionsPerSecondKeyword_1_3_0 = (Keyword)cTpsAssignment_1_3.eContents().get(0);
-		private final Assignment cResptimeAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final Keyword cResptimeResponseTimeKeyword_1_4_0 = (Keyword)cResptimeAssignment_1_4.eContents().get(0);
-		private final Assignment cCcAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
-		private final Keyword cCcConccurentCountKeyword_1_5_0 = (Keyword)cCcAssignment_1_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cNoreportAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final Keyword cNoreportNoReportKeyword_2_0_0 = (Keyword)cNoreportAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Assignment cSummaryAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
+		private final Keyword cSummarySummaryKeyword_2_1_0_0 = (Keyword)cSummaryAssignment_2_1_0.eContents().get(0);
+		private final Assignment cTpsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final Keyword cTpsTransactionsPerSecondKeyword_2_1_1_0 = (Keyword)cTpsAssignment_2_1_1.eContents().get(0);
+		private final Assignment cResptimeAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
+		private final Keyword cResptimeResponseTimeKeyword_2_1_2_0 = (Keyword)cResptimeAssignment_2_1_2.eContents().get(0);
+		private final Assignment cCcAssignment_2_1_3 = (Assignment)cGroup_2_1.eContents().get(3);
+		private final Keyword cCcConccurentCountKeyword_2_1_3_0 = (Keyword)cCcAssignment_2_1_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Report:
-		//	"NoReport" | "Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime"
-		//	cc?="ConccurentCount" "}";
+		//	"Report" "{" (noreport?="NoReport" | summary?="Summary"? tps?="TransactionsPerSecond"? resptime?="ResponseTime"?
+		//	cc?="ConccurentCount"?) "}";
 		public ParserRule getRule() { return rule; }
 
-		//"NoReport" | "Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime" cc?="ConccurentCount"
-		//"}"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"NoReport"
-		public Keyword getNoReportKeyword_0() { return cNoReportKeyword_0; }
-
-		//"Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime" cc?="ConccurentCount" "}"
-		public Group getGroup_1() { return cGroup_1; }
+		//"Report" "{" (noreport?="NoReport" | summary?="Summary"? tps?="TransactionsPerSecond"? resptime?="ResponseTime"?
+		//cc?="ConccurentCount"?) "}"
+		public Group getGroup() { return cGroup; }
 
 		//"Report"
-		public Keyword getReportKeyword_1_0() { return cReportKeyword_1_0; }
+		public Keyword getReportKeyword_0() { return cReportKeyword_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1_1() { return cLeftCurlyBracketKeyword_1_1; }
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//summary?="Summary"
-		public Assignment getSummaryAssignment_1_2() { return cSummaryAssignment_1_2; }
+		//noreport?="NoReport" | summary?="Summary"? tps?="TransactionsPerSecond"? resptime?="ResponseTime"?
+		//cc?="ConccurentCount"?
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//noreport?="NoReport"
+		public Assignment getNoreportAssignment_2_0() { return cNoreportAssignment_2_0; }
+
+		//"NoReport"
+		public Keyword getNoreportNoReportKeyword_2_0_0() { return cNoreportNoReportKeyword_2_0_0; }
+
+		//summary?="Summary"? tps?="TransactionsPerSecond"? resptime?="ResponseTime"? cc?="ConccurentCount"?
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//summary?="Summary"?
+		public Assignment getSummaryAssignment_2_1_0() { return cSummaryAssignment_2_1_0; }
 
 		//"Summary"
-		public Keyword getSummarySummaryKeyword_1_2_0() { return cSummarySummaryKeyword_1_2_0; }
+		public Keyword getSummarySummaryKeyword_2_1_0_0() { return cSummarySummaryKeyword_2_1_0_0; }
 
-		//tps?="TransactionsPerSecond"
-		public Assignment getTpsAssignment_1_3() { return cTpsAssignment_1_3; }
+		//tps?="TransactionsPerSecond"?
+		public Assignment getTpsAssignment_2_1_1() { return cTpsAssignment_2_1_1; }
 
 		//"TransactionsPerSecond"
-		public Keyword getTpsTransactionsPerSecondKeyword_1_3_0() { return cTpsTransactionsPerSecondKeyword_1_3_0; }
+		public Keyword getTpsTransactionsPerSecondKeyword_2_1_1_0() { return cTpsTransactionsPerSecondKeyword_2_1_1_0; }
 
-		//resptime?="ResponseTime"
-		public Assignment getResptimeAssignment_1_4() { return cResptimeAssignment_1_4; }
+		//resptime?="ResponseTime"?
+		public Assignment getResptimeAssignment_2_1_2() { return cResptimeAssignment_2_1_2; }
 
 		//"ResponseTime"
-		public Keyword getResptimeResponseTimeKeyword_1_4_0() { return cResptimeResponseTimeKeyword_1_4_0; }
+		public Keyword getResptimeResponseTimeKeyword_2_1_2_0() { return cResptimeResponseTimeKeyword_2_1_2_0; }
 
-		//cc?="ConccurentCount"
-		public Assignment getCcAssignment_1_5() { return cCcAssignment_1_5; }
+		//cc?="ConccurentCount"?
+		public Assignment getCcAssignment_2_1_3() { return cCcAssignment_2_1_3; }
 
 		//"ConccurentCount"
-		public Keyword getCcConccurentCountKeyword_1_5_0() { return cCcConccurentCountKeyword_1_5_0; }
+		public Keyword getCcConccurentCountKeyword_2_1_3_0() { return cCcConccurentCountKeyword_2_1_3_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_1_6() { return cRightCurlyBracketKeyword_1_6; }
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class ParamsElements extends AbstractParserRuleElementFinder {
@@ -1179,8 +1188,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Report:
-	//	"NoReport" | "Report" "{" summary?="Summary" tps?="TransactionsPerSecond" resptime?="ResponseTime"
-	//	cc?="ConccurentCount" "}";
+	//	"Report" "{" (noreport?="NoReport" | summary?="Summary"? tps?="TransactionsPerSecond"? resptime?="ResponseTime"?
+	//	cc?="ConccurentCount"?) "}";
 	public ReportElements getReportAccess() {
 		return (pReport != null) ? pReport : (pReport = new ReportElements());
 	}

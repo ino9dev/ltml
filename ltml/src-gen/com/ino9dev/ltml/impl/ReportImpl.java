@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isNoreport <em>Noreport</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isSummary <em>Summary</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isTps <em>Tps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isResptime <em>Resptime</em>}</li>
@@ -30,6 +31,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ReportImpl extends MinimalEObjectImpl.Container implements Report
 {
+  /**
+   * The default value of the '{@link #isNoreport() <em>Noreport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoreport()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean NOREPORT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isNoreport() <em>Noreport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoreport()
+   * @generated
+   * @ordered
+   */
+  protected boolean noreport = NOREPORT_EDEFAULT;
+
   /**
    * The default value of the '{@link #isSummary() <em>Summary</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -136,6 +157,29 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isNoreport()
+  {
+    return noreport;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNoreport(boolean newNoreport)
+  {
+    boolean oldNoreport = noreport;
+    noreport = newNoreport;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.REPORT__NOREPORT, oldNoreport, noreport));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isSummary()
   {
     return summary;
@@ -233,6 +277,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
+      case LtmlPackage.REPORT__NOREPORT:
+        return isNoreport();
       case LtmlPackage.REPORT__SUMMARY:
         return isSummary();
       case LtmlPackage.REPORT__TPS:
@@ -255,6 +301,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
+      case LtmlPackage.REPORT__NOREPORT:
+        setNoreport((Boolean)newValue);
+        return;
       case LtmlPackage.REPORT__SUMMARY:
         setSummary((Boolean)newValue);
         return;
@@ -281,6 +330,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
+      case LtmlPackage.REPORT__NOREPORT:
+        setNoreport(NOREPORT_EDEFAULT);
+        return;
       case LtmlPackage.REPORT__SUMMARY:
         setSummary(SUMMARY_EDEFAULT);
         return;
@@ -307,6 +359,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
+      case LtmlPackage.REPORT__NOREPORT:
+        return noreport != NOREPORT_EDEFAULT;
       case LtmlPackage.REPORT__SUMMARY:
         return summary != SUMMARY_EDEFAULT;
       case LtmlPackage.REPORT__TPS:
@@ -330,7 +384,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (summary: ");
+    result.append(" (noreport: ");
+    result.append(noreport);
+    result.append(", summary: ");
     result.append(summary);
     result.append(", tps: ");
     result.append(tps);

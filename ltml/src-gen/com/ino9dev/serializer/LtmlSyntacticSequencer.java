@@ -92,7 +92,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'Lgen' | 'LoadGenerator'
+	 *     'LoadGenerator' | 'Lgen'
 	 */
 	protected void emit_LoadGenerator_LgenKeyword_0_1_or_LoadGeneratorKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -100,7 +100,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'ConccurentCount' | 'Cc'
+	 *     'Cc' | 'ConccurentCount'
 	 */
 	protected void emit_LoadGroup_CcKeyword_5_1_or_ConccurentCountKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -116,7 +116,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'LoadTest' | 'Lt'
+	 *     'Lt' | 'LoadTest'
 	 */
 	protected void emit_LoadTest_LoadTestKeyword_0_0_or_LtKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -124,7 +124,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Mn' | 'Manifest'
+	 *     'Manifest' | 'Mn'
 	 */
 	protected void emit_Manifest_ManifestKeyword_0_0_or_MnKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -140,7 +140,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '&' | ']'
+	 *     ']' | '&'
 	 */
 	protected void emit_Params_AmpersandKeyword_4_0_or_RightSquareBracketKeyword_4_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -164,7 +164,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Tr' | 'Transaction'
+	 *     'Transaction' | 'Tr'
 	 */
 	protected void emit_Transaction_TrKeyword_0_1_or_TransactionKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

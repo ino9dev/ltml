@@ -41,24 +41,27 @@ class TestLtml {
         var model = resource.getContents().get(0) as Model
 
     }
-    
+ 
     @Test
     def void generatorTest1(){
         val model = parseHelper.parse('''
         Manifest {
-            Id lt20150801
+            Id manifest01
             Version "1.0"
         }
         
         //Testcase 1
         LoadTest {
-            Id lt001
+            Id case1
             LoadGroups LG01
+            Report {
+                Summary
+            }
         }
 
         LoadGroup {
             Id LG01
-            Cc 20
+            Cc 200
             Script BP01
             Iteration "INFINITY"
             LoadGenerator LGen01
@@ -80,7 +83,7 @@ class TestLtml {
 
         Script {
             Id BP01
-            Name "業務A"
+            Name "BusinessProcess01"
             Trs {
                 Tr {
                     Id BP01_01
@@ -103,7 +106,7 @@ class TestLtml {
 
         Script {
             Id BP02
-            Name "業務B"
+            Name "BusinessProcess02"
             Trs {
                 Tr {
                     Id BP02_01
@@ -124,13 +127,6 @@ class TestLtml {
                 }
             }
         }
-        Reports {
-            Summary
-            TransactionsPerSecond
-            HitPerSecond
-            ResponseTimeOverTime
-            ConccurentCountOverTime
-        }
         ''')
         
         /*
@@ -140,33 +136,25 @@ class TestLtml {
             Layout id,pass
             File "hoge.csv"
         }
-        
+        Reports {
+            Summary
+            TransactionsPerSecond
+            HitPerSecond
+            ResponseTimeOverTime
+            ConccurentCountOverTime
+        }        
          */
         
         //val fsa = new InMemoryFileSystemAccess()
-        val fsa = new JavaIoFileSystemAccess()
         //fsa.setOutputConfigurations(newHashMap(""->new OutputConfiguration(IFileSystemAccess::DEFAULT_OUTPUT)))
-        fsa.setOutputPath("C:\\apache-jmeter-2.13\\bin");
-        Guice::createInjector(new GenericModule).injectMembers(fsa);
-        underTest.doGenerate(model.eResource, fsa)
+        //underTest.doGenerate(model.eResource, fsa)
+        
+        val fsa = new JavaIoFileSystemAccess()
 
-//        println(fsa.getAllFiles)
-//        assertEquals(2,fsa.getAllFiles.size)
-//        assertTrue(fsa.getAllFiles.containsKey(IFileSystemAccess::DEFAULT_OUTPUT+"Alice.java"))
-//        assertEquals(
-//            '''
-//            public class Alice {
-//                 
-//            }
-//            '''.toString, fsa.getAllFiles.get(IFileSystemAccess::DEFAULT_OUTPUT+"Alice.java").toString
-//        )
-//        assertTrue(fsa.getAllFiles.containsKey(IFileSystemAccess::DEFAULT_OUTPUT+"Bob.java"))
-//        assertEquals(
-//            '''
-//            public class Bob {
-//                 
-//            }
-//            '''.toString, fsa.getAllFiles.get(IFileSystemAccess::DEFAULT_OUTPUT+"Bob.java").toString)
-    
-        }
+        //TODO any path generation or support qualified name path and source path
+        fsa.setOutputPath(".")
+        Guice::createInjector(new GenericModule).injectMembers(fsa)
+        underTest.doGenerate(model.eResource, fsa)
+        
+    }
 }

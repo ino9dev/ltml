@@ -636,7 +636,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReport_Summary()
+  public EAttribute getReport_Noreport()
   {
     return (EAttribute)reportEClass.getEStructuralFeatures().get(0);
   }
@@ -646,7 +646,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReport_Tps()
+  public EAttribute getReport_Summary()
   {
     return (EAttribute)reportEClass.getEStructuralFeatures().get(1);
   }
@@ -656,7 +656,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReport_Resptime()
+  public EAttribute getReport_Tps()
   {
     return (EAttribute)reportEClass.getEStructuralFeatures().get(2);
   }
@@ -666,9 +666,19 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReport_Cc()
+  public EAttribute getReport_Resptime()
   {
     return (EAttribute)reportEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getReport_Cc()
+  {
+    return (EAttribute)reportEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -786,6 +796,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(transactionEClass, TRANSACTION__TEXT);
 
     reportEClass = createEClass(REPORT);
+    createEAttribute(reportEClass, REPORT__NOREPORT);
     createEAttribute(reportEClass, REPORT__SUMMARY);
     createEAttribute(reportEClass, REPORT__TPS);
     createEAttribute(reportEClass, REPORT__RESPTIME);
@@ -887,6 +898,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getTransaction_Text(), ecorePackage.getEString(), "text", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReport_Noreport(), ecorePackage.getEBoolean(), "noreport", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReport_Summary(), ecorePackage.getEBoolean(), "summary", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReport_Tps(), ecorePackage.getEBoolean(), "tps", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReport_Resptime(), ecorePackage.getEBoolean(), "resptime", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

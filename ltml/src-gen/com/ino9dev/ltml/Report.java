@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.Report#isNoreport <em>Noreport</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isSummary <em>Summary</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isTps <em>Tps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isResptime <em>Resptime</em>}</li>
@@ -25,6 +26,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Report extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Noreport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Noreport</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Noreport</em>' attribute.
+   * @see #setNoreport(boolean)
+   * @see com.ino9dev.ltml.LtmlPackage#getReport_Noreport()
+   * @model
+   * @generated
+   */
+  boolean isNoreport();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Report#isNoreport <em>Noreport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Noreport</em>' attribute.
+   * @see #isNoreport()
+   * @generated
+   */
+  void setNoreport(boolean value);
+
   /**
    * Returns the value of the '<em><b>Summary</b></em>' attribute.
    * <!-- begin-user-doc -->

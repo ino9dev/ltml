@@ -40,7 +40,6 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
         Manifest manifest,
         LoadTest loadtest
     ){
-
         '''
         <?xml version="1.0" encoding="UTF-8"?>
         <jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
@@ -57,7 +56,10 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
             <hashTree>
             «FOR lg:loadtest.loadgroups»
             «var schedule = if(loadtest.schedule != null){loadtest.schedule}else{lg.schedule}»
-            «println(lg.rampup)»
+            «println(schedule)»
+            «var schedule_starttime = if(schedule.start == null){Calendar.instance.time.time}else{schedule.start} »
+            «var schedule_endtime = if(schedule.end == null){Calendar.instance.time.time}else{schedule.end} »
+            «var report = if(loadtest.report != null){loadtest.report}else{null}»
             «var rampup = lg.rampup.splitaslist("/")»
             «var pertime = rampup.get(1).toString»
             «var ramptime = switch pertime {
@@ -75,8 +77,8 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                 <stringProp name="ThreadGroup.num_threads">«lg.cc»</stringProp>
                 <stringProp name="ThreadGroup.ramp_time">«ramptime»</stringProp>
                 <boolProp name="ThreadGroup.scheduler">true</boolProp>
-                <longProp name="ThreadGroup.start_time">«schedule.start»</longProp>
-                <longProp name="ThreadGroup.end_time">«schedule.end»</longProp>
+                <longProp name="ThreadGroup.start_time">«schedule_starttime»</longProp>
+                <longProp name="ThreadGroup.end_time">«schedule_endtime»</longProp>
                 <stringProp name="ThreadGroup.duration">«schedule.duration»</stringProp>
                 <stringProp name="ThreadGroup.delay">«schedule.delay»</stringProp>
               </ThreadGroup>
@@ -115,9 +117,42 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               «ENDFOR»
               </hashTree>
             </hashTree>
+            «IF(report != null && report.summary)»
+                <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="SummaryReport" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <threadCounts>true</threadCounts>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            «ENDIF»
             «ENDFOR»
-
-
           </hashTree>
         </jmeterTestPlan>
         '''
@@ -125,39 +160,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
 
     /*
      * 
-     *       <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="統計レポート" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <threadCounts>true</threadCounts>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
-      <hashTree/>
+     *
       <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>

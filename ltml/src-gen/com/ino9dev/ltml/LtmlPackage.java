@@ -607,13 +607,22 @@ public interface LtmlPackage extends EPackage
   int REPORT = 9;
 
   /**
+   * The feature id for the '<em><b>Noreport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__NOREPORT = 0;
+
+  /**
    * The feature id for the '<em><b>Summary</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPORT__SUMMARY = 0;
+  int REPORT__SUMMARY = 1;
 
   /**
    * The feature id for the '<em><b>Tps</b></em>' attribute.
@@ -622,7 +631,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPORT__TPS = 1;
+  int REPORT__TPS = 2;
 
   /**
    * The feature id for the '<em><b>Resptime</b></em>' attribute.
@@ -631,7 +640,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPORT__RESPTIME = 2;
+  int REPORT__RESPTIME = 3;
 
   /**
    * The feature id for the '<em><b>Cc</b></em>' attribute.
@@ -640,7 +649,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPORT__CC = 3;
+  int REPORT__CC = 4;
 
   /**
    * The number of structural features of the '<em>Report</em>' class.
@@ -649,7 +658,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPORT_FEATURE_COUNT = 4;
+  int REPORT_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ParamsImpl <em>Params</em>}' class.
@@ -1186,6 +1195,17 @@ public interface LtmlPackage extends EPackage
   EClass getReport();
 
   /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isNoreport <em>Noreport</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Noreport</em>'.
+   * @see com.ino9dev.ltml.Report#isNoreport()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Noreport();
+
+  /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isSummary <em>Summary</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1671,6 +1691,14 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EClass REPORT = eINSTANCE.getReport();
+
+    /**
+     * The meta object literal for the '<em><b>Noreport</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__NOREPORT = eINSTANCE.getReport_Noreport();
 
     /**
      * The meta object literal for the '<em><b>Summary</b></em>' attribute feature.

@@ -62,6 +62,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/text"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Report">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/noreport"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/summary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/tps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/resptime"/>
