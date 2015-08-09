@@ -193,7 +193,11 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (noreport?='NoReport' | (summary?='Summary'? tps?='TransactionsPerSecond'? resptime?='ResponseTime'? cc?='ConccurentCount'?))
+	 *     (
+	 *         (noreport?='NoReport' | summary?='Summary') 
+	 *         (hps?='HitPerSecond' | tps?='TransactionPerSecond' | resptime?='ResponseTime' | cc?='ConccurentCount')* 
+	 *         resultpath=STRING?
+	 *     )
 	 */
 	protected void sequence_Report(EObject context, Report semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

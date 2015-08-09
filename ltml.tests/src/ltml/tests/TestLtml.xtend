@@ -53,22 +53,36 @@ class TestLtml {
         //Testcase 1
         LoadTest {
             Id case1
-            LoadGroups LG01
+            LoadGroups LG01,LG02
             Report {
                 Summary
+                ResponseTime
+                HitPerSecond
+                TransactionPerSecond
+                ConccurentCount
+                Result "C:\temp\case1.csv"
             }
         }
 
         LoadGroup {
             Id LG01
-            Cc 200
+            Cc 20
+            Script BP01
+            Iteration "INFINITY"
+            LoadGenerator LGen01
+            RampUp "20/1min"
+        }
+
+        LoadGroup {
+            Id LG02
+            Cc 40
             Script BP01
             Iteration "INFINITY"
             LoadGenerator LGen01
             RampUp "20/1min"
             Schedule {
-                Duration 500
-                Delay 0
+                Start "2015/01/04 00:00:09"
+                End "2015/01/05 00:00:10"
             }
         }
 

@@ -29,7 +29,7 @@ LoadTest:
         "Id" name=ID
         ("Name" loadtestname=STRING)?
         //per loadtest schedule
-        "LoadGroups" loadgroups+=[LoadGroup] (',' loadgroups+=[LoadGroup])*
+        "LoadGroups" loadgroups+=[LoadGroup](',' loadgroups+=[LoadGroup])*
         (schedule=Schedule)?
         report=Report
     "}"
@@ -106,13 +106,12 @@ Transaction:
 Report:
     "Report"
     "{"
-        (noreport?="NoReport"|
-        (
-            summary?="Summary"?
-            tps?="TransactionsPerSecond"?
-            resptime?="ResponseTime"?
-            cc?="ConccurentCount"?)
-        )
+        (noreport?="NoReport"|summary?="Summary")
+            (hps?="HitPerSecond"
+             |tps?="TransactionPerSecond"
+             |resptime?="ResponseTime"
+             |cc?="ConccurentCount")*
+        ("Result" resultpath=STRING)?
     "}"
 ;
 

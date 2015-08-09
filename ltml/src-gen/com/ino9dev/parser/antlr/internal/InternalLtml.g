@@ -1367,11 +1367,11 @@ ruleReport returns [EObject current=null]
 
 )
 )
-    |((
+    |(
 (
 		lv_summary_3_0=	'Summary' 
     {
-        newLeafNode(lv_summary_3_0, grammarAccess.getReportAccess().getSummarySummaryKeyword_2_1_0_0());
+        newLeafNode(lv_summary_3_0, grammarAccess.getReportAccess().getSummarySummaryKeyword_2_1_0());
     }
  
 	    {
@@ -1382,26 +1382,43 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-)?(
+))((
 (
-		lv_tps_4_0=	'TransactionsPerSecond' 
+		lv_hps_4_0=	'HitPerSecond' 
     {
-        newLeafNode(lv_tps_4_0, grammarAccess.getReportAccess().getTpsTransactionsPerSecondKeyword_2_1_1_0());
+        newLeafNode(lv_hps_4_0, grammarAccess.getReportAccess().getHpsHitPerSecondKeyword_3_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getReportRule());
 	        }
-       		setWithLastConsumed($current, "tps", true, "TransactionsPerSecond");
+       		setWithLastConsumed($current, "hps", true, "HitPerSecond");
 	    }
 
 )
-)?(
+)
+    |(
 (
-		lv_resptime_5_0=	'ResponseTime' 
+		lv_tps_5_0=	'TransactionPerSecond' 
     {
-        newLeafNode(lv_resptime_5_0, grammarAccess.getReportAccess().getResptimeResponseTimeKeyword_2_1_2_0());
+        newLeafNode(lv_tps_5_0, grammarAccess.getReportAccess().getTpsTransactionPerSecondKeyword_3_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReportRule());
+	        }
+       		setWithLastConsumed($current, "tps", true, "TransactionPerSecond");
+	    }
+
+)
+)
+    |(
+(
+		lv_resptime_6_0=	'ResponseTime' 
+    {
+        newLeafNode(lv_resptime_6_0, grammarAccess.getReportAccess().getResptimeResponseTimeKeyword_3_2_0());
     }
  
 	    {
@@ -1412,11 +1429,12 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-)?(
+)
+    |(
 (
-		lv_cc_6_0=	'ConccurentCount' 
+		lv_cc_7_0=	'ConccurentCount' 
     {
-        newLeafNode(lv_cc_6_0, grammarAccess.getReportAccess().getCcConccurentCountKeyword_2_1_3_0());
+        newLeafNode(lv_cc_7_0, grammarAccess.getReportAccess().getCcConccurentCountKeyword_3_3_0());
     }
  
 	    {
@@ -1427,9 +1445,31 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-)?))	otherlv_7='}' 
+))*(	otherlv_8='Result' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_3());
+    	newLeafNode(otherlv_8, grammarAccess.getReportAccess().getResultKeyword_4_0());
+    }
+(
+(
+		lv_resultpath_9_0=RULE_STRING
+		{
+			newLeafNode(lv_resultpath_9_0, grammarAccess.getReportAccess().getResultpathSTRINGTerminalRuleCall_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReportRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"resultpath",
+        		lv_resultpath_9_0, 
+        		"STRING");
+	    }
+
+)
+))?	otherlv_10='}' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;

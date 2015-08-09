@@ -9,8 +9,13 @@ import com.ino9dev.ltml.Manifest
 import com.ino9dev.ltml.LoadTest
 import java.util.Calendar
 import com.ino9dev.ltml.impl.ReportImpl
+import java.text.SimpleDateFormat
+import com.ino9dev.ltml.impl.ScheduleImpl
+import com.ino9dev.ltml.impl.LtmlFactoryImpl
 
 class LoadTestJmeterTestPlanGenerator implements IGenerator {
+    
+    val dateformatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
     
     override doGenerate(Resource resource, IFileSystemAccess fsa) {
 
@@ -54,15 +59,20 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               <stringProp name="TestPlan.user_define_classpath"></stringProp>
             </TestPlan>
             <hashTree>
-            «FOR lg:loadtest.loadgroups»
-            «var schedule = if(loadtest.schedule != null){loadtest.schedule}else{lg.schedule}»
-            «println(schedule)»
-            «var schedule_starttime = if(schedule.start == null){Calendar.instance.time.time}else{schedule.start} »
-            «var schedule_endtime = if(schedule.end == null){Calendar.instance.time.time}else{schedule.end} »
             «var report = if(loadtest.report != null){loadtest.report}else{null}»
-            «var rampup = lg.rampup.splitaslist("/")»
-            «var pertime = rampup.get(1).toString»
-            «var ramptime = switch pertime {
+            «FOR lg:loadtest.loadgroups»
+              «var schedule = 
+                  //if all schedules are null then new NullObject 
+                  if(loadtest.schedule == null && lg.schedule == null){(new LtmlFactoryImpl).createSchedule}
+                  //if loadtest has schedule then it uses loadtest' schedule
+                  else if(loadtest.schedule != null){loadtest.schedule}
+                  //if loadtest has no schedule and load group has a schedule then it uses loadgroup's schedule
+                  else if(lg.schedule != null){lg.schedule}»
+              «var schedule_starttime = if(schedule.start == null){Calendar.instance.time.time}else{dateformatter.parse(schedule.start).time} »
+              «var schedule_endtime = if(schedule.end == null){Calendar.instance.time.time}else{dateformatter.parse(schedule.end).time} »
+              «var rampup = lg.rampup.splitaslist("/")»
+              «var pertime = rampup.get(1).toString»
+              «var ramptime = switch pertime {
                 case pertime.endsWith("second") : Integer::valueOf(pertime.replace("min",""))
                 case pertime.endsWith("min") : Integer::valueOf(pertime.replace("min","")) * 60
                 case pertime.endsWith("hour") : Integer::valueOf(pertime.replace("hour","")) * 60 * 60
@@ -83,11 +93,10 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                 <stringProp name="ThreadGroup.delay">«schedule.delay»</stringProp>
               </ThreadGroup>
               <hashTree>
-              «var transactions = lg.script.transactions»
-              «FOR t:transactions»
-              «var protocol=t.url.split("://").get(0)»
-              «var domain=t.url.split("://").get(1).split("/").get(0)»
-              «var path=t.url.split("://").get(1).split("/").drop(0).reduce([e1,e2|e1+e2])»
+              «FOR t:lg.script.transactions»
+                «var protocol=t.url.split("://").get(0)»
+                «var domain=t.url.split("://").get(1).split("/").get(0)»
+                «var path=t.url.split("://").get(1).split("/").drop(0).reduce([e1,e2|e1+e2])»
                 <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="«t.name»" enabled="true">
                   <boolProp name="TransactionController.includeTimers">false</boolProp>
                   <boolProp name="TransactionController.parent">false</boolProp>
@@ -116,9 +125,9 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                 </hashTree>
               «ENDFOR»
               </hashTree>
-            </hashTree>
-            «IF(report != null && report.summary)»
-                <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="SummaryReport" enabled="true">
+            «ENDFOR»
+            «IF(report != null && report.summary == true)»
+              <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="SummaryReport" enabled="true">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
                   <name>saveConfig</name>
@@ -152,142 +161,103 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               </ResultCollector>
               <hashTree/>
             «ENDIF»
-            «ENDFOR»
+            «IF(report != null && report.hps)»
+              <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.HitsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Hits per Second" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <threadCounts>true</threadCounts>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+                <longProp name="interval_grouping">1000</longProp>
+                <boolProp name="graph_aggregated">false</boolProp>
+                <stringProp name="include_sample_labels"></stringProp>
+                <stringProp name="exclude_sample_labels"></stringProp>
+                <stringProp name="start_offset"></stringProp>
+                <stringProp name="end_offset"></stringProp>
+                <boolProp name="include_checkbox_state">false</boolProp>
+                <boolProp name="exclude_checkbox_state">false</boolProp>
+              </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+              <hashTree/>
+            «ENDIF»
+            «IF(report != null && report.resptime)»
+              <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <threadCounts>true</threadCounts>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+                <longProp name="interval_grouping">500</longProp>
+                <boolProp name="graph_aggregated">false</boolProp>
+                <stringProp name="include_sample_labels"></stringProp>
+                <stringProp name="exclude_sample_labels"></stringProp>
+                <stringProp name="start_offset"></stringProp>
+                <stringProp name="end_offset"></stringProp>
+                <boolProp name="include_checkbox_state">false</boolProp>
+                <boolProp name="exclude_checkbox_state">false</boolProp>
+              </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+              <hashTree/>
+            «ENDIF»
+            «/*IF(true)*/»
+            «/*ENDIF*/»
+            «/*IF(true)*/»
+            «/*ENDIF*/»
+            </hashTree>
           </hashTree>
         </jmeterTestPlan>
         '''
     }
 
-    /*
-     * 
-     *
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <threadCounts>true</threadCounts>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-        <longProp name="interval_grouping">500</longProp>
-        <boolProp name="graph_aggregated">false</boolProp>
-        <stringProp name="include_sample_labels"></stringProp>
-        <stringProp name="exclude_sample_labels"></stringProp>
-        <stringProp name="start_offset"></stringProp>
-        <stringProp name="end_offset"></stringProp>
-        <boolProp name="include_checkbox_state">false</boolProp>
-        <boolProp name="exclude_checkbox_state">false</boolProp>
-      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
-      <hashTree/>
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.HitsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Hits per Second" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <threadCounts>true</threadCounts>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-        <longProp name="interval_grouping">1000</longProp>
-        <boolProp name="graph_aggregated">false</boolProp>
-        <stringProp name="include_sample_labels"></stringProp>
-        <stringProp name="exclude_sample_labels"></stringProp>
-        <stringProp name="start_offset"></stringProp>
-        <stringProp name="end_offset"></stringProp>
-        <boolProp name="include_checkbox_state">false</boolProp>
-        <boolProp name="exclude_checkbox_state">false</boolProp>
-      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
-      <hashTree/>
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <threadCounts>true</threadCounts>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-        <longProp name="interval_grouping">500</longProp>
-        <boolProp name="graph_aggregated">false</boolProp>
-        <stringProp name="include_sample_labels"></stringProp>
-        <stringProp name="exclude_sample_labels"></stringProp>
-        <stringProp name="start_offset"></stringProp>
-        <stringProp name="end_offset"></stringProp>
-        <boolProp name="include_checkbox_state">false</boolProp>
-        <boolProp name="exclude_checkbox_state">false</boolProp>
-      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
-      <hashTree/>
-     * 
-     * 
-     */
-    //util
+    //util method
     def splitaslist(String target, String separate){
         if(separate == null || separate == ""){
             throw new IllegalArgumentException()

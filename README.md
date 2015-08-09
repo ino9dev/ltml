@@ -137,7 +137,9 @@ Reports {
 
 
 # Task list
-- [ ] implement to handle Report syntax and Listener
+- [x] implement to handle Report syntax
+- [ ] implement to handle rampup syntax
+- [ ] implement to handle Transaction syntax and convert function from Fiddler 4
 - [ ] implement to handle Load Generator syntax and Load Generator without JMeter remote execution
 - [ ] implement to handle difference of locale with load generator
 - [ ] implement to export and generate Document Generator

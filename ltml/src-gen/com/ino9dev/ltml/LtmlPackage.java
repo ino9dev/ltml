@@ -625,13 +625,22 @@ public interface LtmlPackage extends EPackage
   int REPORT__SUMMARY = 1;
 
   /**
+   * The feature id for the '<em><b>Hps</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__HPS = 2;
+
+  /**
    * The feature id for the '<em><b>Tps</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPORT__TPS = 2;
+  int REPORT__TPS = 3;
 
   /**
    * The feature id for the '<em><b>Resptime</b></em>' attribute.
@@ -640,7 +649,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPORT__RESPTIME = 3;
+  int REPORT__RESPTIME = 4;
 
   /**
    * The feature id for the '<em><b>Cc</b></em>' attribute.
@@ -649,7 +658,16 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPORT__CC = 4;
+  int REPORT__CC = 5;
+
+  /**
+   * The feature id for the '<em><b>Resultpath</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__RESULTPATH = 6;
 
   /**
    * The number of structural features of the '<em>Report</em>' class.
@@ -658,7 +676,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPORT_FEATURE_COUNT = 5;
+  int REPORT_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ParamsImpl <em>Params</em>}' class.
@@ -1217,6 +1235,17 @@ public interface LtmlPackage extends EPackage
   EAttribute getReport_Summary();
 
   /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isHps <em>Hps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Hps</em>'.
+   * @see com.ino9dev.ltml.Report#isHps()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Hps();
+
+  /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isTps <em>Tps</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1248,6 +1277,17 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EAttribute getReport_Cc();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#getResultpath <em>Resultpath</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Resultpath</em>'.
+   * @see com.ino9dev.ltml.Report#getResultpath()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Resultpath();
 
   /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.Params <em>Params</em>}'.
@@ -1709,6 +1749,14 @@ public interface LtmlPackage extends EPackage
     EAttribute REPORT__SUMMARY = eINSTANCE.getReport_Summary();
 
     /**
+     * The meta object literal for the '<em><b>Hps</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__HPS = eINSTANCE.getReport_Hps();
+
+    /**
      * The meta object literal for the '<em><b>Tps</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1731,6 +1779,14 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EAttribute REPORT__CC = eINSTANCE.getReport_Cc();
+
+    /**
+     * The meta object literal for the '<em><b>Resultpath</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__RESULTPATH = eINSTANCE.getReport_Resultpath();
 
     /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.ParamsImpl <em>Params</em>}' class.
