@@ -1,8 +1,18 @@
 # Ltml
 
 Ltml is a LoadTest Modeling Language(DSL).  
-It has some features to define load model, script and generate for load test.  
-LoadTest Model could generate Jmeter Test Plan (jmx file) and other docs.    
+It has some features to define load model(load test cases), script and generate load test instance(e.g. a JMeter Test Plan (jmx file)).  
+It could generate not only a JMeter Test Plan (jmx file) but other documentations.    
+
+# Motivations
+
+- System users could write loadmodel
+- it is often diffiecult for system users
+- Load testers coudd write with model(MDD)
+- Load testers and System users could communicate with model
+- A lot of load testing tools exists. However, A load tester would not want to learn about these tools and languages.
+- We(load testers) needs a unified modeling language
+- (I think it becomese a role of system users and devs/testers are closely.)
 
 # How to get Ltml
 
@@ -10,7 +20,7 @@ LoadTest Model could generate Jmeter Test Plan (jmx file) and other docs.
 
 # **Please Note**
 
-This language is still developing.  
+This language is still developing and you could only use experimental language.  
 It maybe include not implemented area, bugs, and any changes of specification.  
 Please tell me your advice for improvement or pull request.  
 Thank you.  
@@ -55,6 +65,27 @@ Manifest {
 LoadTest {
     Id lt001
     LoadGroups LG01
+}
+
+//Testcase 2
+LoadTest {
+    Id lt002
+    LoadGroups LG01
+    Report {
+       NoReport
+    }
+}
+
+//Testcase 3
+LoadTest {
+    Id lt003
+    LoadGroups LG01
+    Report {
+       Summary
+       Result "D:\\data\\report_result.csv"
+       HitPerSecond
+       TransactionPerSecond
+    }
 }
 
 LoadGroup {
@@ -128,27 +159,51 @@ Script {
 
 Reports {
     Summary
-    TransactionsPerSecond
+    TransactionPerSecond
     HitPerSecond
     ResponseTimeOverTime
     ConccurentCountOverTime
 }        
 ```
 
-
 # Task list
-- [x] implement to handle Report syntax
-- [ ] implement to handle rampup syntax
+- [x] implement to handle Report/TransactionPerSecond syntax (20150811 done)
+- [x] implement to handle Report/HitPerSecond syntax (20150811 done)
+- [x] implement to handle Report/ResponseTimeOverTime syntax (20150811 done)
+- [x] implement to handle Report/ConccurentCountOverTime syntax (20150811 done)
+- [ ] implement to handle Report/Result syntax
+- [ ] modify Manifest syntax for designation of outputpath
+- [ ] modify Manifest syntax for designation of instance type(like JMeter/LoadRunner/OtherTools)
+- [ ] implement to handle Parameter syntax
+- [ ] implement to handle Correlation(this name will be changed) syntax
+- [ ] implement to handle Load Generator syntax and new method for generating load(e.g using JMeter server or other methods)
+- [ ] implement to handle LoadTest/rampup syntax
+- [ ] implement to handle Transactions syntax
+- [ ] implement to execute interpreter modeled load tests   
 - [ ] implement to handle Transaction syntax and convert function from Fiddler 4
 - [ ] implement to handle Load Generator syntax and Load Generator without JMeter remote execution
 - [ ] implement to handle difference of locale with load generator
-- [ ] implement to export and generate Document Generator
-- [ ] implement to export and generate Test Image Generator
+- [ ] implement to export and generate Load Test Document Generator
+- [ ] implement to export and generate Load Test Image Generator
 - [ ] implement to gather performance data from Load Generator
 - [ ] implement to define performance objects(it normally means SLA)
-- [ ] implement to analysis performance data
+- [ ] implement to analysis performance data and new method for gathering(e.g using JMeter)
 
-# License
+
+# Architecture
+## current
+- Xtext
+- Ltml
+- JMeter
+
+## future
+- Xtext
+- Ltml
+- Other Load Test Software(Like Jmeter but not business(=license needs) use) .. for not depend on JMeter, I think JMeter has some issues for scalability, transaction mix, finish controller and so on(toughness, availability, and maintenancebility). However it should left test cases with Ltml as assets.  
+- Software defined middleware/server (Like a chef/vagrant .. for deploy loadtest generator to remote servers 
+- Jetty(and so on) on SD middleware/server..  for handling remote execution as restful api and load generator instance
+
+# Licenses
 
 Copyright (c) [2015] [ino9dev]  
 
