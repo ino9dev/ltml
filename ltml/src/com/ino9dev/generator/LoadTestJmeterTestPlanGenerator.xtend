@@ -21,9 +21,6 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
 
         //to get manifest object
         val manifest = resource.allContents.filter(typeof(ManifestImpl)).head
-        
-        //to get report object
-        val report = resource.allContents.filter(typeof(ReportImpl))
 
         //to get loadtest(s) object
         val loadtests = resource.allContents.filter(typeof(LoadTestImpl))
@@ -59,7 +56,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               <stringProp name="TestPlan.user_define_classpath"></stringProp>
             </TestPlan>
             <hashTree>
-            «var report = if(loadtest.report != null){loadtest.report}else{null}»
+            «var report = if(loadtest.report != null){loadtest.report}else{(new LtmlFactoryImpl).createReport}»
             «FOR lg:loadtest.loadgroups»
               «var schedule = 
                   //if all schedules are null then new NullObject 
@@ -126,7 +123,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               «ENDFOR»
               </hashTree>
             «ENDFOR»
-            «IF(report != null && report.summary == true)»
+            «IF(report.summary == true)»
               <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="SummaryReport" enabled="true">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
@@ -161,7 +158,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               </ResultCollector>
               <hashTree/>
             «ENDIF»
-            «IF(report != null && report.hps)»
+            «IF(report.hps)»
               <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.HitsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Hits per Second" enabled="true">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
@@ -204,7 +201,50 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
               <hashTree/>
             «ENDIF»
-            «IF(report != null && report.resptime)»
+            «IF(report.tps)»
+              <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <threadCounts>true</threadCounts>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+                <longProp name="interval_grouping">1000</longProp>
+                <boolProp name="graph_aggregated">false</boolProp>
+                <stringProp name="include_sample_labels"></stringProp>
+                <stringProp name="exclude_sample_labels"></stringProp>
+                <stringProp name="start_offset"></stringProp>
+                <stringProp name="end_offset"></stringProp>
+                <boolProp name="include_checkbox_state">false</boolProp>
+                <boolProp name="exclude_checkbox_state">false</boolProp>
+              </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+              <hashTree/>
+            «ENDIF»
+            «IF(report.resptime)»
               <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
@@ -247,10 +287,89 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
               <hashTree/>
             «ENDIF»
-            «/*IF(true)*/»
-            «/*ENDIF*/»
-            «/*IF(true)*/»
-            «/*ENDIF*/»
+            «IF(report.cc)»
+              <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <threadCounts>true</threadCounts>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+                <longProp name="interval_grouping">500</longProp>
+                <boolProp name="graph_aggregated">false</boolProp>
+                <stringProp name="include_sample_labels"></stringProp>
+                <stringProp name="exclude_sample_labels"></stringProp>
+                <stringProp name="start_offset"></stringProp>
+                <stringProp name="end_offset"></stringProp>
+                <boolProp name="include_checkbox_state">false</boolProp>
+                <boolProp name="exclude_checkbox_state">false</boolProp>
+              </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+              <hashTree/>
+            «ENDIF»
+            «IF report.resultpath != ""»
+              <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="SimpleDataWriter" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>true</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>true</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <url>true</url>
+                    <fileName>true</fileName>
+                    <hostname>true</hostname>
+                    <threadCounts>true</threadCounts>
+                    <sampleCount>true</sampleCount>
+                    <idleTime>true</idleTime>
+                    <connectTime>true</connectTime>
+                  </value>
+                </objProp>
+                <stringProp name="filename">«report.resultpath»</stringProp>
+              </ResultCollector>
+            «ENDIF»
             </hashTree>
           </hashTree>
         </jmeterTestPlan>
@@ -259,7 +378,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
 
     //util method
     def splitaslist(String target, String separate){
-        if(separate == null || separate == ""){
+        if(target == null || separate == null || separate == "" ){
             throw new IllegalArgumentException()
         } else{
             target.split(separate).toList

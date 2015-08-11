@@ -1104,10 +1104,10 @@ public class InternalLtmlLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:59:7: ( 'HitPerSecond' )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:59:9: 'HitPerSecond'
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:59:7: ( 'Result' )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:59:9: 'Result'
             {
-            match("HitPerSecond"); 
+            match("Result"); 
 
 
             }
@@ -1125,10 +1125,10 @@ public class InternalLtmlLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:60:7: ( 'TransactionPerSecond' )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:60:9: 'TransactionPerSecond'
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:60:7: ( 'HitPerSecond' )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:60:9: 'HitPerSecond'
             {
-            match("TransactionPerSecond"); 
+            match("HitPerSecond"); 
 
 
             }
@@ -1146,10 +1146,10 @@ public class InternalLtmlLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:61:7: ( 'ResponseTime' )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:61:9: 'ResponseTime'
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:61:7: ( 'TransactionPerSecond' )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:61:9: 'TransactionPerSecond'
             {
-            match("ResponseTime"); 
+            match("TransactionPerSecond"); 
 
 
             }
@@ -1167,10 +1167,10 @@ public class InternalLtmlLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:62:7: ( 'Result' )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:62:9: 'Result'
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:62:7: ( 'ResponseTime' )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:62:9: 'ResponseTime'
             {
-            match("Result"); 
+            match("ResponseTime"); 
 
 
             }
@@ -2439,11 +2439,11 @@ public class InternalLtmlLexer extends Lexer {
         "\1\43\1\uffff\1\36\4\uffff\1\50\2\uffff\1\74\2\uffff\1\71\4\uffff"+
         "\1\5\5\uffff\1\16\1\26\23\uffff\1\72\1\52\17\uffff\1\35\11\uffff"+
         "\1\55\1\uffff\1\40\4\uffff\1\47\12\uffff\1\21\2\uffff\1\25\1\uffff"+
-        "\1\64\1\56\6\uffff\1\73\6\uffff\1\6\7\uffff\1\60\11\uffff\1\1\1"+
+        "\1\61\1\56\6\uffff\1\73\6\uffff\1\6\7\uffff\1\60\11\uffff\1\1\1"+
         "\uffff\1\23\1\57\1\11\2\uffff\1\31\2\uffff\1\34\2\uffff\1\27\4\uffff"+
         "\1\37\2\uffff\1\22\1\uffff\1\15\13\uffff\1\13\5\uffff\1\30\3\uffff"+
-        "\1\51\10\uffff\1\44\7\uffff\1\63\1\42\1\uffff\1\32\1\33\1\61\1\24"+
-        "\10\uffff\1\17\1\53\2\uffff\1\54\4\uffff\1\62";
+        "\1\51\10\uffff\1\44\7\uffff\1\64\1\42\1\uffff\1\32\1\33\1\62\1\24"+
+        "\10\uffff\1\17\1\53\2\uffff\1\54\4\uffff\1\63";
     static final String DFA12_specialS =
         "\1\0\34\uffff\1\1\1\2\u014f\uffff}>";
     static final String[] DFA12_transitionS = {

@@ -20,8 +20,8 @@
       <stringProp name="ThreadGroup.num_threads">20</stringProp>
       <stringProp name="ThreadGroup.ramp_time">60</stringProp>
       <boolProp name="ThreadGroup.scheduler">true</boolProp>
-      <longProp name="ThreadGroup.start_time">1439315566276</longProp>
-      <longProp name="ThreadGroup.end_time">1439315566276</longProp>
+      <longProp name="ThreadGroup.start_time">1439315566292</longProp>
+      <longProp name="ThreadGroup.end_time">1439315566292</longProp>
       <stringProp name="ThreadGroup.duration">0</stringProp>
       <stringProp name="ThreadGroup.delay">0</stringProp>
     </ThreadGroup>
@@ -79,6 +79,39 @@
       <hashTree/>
     </hashTree>
     </hashTree>
+    <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="SummaryReport" enabled="true">
+      <boolProp name="ResultCollector.error_logging">false</boolProp>
+      <objProp>
+        <name>saveConfig</name>
+        <value class="SampleSaveConfiguration">
+          <time>true</time>
+          <latency>true</latency>
+          <timestamp>true</timestamp>
+          <success>true</success>
+          <label>true</label>
+          <code>true</code>
+          <message>true</message>
+          <threadName>true</threadName>
+          <dataType>true</dataType>
+          <encoding>false</encoding>
+          <assertions>true</assertions>
+          <subresults>true</subresults>
+          <responseData>false</responseData>
+          <samplerData>false</samplerData>
+          <xml>false</xml>
+          <fieldNames>false</fieldNames>
+          <responseHeaders>false</responseHeaders>
+          <requestHeaders>false</requestHeaders>
+          <responseDataOnError>false</responseDataOnError>
+          <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+          <assertionsResultsToSave>0</assertionsResultsToSave>
+          <bytes>true</bytes>
+          <threadCounts>true</threadCounts>
+        </value>
+      </objProp>
+      <stringProp name="filename"></stringProp>
+    </ResultCollector>
+    <hashTree/>
     <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="SimpleDataWriter" enabled="true">
       <boolProp name="ResultCollector.error_logging">false</boolProp>
       <objProp>

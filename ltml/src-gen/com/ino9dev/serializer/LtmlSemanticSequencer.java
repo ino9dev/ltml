@@ -194,9 +194,8 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (noreport?='NoReport' | summary?='Summary') 
-	 *         (hps?='HitPerSecond' | tps?='TransactionPerSecond' | resptime?='ResponseTime' | cc?='ConccurentCount')* 
-	 *         resultpath=STRING?
+	 *         noreport?='NoReport' | 
+	 *         (summary?='Summary' resultpath=STRING? (hps?='HitPerSecond' | tps?='TransactionPerSecond' | resptime?='ResponseTime' | cc?='ConccurentCount')*)
 	 *     )
 	 */
 	protected void sequence_Report(EObject context, Report semanticObject) {

@@ -106,12 +106,14 @@ Transaction:
 Report:
     "Report"
     "{"
-        (noreport?="NoReport"|summary?="Summary")
-            (hps?="HitPerSecond"
-             |tps?="TransactionPerSecond"
-             |resptime?="ResponseTime"
-             |cc?="ConccurentCount")*
-        ("Result" resultpath=STRING)?
+        (noreport?="NoReport"|
+            (summary?="Summary"
+             ("Result" resultpath=STRING)?)
+             (hps?="HitPerSecond"
+              |tps?="TransactionPerSecond"
+              |resptime?="ResponseTime"
+              |cc?="ConccurentCount")*
+        )
     "}"
 ;
 

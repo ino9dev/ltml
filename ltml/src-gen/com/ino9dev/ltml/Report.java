@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.Report#isNoreport <em>Noreport</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isSummary <em>Summary</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Report#getResultpath <em>Resultpath</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isHps <em>Hps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isTps <em>Tps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isResptime <em>Resptime</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isCc <em>Cc</em>}</li>
- *   <li>{@link com.ino9dev.ltml.Report#getResultpath <em>Resultpath</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +79,32 @@ public interface Report extends EObject
    * @generated
    */
   void setSummary(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Resultpath</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resultpath</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resultpath</em>' attribute.
+   * @see #setResultpath(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getReport_Resultpath()
+   * @model
+   * @generated
+   */
+  String getResultpath();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Report#getResultpath <em>Resultpath</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Resultpath</em>' attribute.
+   * @see #getResultpath()
+   * @generated
+   */
+  void setResultpath(String value);
 
   /**
    * Returns the value of the '<em><b>Hps</b></em>' attribute.
@@ -183,31 +209,5 @@ public interface Report extends EObject
    * @generated
    */
   void setCc(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Resultpath</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Resultpath</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Resultpath</em>' attribute.
-   * @see #setResultpath(String)
-   * @see com.ino9dev.ltml.LtmlPackage#getReport_Resultpath()
-   * @model
-   * @generated
-   */
-  String getResultpath();
-
-  /**
-   * Sets the value of the '{@link com.ino9dev.ltml.Report#getResultpath <em>Resultpath</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Resultpath</em>' attribute.
-   * @see #getResultpath()
-   * @generated
-   */
-  void setResultpath(String value);
 
 } // Report

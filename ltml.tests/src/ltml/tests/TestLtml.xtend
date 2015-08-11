@@ -49,21 +49,46 @@ class TestLtml {
             Id manifest01
             Version "1.0"
         }
-        
+
         //Testcase 1
         LoadTest {
             Id case1
-            LoadGroups LG01,LG02
+            LoadGroups LG01
+            Report {
+                NoReport
+            }
+        }
+
+        LoadTest {
+            Id case2
+            LoadGroups LG01
             Report {
                 Summary
+            }
+        }
+
+        //result path need escape for pathchar(\ is incorrect.\\ is correct.)
+        LoadTest {
+            Id case3
+            LoadGroups LG03
+            Report {
+                Summary
+                Result "C:\\temp\\gege.csv"
+            }
+        }
+
+        LoadTest {
+            Id case4
+            LoadGroups LG01
+            Report {
+                Summary     
                 ResponseTime
                 HitPerSecond
                 TransactionPerSecond
                 ConccurentCount
-                Result "C:\temp\case1.csv"
             }
         }
-
+        
         LoadGroup {
             Id LG01
             Cc 20
@@ -84,6 +109,15 @@ class TestLtml {
                 Start "2015/01/04 00:00:09"
                 End "2015/01/05 00:00:10"
             }
+        }
+
+        LoadGroup {
+            Id LG03
+            Cc 10
+            Script BP03
+            Iteration "INFINITY"
+            LoadGenerator LGen01
+            RampUp "20/1min"
         }
 
         LoadGenerator {
@@ -141,8 +175,24 @@ class TestLtml {
                 }
             }
         }
+
+        Script {
+            Id BP03
+            Name "BusinessProcess03"
+            Trs {
+                Tr {
+                    Id BP03_01
+                    Name "BP03_01"
+                    No 002
+                    Method GET
+                    URL "http://localhost/test/"
+                    CaptureFileName "image001"
+                }
+            }
+        }
+
         ''')
-        
+
         /*
         Parameter {
             Name account

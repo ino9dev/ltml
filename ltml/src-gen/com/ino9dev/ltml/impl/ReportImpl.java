@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isNoreport <em>Noreport</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isSummary <em>Summary</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#getResultpath <em>Resultpath</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isHps <em>Hps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isTps <em>Tps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isResptime <em>Resptime</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isCc <em>Cc</em>}</li>
- *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#getResultpath <em>Resultpath</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,6 +72,26 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * @ordered
    */
   protected boolean summary = SUMMARY_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getResultpath() <em>Resultpath</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResultpath()
+   * @generated
+   * @ordered
+   */
+  protected static final String RESULTPATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getResultpath() <em>Resultpath</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResultpath()
+   * @generated
+   * @ordered
+   */
+  protected String resultpath = RESULTPATH_EDEFAULT;
 
   /**
    * The default value of the '{@link #isHps() <em>Hps</em>}' attribute.
@@ -154,26 +174,6 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   protected boolean cc = CC_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getResultpath() <em>Resultpath</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResultpath()
-   * @generated
-   * @ordered
-   */
-  protected static final String RESULTPATH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getResultpath() <em>Resultpath</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResultpath()
-   * @generated
-   * @ordered
-   */
-  protected String resultpath = RESULTPATH_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -238,6 +238,29 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     summary = newSummary;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.REPORT__SUMMARY, oldSummary, summary));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getResultpath()
+  {
+    return resultpath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setResultpath(String newResultpath)
+  {
+    String oldResultpath = resultpath;
+    resultpath = newResultpath;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.REPORT__RESULTPATH, oldResultpath, resultpath));
   }
 
   /**
@@ -337,29 +360,6 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getResultpath()
-  {
-    return resultpath;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setResultpath(String newResultpath)
-  {
-    String oldResultpath = resultpath;
-    resultpath = newResultpath;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.REPORT__RESULTPATH, oldResultpath, resultpath));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -369,6 +369,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return isNoreport();
       case LtmlPackage.REPORT__SUMMARY:
         return isSummary();
+      case LtmlPackage.REPORT__RESULTPATH:
+        return getResultpath();
       case LtmlPackage.REPORT__HPS:
         return isHps();
       case LtmlPackage.REPORT__TPS:
@@ -377,8 +379,6 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return isResptime();
       case LtmlPackage.REPORT__CC:
         return isCc();
-      case LtmlPackage.REPORT__RESULTPATH:
-        return getResultpath();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -399,6 +399,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
       case LtmlPackage.REPORT__SUMMARY:
         setSummary((Boolean)newValue);
         return;
+      case LtmlPackage.REPORT__RESULTPATH:
+        setResultpath((String)newValue);
+        return;
       case LtmlPackage.REPORT__HPS:
         setHps((Boolean)newValue);
         return;
@@ -410,9 +413,6 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return;
       case LtmlPackage.REPORT__CC:
         setCc((Boolean)newValue);
-        return;
-      case LtmlPackage.REPORT__RESULTPATH:
-        setResultpath((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -434,6 +434,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
       case LtmlPackage.REPORT__SUMMARY:
         setSummary(SUMMARY_EDEFAULT);
         return;
+      case LtmlPackage.REPORT__RESULTPATH:
+        setResultpath(RESULTPATH_EDEFAULT);
+        return;
       case LtmlPackage.REPORT__HPS:
         setHps(HPS_EDEFAULT);
         return;
@@ -445,9 +448,6 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return;
       case LtmlPackage.REPORT__CC:
         setCc(CC_EDEFAULT);
-        return;
-      case LtmlPackage.REPORT__RESULTPATH:
-        setResultpath(RESULTPATH_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -467,6 +467,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return noreport != NOREPORT_EDEFAULT;
       case LtmlPackage.REPORT__SUMMARY:
         return summary != SUMMARY_EDEFAULT;
+      case LtmlPackage.REPORT__RESULTPATH:
+        return RESULTPATH_EDEFAULT == null ? resultpath != null : !RESULTPATH_EDEFAULT.equals(resultpath);
       case LtmlPackage.REPORT__HPS:
         return hps != HPS_EDEFAULT;
       case LtmlPackage.REPORT__TPS:
@@ -475,8 +477,6 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return resptime != RESPTIME_EDEFAULT;
       case LtmlPackage.REPORT__CC:
         return cc != CC_EDEFAULT;
-      case LtmlPackage.REPORT__RESULTPATH:
-        return RESULTPATH_EDEFAULT == null ? resultpath != null : !RESULTPATH_EDEFAULT.equals(resultpath);
     }
     return super.eIsSet(featureID);
   }
@@ -496,6 +496,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     result.append(noreport);
     result.append(", summary: ");
     result.append(summary);
+    result.append(", resultpath: ");
+    result.append(resultpath);
     result.append(", hps: ");
     result.append(hps);
     result.append(", tps: ");
@@ -504,8 +506,6 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     result.append(resptime);
     result.append(", cc: ");
     result.append(cc);
-    result.append(", resultpath: ");
-    result.append(resultpath);
     result.append(')');
     return result.toString();
   }

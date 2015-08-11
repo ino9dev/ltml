@@ -64,11 +64,11 @@
     <genClasses ecoreClass="Ltml.ecore#//Report">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/noreport"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/summary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/resultpath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/hps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/tps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/resptime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/cc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/resultpath"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Params">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Params/key"/>
