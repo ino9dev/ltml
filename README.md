@@ -156,14 +156,6 @@ Script {
         }
     }
 }
-
-Reports {
-    Summary
-    TransactionPerSecond
-    HitPerSecond
-    ResponseTimeOverTime
-    ConccurentCountOverTime
-}        
 ```
 
 # Task list
