@@ -2,6 +2,7 @@
  */
 package com.ino9dev.ltml.impl;
 
+import com.ino9dev.ltml.InstanceType;
 import com.ino9dev.ltml.LoadGenerator;
 import com.ino9dev.ltml.LoadGroup;
 import com.ino9dev.ltml.LoadTest;
@@ -18,6 +19,7 @@ import com.ino9dev.ltml.Transaction;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -107,6 +109,13 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * @generated
    */
   private EClass paramsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum instanceTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -239,6 +248,26 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
   public EAttribute getManifest_Version()
   {
     return (EAttribute)manifestEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getManifest_Instancetype()
+  {
+    return (EAttribute)manifestEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getManifest_Modelinstancedpath()
+  {
+    return (EAttribute)manifestEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -736,6 +765,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getInstanceType()
+  {
+    return instanceTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public LtmlFactory getLtmlFactory()
   {
     return (LtmlFactory)getEFactoryInstance();
@@ -770,6 +809,8 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     manifestEClass = createEClass(MANIFEST);
     createEAttribute(manifestEClass, MANIFEST__MANIFESTNAME);
     createEAttribute(manifestEClass, MANIFEST__VERSION);
+    createEAttribute(manifestEClass, MANIFEST__INSTANCETYPE);
+    createEAttribute(manifestEClass, MANIFEST__MODELINSTANCEDPATH);
 
     loadTestEClass = createEClass(LOAD_TEST);
     createEAttribute(loadTestEClass, LOAD_TEST__LOADTESTNAME);
@@ -827,6 +868,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     paramsEClass = createEClass(PARAMS);
     createEAttribute(paramsEClass, PARAMS__KEY);
     createEAttribute(paramsEClass, PARAMS__VALUE);
+
+    // Create enums
+    instanceTypeEEnum = createEEnum(INSTANCE_TYPE);
   }
 
   /**
@@ -874,6 +918,8 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEClass(manifestEClass, Manifest.class, "Manifest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getManifest_Manifestname(), ecorePackage.getEString(), "manifestname", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getManifest_Version(), ecorePackage.getEString(), "version", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getManifest_Instancetype(), this.getInstanceType(), "instancetype", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getManifest_Modelinstancedpath(), ecorePackage.getEString(), "modelinstancedpath", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loadTestEClass, LoadTest.class, "LoadTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLoadTest_Loadtestname(), ecorePackage.getEString(), "loadtestname", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -931,6 +977,11 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEClass(paramsEClass, Params.class, "Params", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParams_Key(), ecorePackage.getEString(), "key", null, 0, 1, Params.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParams_Value(), ecorePackage.getEString(), "value", null, 0, 1, Params.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(instanceTypeEEnum, InstanceType.class, "InstanceType");
+    addEEnumLiteral(instanceTypeEEnum, InstanceType.JMETER);
+    addEEnumLiteral(instanceTypeEEnum, InstanceType.LOADRUNNER);
 
     // Create resource
     createResource(eNS_URI);

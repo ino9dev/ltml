@@ -156,7 +156,7 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID manifestname=STRING? version=STRING)
+	 *     (name=ID manifestname=STRING? version=STRING instancetype=InstanceType? modelinstancedpath=STRING?)
 	 */
 	protected void sequence_Manifest(EObject context, Manifest semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

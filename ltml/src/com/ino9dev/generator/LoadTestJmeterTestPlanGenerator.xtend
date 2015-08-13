@@ -12,22 +12,35 @@ import com.ino9dev.ltml.impl.ReportImpl
 import java.text.SimpleDateFormat
 import com.ino9dev.ltml.impl.ScheduleImpl
 import com.ino9dev.ltml.impl.LtmlFactoryImpl
+import java.io.File
+import org.eclipse.xtext.generator.AbstractFileSystemAccess
 
 class LoadTestJmeterTestPlanGenerator implements IGenerator {
     
     val dateformatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
+    val PATHSEPARATOR = "//"
     
     override doGenerate(Resource resource, IFileSystemAccess fsa) {
 
         //to get manifest object
+        //manifest is only one
         val manifest = resource.allContents.filter(typeof(ManifestImpl)).head
 
         //to get loadtest(s) object
         val loadtests = resource.allContents.filter(typeof(LoadTestImpl))
-        
+
+        //pathを設定する
+        val afsa = if(fsa instanceof AbstractFileSystemAccess){fsa as AbstractFileSystemAccess}
+        val path = if(manifest.modelinstancedpath != null || manifest.modelinstancedpath != ""){manifest.modelinstancedpath}else{"."+PATHSEPARATOR}
+
+        //pathに対してフォルダを作り、pathを出力先とする
+        afsa.setOutputPath(path)
+        path.createFolder
+
+        //loadtest毎にjmxファイルをgerateする
         loadtests.forEach[
             loadtest|
-            fsa.generateFile(
+            afsa.generateFile(
                '''«manifest.name»_ver_«manifest.version»_«loadtest.name».jmx''',
                //to JmeterTestPlan
                toJmeterTestPlan(
@@ -376,12 +389,16 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
         '''
     }
 
-    //util method
+    //String extension
     def splitaslist(String target, String separate){
         if(target == null || separate == null || separate == "" ){
             throw new IllegalArgumentException()
         } else{
             target.split(separate).toList
         }
+    }
+    def createFolder(String target){
+        var folder = new File(target)
+        if(!folder.exists){folder.mkdir}
     }
 }

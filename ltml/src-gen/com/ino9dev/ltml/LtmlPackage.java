@@ -4,6 +4,7 @@ package com.ino9dev.ltml;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -150,13 +151,31 @@ public interface LtmlPackage extends EPackage
   int MANIFEST__VERSION = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Instancetype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANIFEST__INSTANCETYPE = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Modelinstancedpath</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANIFEST__MODELINSTANCEDPATH = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Manifest</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MANIFEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int MANIFEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.LoadTestImpl <em>Load Test</em>}' class.
@@ -715,6 +734,16 @@ public interface LtmlPackage extends EPackage
    */
   int PARAMS_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.InstanceType
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getInstanceType()
+   * @generated
+   */
+  int INSTANCE_TYPE = 11;
+
 
   /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.Model <em>Model</em>}'.
@@ -789,6 +818,28 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EAttribute getManifest_Version();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Manifest#getInstancetype <em>Instancetype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Instancetype</em>'.
+   * @see com.ino9dev.ltml.Manifest#getInstancetype()
+   * @see #getManifest()
+   * @generated
+   */
+  EAttribute getManifest_Instancetype();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Manifest#getModelinstancedpath <em>Modelinstancedpath</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Modelinstancedpath</em>'.
+   * @see com.ino9dev.ltml.Manifest#getModelinstancedpath()
+   * @see #getManifest()
+   * @generated
+   */
+  EAttribute getManifest_Modelinstancedpath();
 
   /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.LoadTest <em>Load Test</em>}'.
@@ -1322,6 +1373,16 @@ public interface LtmlPackage extends EPackage
   EAttribute getParams_Value();
 
   /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Instance Type</em>'.
+   * @see com.ino9dev.ltml.InstanceType
+   * @generated
+   */
+  EEnum getInstanceType();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1405,6 +1466,22 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EAttribute MANIFEST__VERSION = eINSTANCE.getManifest_Version();
+
+    /**
+     * The meta object literal for the '<em><b>Instancetype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MANIFEST__INSTANCETYPE = eINSTANCE.getManifest_Instancetype();
+
+    /**
+     * The meta object literal for the '<em><b>Modelinstancedpath</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MANIFEST__MODELINSTANCEDPATH = eINSTANCE.getManifest_Modelinstancedpath();
 
     /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.LoadTestImpl <em>Load Test</em>}' class.
@@ -1813,6 +1890,16 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EAttribute PARAMS__VALUE = eINSTANCE.getParams_Value();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.InstanceType
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getInstanceType()
+     * @generated
+     */
+    EEnum INSTANCE_TYPE = eINSTANCE.getInstanceType();
 
   }
 

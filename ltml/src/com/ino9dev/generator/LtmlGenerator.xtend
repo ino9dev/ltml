@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import java.util.List
+import com.ino9dev.ltml.impl.ManifestImpl
+import com.ino9dev.ltml.InstanceType
 
 /**
  * Generates code from your model files on save.
@@ -18,14 +20,24 @@ class LtmlGenerator implements IGenerator {
     List<IGenerator> generators = newArrayList(
         new LoadTestDocumentGenerator
         ,new LoadTestImageGenerator
-        ,new LoadTestJmeterTestPlanGenerator
     )
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 
+        val manifest = resource.allContents.filter(typeof(ManifestImpl)).head
+
+        //to change generator by instancetype
+        generators.add(
+            switch(manifest.instancetype){
+                case(InstanceType.JMETER):new LoadTestJmeterTestPlanGenerator
+                case(InstanceType.LOADRUNNER):(null) //future feature
+                default:new LoadTestJmeterTestPlanGenerator //default is JMeter
+            }
+        )
+        
         //to generate load test document(by html)
         //to generate load test image        
-        //to generate load test jmx file
+        //to generate load test instance file
         generators.forEach[generator
             |generator.doGenerate(resource, fsa)
         ]

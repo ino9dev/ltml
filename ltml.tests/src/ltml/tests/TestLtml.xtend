@@ -28,19 +28,17 @@ class TestLtml {
     @Inject IGenerator underTest
     @Inject ParseHelper<Model> parseHelper 
 
-    def void mainTest(){
+//    def void mainTest(){
 //        Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap( ).put("ltml",resourceFactory);
 //        var resourceSet = new ResourceSetImpl()
 //        var uri = URI.createFileURI("src/ltml/tests/test.ltml")
 //        var resource = resourceSet.getResource(uri, true);
 //        var model = resource.getContents().get(0) as Model;
-
-        var injector = new LtmlStandaloneSetup().createInjectorAndDoEMFRegistration();
-        var rs = new ResourceSetImpl();
-        var resource = rs.getResource(URI.createURI("src/ltml/tests/test.ltml"), true);
-        var model = resource.getContents().get(0) as Model
-
-    }
+//        var injector = new LtmlStandaloneSetup().createInjectorAndDoEMFRegistration();
+//        var rs = new ResourceSetImpl();
+//        var resource = rs.getResource(URI.createURI("src/ltml/tests/test.ltml"), true);
+//        var model = resource.getContents().get(0) as Model
+//    }
  
     @Test
     def void generatorTest1(){
@@ -48,6 +46,8 @@ class TestLtml {
         Manifest {
             Id manifest01
             Version "1.0"
+            InstanceType JMeter
+            ModelInstancedPath "C:\\temp\\senarios\\"
         }
 
         //Testcase 1
@@ -215,8 +215,7 @@ class TestLtml {
         
         val fsa = new JavaIoFileSystemAccess()
 
-        //TODO any path generation or support qualified name path and source path
-        fsa.setOutputPath(".")
+        //fsa.setOutputPath(".")
         Guice::createInjector(new GenericModule).injectMembers(fsa)
         underTest.doGenerate(model.eResource, fsa)
         

@@ -89,13 +89,23 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cVerKeyword_5_1 = (Keyword)cAlternatives_5.eContents().get(1);
 		private final Assignment cVersionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cVersionSTRINGTerminalRuleCall_6_0 = (RuleCall)cVersionAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cInstanceTypeKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cInstancetypeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cInstancetypeInstanceTypeEnumRuleCall_7_1_0 = (RuleCall)cInstancetypeAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cModelInstancedPathKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cModelinstancedpathAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cModelinstancedpathSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cModelinstancedpathAssignment_8_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Manifest:
-		//	("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING "}";
+		//	("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING ("InstanceType"
+		//	instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING "}"
+		//("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING ("InstanceType"
+		//instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Manifest" | "Mn"
@@ -146,8 +156,32 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getVersionSTRINGTerminalRuleCall_6_0() { return cVersionSTRINGTerminalRuleCall_6_0; }
 
+		//("InstanceType" instancetype=InstanceType)?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"InstanceType"
+		public Keyword getInstanceTypeKeyword_7_0() { return cInstanceTypeKeyword_7_0; }
+
+		//instancetype=InstanceType
+		public Assignment getInstancetypeAssignment_7_1() { return cInstancetypeAssignment_7_1; }
+
+		//InstanceType
+		public RuleCall getInstancetypeInstanceTypeEnumRuleCall_7_1_0() { return cInstancetypeInstanceTypeEnumRuleCall_7_1_0; }
+
+		//("ModelInstancedPath" modelinstancedpath=STRING)?
+		public Group getGroup_8() { return cGroup_8; }
+
+		//"ModelInstancedPath"
+		public Keyword getModelInstancedPathKeyword_8_0() { return cModelInstancedPathKeyword_8_0; }
+
+		//modelinstancedpath=STRING
+		public Assignment getModelinstancedpathAssignment_8_1() { return cModelinstancedpathAssignment_8_1; }
+
+		//STRING
+		public RuleCall getModelinstancedpathSTRINGTerminalRuleCall_8_1_0() { return cModelinstancedpathSTRINGTerminalRuleCall_8_1_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 
 	public class LoadTestElements extends AbstractParserRuleElementFinder {
@@ -1070,6 +1104,34 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	public class InstanceTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "InstanceType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cJMETEREnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cJMETERJMeterKeyword_0_0 = (Keyword)cJMETEREnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLOADRUNNEREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLOADRUNNERLoadRunnerKeyword_1_0 = (Keyword)cLOADRUNNEREnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum InstanceType:
+		//	JMETER="JMeter" | LOADRUNNER="LoadRunner";
+		public EnumRule getRule() { return rule; }
+
+		//JMETER="JMeter" | LOADRUNNER="LoadRunner"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//JMETER="JMeter"
+		public EnumLiteralDeclaration getJMETEREnumLiteralDeclaration_0() { return cJMETEREnumLiteralDeclaration_0; }
+
+		//"JMeter"
+		public Keyword getJMETERJMeterKeyword_0_0() { return cJMETERJMeterKeyword_0_0; }
+
+		//LOADRUNNER="LoadRunner"
+		public EnumLiteralDeclaration getLOADRUNNEREnumLiteralDeclaration_1() { return cLOADRUNNEREnumLiteralDeclaration_1; }
+
+		//"LoadRunner"
+		public Keyword getLOADRUNNERLoadRunnerKeyword_1_0() { return cLOADRUNNERLoadRunnerKeyword_1_0; }
+	}
+	
 	private ModelElements pModel;
 	private StatementElements pStatement;
 	private ManifestElements pManifest;
@@ -1082,6 +1144,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	private ReportElements pReport;
 	private ParamsElements pParams;
 	private MethodElements pMethod;
+	private InstanceTypeElements unknownRuleInstanceType;
 	
 	private final Grammar grammar;
 
@@ -1142,7 +1205,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Manifest:
-	//	("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING "}";
+	//	("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING ("InstanceType"
+	//	instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? "}";
 	public ManifestElements getManifestAccess() {
 		return (pManifest != null) ? pManifest : (pManifest = new ManifestElements());
 	}
@@ -1249,6 +1313,16 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMethodRule() {
 		return getMethodAccess().getRule();
+	}
+
+	//enum InstanceType:
+	//	JMETER="JMeter" | LOADRUNNER="LoadRunner";
+	public InstanceTypeElements getInstanceTypeAccess() {
+		return (unknownRuleInstanceType != null) ? unknownRuleInstanceType : (unknownRuleInstanceType = new InstanceTypeElements());
+	}
+	
+	public EnumRule getInstanceTypeRule() {
+		return getInstanceTypeAccess().getRule();
 	}
 
 	//terminal ID:

@@ -59,6 +59,8 @@ This grammar is defined with Xtext.
 Manifest {
     Id lt20150801
     Version "1.0"
+    InstanceType JMeter
+    ModelInstancedPath "C:\\temp\\senarios"
 }
 
 //Testcase 1
@@ -69,20 +71,11 @@ LoadTest {
 
 //Testcase 2
 LoadTest {
-    Id lt002
-    LoadGroups LG01
-    Report {
-       NoReport
-    }
-}
-
-//Testcase 3
-LoadTest {
     Id lt003
     LoadGroups LG01
     Report {
        Summary
-       Result "D:\\data\\report_result.csv"
+       Result "C:\\temp\\results\\report_result.csv"
        HitPerSecond
        TransactionPerSecond
     }
@@ -157,22 +150,31 @@ Script {
     }
 }
 ```
-
 # Task list
+- Phase1
 - [x] implement to handle Report/TransactionPerSecond syntax (20150811 done)
 - [x] implement to handle Report/HitPerSecond syntax (20150811 done)
 - [x] implement to handle Report/ResponseTimeOverTime syntax (20150811 done)
 - [x] implement to handle Report/ConccurentCountOverTime syntax (20150811 done)
+- [x] modify Manifest syntax for designation of outputpath(20150813 done)
+- [x] modify Manifest syntax for designation of instance type(like JMeter/LoadRunner/OtherTools)(20150813 only JMeter done)
+- [ ] implement to handle Transaction/Body syntax
+- [ ] implement to handle Transaction/CaptureFile syntax
+- [ ] implement to handle Transaction/Method syntax
+- [ ] implement to handle Transaction syntax for CaptureFileName
 - [ ] implement to handle Report/Result syntax
-- [ ] modify Manifest syntax for designation of outputpath
-- [ ] modify Manifest syntax for designation of instance type(like JMeter/LoadRunner/OtherTools)
 - [ ] implement to handle Parameter syntax
 - [ ] implement to handle Correlation(this name will be changed) syntax
+- [ ] tests(acceptance test)
+- Phase2
+- [ ] implement to package syntax
+- [ ] implement to validate ids and values
 - [ ] implement to handle Load Generator syntax and new method for generating load(e.g using JMeter server or other methods)
 - [ ] implement to handle LoadTest/rampup syntax
 - [ ] implement to handle Transactions syntax
 - [ ] implement to execute interpreter modeled load tests   
 - [ ] implement to handle Transaction syntax and convert function from Fiddler 4
+- Phase3
 - [ ] implement to handle Load Generator syntax and Load Generator without JMeter remote execution
 - [ ] implement to handle difference of locale with load generator
 - [ ] implement to export and generate Load Test Document Generator

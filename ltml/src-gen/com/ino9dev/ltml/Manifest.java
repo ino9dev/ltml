@@ -13,6 +13,8 @@ package com.ino9dev.ltml;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.Manifest#getManifestname <em>Manifestname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Manifest#getVersion <em>Version</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Manifest#getInstancetype <em>Instancetype</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Manifest#getModelinstancedpath <em>Modelinstancedpath</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +75,60 @@ public interface Manifest extends Statement
    * @generated
    */
   void setVersion(String value);
+
+  /**
+   * Returns the value of the '<em><b>Instancetype</b></em>' attribute.
+   * The literals are from the enumeration {@link com.ino9dev.ltml.InstanceType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Instancetype</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Instancetype</em>' attribute.
+   * @see com.ino9dev.ltml.InstanceType
+   * @see #setInstancetype(InstanceType)
+   * @see com.ino9dev.ltml.LtmlPackage#getManifest_Instancetype()
+   * @model
+   * @generated
+   */
+  InstanceType getInstancetype();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Manifest#getInstancetype <em>Instancetype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Instancetype</em>' attribute.
+   * @see com.ino9dev.ltml.InstanceType
+   * @see #getInstancetype()
+   * @generated
+   */
+  void setInstancetype(InstanceType value);
+
+  /**
+   * Returns the value of the '<em><b>Modelinstancedpath</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Modelinstancedpath</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Modelinstancedpath</em>' attribute.
+   * @see #setModelinstancedpath(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getManifest_Modelinstancedpath()
+   * @model
+   * @generated
+   */
+  String getModelinstancedpath();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Manifest#getModelinstancedpath <em>Modelinstancedpath</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Modelinstancedpath</em>' attribute.
+   * @see #getModelinstancedpath()
+   * @generated
+   */
+  void setModelinstancedpath(String value);
 
 } // Manifest

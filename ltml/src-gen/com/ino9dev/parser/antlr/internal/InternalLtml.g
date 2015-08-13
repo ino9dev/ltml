@@ -24,6 +24,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -275,9 +276,53 @@ ruleManifest returns [EObject current=null]
 	    }
 
 )
-)	otherlv_10='}' 
+)(	otherlv_10='InstanceType' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getManifestAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_10, grammarAccess.getManifestAccess().getInstanceTypeKeyword_7_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getManifestAccess().getInstancetypeInstanceTypeEnumRuleCall_7_1_0()); 
+	    }
+		lv_instancetype_11_0=ruleInstanceType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getManifestRule());
+	        }
+       		set(
+       			$current, 
+       			"instancetype",
+        		lv_instancetype_11_0, 
+        		"InstanceType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_12='ModelInstancedPath' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getManifestAccess().getModelInstancedPathKeyword_8_0());
+    }
+(
+(
+		lv_modelinstancedpath_13_0=RULE_STRING
+		{
+			newLeafNode(lv_modelinstancedpath_13_0, grammarAccess.getManifestAccess().getModelinstancedpathSTRINGTerminalRuleCall_8_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getManifestRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"modelinstancedpath",
+        		lv_modelinstancedpath_13_0, 
+        		"STRING");
+	    }
+
+)
+))?	otherlv_14='}' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getManifestAccess().getRightCurlyBracketKeyword_9());
     }
 )
 ;
@@ -1597,6 +1642,25 @@ ruleMethod returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     ;
 
 
+
+
+
+// Rule InstanceType
+ruleInstanceType returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='JMeter' 
+	{
+        $current = grammarAccess.getInstanceTypeAccess().getJMETEREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getInstanceTypeAccess().getJMETEREnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='LoadRunner' 
+	{
+        $current = grammarAccess.getInstanceTypeAccess().getLOADRUNNEREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getInstanceTypeAccess().getLOADRUNNEREnumLiteralDeclaration_1()); 
+    }
+));
 
 
 

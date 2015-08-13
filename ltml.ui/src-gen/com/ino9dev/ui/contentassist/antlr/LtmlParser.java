@@ -53,8 +53,11 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReportAccess().getAlternatives_2_1_1(), "rule__Report__Alternatives_2_1_1");
 					put(grammarAccess.getParamsAccess().getAlternatives_4(), "rule__Params__Alternatives_4");
 					put(grammarAccess.getMethodAccess().getAlternatives(), "rule__Method__Alternatives");
+					put(grammarAccess.getInstanceTypeAccess().getAlternatives(), "rule__InstanceType__Alternatives");
 					put(grammarAccess.getManifestAccess().getGroup(), "rule__Manifest__Group__0");
 					put(grammarAccess.getManifestAccess().getGroup_4(), "rule__Manifest__Group_4__0");
+					put(grammarAccess.getManifestAccess().getGroup_7(), "rule__Manifest__Group_7__0");
+					put(grammarAccess.getManifestAccess().getGroup_8(), "rule__Manifest__Group_8__0");
 					put(grammarAccess.getLoadTestAccess().getGroup(), "rule__LoadTest__Group__0");
 					put(grammarAccess.getLoadTestAccess().getGroup_4(), "rule__LoadTest__Group_4__0");
 					put(grammarAccess.getLoadTestAccess().getGroup_7(), "rule__LoadTest__Group_7__0");
@@ -80,6 +83,8 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getManifestAccess().getNameAssignment_3(), "rule__Manifest__NameAssignment_3");
 					put(grammarAccess.getManifestAccess().getManifestnameAssignment_4_1(), "rule__Manifest__ManifestnameAssignment_4_1");
 					put(grammarAccess.getManifestAccess().getVersionAssignment_6(), "rule__Manifest__VersionAssignment_6");
+					put(grammarAccess.getManifestAccess().getInstancetypeAssignment_7_1(), "rule__Manifest__InstancetypeAssignment_7_1");
+					put(grammarAccess.getManifestAccess().getModelinstancedpathAssignment_8_1(), "rule__Manifest__ModelinstancedpathAssignment_8_1");
 					put(grammarAccess.getLoadTestAccess().getNameAssignment_3(), "rule__LoadTest__NameAssignment_3");
 					put(grammarAccess.getLoadTestAccess().getLoadtestnameAssignment_4_1(), "rule__LoadTest__LoadtestnameAssignment_4_1");
 					put(grammarAccess.getLoadTestAccess().getLoadgroupsAssignment_6(), "rule__LoadTest__LoadgroupsAssignment_6");

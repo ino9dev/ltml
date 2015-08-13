@@ -20,6 +20,8 @@ Manifest:
         "Id" name=ID
         ("Name" manifestname=STRING)?
         ("Version"|"ver") version=STRING
+        ("InstanceType" instancetype=InstanceType)?
+        ("ModelInstancedPath" modelinstancedpath=STRING)?
     "}"
 ;
 
@@ -126,4 +128,9 @@ Method:
     |"POST"
     |"DELETE"
     |"PUT"
+;
+
+enum InstanceType:
+    JMETER="JMeter"
+    |LOADRUNNER="LoadRunner"
 ;

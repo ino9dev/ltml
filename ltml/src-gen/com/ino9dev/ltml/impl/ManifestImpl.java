@@ -2,6 +2,7 @@
  */
 package com.ino9dev.ltml.impl;
 
+import com.ino9dev.ltml.InstanceType;
 import com.ino9dev.ltml.LtmlPackage;
 import com.ino9dev.ltml.Manifest;
 
@@ -20,6 +21,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getManifestname <em>Manifestname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getInstancetype <em>Instancetype</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getModelinstancedpath <em>Modelinstancedpath</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +69,46 @@ public class ManifestImpl extends StatementImpl implements Manifest
    * @ordered
    */
   protected String version = VERSION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getInstancetype() <em>Instancetype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInstancetype()
+   * @generated
+   * @ordered
+   */
+  protected static final InstanceType INSTANCETYPE_EDEFAULT = InstanceType.JMETER;
+
+  /**
+   * The cached value of the '{@link #getInstancetype() <em>Instancetype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInstancetype()
+   * @generated
+   * @ordered
+   */
+  protected InstanceType instancetype = INSTANCETYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getModelinstancedpath() <em>Modelinstancedpath</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getModelinstancedpath()
+   * @generated
+   * @ordered
+   */
+  protected static final String MODELINSTANCEDPATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getModelinstancedpath() <em>Modelinstancedpath</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getModelinstancedpath()
+   * @generated
+   * @ordered
+   */
+  protected String modelinstancedpath = MODELINSTANCEDPATH_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -139,6 +182,52 @@ public class ManifestImpl extends StatementImpl implements Manifest
    * <!-- end-user-doc -->
    * @generated
    */
+  public InstanceType getInstancetype()
+  {
+    return instancetype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInstancetype(InstanceType newInstancetype)
+  {
+    InstanceType oldInstancetype = instancetype;
+    instancetype = newInstancetype == null ? INSTANCETYPE_EDEFAULT : newInstancetype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.MANIFEST__INSTANCETYPE, oldInstancetype, instancetype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getModelinstancedpath()
+  {
+    return modelinstancedpath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setModelinstancedpath(String newModelinstancedpath)
+  {
+    String oldModelinstancedpath = modelinstancedpath;
+    modelinstancedpath = newModelinstancedpath;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.MANIFEST__MODELINSTANCEDPATH, oldModelinstancedpath, modelinstancedpath));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -148,6 +237,10 @@ public class ManifestImpl extends StatementImpl implements Manifest
         return getManifestname();
       case LtmlPackage.MANIFEST__VERSION:
         return getVersion();
+      case LtmlPackage.MANIFEST__INSTANCETYPE:
+        return getInstancetype();
+      case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
+        return getModelinstancedpath();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -167,6 +260,12 @@ public class ManifestImpl extends StatementImpl implements Manifest
         return;
       case LtmlPackage.MANIFEST__VERSION:
         setVersion((String)newValue);
+        return;
+      case LtmlPackage.MANIFEST__INSTANCETYPE:
+        setInstancetype((InstanceType)newValue);
+        return;
+      case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
+        setModelinstancedpath((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,6 +287,12 @@ public class ManifestImpl extends StatementImpl implements Manifest
       case LtmlPackage.MANIFEST__VERSION:
         setVersion(VERSION_EDEFAULT);
         return;
+      case LtmlPackage.MANIFEST__INSTANCETYPE:
+        setInstancetype(INSTANCETYPE_EDEFAULT);
+        return;
+      case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
+        setModelinstancedpath(MODELINSTANCEDPATH_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -206,6 +311,10 @@ public class ManifestImpl extends StatementImpl implements Manifest
         return MANIFESTNAME_EDEFAULT == null ? manifestname != null : !MANIFESTNAME_EDEFAULT.equals(manifestname);
       case LtmlPackage.MANIFEST__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+      case LtmlPackage.MANIFEST__INSTANCETYPE:
+        return instancetype != INSTANCETYPE_EDEFAULT;
+      case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
+        return MODELINSTANCEDPATH_EDEFAULT == null ? modelinstancedpath != null : !MODELINSTANCEDPATH_EDEFAULT.equals(modelinstancedpath);
     }
     return super.eIsSet(featureID);
   }
@@ -225,6 +334,10 @@ public class ManifestImpl extends StatementImpl implements Manifest
     result.append(manifestname);
     result.append(", version: ");
     result.append(version);
+    result.append(", instancetype: ");
+    result.append(instancetype);
+    result.append(", modelinstancedpath: ");
+    result.append(modelinstancedpath);
     result.append(')');
     return result.toString();
   }

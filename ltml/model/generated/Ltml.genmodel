@@ -7,6 +7,10 @@
     runtimeVersion="2.9">
   <genPackages prefix="Ltml" basePackage="com.ino9dev" disposableProviderFactory="true"
       fileExtensions="ltml" ecorePackage="Ltml.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//InstanceType">
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//InstanceType/JMETER"/>
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//InstanceType/LOADRUNNER"/>
+    </genEnums>
     <genClasses ecoreClass="Ltml.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Model/statements"/>
     </genClasses>
@@ -16,6 +20,8 @@
     <genClasses ecoreClass="Ltml.ecore#//Manifest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/manifestname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/instancetype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/modelinstancedpath"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadTest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/loadtestname"/>
