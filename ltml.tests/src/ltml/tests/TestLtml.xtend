@@ -47,7 +47,7 @@ class TestLtml {
             Id manifest01
             Version "1.0"
             InstanceType JMeter
-            ModelInstancedPath "C:\\temp\\senarios\\"
+            ModelInstancedPath "C:\\temp\\senarios\\case1\\"
         }
 
         //Testcase 1
@@ -58,7 +58,7 @@ class TestLtml {
                 NoReport
             }
         }
-
+        //Testcase 2
         LoadTest {
             Id case2
             LoadGroups LG01
@@ -67,6 +67,7 @@ class TestLtml {
             }
         }
 
+        //Testcase 3
         //result path need escape for pathchar(\ is incorrect.\\ is correct.)
         LoadTest {
             Id case3
@@ -77,6 +78,7 @@ class TestLtml {
             }
         }
 
+        //Testcase 4
         LoadTest {
             Id case4
             LoadGroups LG01
@@ -218,6 +220,80 @@ class TestLtml {
         //fsa.setOutputPath(".")
         Guice::createInjector(new GenericModule).injectMembers(fsa)
         underTest.doGenerate(model.eResource, fsa)
+    }
+    
+    @Test
+    def void testCase2(){
+        var model = parseHelper.parse(
+        '''
+        Manifest {
+            Id lt20150801
+            Version "1.0"
+            InstanceType JMeter
+            ModelInstancedPath "C:\\temp\\case2\\senarios"
+        }
         
+        //Testcase 1
+        LoadTest {
+            Id lt001
+            LoadGroups LG01
+            Report {
+               Summary
+               Result "C:\\temp\\results\\report_result.csv"
+               HitPerSecond
+               TransactionPerSecond
+            }
+        }
+        
+        LoadGroup {
+            Id LG01
+            Cc 20
+            Script BP01
+            Iteration "INFINITY"
+            LoadGenerator LGen01
+            RampUp "20/1min"
+            Schedule {
+                Duration 500
+                Delay 0
+            }
+        }
+        
+        LoadGenerator {
+            Id LGen01
+            TargetIp "192.168.0.5"
+            TargetPort "1008"
+            Location "America"
+            AuthUsername "test001"
+            AuthPassword "test001"
+        }
+        
+        Script {
+            Id BP01
+            Name "BusinessProcess01"
+            Trs {
+                Tr {
+                    Id BP01_01
+                    Name "BP01_01"
+                    No 001
+                    Method GET
+                    URL "http://localhost/test1"
+                    CaptureFileName "image001"
+                }
+                Tr {
+                    Id BP02_01
+                    Name "BP02_01"
+                    No 202
+                    Method POST
+                    URL "http://localhost/test2"
+                    Body a=asvalue&b=bsvalue
+                    CaptureFileName "image002"
+                }
+            }
+        }
+        '''   
+        )
+        val fsa = new JavaIoFileSystemAccess()
+        Guice::createInjector(new GenericModule).injectMembers(fsa)
+        underTest.doGenerate(model.eResource, fsa)
     }
 }

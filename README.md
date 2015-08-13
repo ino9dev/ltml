@@ -67,12 +67,6 @@ Manifest {
 LoadTest {
     Id lt001
     LoadGroups LG01
-}
-
-//Testcase 2
-LoadTest {
-    Id lt003
-    LoadGroups LG01
     Report {
        Summary
        Result "C:\\temp\\results\\report_result.csv"
@@ -116,29 +110,6 @@ Script {
             CaptureFileName "image001"
         }
         Tr {
-            Id BP01_02
-            Name "BP01_02"
-            No 002
-            Method GET
-            URL "http://localhost/test2"
-            CaptureFileName "image002"
-        }
-    }
-}
-
-Script {
-    Id BP02
-    Name "BusinessProcess02"
-    Trs {
-        Tr {
-            Id BP02_01
-            Name "BP02_01"
-            No 201
-            Method GET
-            URL "http://localhost/test1"
-            CaptureFileName "image001"
-        }
-        Tr {
             Id BP02_01
             Name "BP02_01"
             No 202
@@ -150,6 +121,19 @@ Script {
     }
 }
 ```
+
+# Output
+
+A model instanced file(JMeter jmx file) is generated to following path
+
+```
+C:\temp\senarios\lt20150801_ver1.0_lt001.jmx
+```
+
+A Jmx file image is following
+
+![Alt text](ltml/instancedbyjmeter.png)
+
 # Task list
 - Phase1
 - [x] implement to handle Report/TransactionPerSecond syntax (20150811 done)
