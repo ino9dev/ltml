@@ -1,5 +1,4 @@
 grammar com.ino9dev.Ltml with org.eclipse.xtext.common.Terminals
-
 generate ltml "http://www.ino9dev.com/Ltml"
 
 Model:
@@ -85,7 +84,7 @@ Script:
         "Name" scriptname=STRING
         ("Transactions"|"Trs") 
         "{"
-            transactions+=Transaction*
+            (transactions+=Transaction)*
         "}"
     "}"
 ;
@@ -95,14 +94,36 @@ Transaction:
     "{"
         "Id" name=ID
         "Name" transactionanme=STRING
-        "No" no=INT
+        "Protocol" protocol=Protocol
         "Method" method=Method
-        "URL" url=STRING
-        ("Parameters" params+=Params)?
-        ("Body" body=STRING)?
+        "Server" server=(STRING|IPADDRESS)
+        "Path" path=STRING
+        ("RequestParameters" "["
+            param+=Param*
+         "]"|"Body" body=STRING
+        )?
         ("CaptureFileName" capturefilename=STRING)?
-        ("ResponseExpected" text=STRING "Exist")?
+        ("ResponseExpected" text=STRING ("Exist"|"NotExist"|"Included"))?
     "}"
+;
+
+
+terminal IPADDRESS:
+    ('1'..'2''0'..'5''0'..'5'
+        |'1'..'9''0'..'9'
+        |'0'..'9')
+    '.'
+    ('1'..'2''0'..'5''0'..'5'
+        |'1'..'9''0'..'9'
+        |'0'..'9')
+    '.'
+    ('1'..'2''0'..'5''0'..'5'
+        |'1'..'9''0'..'9'
+        |'0'..'9')
+    '.'
+    ('1'..'2''0'..'5''0'..'5'
+        |'1'..'9''0'..'9'
+        |'0'..'9')
 ;
 
 Report:
@@ -119,18 +140,27 @@ Report:
     "}"
 ;
 
-Params:
-    "["key=STRING"="value=STRING("&"|"]")
+Param:
+    key=STRING"="value=STRING
 ;
 
-Method:
-    "GET"
-    |"POST"
-    |"DELETE"
-    |"PUT"
+enum Method:
+    GET="GET"
+    |POST="POST"
+    |DELETE="DELETE"
+    |PUT="PUT"
+    |OPTION="OPTION"
 ;
 
 enum InstanceType:
     JMETER="JMeter"
     |LOADRUNNER="LoadRunner"
+;
+
+enum Protocol:
+    HTTP="HTTP"
+    |HTTPS="HTTPS"
+    |SMTP="SMTP"
+    |FTP="FTP"
+    //others when if those are needed
 ;

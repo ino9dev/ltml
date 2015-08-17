@@ -3,7 +3,9 @@
 package com.ino9dev.ltml.impl;
 
 import com.ino9dev.ltml.LtmlPackage;
-import com.ino9dev.ltml.Params;
+import com.ino9dev.ltml.Method;
+import com.ino9dev.ltml.Param;
+import com.ino9dev.ltml.Protocol;
 import com.ino9dev.ltml.Transaction;
 
 import java.util.Collection;
@@ -31,10 +33,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getTransactionanme <em>Transactionanme</em>}</li>
- *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getNo <em>No</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getMethod <em>Method</em>}</li>
- *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getServer <em>Server</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getParam <em>Param</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getBody <em>Body</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getCapturefilename <em>Capturefilename</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getText <em>Text</em>}</li>
@@ -86,24 +89,24 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   protected String transactionanme = TRANSACTIONANME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNo() <em>No</em>}' attribute.
+   * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNo()
+   * @see #getProtocol()
    * @generated
    * @ordered
    */
-  protected static final int NO_EDEFAULT = 0;
+  protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
 
   /**
-   * The cached value of the '{@link #getNo() <em>No</em>}' attribute.
+   * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNo()
+   * @see #getProtocol()
    * @generated
    * @ordered
    */
-  protected int no = NO_EDEFAULT;
+  protected Protocol protocol = PROTOCOL_EDEFAULT;
 
   /**
    * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
@@ -113,7 +116,7 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * @generated
    * @ordered
    */
-  protected static final String METHOD_EDEFAULT = null;
+  protected static final Method METHOD_EDEFAULT = Method.GET;
 
   /**
    * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
@@ -123,37 +126,57 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * @generated
    * @ordered
    */
-  protected String method = METHOD_EDEFAULT;
+  protected Method method = METHOD_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
+   * The default value of the '{@link #getServer() <em>Server</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrl()
+   * @see #getServer()
    * @generated
    * @ordered
    */
-  protected static final String URL_EDEFAULT = null;
+  protected static final String SERVER_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
+   * The cached value of the '{@link #getServer() <em>Server</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrl()
+   * @see #getServer()
    * @generated
    * @ordered
    */
-  protected String url = URL_EDEFAULT;
+  protected String server = SERVER_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParams()
+   * @see #getPath()
    * @generated
    * @ordered
    */
-  protected EList<Params> params;
+  protected static final String PATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected String path = PATH_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParam()
+   * @generated
+   * @ordered
+   */
+  protected EList<Param> param;
 
   /**
    * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
@@ -287,9 +310,9 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getNo()
+  public Protocol getProtocol()
   {
-    return no;
+    return protocol;
   }
 
   /**
@@ -297,12 +320,12 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNo(int newNo)
+  public void setProtocol(Protocol newProtocol)
   {
-    int oldNo = no;
-    no = newNo;
+    Protocol oldProtocol = protocol;
+    protocol = newProtocol == null ? PROTOCOL_EDEFAULT : newProtocol;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__NO, oldNo, no));
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__PROTOCOL, oldProtocol, protocol));
   }
 
   /**
@@ -310,7 +333,7 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMethod()
+  public Method getMethod()
   {
     return method;
   }
@@ -320,10 +343,10 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(String newMethod)
+  public void setMethod(Method newMethod)
   {
-    String oldMethod = method;
-    method = newMethod;
+    Method oldMethod = method;
+    method = newMethod == null ? METHOD_EDEFAULT : newMethod;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__METHOD, oldMethod, method));
   }
@@ -333,9 +356,9 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getUrl()
+  public String getServer()
   {
-    return url;
+    return server;
   }
 
   /**
@@ -343,12 +366,12 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUrl(String newUrl)
+  public void setServer(String newServer)
   {
-    String oldUrl = url;
-    url = newUrl;
+    String oldServer = server;
+    server = newServer;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__URL, oldUrl, url));
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__SERVER, oldServer, server));
   }
 
   /**
@@ -356,13 +379,36 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Params> getParams()
+  public String getPath()
   {
-    if (params == null)
+    return path;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPath(String newPath)
+  {
+    String oldPath = path;
+    path = newPath;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__PATH, oldPath, path));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Param> getParam()
+  {
+    if (param == null)
     {
-      params = new EObjectContainmentEList<Params>(Params.class, this, LtmlPackage.TRANSACTION__PARAMS);
+      param = new EObjectContainmentEList<Param>(Param.class, this, LtmlPackage.TRANSACTION__PARAM);
     }
-    return params;
+    return param;
   }
 
   /**
@@ -444,8 +490,8 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   {
     switch (featureID)
     {
-      case LtmlPackage.TRANSACTION__PARAMS:
-        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
+      case LtmlPackage.TRANSACTION__PARAM:
+        return ((InternalEList<?>)getParam()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -464,14 +510,16 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return getName();
       case LtmlPackage.TRANSACTION__TRANSACTIONANME:
         return getTransactionanme();
-      case LtmlPackage.TRANSACTION__NO:
-        return getNo();
+      case LtmlPackage.TRANSACTION__PROTOCOL:
+        return getProtocol();
       case LtmlPackage.TRANSACTION__METHOD:
         return getMethod();
-      case LtmlPackage.TRANSACTION__URL:
-        return getUrl();
-      case LtmlPackage.TRANSACTION__PARAMS:
-        return getParams();
+      case LtmlPackage.TRANSACTION__SERVER:
+        return getServer();
+      case LtmlPackage.TRANSACTION__PATH:
+        return getPath();
+      case LtmlPackage.TRANSACTION__PARAM:
+        return getParam();
       case LtmlPackage.TRANSACTION__BODY:
         return getBody();
       case LtmlPackage.TRANSACTION__CAPTUREFILENAME:
@@ -499,18 +547,21 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
       case LtmlPackage.TRANSACTION__TRANSACTIONANME:
         setTransactionanme((String)newValue);
         return;
-      case LtmlPackage.TRANSACTION__NO:
-        setNo((Integer)newValue);
+      case LtmlPackage.TRANSACTION__PROTOCOL:
+        setProtocol((Protocol)newValue);
         return;
       case LtmlPackage.TRANSACTION__METHOD:
-        setMethod((String)newValue);
+        setMethod((Method)newValue);
         return;
-      case LtmlPackage.TRANSACTION__URL:
-        setUrl((String)newValue);
+      case LtmlPackage.TRANSACTION__SERVER:
+        setServer((String)newValue);
         return;
-      case LtmlPackage.TRANSACTION__PARAMS:
-        getParams().clear();
-        getParams().addAll((Collection<? extends Params>)newValue);
+      case LtmlPackage.TRANSACTION__PATH:
+        setPath((String)newValue);
+        return;
+      case LtmlPackage.TRANSACTION__PARAM:
+        getParam().clear();
+        getParam().addAll((Collection<? extends Param>)newValue);
         return;
       case LtmlPackage.TRANSACTION__BODY:
         setBody((String)newValue);
@@ -541,17 +592,20 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
       case LtmlPackage.TRANSACTION__TRANSACTIONANME:
         setTransactionanme(TRANSACTIONANME_EDEFAULT);
         return;
-      case LtmlPackage.TRANSACTION__NO:
-        setNo(NO_EDEFAULT);
+      case LtmlPackage.TRANSACTION__PROTOCOL:
+        setProtocol(PROTOCOL_EDEFAULT);
         return;
       case LtmlPackage.TRANSACTION__METHOD:
         setMethod(METHOD_EDEFAULT);
         return;
-      case LtmlPackage.TRANSACTION__URL:
-        setUrl(URL_EDEFAULT);
+      case LtmlPackage.TRANSACTION__SERVER:
+        setServer(SERVER_EDEFAULT);
         return;
-      case LtmlPackage.TRANSACTION__PARAMS:
-        getParams().clear();
+      case LtmlPackage.TRANSACTION__PATH:
+        setPath(PATH_EDEFAULT);
+        return;
+      case LtmlPackage.TRANSACTION__PARAM:
+        getParam().clear();
         return;
       case LtmlPackage.TRANSACTION__BODY:
         setBody(BODY_EDEFAULT);
@@ -580,14 +634,16 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.TRANSACTION__TRANSACTIONANME:
         return TRANSACTIONANME_EDEFAULT == null ? transactionanme != null : !TRANSACTIONANME_EDEFAULT.equals(transactionanme);
-      case LtmlPackage.TRANSACTION__NO:
-        return no != NO_EDEFAULT;
+      case LtmlPackage.TRANSACTION__PROTOCOL:
+        return protocol != PROTOCOL_EDEFAULT;
       case LtmlPackage.TRANSACTION__METHOD:
-        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
-      case LtmlPackage.TRANSACTION__URL:
-        return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
-      case LtmlPackage.TRANSACTION__PARAMS:
-        return params != null && !params.isEmpty();
+        return method != METHOD_EDEFAULT;
+      case LtmlPackage.TRANSACTION__SERVER:
+        return SERVER_EDEFAULT == null ? server != null : !SERVER_EDEFAULT.equals(server);
+      case LtmlPackage.TRANSACTION__PATH:
+        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+      case LtmlPackage.TRANSACTION__PARAM:
+        return param != null && !param.isEmpty();
       case LtmlPackage.TRANSACTION__BODY:
         return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
       case LtmlPackage.TRANSACTION__CAPTUREFILENAME:
@@ -613,12 +669,14 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
     result.append(name);
     result.append(", transactionanme: ");
     result.append(transactionanme);
-    result.append(", no: ");
-    result.append(no);
+    result.append(", protocol: ");
+    result.append(protocol);
     result.append(", method: ");
     result.append(method);
-    result.append(", url: ");
-    result.append(url);
+    result.append(", server: ");
+    result.append(server);
+    result.append(", path: ");
+    result.append(path);
     result.append(", body: ");
     result.append(body);
     result.append(", capturefilename: ");

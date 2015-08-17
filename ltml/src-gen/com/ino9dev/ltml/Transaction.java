@@ -16,10 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.Transaction#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getTransactionanme <em>Transactionanme</em>}</li>
- *   <li>{@link com.ino9dev.ltml.Transaction#getNo <em>No</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getMethod <em>Method</em>}</li>
- *   <li>{@link com.ino9dev.ltml.Transaction#getUrl <em>Url</em>}</li>
- *   <li>{@link com.ino9dev.ltml.Transaction#getParams <em>Params</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getServer <em>Server</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getPath <em>Path</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getParam <em>Param</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getBody <em>Body</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getCapturefilename <em>Capturefilename</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getText <em>Text</em>}</li>
@@ -85,33 +86,37 @@ public interface Transaction extends EObject
   void setTransactionanme(String value);
 
   /**
-   * Returns the value of the '<em><b>No</b></em>' attribute.
+   * Returns the value of the '<em><b>Protocol</b></em>' attribute.
+   * The literals are from the enumeration {@link com.ino9dev.ltml.Protocol}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>No</em>' attribute isn't clear,
+   * If the meaning of the '<em>Protocol</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>No</em>' attribute.
-   * @see #setNo(int)
-   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_No()
+   * @return the value of the '<em>Protocol</em>' attribute.
+   * @see com.ino9dev.ltml.Protocol
+   * @see #setProtocol(Protocol)
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Protocol()
    * @model
    * @generated
    */
-  int getNo();
+  Protocol getProtocol();
 
   /**
-   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getNo <em>No</em>}' attribute.
+   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getProtocol <em>Protocol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>No</em>' attribute.
-   * @see #getNo()
+   * @param value the new value of the '<em>Protocol</em>' attribute.
+   * @see com.ino9dev.ltml.Protocol
+   * @see #getProtocol()
    * @generated
    */
-  void setNo(int value);
+  void setProtocol(Protocol value);
 
   /**
    * Returns the value of the '<em><b>Method</b></em>' attribute.
+   * The literals are from the enumeration {@link com.ino9dev.ltml.Method}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Method</em>' attribute isn't clear,
@@ -119,64 +124,92 @@ public interface Transaction extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Method</em>' attribute.
-   * @see #setMethod(String)
+   * @see com.ino9dev.ltml.Method
+   * @see #setMethod(Method)
    * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Method()
    * @model
    * @generated
    */
-  String getMethod();
+  Method getMethod();
 
   /**
    * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getMethod <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Method</em>' attribute.
+   * @see com.ino9dev.ltml.Method
    * @see #getMethod()
    * @generated
    */
-  void setMethod(String value);
+  void setMethod(Method value);
 
   /**
-   * Returns the value of the '<em><b>Url</b></em>' attribute.
+   * Returns the value of the '<em><b>Server</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Url</em>' attribute isn't clear,
+   * If the meaning of the '<em>Server</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Url</em>' attribute.
-   * @see #setUrl(String)
-   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Url()
+   * @return the value of the '<em>Server</em>' attribute.
+   * @see #setServer(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Server()
    * @model
    * @generated
    */
-  String getUrl();
+  String getServer();
 
   /**
-   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getUrl <em>Url</em>}' attribute.
+   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getServer <em>Server</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Url</em>' attribute.
-   * @see #getUrl()
+   * @param value the new value of the '<em>Server</em>' attribute.
+   * @see #getServer()
    * @generated
    */
-  void setUrl(String value);
+  void setServer(String value);
 
   /**
-   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-   * The list contents are of type {@link com.ino9dev.ltml.Params}.
+   * Returns the value of the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Path</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Params</em>' containment reference list.
-   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Params()
+   * @return the value of the '<em>Path</em>' attribute.
+   * @see #setPath(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Path()
+   * @model
+   * @generated
+   */
+  String getPath();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getPath <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Path</em>' attribute.
+   * @see #getPath()
+   * @generated
+   */
+  void setPath(String value);
+
+  /**
+   * Returns the value of the '<em><b>Param</b></em>' containment reference list.
+   * The list contents are of type {@link com.ino9dev.ltml.Param}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Param</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Param</em>' containment reference list.
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Param()
    * @model containment="true"
    * @generated
    */
-  EList<Params> getParams();
+  EList<Param> getParam();
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' attribute.

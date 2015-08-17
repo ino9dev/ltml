@@ -227,7 +227,7 @@ class TestLtml {
         var model = parseHelper.parse(
         '''
         Manifest {
-            Id lt20150801
+            Id testcase1
             Version "1.0"
             InstanceType JMeter
             ModelInstancedPath "C:\\temp\\case2\\senarios"
@@ -274,19 +274,24 @@ class TestLtml {
                 Tr {
                     Id BP01_01
                     Name "BP01_01"
-                    No 001
+                    Protocol HTTP
                     Method GET
-                    URL "http://localhost/test1"
-                    CaptureFileName "image001"
+                    Server "localhost"
+                    Path "/"
+                    CaptureFileName "C:\\temp\\result\\image002"
                 }
                 Tr {
-                    Id BP02_01
-                    Name "BP02_01"
-                    No 202
+                    Id BP01_02
+                    Name "BP01_02"
+                    Protocol HTTP
                     Method POST
-                    URL "http://localhost/test2"
-                    Body a=asvalue&b=bsvalue
-                    CaptureFileName "image002"
+                    Server "localhost"
+                    Path "/"
+                    RequestParameters [
+                        "ka"="va"
+                        "kb"="vb"
+                    ]
+                    CaptureFileName "C:\\temp\\result\\image002"
                 }
             }
         }

@@ -104,9 +104,6 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               </ThreadGroup>
               <hashTree>
               «FOR t:lg.script.transactions»
-                «var protocol=t.url.split("://").get(0)»
-                «var domain=t.url.split("://").get(1).split("/").get(0)»
-                «var path=t.url.split("://").get(1).split("/").drop(0).reduce([e1,e2|e1+e2])»
                 <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="«t.name»" enabled="true">
                   <boolProp name="TransactionController.includeTimers">false</boolProp>
                   <boolProp name="TransactionController.parent">false</boolProp>
@@ -114,15 +111,25 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                 <hashTree>
                   <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="«t.name»" enabled="true">
                     <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="userdefinedvariable" enabled="true">
-                      <collectionProp name="Arguments.arguments"/>
+                      <collectionProp name="Arguments.arguments">
+                        «FOR p:t.param»
+                        <elementProp name="«p.key»" elementType="HTTPArgument">
+                          <stringProp name="Argument.name">«p.key»</stringProp>
+                          <stringProp name="Argument.value">«p.value»</stringProp>
+                          <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                          <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                        «ENDFOR»
+                      </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">«domain»</stringProp>
+                    <stringProp name="HTTPSampler.domain">«t.server»</stringProp>
                     <stringProp name="HTTPSampler.port">80</stringProp>
                     <stringProp name="HTTPSampler.connect_timeout"></stringProp>
                     <stringProp name="HTTPSampler.response_timeout"></stringProp>
-                    <stringProp name="HTTPSampler.protocol">«protocol»</stringProp>
+                    <stringProp name="HTTPSampler.protocol">«t.protocol»</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                    <stringProp name="HTTPSampler.path">«path»</stringProp>
+                    <stringProp name="HTTPSampler.path">«t.path»</stringProp>
                     <stringProp name="HTTPSampler.method">«t.method»</stringProp>
                     <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                     <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -132,6 +139,19 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                     <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
                   </HTTPSamplerProxy>
                   <hashTree/>
+                  «IF t.capturefilename != ""»
+                  <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+                    <stringProp name="FileSaver.filename">«t.capturefilename»</stringProp>
+                    <boolProp name="FileSaver.errorsonly">false</boolProp>
+                    <boolProp name="FileSaver.skipautonumber">true</boolProp>
+                    <boolProp name="FileSaver.skipsuffix">false</boolProp>
+                    <boolProp name="FileSaver.successonly">false</boolProp>
+                    <boolProp name="FileSaver.addTimstamp">true</boolProp>
+                    <stringProp name="FileSaver.variablename"></stringProp>
+                    <stringProp name="FileSaver.numberPadLen"></stringProp>
+                  </ResultSaver>
+                  <hashTree/>
+                  «ENDIF»
                 </hashTree>
               «ENDFOR»
               </hashTree>

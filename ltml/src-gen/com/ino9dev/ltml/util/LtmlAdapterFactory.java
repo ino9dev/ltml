@@ -125,9 +125,9 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
         return createReportAdapter();
       }
       @Override
-      public Adapter caseParams(Params object)
+      public Adapter caseParam(Param object)
       {
-        return createParamsAdapter();
+        return createParamAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -302,16 +302,16 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.ino9dev.ltml.Params <em>Params</em>}'.
+   * Creates a new adapter for an object of class '{@link com.ino9dev.ltml.Param <em>Param</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.ino9dev.ltml.Params
+   * @see com.ino9dev.ltml.Param
    * @generated
    */
-  public Adapter createParamsAdapter()
+  public Adapter createParamAdapter()
   {
     return null;
   }

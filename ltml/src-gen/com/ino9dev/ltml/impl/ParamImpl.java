@@ -3,7 +3,7 @@
 package com.ino9dev.ltml.impl;
 
 import com.ino9dev.ltml.LtmlPackage;
-import com.ino9dev.ltml.Params;
+import com.ino9dev.ltml.Param;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,19 +14,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Params</b></em>'.
+ * An implementation of the model object '<em><b>Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.ino9dev.ltml.impl.ParamsImpl#getKey <em>Key</em>}</li>
- *   <li>{@link com.ino9dev.ltml.impl.ParamsImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ParamImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ParamImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
+public class ParamImpl extends MinimalEObjectImpl.Container implements Param
 {
   /**
    * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
@@ -73,7 +73,7 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ParamsImpl()
+  protected ParamImpl()
   {
     super();
   }
@@ -86,7 +86,7 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
   @Override
   protected EClass eStaticClass()
   {
-    return LtmlPackage.Literals.PARAMS;
+    return LtmlPackage.Literals.PARAM;
   }
 
   /**
@@ -109,7 +109,7 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
     String oldKey = key;
     key = newKey;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.PARAMS__KEY, oldKey, key));
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.PARAM__KEY, oldKey, key));
   }
 
   /**
@@ -132,7 +132,7 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.PARAMS__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.PARAM__VALUE, oldValue, value));
   }
 
   /**
@@ -145,9 +145,9 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
   {
     switch (featureID)
     {
-      case LtmlPackage.PARAMS__KEY:
+      case LtmlPackage.PARAM__KEY:
         return getKey();
-      case LtmlPackage.PARAMS__VALUE:
+      case LtmlPackage.PARAM__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -163,10 +163,10 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
   {
     switch (featureID)
     {
-      case LtmlPackage.PARAMS__KEY:
+      case LtmlPackage.PARAM__KEY:
         setKey((String)newValue);
         return;
-      case LtmlPackage.PARAMS__VALUE:
+      case LtmlPackage.PARAM__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -183,10 +183,10 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
   {
     switch (featureID)
     {
-      case LtmlPackage.PARAMS__KEY:
+      case LtmlPackage.PARAM__KEY:
         setKey(KEY_EDEFAULT);
         return;
-      case LtmlPackage.PARAMS__VALUE:
+      case LtmlPackage.PARAM__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -203,9 +203,9 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
   {
     switch (featureID)
     {
-      case LtmlPackage.PARAMS__KEY:
+      case LtmlPackage.PARAM__KEY:
         return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-      case LtmlPackage.PARAMS__VALUE:
+      case LtmlPackage.PARAM__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -230,4 +230,4 @@ public class ParamsImpl extends MinimalEObjectImpl.Container implements Params
     return result.toString();
   }
 
-} //ParamsImpl
+} //ParamImpl

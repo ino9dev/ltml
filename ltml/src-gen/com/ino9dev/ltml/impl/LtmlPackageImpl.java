@@ -9,8 +9,10 @@ import com.ino9dev.ltml.LoadTest;
 import com.ino9dev.ltml.LtmlFactory;
 import com.ino9dev.ltml.LtmlPackage;
 import com.ino9dev.ltml.Manifest;
+import com.ino9dev.ltml.Method;
 import com.ino9dev.ltml.Model;
-import com.ino9dev.ltml.Params;
+import com.ino9dev.ltml.Param;
+import com.ino9dev.ltml.Protocol;
 import com.ino9dev.ltml.Report;
 import com.ino9dev.ltml.Schedule;
 import com.ino9dev.ltml.Script;
@@ -108,7 +110,14 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass paramsEClass = null;
+  private EClass paramEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum methodEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,6 +125,13 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * @generated
    */
   private EEnum instanceTypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum protocolEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -585,7 +601,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTransaction_No()
+  public EAttribute getTransaction_Protocol()
   {
     return (EAttribute)transactionEClass.getEStructuralFeatures().get(2);
   }
@@ -605,7 +621,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTransaction_Url()
+  public EAttribute getTransaction_Server()
   {
     return (EAttribute)transactionEClass.getEStructuralFeatures().get(4);
   }
@@ -615,9 +631,19 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransaction_Params()
+  public EAttribute getTransaction_Path()
   {
-    return (EReference)transactionEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)transactionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransaction_Param()
+  {
+    return (EReference)transactionEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -627,7 +653,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EAttribute getTransaction_Body()
   {
-    return (EAttribute)transactionEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)transactionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -637,7 +663,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EAttribute getTransaction_Capturefilename()
   {
-    return (EAttribute)transactionEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)transactionEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -647,7 +673,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EAttribute getTransaction_Text()
   {
-    return (EAttribute)transactionEClass.getEStructuralFeatures().get(8);
+    return (EAttribute)transactionEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -735,9 +761,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getParams()
+  public EClass getParam()
   {
-    return paramsEClass;
+    return paramEClass;
   }
 
   /**
@@ -745,9 +771,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParams_Key()
+  public EAttribute getParam_Key()
   {
-    return (EAttribute)paramsEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)paramEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -755,9 +781,19 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParams_Value()
+  public EAttribute getParam_Value()
   {
-    return (EAttribute)paramsEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)paramEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getMethod()
+  {
+    return methodEEnum;
   }
 
   /**
@@ -768,6 +804,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
   public EEnum getInstanceType()
   {
     return instanceTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getProtocol()
+  {
+    return protocolEEnum;
   }
 
   /**
@@ -848,10 +894,11 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     transactionEClass = createEClass(TRANSACTION);
     createEAttribute(transactionEClass, TRANSACTION__NAME);
     createEAttribute(transactionEClass, TRANSACTION__TRANSACTIONANME);
-    createEAttribute(transactionEClass, TRANSACTION__NO);
+    createEAttribute(transactionEClass, TRANSACTION__PROTOCOL);
     createEAttribute(transactionEClass, TRANSACTION__METHOD);
-    createEAttribute(transactionEClass, TRANSACTION__URL);
-    createEReference(transactionEClass, TRANSACTION__PARAMS);
+    createEAttribute(transactionEClass, TRANSACTION__SERVER);
+    createEAttribute(transactionEClass, TRANSACTION__PATH);
+    createEReference(transactionEClass, TRANSACTION__PARAM);
     createEAttribute(transactionEClass, TRANSACTION__BODY);
     createEAttribute(transactionEClass, TRANSACTION__CAPTUREFILENAME);
     createEAttribute(transactionEClass, TRANSACTION__TEXT);
@@ -865,12 +912,14 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(reportEClass, REPORT__RESPTIME);
     createEAttribute(reportEClass, REPORT__CC);
 
-    paramsEClass = createEClass(PARAMS);
-    createEAttribute(paramsEClass, PARAMS__KEY);
-    createEAttribute(paramsEClass, PARAMS__VALUE);
+    paramEClass = createEClass(PARAM);
+    createEAttribute(paramEClass, PARAM__KEY);
+    createEAttribute(paramEClass, PARAM__VALUE);
 
     // Create enums
+    methodEEnum = createEEnum(METHOD);
     instanceTypeEEnum = createEEnum(INSTANCE_TYPE);
+    protocolEEnum = createEEnum(PROTOCOL);
   }
 
   /**
@@ -957,10 +1006,11 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEClass(transactionEClass, Transaction.class, "Transaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTransaction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Transactionanme(), ecorePackage.getEString(), "transactionanme", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTransaction_No(), ecorePackage.getEInt(), "no", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTransaction_Method(), ecorePackage.getEString(), "method", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTransaction_Url(), ecorePackage.getEString(), "url", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransaction_Params(), this.getParams(), null, "params", null, 0, -1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransaction_Protocol(), this.getProtocol(), "protocol", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransaction_Method(), this.getMethod(), "method", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransaction_Server(), ecorePackage.getEString(), "server", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransaction_Path(), ecorePackage.getEString(), "path", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransaction_Param(), this.getParam(), null, "param", null, 0, -1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Body(), ecorePackage.getEString(), "body", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Capturefilename(), ecorePackage.getEString(), "capturefilename", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Text(), ecorePackage.getEString(), "text", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -974,14 +1024,27 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getReport_Resptime(), ecorePackage.getEBoolean(), "resptime", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReport_Cc(), ecorePackage.getEBoolean(), "cc", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(paramsEClass, Params.class, "Params", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getParams_Key(), ecorePackage.getEString(), "key", null, 0, 1, Params.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getParams_Value(), ecorePackage.getEString(), "value", null, 0, 1, Params.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(paramEClass, Param.class, "Param", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParam_Key(), ecorePackage.getEString(), "key", null, 0, 1, Param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParam_Value(), ecorePackage.getEString(), "value", null, 0, 1, Param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
+    initEEnum(methodEEnum, Method.class, "Method");
+    addEEnumLiteral(methodEEnum, Method.GET);
+    addEEnumLiteral(methodEEnum, Method.POST);
+    addEEnumLiteral(methodEEnum, Method.DELETE);
+    addEEnumLiteral(methodEEnum, Method.PUT);
+    addEEnumLiteral(methodEEnum, Method.OPTION);
+
     initEEnum(instanceTypeEEnum, InstanceType.class, "InstanceType");
     addEEnumLiteral(instanceTypeEEnum, InstanceType.JMETER);
     addEEnumLiteral(instanceTypeEEnum, InstanceType.LOADRUNNER);
+
+    initEEnum(protocolEEnum, Protocol.class, "Protocol");
+    addEEnumLiteral(protocolEEnum, Protocol.HTTP);
+    addEEnumLiteral(protocolEEnum, Protocol.HTTPS);
+    addEEnumLiteral(protocolEEnum, Protocol.SMTP);
+    addEEnumLiteral(protocolEEnum, Protocol.FTP);
 
     // Create resource
     createResource(eNS_URI);

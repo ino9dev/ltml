@@ -6,22 +6,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Params</b></em>'.
+ * A representation of the model object '<em><b>Param</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.ino9dev.ltml.Params#getKey <em>Key</em>}</li>
- *   <li>{@link com.ino9dev.ltml.Params#getValue <em>Value</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Param#getKey <em>Key</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Param#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see com.ino9dev.ltml.LtmlPackage#getParams()
+ * @see com.ino9dev.ltml.LtmlPackage#getParam()
  * @model
  * @generated
  */
-public interface Params extends EObject
+public interface Param extends EObject
 {
   /**
    * Returns the value of the '<em><b>Key</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface Params extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Key</em>' attribute.
    * @see #setKey(String)
-   * @see com.ino9dev.ltml.LtmlPackage#getParams_Key()
+   * @see com.ino9dev.ltml.LtmlPackage#getParam_Key()
    * @model
    * @generated
    */
   String getKey();
 
   /**
-   * Sets the value of the '{@link com.ino9dev.ltml.Params#getKey <em>Key</em>}' attribute.
+   * Sets the value of the '{@link com.ino9dev.ltml.Param#getKey <em>Key</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Key</em>' attribute.
@@ -59,14 +59,14 @@ public interface Params extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see com.ino9dev.ltml.LtmlPackage#getParams_Value()
+   * @see com.ino9dev.ltml.LtmlPackage#getParam_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link com.ino9dev.ltml.Params#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link com.ino9dev.ltml.Param#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -75,4 +75,4 @@ public interface Params extends EObject
    */
   void setValue(String value);
 
-} // Params
+} // Param

@@ -544,13 +544,13 @@ public interface LtmlPackage extends EPackage
   int TRANSACTION__TRANSACTIONANME = 1;
 
   /**
-   * The feature id for the '<em><b>No</b></em>' attribute.
+   * The feature id for the '<em><b>Protocol</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSACTION__NO = 2;
+  int TRANSACTION__PROTOCOL = 2;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -562,22 +562,31 @@ public interface LtmlPackage extends EPackage
   int TRANSACTION__METHOD = 3;
 
   /**
-   * The feature id for the '<em><b>Url</b></em>' attribute.
+   * The feature id for the '<em><b>Server</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSACTION__URL = 4;
+  int TRANSACTION__SERVER = 4;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * The feature id for the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSACTION__PARAMS = 5;
+  int TRANSACTION__PATH = 5;
+
+  /**
+   * The feature id for the '<em><b>Param</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSACTION__PARAM = 6;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -586,7 +595,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSACTION__BODY = 6;
+  int TRANSACTION__BODY = 7;
 
   /**
    * The feature id for the '<em><b>Capturefilename</b></em>' attribute.
@@ -595,7 +604,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSACTION__CAPTUREFILENAME = 7;
+  int TRANSACTION__CAPTUREFILENAME = 8;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -604,7 +613,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSACTION__TEXT = 8;
+  int TRANSACTION__TEXT = 9;
 
   /**
    * The number of structural features of the '<em>Transaction</em>' class.
@@ -613,7 +622,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSACTION_FEATURE_COUNT = 9;
+  int TRANSACTION_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ReportImpl <em>Report</em>}' class.
@@ -698,14 +707,14 @@ public interface LtmlPackage extends EPackage
   int REPORT_FEATURE_COUNT = 7;
 
   /**
-   * The meta object id for the '{@link com.ino9dev.ltml.impl.ParamsImpl <em>Params</em>}' class.
+   * The meta object id for the '{@link com.ino9dev.ltml.impl.ParamImpl <em>Param</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.ino9dev.ltml.impl.ParamsImpl
-   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getParams()
+   * @see com.ino9dev.ltml.impl.ParamImpl
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getParam()
    * @generated
    */
-  int PARAMS = 10;
+  int PARAM = 10;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -714,7 +723,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMS__KEY = 0;
+  int PARAM__KEY = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -723,16 +732,26 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMS__VALUE = 1;
+  int PARAM__VALUE = 1;
 
   /**
-   * The number of structural features of the '<em>Params</em>' class.
+   * The number of structural features of the '<em>Param</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMS_FEATURE_COUNT = 2;
+  int PARAM_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.Method <em>Method</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.Method
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getMethod()
+   * @generated
+   */
+  int METHOD = 11;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}' enum.
@@ -742,7 +761,17 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getInstanceType()
    * @generated
    */
-  int INSTANCE_TYPE = 11;
+  int INSTANCE_TYPE = 12;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.Protocol <em>Protocol</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.Protocol
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getProtocol()
+   * @generated
+   */
+  int PROTOCOL = 13;
 
 
   /**
@@ -1177,15 +1206,15 @@ public interface LtmlPackage extends EPackage
   EAttribute getTransaction_Transactionanme();
 
   /**
-   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getNo <em>No</em>}'.
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getProtocol <em>Protocol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>No</em>'.
-   * @see com.ino9dev.ltml.Transaction#getNo()
+   * @return the meta object for the attribute '<em>Protocol</em>'.
+   * @see com.ino9dev.ltml.Transaction#getProtocol()
    * @see #getTransaction()
    * @generated
    */
-  EAttribute getTransaction_No();
+  EAttribute getTransaction_Protocol();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getMethod <em>Method</em>}'.
@@ -1199,26 +1228,37 @@ public interface LtmlPackage extends EPackage
   EAttribute getTransaction_Method();
 
   /**
-   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getUrl <em>Url</em>}'.
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getServer <em>Server</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Url</em>'.
-   * @see com.ino9dev.ltml.Transaction#getUrl()
+   * @return the meta object for the attribute '<em>Server</em>'.
+   * @see com.ino9dev.ltml.Transaction#getServer()
    * @see #getTransaction()
    * @generated
    */
-  EAttribute getTransaction_Url();
+  EAttribute getTransaction_Server();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ino9dev.ltml.Transaction#getParams <em>Params</em>}'.
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see com.ino9dev.ltml.Transaction#getParams()
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see com.ino9dev.ltml.Transaction#getPath()
    * @see #getTransaction()
    * @generated
    */
-  EReference getTransaction_Params();
+  EAttribute getTransaction_Path();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.ino9dev.ltml.Transaction#getParam <em>Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Param</em>'.
+   * @see com.ino9dev.ltml.Transaction#getParam()
+   * @see #getTransaction()
+   * @generated
+   */
+  EReference getTransaction_Param();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getBody <em>Body</em>}'.
@@ -1341,36 +1381,46 @@ public interface LtmlPackage extends EPackage
   EAttribute getReport_Cc();
 
   /**
-   * Returns the meta object for class '{@link com.ino9dev.ltml.Params <em>Params</em>}'.
+   * Returns the meta object for class '{@link com.ino9dev.ltml.Param <em>Param</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Params</em>'.
-   * @see com.ino9dev.ltml.Params
+   * @return the meta object for class '<em>Param</em>'.
+   * @see com.ino9dev.ltml.Param
    * @generated
    */
-  EClass getParams();
+  EClass getParam();
 
   /**
-   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Params#getKey <em>Key</em>}'.
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Param#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Key</em>'.
-   * @see com.ino9dev.ltml.Params#getKey()
-   * @see #getParams()
+   * @see com.ino9dev.ltml.Param#getKey()
+   * @see #getParam()
    * @generated
    */
-  EAttribute getParams_Key();
+  EAttribute getParam_Key();
 
   /**
-   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Params#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Param#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see com.ino9dev.ltml.Params#getValue()
-   * @see #getParams()
+   * @see com.ino9dev.ltml.Param#getValue()
+   * @see #getParam()
    * @generated
    */
-  EAttribute getParams_Value();
+  EAttribute getParam_Value();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.Method <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Method</em>'.
+   * @see com.ino9dev.ltml.Method
+   * @generated
+   */
+  EEnum getMethod();
 
   /**
    * Returns the meta object for enum '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}'.
@@ -1381,6 +1431,16 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EEnum getInstanceType();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.Protocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Protocol</em>'.
+   * @see com.ino9dev.ltml.Protocol
+   * @generated
+   */
+  EEnum getProtocol();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1744,12 +1804,12 @@ public interface LtmlPackage extends EPackage
     EAttribute TRANSACTION__TRANSACTIONANME = eINSTANCE.getTransaction_Transactionanme();
 
     /**
-     * The meta object literal for the '<em><b>No</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TRANSACTION__NO = eINSTANCE.getTransaction_No();
+    EAttribute TRANSACTION__PROTOCOL = eINSTANCE.getTransaction_Protocol();
 
     /**
      * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
@@ -1760,20 +1820,28 @@ public interface LtmlPackage extends EPackage
     EAttribute TRANSACTION__METHOD = eINSTANCE.getTransaction_Method();
 
     /**
-     * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Server</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TRANSACTION__URL = eINSTANCE.getTransaction_Url();
+    EAttribute TRANSACTION__SERVER = eINSTANCE.getTransaction_Server();
 
     /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSACTION__PARAMS = eINSTANCE.getTransaction_Params();
+    EAttribute TRANSACTION__PATH = eINSTANCE.getTransaction_Path();
+
+    /**
+     * The meta object literal for the '<em><b>Param</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSACTION__PARAM = eINSTANCE.getTransaction_Param();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
@@ -1866,14 +1934,14 @@ public interface LtmlPackage extends EPackage
     EAttribute REPORT__CC = eINSTANCE.getReport_Cc();
 
     /**
-     * The meta object literal for the '{@link com.ino9dev.ltml.impl.ParamsImpl <em>Params</em>}' class.
+     * The meta object literal for the '{@link com.ino9dev.ltml.impl.ParamImpl <em>Param</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.ino9dev.ltml.impl.ParamsImpl
-     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getParams()
+     * @see com.ino9dev.ltml.impl.ParamImpl
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getParam()
      * @generated
      */
-    EClass PARAMS = eINSTANCE.getParams();
+    EClass PARAM = eINSTANCE.getParam();
 
     /**
      * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -1881,7 +1949,7 @@ public interface LtmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PARAMS__KEY = eINSTANCE.getParams_Key();
+    EAttribute PARAM__KEY = eINSTANCE.getParam_Key();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1889,7 +1957,17 @@ public interface LtmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PARAMS__VALUE = eINSTANCE.getParams_Value();
+    EAttribute PARAM__VALUE = eINSTANCE.getParam_Value();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.Method <em>Method</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.Method
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getMethod()
+     * @generated
+     */
+    EEnum METHOD = eINSTANCE.getMethod();
 
     /**
      * The meta object literal for the '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}' enum.
@@ -1900,6 +1978,16 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EEnum INSTANCE_TYPE = eINSTANCE.getInstanceType();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.Protocol <em>Protocol</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.Protocol
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getProtocol()
+     * @generated
+     */
+    EEnum PROTOCOL = eINSTANCE.getProtocol();
 
   }
 

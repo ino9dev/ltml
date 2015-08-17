@@ -8,7 +8,7 @@ import com.ino9dev.ltml.LoadTest;
 import com.ino9dev.ltml.LtmlPackage;
 import com.ino9dev.ltml.Manifest;
 import com.ino9dev.ltml.Model;
-import com.ino9dev.ltml.Params;
+import com.ino9dev.ltml.Param;
 import com.ino9dev.ltml.Report;
 import com.ino9dev.ltml.Schedule;
 import com.ino9dev.ltml.Script;
@@ -68,9 +68,9 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case LtmlPackage.PARAMS:
-				if(context == grammarAccess.getParamsRule()) {
-					sequence_Params(context, (Params) semanticObject); 
+			case LtmlPackage.PARAM:
+				if(context == grammarAccess.getParamRule()) {
+					sequence_Param(context, (Param) semanticObject); 
 					return; 
 				}
 				else break;
@@ -176,17 +176,17 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (key=STRING value=STRING)
 	 */
-	protected void sequence_Params(EObject context, Params semanticObject) {
+	protected void sequence_Param(EObject context, Param semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.PARAMS__KEY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.PARAMS__KEY));
-			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.PARAMS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.PARAMS__VALUE));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.PARAM__KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.PARAM__KEY));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.PARAM__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.PARAM__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getParamsAccess().getKeySTRINGTerminalRuleCall_1_0(), semanticObject.getKey());
-		feeder.accept(grammarAccess.getParamsAccess().getValueSTRINGTerminalRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getParamAccess().getKeySTRINGTerminalRuleCall_0_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getParamAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -226,11 +226,11 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         transactionanme=STRING 
-	 *         no=INT 
+	 *         protocol=Protocol 
 	 *         method=Method 
-	 *         url=STRING 
-	 *         params+=Params? 
-	 *         body=STRING? 
+	 *         (server=STRING | server=IPADDRESS) 
+	 *         path=STRING 
+	 *         (param+=Param* | body=STRING)? 
 	 *         capturefilename=STRING? 
 	 *         text=STRING?
 	 *     )

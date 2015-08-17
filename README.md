@@ -57,10 +57,10 @@ This grammar is defined with Xtext.
 
 ```
 Manifest {
-    Id lt20150801
+    Id testcase1
     Version "1.0"
     InstanceType JMeter
-    ModelInstancedPath "C:\\temp\\senarios"
+    ModelInstancedPath "C:\\temp\\case2\\senarios"
 }
 
 //Testcase 1
@@ -104,19 +104,24 @@ Script {
         Tr {
             Id BP01_01
             Name "BP01_01"
-            No 001
+            Protocol HTTP
             Method GET
-            URL "http://localhost/test1"
-            CaptureFileName "image001"
+            Server "localhost"
+            Path "/"
+            CaptureFileName "C:\\temp\\result\\image001"
         }
         Tr {
-            Id BP02_01
-            Name "BP02_01"
-            No 202
+            Id BP01_02
+            Name "BP01_02"
+            Protocol HTTP
             Method POST
-            URL "http://localhost/test2"
-            Body a=asvalue&b=bsvalue
-            CaptureFileName "image002"
+            Server "localhost"
+            Path "/"
+            RequestParameters [
+                "ka"="va"
+                "kb"="vb"
+            ]
+            CaptureFileName "C:\\temp\\result\\image002"
         }
     }
 }
@@ -127,7 +132,7 @@ Script {
 A model instanced file(JMeter jmx file) is generated to following path
 
 ```
-C:\temp\senarios\lt20150801_ver1.0_lt001.jmx
+C:\temp\senarios\testcase1_ver1.0_lt001.jmx
 ```
 
 A Jmx file image is following
@@ -142,11 +147,11 @@ A Jmx file image is following
 - [x] implement to handle Report/ConccurentCountOverTime syntax (20150811 done)
 - [x] modify Manifest syntax for designation of outputpath(20150813 done)
 - [x] modify Manifest syntax for designation of instance type(like JMeter/LoadRunner/OtherTools)(20150813 only JMeter done)
+- [x] implement to handle Transaction/Method syntax
+- [x] implement to handle Transaction/Procotol syntax
+- [x] implement to handle Transaction syntax for CaptureFileName
+- [x] implement to handle Report/Result syntax
 - [ ] implement to handle Transaction/Body syntax
-- [ ] implement to handle Transaction/CaptureFile syntax
-- [ ] implement to handle Transaction/Method syntax
-- [ ] implement to handle Transaction syntax for CaptureFileName
-- [ ] implement to handle Report/Result syntax
 - [ ] implement to handle Parameter syntax
 - [ ] implement to handle Correlation(this name will be changed) syntax
 - [ ] tests(acceptance test)

@@ -75,7 +75,7 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
       case LtmlPackage.SCRIPT: return createScript();
       case LtmlPackage.TRANSACTION: return createTransaction();
       case LtmlPackage.REPORT: return createReport();
-      case LtmlPackage.PARAMS: return createParams();
+      case LtmlPackage.PARAM: return createParam();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -91,8 +91,12 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case LtmlPackage.METHOD:
+        return createMethodFromString(eDataType, initialValue);
       case LtmlPackage.INSTANCE_TYPE:
         return createInstanceTypeFromString(eDataType, initialValue);
+      case LtmlPackage.PROTOCOL:
+        return createProtocolFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -108,8 +112,12 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case LtmlPackage.METHOD:
+        return convertMethodToString(eDataType, instanceValue);
       case LtmlPackage.INSTANCE_TYPE:
         return convertInstanceTypeToString(eDataType, instanceValue);
+      case LtmlPackage.PROTOCOL:
+        return convertProtocolToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -230,10 +238,32 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Params createParams()
+  public Param createParam()
   {
-    ParamsImpl params = new ParamsImpl();
-    return params;
+    ParamImpl param = new ParamImpl();
+    return param;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Method createMethodFromString(EDataType eDataType, String initialValue)
+  {
+    Method result = Method.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertMethodToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**
@@ -254,6 +284,28 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
    * @generated
    */
   public String convertInstanceTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Protocol createProtocolFromString(EDataType eDataType, String initialValue)
+  {
+    Protocol result = Protocol.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertProtocolToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -768,43 +768,56 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTransactionanmeAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cTransactionanmeSTRINGTerminalRuleCall_5_0 = (RuleCall)cTransactionanmeAssignment_5.eContents().get(0);
-		private final Keyword cNoKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cNoAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cNoINTTerminalRuleCall_7_0 = (RuleCall)cNoAssignment_7.eContents().get(0);
+		private final Keyword cProtocolKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cProtocolAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cProtocolProtocolEnumRuleCall_7_0 = (RuleCall)cProtocolAssignment_7.eContents().get(0);
 		private final Keyword cMethodKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cMethodAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cMethodMethodParserRuleCall_9_0 = (RuleCall)cMethodAssignment_9.eContents().get(0);
-		private final Keyword cURLKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cUrlAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cUrlSTRINGTerminalRuleCall_11_0 = (RuleCall)cUrlAssignment_11.eContents().get(0);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cParametersKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Assignment cParamsAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
-		private final RuleCall cParamsParamsParserRuleCall_12_1_0 = (RuleCall)cParamsAssignment_12_1.eContents().get(0);
-		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
-		private final Keyword cBodyKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
-		private final Assignment cBodyAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
-		private final RuleCall cBodySTRINGTerminalRuleCall_13_1_0 = (RuleCall)cBodyAssignment_13_1.eContents().get(0);
-		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
-		private final Keyword cCaptureFileNameKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
-		private final Assignment cCapturefilenameAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
-		private final RuleCall cCapturefilenameSTRINGTerminalRuleCall_14_1_0 = (RuleCall)cCapturefilenameAssignment_14_1.eContents().get(0);
+		private final RuleCall cMethodMethodEnumRuleCall_9_0 = (RuleCall)cMethodAssignment_9.eContents().get(0);
+		private final Keyword cServerKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cServerAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final Alternatives cServerAlternatives_11_0 = (Alternatives)cServerAssignment_11.eContents().get(0);
+		private final RuleCall cServerSTRINGTerminalRuleCall_11_0_0 = (RuleCall)cServerAlternatives_11_0.eContents().get(0);
+		private final RuleCall cServerIPADDRESSTerminalRuleCall_11_0_1 = (RuleCall)cServerAlternatives_11_0.eContents().get(1);
+		private final Keyword cPathKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cPathAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cPathSTRINGTerminalRuleCall_13_0 = (RuleCall)cPathAssignment_13.eContents().get(0);
+		private final Alternatives cAlternatives_14 = (Alternatives)cGroup.eContents().get(14);
+		private final Group cGroup_14_0 = (Group)cAlternatives_14.eContents().get(0);
+		private final Keyword cRequestParametersKeyword_14_0_0 = (Keyword)cGroup_14_0.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_14_0_1 = (Keyword)cGroup_14_0.eContents().get(1);
+		private final Assignment cParamAssignment_14_0_2 = (Assignment)cGroup_14_0.eContents().get(2);
+		private final RuleCall cParamParamParserRuleCall_14_0_2_0 = (RuleCall)cParamAssignment_14_0_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_14_0_3 = (Keyword)cGroup_14_0.eContents().get(3);
+		private final Group cGroup_14_1 = (Group)cAlternatives_14.eContents().get(1);
+		private final Keyword cBodyKeyword_14_1_0 = (Keyword)cGroup_14_1.eContents().get(0);
+		private final Assignment cBodyAssignment_14_1_1 = (Assignment)cGroup_14_1.eContents().get(1);
+		private final RuleCall cBodySTRINGTerminalRuleCall_14_1_1_0 = (RuleCall)cBodyAssignment_14_1_1.eContents().get(0);
 		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
-		private final Keyword cResponseExpectedKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
-		private final Assignment cTextAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
-		private final RuleCall cTextSTRINGTerminalRuleCall_15_1_0 = (RuleCall)cTextAssignment_15_1.eContents().get(0);
-		private final Keyword cExistKeyword_15_2 = (Keyword)cGroup_15.eContents().get(2);
-		private final Keyword cRightCurlyBracketKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Keyword cCaptureFileNameKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
+		private final Assignment cCapturefilenameAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
+		private final RuleCall cCapturefilenameSTRINGTerminalRuleCall_15_1_0 = (RuleCall)cCapturefilenameAssignment_15_1.eContents().get(0);
+		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
+		private final Keyword cResponseExpectedKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
+		private final Assignment cTextAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
+		private final RuleCall cTextSTRINGTerminalRuleCall_16_1_0 = (RuleCall)cTextAssignment_16_1.eContents().get(0);
+		private final Alternatives cAlternatives_16_2 = (Alternatives)cGroup_16.eContents().get(2);
+		private final Keyword cExistKeyword_16_2_0 = (Keyword)cAlternatives_16_2.eContents().get(0);
+		private final Keyword cNotExistKeyword_16_2_1 = (Keyword)cAlternatives_16_2.eContents().get(1);
+		private final Keyword cIncludedKeyword_16_2_2 = (Keyword)cAlternatives_16_2.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		
 		//Transaction:
-		//	("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "No" no=INT "Method" method=Method "URL"
-		//	url=STRING ("Parameters" params+=Params)? ("Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)?
-		//	("ResponseExpected" text=STRING "Exist")? "}";
+		//	("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "Protocol" protocol=Protocol "Method"
+		//	method=Method "Server" server=(STRING | IPADDRESS) "Path" path=STRING ("RequestParameters" "[" param+=Param* "]" |
+		//	"Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)? ("ResponseExpected" text=STRING ("Exist" |
+		//	"NotExist" | "Included"))? "}";
 		public ParserRule getRule() { return rule; }
 
-		//("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "No" no=INT "Method" method=Method "URL"
-		//url=STRING ("Parameters" params+=Params)? ("Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)?
-		//("ResponseExpected" text=STRING "Exist")? "}"
+		//("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "Protocol" protocol=Protocol "Method"
+		//method=Method "Server" server=(STRING | IPADDRESS) "Path" path=STRING ("RequestParameters" "[" param+=Param* "]" |
+		//"Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)? ("ResponseExpected" text=STRING ("Exist" | "NotExist"
+		//| "Included"))? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Transaction" | "Tr"
@@ -837,14 +850,14 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getTransactionanmeSTRINGTerminalRuleCall_5_0() { return cTransactionanmeSTRINGTerminalRuleCall_5_0; }
 
-		//"No"
-		public Keyword getNoKeyword_6() { return cNoKeyword_6; }
+		//"Protocol"
+		public Keyword getProtocolKeyword_6() { return cProtocolKeyword_6; }
 
-		//no=INT
-		public Assignment getNoAssignment_7() { return cNoAssignment_7; }
+		//protocol=Protocol
+		public Assignment getProtocolAssignment_7() { return cProtocolAssignment_7; }
 
-		//INT
-		public RuleCall getNoINTTerminalRuleCall_7_0() { return cNoINTTerminalRuleCall_7_0; }
+		//Protocol
+		public RuleCall getProtocolProtocolEnumRuleCall_7_0() { return cProtocolProtocolEnumRuleCall_7_0; }
 
 		//"Method"
 		public Keyword getMethodKeyword_8() { return cMethodKeyword_8; }
@@ -853,70 +866,103 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getMethodAssignment_9() { return cMethodAssignment_9; }
 
 		//Method
-		public RuleCall getMethodMethodParserRuleCall_9_0() { return cMethodMethodParserRuleCall_9_0; }
+		public RuleCall getMethodMethodEnumRuleCall_9_0() { return cMethodMethodEnumRuleCall_9_0; }
 
-		//"URL"
-		public Keyword getURLKeyword_10() { return cURLKeyword_10; }
+		//"Server"
+		public Keyword getServerKeyword_10() { return cServerKeyword_10; }
 
-		//url=STRING
-		public Assignment getUrlAssignment_11() { return cUrlAssignment_11; }
+		//server=(STRING | IPADDRESS)
+		public Assignment getServerAssignment_11() { return cServerAssignment_11; }
+
+		//STRING | IPADDRESS
+		public Alternatives getServerAlternatives_11_0() { return cServerAlternatives_11_0; }
 
 		//STRING
-		public RuleCall getUrlSTRINGTerminalRuleCall_11_0() { return cUrlSTRINGTerminalRuleCall_11_0; }
+		public RuleCall getServerSTRINGTerminalRuleCall_11_0_0() { return cServerSTRINGTerminalRuleCall_11_0_0; }
 
-		//("Parameters" params+=Params)?
-		public Group getGroup_12() { return cGroup_12; }
+		//IPADDRESS
+		public RuleCall getServerIPADDRESSTerminalRuleCall_11_0_1() { return cServerIPADDRESSTerminalRuleCall_11_0_1; }
 
-		//"Parameters"
-		public Keyword getParametersKeyword_12_0() { return cParametersKeyword_12_0; }
+		//"Path"
+		public Keyword getPathKeyword_12() { return cPathKeyword_12; }
 
-		//params+=Params
-		public Assignment getParamsAssignment_12_1() { return cParamsAssignment_12_1; }
+		//path=STRING
+		public Assignment getPathAssignment_13() { return cPathAssignment_13; }
 
-		//Params
-		public RuleCall getParamsParamsParserRuleCall_12_1_0() { return cParamsParamsParserRuleCall_12_1_0; }
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_13_0() { return cPathSTRINGTerminalRuleCall_13_0; }
 
-		//("Body" body=STRING)?
-		public Group getGroup_13() { return cGroup_13; }
+		//("RequestParameters" "[" param+=Param* "]" | "Body" body=STRING)?
+		public Alternatives getAlternatives_14() { return cAlternatives_14; }
+
+		//"RequestParameters" "[" param+=Param* "]"
+		public Group getGroup_14_0() { return cGroup_14_0; }
+
+		//"RequestParameters"
+		public Keyword getRequestParametersKeyword_14_0_0() { return cRequestParametersKeyword_14_0_0; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_14_0_1() { return cLeftSquareBracketKeyword_14_0_1; }
+
+		//param+=Param*
+		public Assignment getParamAssignment_14_0_2() { return cParamAssignment_14_0_2; }
+
+		//Param
+		public RuleCall getParamParamParserRuleCall_14_0_2_0() { return cParamParamParserRuleCall_14_0_2_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_14_0_3() { return cRightSquareBracketKeyword_14_0_3; }
+
+		//"Body" body=STRING
+		public Group getGroup_14_1() { return cGroup_14_1; }
 
 		//"Body"
-		public Keyword getBodyKeyword_13_0() { return cBodyKeyword_13_0; }
+		public Keyword getBodyKeyword_14_1_0() { return cBodyKeyword_14_1_0; }
 
 		//body=STRING
-		public Assignment getBodyAssignment_13_1() { return cBodyAssignment_13_1; }
+		public Assignment getBodyAssignment_14_1_1() { return cBodyAssignment_14_1_1; }
 
 		//STRING
-		public RuleCall getBodySTRINGTerminalRuleCall_13_1_0() { return cBodySTRINGTerminalRuleCall_13_1_0; }
+		public RuleCall getBodySTRINGTerminalRuleCall_14_1_1_0() { return cBodySTRINGTerminalRuleCall_14_1_1_0; }
 
 		//("CaptureFileName" capturefilename=STRING)?
-		public Group getGroup_14() { return cGroup_14; }
-
-		//"CaptureFileName"
-		public Keyword getCaptureFileNameKeyword_14_0() { return cCaptureFileNameKeyword_14_0; }
-
-		//capturefilename=STRING
-		public Assignment getCapturefilenameAssignment_14_1() { return cCapturefilenameAssignment_14_1; }
-
-		//STRING
-		public RuleCall getCapturefilenameSTRINGTerminalRuleCall_14_1_0() { return cCapturefilenameSTRINGTerminalRuleCall_14_1_0; }
-
-		//("ResponseExpected" text=STRING "Exist")?
 		public Group getGroup_15() { return cGroup_15; }
 
-		//"ResponseExpected"
-		public Keyword getResponseExpectedKeyword_15_0() { return cResponseExpectedKeyword_15_0; }
+		//"CaptureFileName"
+		public Keyword getCaptureFileNameKeyword_15_0() { return cCaptureFileNameKeyword_15_0; }
 
-		//text=STRING
-		public Assignment getTextAssignment_15_1() { return cTextAssignment_15_1; }
+		//capturefilename=STRING
+		public Assignment getCapturefilenameAssignment_15_1() { return cCapturefilenameAssignment_15_1; }
 
 		//STRING
-		public RuleCall getTextSTRINGTerminalRuleCall_15_1_0() { return cTextSTRINGTerminalRuleCall_15_1_0; }
+		public RuleCall getCapturefilenameSTRINGTerminalRuleCall_15_1_0() { return cCapturefilenameSTRINGTerminalRuleCall_15_1_0; }
+
+		//("ResponseExpected" text=STRING ("Exist" | "NotExist" | "Included"))?
+		public Group getGroup_16() { return cGroup_16; }
+
+		//"ResponseExpected"
+		public Keyword getResponseExpectedKeyword_16_0() { return cResponseExpectedKeyword_16_0; }
+
+		//text=STRING
+		public Assignment getTextAssignment_16_1() { return cTextAssignment_16_1; }
+
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_16_1_0() { return cTextSTRINGTerminalRuleCall_16_1_0; }
+
+		//"Exist" | "NotExist" | "Included"
+		public Alternatives getAlternatives_16_2() { return cAlternatives_16_2; }
 
 		//"Exist"
-		public Keyword getExistKeyword_15_2() { return cExistKeyword_15_2; }
+		public Keyword getExistKeyword_16_2_0() { return cExistKeyword_16_2_0; }
+
+		//"NotExist"
+		public Keyword getNotExistKeyword_16_2_1() { return cNotExistKeyword_16_2_1; }
+
+		//"Included"
+		public Keyword getIncludedKeyword_16_2_2() { return cIncludedKeyword_16_2_2; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
+		public Keyword getRightCurlyBracketKeyword_17() { return cRightCurlyBracketKeyword_17; }
 	}
 
 	public class ReportElements extends AbstractParserRuleElementFinder {
@@ -1027,83 +1073,91 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
-	public class ParamsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Params");
+	public class ParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Param");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cKeyAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cKeySTRINGTerminalRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Keyword cAmpersandKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_4_1 = (Keyword)cAlternatives_4.eContents().get(1);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cKeySTRINGTerminalRuleCall_0_0 = (RuleCall)cKeyAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
-		//Params:
-		//	"[" key=STRING "=" value=STRING ("&" | "]");
+		//Param:
+		//	key=STRING "=" value=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"[" key=STRING "=" value=STRING ("&" | "]")
+		//key=STRING "=" value=STRING
 		public Group getGroup() { return cGroup; }
 
-		//"["
-		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
-
 		//key=STRING
-		public Assignment getKeyAssignment_1() { return cKeyAssignment_1; }
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 
 		//STRING
-		public RuleCall getKeySTRINGTerminalRuleCall_1_0() { return cKeySTRINGTerminalRuleCall_1_0; }
+		public RuleCall getKeySTRINGTerminalRuleCall_0_0() { return cKeySTRINGTerminalRuleCall_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
 		//value=STRING
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_3_0() { return cValueSTRINGTerminalRuleCall_3_0; }
-
-		//"&" | "]"
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
-
-		//"&"
-		public Keyword getAmpersandKeyword_4_0() { return cAmpersandKeyword_4_0; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_4_1() { return cRightSquareBracketKeyword_4_1; }
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
 	}
-
-	public class MethodElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Method");
+	
+	
+	public class MethodElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Method");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cGETKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cPOSTKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cDELETEKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cPUTKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final EnumLiteralDeclaration cGETEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cGETGETKeyword_0_0 = (Keyword)cGETEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cPOSTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cPOSTPOSTKeyword_1_0 = (Keyword)cPOSTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDELETEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDELETEDELETEKeyword_2_0 = (Keyword)cDELETEEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cPUTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cPUTPUTKeyword_3_0 = (Keyword)cPUTEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cOPTIONEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cOPTIONOPTIONKeyword_4_0 = (Keyword)cOPTIONEnumLiteralDeclaration_4.eContents().get(0);
 		
-		//Method:
-		//	"GET" | "POST" | "DELETE" | "PUT";
-		public ParserRule getRule() { return rule; }
+		//enum Method:
+		//	GET | POST | DELETE | PUT | OPTION;
+		public EnumRule getRule() { return rule; }
 
-		//"GET" | "POST" | "DELETE" | "PUT"
+		//GET | POST | DELETE | PUT | OPTION
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//GET
+		public EnumLiteralDeclaration getGETEnumLiteralDeclaration_0() { return cGETEnumLiteralDeclaration_0; }
+
 		//"GET"
-		public Keyword getGETKeyword_0() { return cGETKeyword_0; }
+		public Keyword getGETGETKeyword_0_0() { return cGETGETKeyword_0_0; }
+
+		//POST
+		public EnumLiteralDeclaration getPOSTEnumLiteralDeclaration_1() { return cPOSTEnumLiteralDeclaration_1; }
 
 		//"POST"
-		public Keyword getPOSTKeyword_1() { return cPOSTKeyword_1; }
+		public Keyword getPOSTPOSTKeyword_1_0() { return cPOSTPOSTKeyword_1_0; }
+
+		//DELETE
+		public EnumLiteralDeclaration getDELETEEnumLiteralDeclaration_2() { return cDELETEEnumLiteralDeclaration_2; }
 
 		//"DELETE"
-		public Keyword getDELETEKeyword_2() { return cDELETEKeyword_2; }
+		public Keyword getDELETEDELETEKeyword_2_0() { return cDELETEDELETEKeyword_2_0; }
+
+		//PUT
+		public EnumLiteralDeclaration getPUTEnumLiteralDeclaration_3() { return cPUTEnumLiteralDeclaration_3; }
 
 		//"PUT"
-		public Keyword getPUTKeyword_3() { return cPUTKeyword_3; }
+		public Keyword getPUTPUTKeyword_3_0() { return cPUTPUTKeyword_3_0; }
+
+		//OPTION
+		public EnumLiteralDeclaration getOPTIONEnumLiteralDeclaration_4() { return cOPTIONEnumLiteralDeclaration_4; }
+
+		//"OPTION"
+		public Keyword getOPTIONOPTIONKeyword_4_0() { return cOPTIONOPTIONKeyword_4_0; }
 	}
-	
-	
+
 	public class InstanceTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "InstanceType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1131,6 +1185,51 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"LoadRunner"
 		public Keyword getLOADRUNNERLoadRunnerKeyword_1_0() { return cLOADRUNNERLoadRunnerKeyword_1_0; }
 	}
+
+	public class ProtocolElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Protocol");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cHTTPEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cHTTPHTTPKeyword_0_0 = (Keyword)cHTTPEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cHTTPSEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cHTTPSHTTPSKeyword_1_0 = (Keyword)cHTTPSEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSMTPEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSMTPSMTPKeyword_2_0 = (Keyword)cSMTPEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cFTPEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cFTPFTPKeyword_3_0 = (Keyword)cFTPEnumLiteralDeclaration_3.eContents().get(0);
+		
+		////others when if those are needed
+		//enum Protocol:
+		//	HTTP | HTTPS | SMTP | FTP;
+		public EnumRule getRule() { return rule; }
+
+		//HTTP | HTTPS | SMTP | FTP
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//HTTP
+		public EnumLiteralDeclaration getHTTPEnumLiteralDeclaration_0() { return cHTTPEnumLiteralDeclaration_0; }
+
+		//"HTTP"
+		public Keyword getHTTPHTTPKeyword_0_0() { return cHTTPHTTPKeyword_0_0; }
+
+		//HTTPS
+		public EnumLiteralDeclaration getHTTPSEnumLiteralDeclaration_1() { return cHTTPSEnumLiteralDeclaration_1; }
+
+		//"HTTPS"
+		public Keyword getHTTPSHTTPSKeyword_1_0() { return cHTTPSHTTPSKeyword_1_0; }
+
+		//SMTP
+		public EnumLiteralDeclaration getSMTPEnumLiteralDeclaration_2() { return cSMTPEnumLiteralDeclaration_2; }
+
+		//"SMTP"
+		public Keyword getSMTPSMTPKeyword_2_0() { return cSMTPSMTPKeyword_2_0; }
+
+		//FTP
+		public EnumLiteralDeclaration getFTPEnumLiteralDeclaration_3() { return cFTPEnumLiteralDeclaration_3; }
+
+		//"FTP"
+		public Keyword getFTPFTPKeyword_3_0() { return cFTPFTPKeyword_3_0; }
+	}
 	
 	private ModelElements pModel;
 	private StatementElements pStatement;
@@ -1141,10 +1240,12 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	private ScheduleElements pSchedule;
 	private ScriptElements pScript;
 	private TransactionElements pTransaction;
+	private TerminalRule tIPADDRESS;
 	private ReportElements pReport;
-	private ParamsElements pParams;
-	private MethodElements pMethod;
+	private ParamElements pParam;
+	private MethodElements unknownRuleMethod;
 	private InstanceTypeElements unknownRuleInstanceType;
+	private ProtocolElements unknownRuleProtocol;
 	
 	private final Grammar grammar;
 
@@ -1273,9 +1374,10 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Transaction:
-	//	("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "No" no=INT "Method" method=Method "URL"
-	//	url=STRING ("Parameters" params+=Params)? ("Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)?
-	//	("ResponseExpected" text=STRING "Exist")? "}";
+	//	("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "Protocol" protocol=Protocol "Method"
+	//	method=Method "Server" server=(STRING | IPADDRESS) "Path" path=STRING ("RequestParameters" "[" param+=Param* "]" |
+	//	"Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)? ("ResponseExpected" text=STRING ("Exist" |
+	//	"NotExist" | "Included"))? "}";
 	public TransactionElements getTransactionAccess() {
 		return (pTransaction != null) ? pTransaction : (pTransaction = new TransactionElements());
 	}
@@ -1283,6 +1385,14 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	public ParserRule getTransactionRule() {
 		return getTransactionAccess().getRule();
 	}
+
+	//terminal IPADDRESS:
+	//	("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" |
+	//	"0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9"
+	//	"0".."9" | "0".."9");
+	public TerminalRule getIPADDRESSRule() {
+		return (tIPADDRESS != null) ? tIPADDRESS : (tIPADDRESS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IPADDRESS"));
+	} 
 
 	//Report:
 	//	"Report" "{" (noreport?="NoReport" | (summary?="Summary" ("Result" resultpath=STRING)?) (hps?="HitPerSecond" |
@@ -1295,23 +1405,23 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getReportAccess().getRule();
 	}
 
-	//Params:
-	//	"[" key=STRING "=" value=STRING ("&" | "]");
-	public ParamsElements getParamsAccess() {
-		return (pParams != null) ? pParams : (pParams = new ParamsElements());
+	//Param:
+	//	key=STRING "=" value=STRING;
+	public ParamElements getParamAccess() {
+		return (pParam != null) ? pParam : (pParam = new ParamElements());
 	}
 	
-	public ParserRule getParamsRule() {
-		return getParamsAccess().getRule();
+	public ParserRule getParamRule() {
+		return getParamAccess().getRule();
 	}
 
-	//Method:
-	//	"GET" | "POST" | "DELETE" | "PUT";
+	//enum Method:
+	//	GET | POST | DELETE | PUT | OPTION;
 	public MethodElements getMethodAccess() {
-		return (pMethod != null) ? pMethod : (pMethod = new MethodElements());
+		return (unknownRuleMethod != null) ? unknownRuleMethod : (unknownRuleMethod = new MethodElements());
 	}
 	
-	public ParserRule getMethodRule() {
+	public EnumRule getMethodRule() {
 		return getMethodAccess().getRule();
 	}
 
@@ -1323,6 +1433,17 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getInstanceTypeRule() {
 		return getInstanceTypeAccess().getRule();
+	}
+
+	////others when if those are needed
+	//enum Protocol:
+	//	HTTP | HTTPS | SMTP | FTP;
+	public ProtocolElements getProtocolAccess() {
+		return (unknownRuleProtocol != null) ? unknownRuleProtocol : (unknownRuleProtocol = new ProtocolElements());
+	}
+	
+	public EnumRule getProtocolRule() {
+		return getProtocolAccess().getRule();
 	}
 
 	//terminal ID:
