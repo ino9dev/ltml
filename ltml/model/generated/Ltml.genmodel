@@ -35,9 +35,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/instancetype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/modelinstancedpath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/corpname"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadTest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/loadtestname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/purpose"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/loadgroups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/schedule"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/report"/>

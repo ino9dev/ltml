@@ -291,6 +291,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getManifest_Corpname()
+  {
+    return (EAttribute)manifestEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getLoadTest()
   {
     return loadTestEClass;
@@ -311,9 +321,9 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLoadTest_Loadgroups()
+  public EAttribute getLoadTest_Purpose()
   {
-    return (EReference)loadTestEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)loadTestEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -321,7 +331,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLoadTest_Schedule()
+  public EReference getLoadTest_Loadgroups()
   {
     return (EReference)loadTestEClass.getEStructuralFeatures().get(2);
   }
@@ -331,9 +341,19 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLoadTest_Report()
+  public EReference getLoadTest_Schedule()
   {
     return (EReference)loadTestEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLoadTest_Report()
+  {
+    return (EReference)loadTestEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -857,9 +877,11 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(manifestEClass, MANIFEST__VERSION);
     createEAttribute(manifestEClass, MANIFEST__INSTANCETYPE);
     createEAttribute(manifestEClass, MANIFEST__MODELINSTANCEDPATH);
+    createEAttribute(manifestEClass, MANIFEST__CORPNAME);
 
     loadTestEClass = createEClass(LOAD_TEST);
     createEAttribute(loadTestEClass, LOAD_TEST__LOADTESTNAME);
+    createEAttribute(loadTestEClass, LOAD_TEST__PURPOSE);
     createEReference(loadTestEClass, LOAD_TEST__LOADGROUPS);
     createEReference(loadTestEClass, LOAD_TEST__SCHEDULE);
     createEReference(loadTestEClass, LOAD_TEST__REPORT);
@@ -969,9 +991,11 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getManifest_Version(), ecorePackage.getEString(), "version", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getManifest_Instancetype(), this.getInstanceType(), "instancetype", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getManifest_Modelinstancedpath(), ecorePackage.getEString(), "modelinstancedpath", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getManifest_Corpname(), ecorePackage.getEString(), "corpname", null, 0, 1, Manifest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loadTestEClass, LoadTest.class, "LoadTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLoadTest_Loadtestname(), ecorePackage.getEString(), "loadtestname", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLoadTest_Purpose(), ecorePackage.getEString(), "purpose", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLoadTest_Loadgroups(), this.getLoadGroup(), null, "loadgroups", null, 0, -1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLoadTest_Schedule(), this.getSchedule(), null, "schedule", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLoadTest_Report(), this.getReport(), null, "report", null, 0, 1, LoadTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

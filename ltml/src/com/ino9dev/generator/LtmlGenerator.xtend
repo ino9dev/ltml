@@ -17,6 +17,7 @@ import com.ino9dev.ltml.InstanceType
  */
 class LtmlGenerator implements IGenerator {
     
+    //todo using injector
     List<IGenerator> generators = newArrayList(
         new LoadTestDocumentGenerator
         ,new LoadTestImageGenerator

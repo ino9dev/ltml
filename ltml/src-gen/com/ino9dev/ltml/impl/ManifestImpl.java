@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getInstancetype <em>Instancetype</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getModelinstancedpath <em>Modelinstancedpath</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ManifestImpl#getCorpname <em>Corpname</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +110,26 @@ public class ManifestImpl extends StatementImpl implements Manifest
    * @ordered
    */
   protected String modelinstancedpath = MODELINSTANCEDPATH_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getCorpname() <em>Corpname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCorpname()
+   * @generated
+   * @ordered
+   */
+  protected static final String CORPNAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getCorpname() <em>Corpname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCorpname()
+   * @generated
+   * @ordered
+   */
+  protected String corpname = CORPNAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -228,6 +249,29 @@ public class ManifestImpl extends StatementImpl implements Manifest
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getCorpname()
+  {
+    return corpname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCorpname(String newCorpname)
+  {
+    String oldCorpname = corpname;
+    corpname = newCorpname;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.MANIFEST__CORPNAME, oldCorpname, corpname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -241,6 +285,8 @@ public class ManifestImpl extends StatementImpl implements Manifest
         return getInstancetype();
       case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
         return getModelinstancedpath();
+      case LtmlPackage.MANIFEST__CORPNAME:
+        return getCorpname();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -266,6 +312,9 @@ public class ManifestImpl extends StatementImpl implements Manifest
         return;
       case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
         setModelinstancedpath((String)newValue);
+        return;
+      case LtmlPackage.MANIFEST__CORPNAME:
+        setCorpname((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -293,6 +342,9 @@ public class ManifestImpl extends StatementImpl implements Manifest
       case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
         setModelinstancedpath(MODELINSTANCEDPATH_EDEFAULT);
         return;
+      case LtmlPackage.MANIFEST__CORPNAME:
+        setCorpname(CORPNAME_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -315,6 +367,8 @@ public class ManifestImpl extends StatementImpl implements Manifest
         return instancetype != INSTANCETYPE_EDEFAULT;
       case LtmlPackage.MANIFEST__MODELINSTANCEDPATH:
         return MODELINSTANCEDPATH_EDEFAULT == null ? modelinstancedpath != null : !MODELINSTANCEDPATH_EDEFAULT.equals(modelinstancedpath);
+      case LtmlPackage.MANIFEST__CORPNAME:
+        return CORPNAME_EDEFAULT == null ? corpname != null : !CORPNAME_EDEFAULT.equals(corpname);
     }
     return super.eIsSet(featureID);
   }
@@ -338,6 +392,8 @@ public class ManifestImpl extends StatementImpl implements Manifest
     result.append(instancetype);
     result.append(", modelinstancedpath: ");
     result.append(modelinstancedpath);
+    result.append(", corpname: ");
+    result.append(corpname);
     result.append(')');
     return result.toString();
   }

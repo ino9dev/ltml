@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getLoadtestname <em>Loadtestname</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getLoadgroups <em>Loadgroups</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getSchedule <em>Schedule</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadTestImpl#getReport <em>Report</em>}</li>
@@ -59,6 +60,26 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
    * @ordered
    */
   protected String loadtestname = LOADTESTNAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPurpose()
+   * @generated
+   * @ordered
+   */
+  protected static final String PURPOSE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPurpose()
+   * @generated
+   * @ordered
+   */
+  protected String purpose = PURPOSE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getLoadgroups() <em>Loadgroups</em>}' reference list.
@@ -132,6 +153,29 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     loadtestname = newLoadtestname;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_TEST__LOADTESTNAME, oldLoadtestname, loadtestname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getPurpose()
+  {
+    return purpose;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPurpose(String newPurpose)
+  {
+    String oldPurpose = purpose;
+    purpose = newPurpose;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_TEST__PURPOSE, oldPurpose, purpose));
   }
 
   /**
@@ -274,6 +318,8 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     {
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         return getLoadtestname();
+      case LtmlPackage.LOAD_TEST__PURPOSE:
+        return getPurpose();
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
         return getLoadgroups();
       case LtmlPackage.LOAD_TEST__SCHEDULE:
@@ -297,6 +343,9 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     {
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         setLoadtestname((String)newValue);
+        return;
+      case LtmlPackage.LOAD_TEST__PURPOSE:
+        setPurpose((String)newValue);
         return;
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
         getLoadgroups().clear();
@@ -325,6 +374,9 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         setLoadtestname(LOADTESTNAME_EDEFAULT);
         return;
+      case LtmlPackage.LOAD_TEST__PURPOSE:
+        setPurpose(PURPOSE_EDEFAULT);
+        return;
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
         getLoadgroups().clear();
         return;
@@ -350,6 +402,8 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     {
       case LtmlPackage.LOAD_TEST__LOADTESTNAME:
         return LOADTESTNAME_EDEFAULT == null ? loadtestname != null : !LOADTESTNAME_EDEFAULT.equals(loadtestname);
+      case LtmlPackage.LOAD_TEST__PURPOSE:
+        return PURPOSE_EDEFAULT == null ? purpose != null : !PURPOSE_EDEFAULT.equals(purpose);
       case LtmlPackage.LOAD_TEST__LOADGROUPS:
         return loadgroups != null && !loadgroups.isEmpty();
       case LtmlPackage.LOAD_TEST__SCHEDULE:
@@ -373,6 +427,8 @@ public class LoadTestImpl extends StatementImpl implements LoadTest
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (loadtestname: ");
     result.append(loadtestname);
+    result.append(", purpose: ");
+    result.append(purpose);
     result.append(')');
     return result.toString();
   }

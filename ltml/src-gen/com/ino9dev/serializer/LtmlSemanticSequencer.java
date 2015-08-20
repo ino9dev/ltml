@@ -143,6 +143,7 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         loadtestname=STRING? 
+	 *         purpose=STRING? 
 	 *         loadgroups+=[LoadGroup|ID] 
 	 *         loadgroups+=[LoadGroup|ID]* 
 	 *         schedule=Schedule? 
@@ -156,7 +157,14 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID manifestname=STRING? version=STRING instancetype=InstanceType? modelinstancedpath=STRING?)
+	 *     (
+	 *         name=ID 
+	 *         manifestname=STRING? 
+	 *         version=STRING 
+	 *         instancetype=InstanceType? 
+	 *         modelinstancedpath=STRING? 
+	 *         corpname=STRING?
+	 *     )
 	 */
 	protected void sequence_Manifest(EObject context, Manifest semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

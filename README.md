@@ -154,7 +154,8 @@ A Jmx file image is following
 - [ ] implement to handle Transaction/Body syntax
 - [ ] implement to handle Parameter syntax
 - [ ] implement to handle Correlation(this name will be changed) syntax
-- [ ] tests(acceptance test)
+- [ ] implement to generateor for Documentation and Imaging
+- [ ] unit tests / tests for acceptance test 
 - Phase2
 - [ ] implement to package syntax
 - [ ] implement to validate ids and values
@@ -163,6 +164,7 @@ A Jmx file image is following
 - [ ] implement to handle Transactions syntax
 - [ ] implement to execute interpreter modeled load tests   
 - [ ] implement to handle Transaction syntax and convert function from Fiddler 4
+- [ ] implement to handle interpriter mode
 - Phase3
 - [ ] implement to handle Load Generator syntax and Load Generator without JMeter remote execution
 - [ ] implement to handle difference of locale with load generator
@@ -171,7 +173,6 @@ A Jmx file image is following
 - [ ] implement to gather performance data from Load Generator
 - [ ] implement to define performance objects(it normally means SLA)
 - [ ] implement to analysis performance data and new method for gathering(e.g using JMeter)
-
 
 # Architecture
 ## current
@@ -182,15 +183,32 @@ A Jmx file image is following
 ## future
 - Xtext
 - Ltml
+- Ltml Interpreter
 - Other Load Test Software(Like Jmeter but not business(=license needs) use) .. for not depend on JMeter, I think JMeter has some issues for scalability, transaction mix, finish controller and so on(toughness, availability, and maintenancebility). However it should left test cases with Ltml as assets.  
 - Software defined middleware/server (Like a chef/vagrant .. for deploy loadtest generator to remote servers 
 - Jetty(and so on) on SD middleware/server..  for handling remote execution as restful api and load generator instance
 
+### image
+
+Actors :  
+System users and Load testers exist  
+
+Behaviors :  
+
+1. System users(or Load testers) define the load test model with Ltml   
+2. Load testers modeling detail and execute that instanced model with interpreter.  
+3. Interpreter deploy instanced model to other software defined servers and rpc-call Jetty/api on software defined servers.  
+
 # Licenses
 
-Copyright (c) [2015] [ino9dev]  
-
 License is MIT (MIT license http://opensource.org/licenses/mit-license.php)  
+Copyright (c) 2015 ino9dev
+
+# Use Libraries
+
+Flotr2 Copyright (c) 2008-2011 Pivotal Labs  
+
+# more information
 
 Learn more at [ino9oni](http://sites.google.com/site/ino9oni/).  
 Follow [@inoque](https://twitter.com/inoque) on twitter.  

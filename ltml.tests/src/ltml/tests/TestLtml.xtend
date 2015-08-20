@@ -45,9 +45,11 @@ class TestLtml {
         val model = parseHelper.parse('''
         Manifest {
             Id manifest01
+            Name "SYSTEM A Load Test Plan"
             Version "1.0"
             InstanceType JMeter
             ModelInstancedPath "C:\\temp\\senarios\\case1\\"
+            Corpname "LOADSTAR.CO.LTD"
         }
 
         //Testcase 1

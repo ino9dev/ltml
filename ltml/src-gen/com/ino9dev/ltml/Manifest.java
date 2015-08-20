@@ -15,6 +15,7 @@ package com.ino9dev.ltml;
  *   <li>{@link com.ino9dev.ltml.Manifest#getVersion <em>Version</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Manifest#getInstancetype <em>Instancetype</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Manifest#getModelinstancedpath <em>Modelinstancedpath</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Manifest#getCorpname <em>Corpname</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,5 +131,31 @@ public interface Manifest extends Statement
    * @generated
    */
   void setModelinstancedpath(String value);
+
+  /**
+   * Returns the value of the '<em><b>Corpname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Corpname</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Corpname</em>' attribute.
+   * @see #setCorpname(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getManifest_Corpname()
+   * @model
+   * @generated
+   */
+  String getCorpname();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Manifest#getCorpname <em>Corpname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Corpname</em>' attribute.
+   * @see #getCorpname()
+   * @generated
+   */
+  void setCorpname(String value);
 
 } // Manifest

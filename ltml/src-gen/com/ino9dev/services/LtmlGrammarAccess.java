@@ -97,15 +97,19 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cModelInstancedPathKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cModelinstancedpathAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
 		private final RuleCall cModelinstancedpathSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cModelinstancedpathAssignment_8_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCorpnameKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cCorpnameAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cCorpnameSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cCorpnameAssignment_9_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Manifest:
 		//	("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING ("InstanceType"
-		//	instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? "}";
+		//	instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? ("Corpname" corpname=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING ("InstanceType"
-		//instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? "}"
+		//instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? ("Corpname" corpname=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Manifest" | "Mn"
@@ -180,8 +184,20 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getModelinstancedpathSTRINGTerminalRuleCall_8_1_0() { return cModelinstancedpathSTRINGTerminalRuleCall_8_1_0; }
 
+		//("Corpname" corpname=STRING)?
+		public Group getGroup_9() { return cGroup_9; }
+
+		//"Corpname"
+		public Keyword getCorpnameKeyword_9_0() { return cCorpnameKeyword_9_0; }
+
+		//corpname=STRING
+		public Assignment getCorpnameAssignment_9_1() { return cCorpnameAssignment_9_1; }
+
+		//STRING
+		public RuleCall getCorpnameSTRINGTerminalRuleCall_9_1_0() { return cCorpnameSTRINGTerminalRuleCall_9_1_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 
 	public class LoadTestElements extends AbstractParserRuleElementFinder {
@@ -198,27 +214,31 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cLoadtestnameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cLoadtestnameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cLoadtestnameAssignment_4_1.eContents().get(0);
-		private final Keyword cLoadGroupsKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cLoadgroupsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cLoadgroupsLoadGroupCrossReference_6_0 = (CrossReference)cLoadgroupsAssignment_6.eContents().get(0);
-		private final RuleCall cLoadgroupsLoadGroupIDTerminalRuleCall_6_0_1 = (RuleCall)cLoadgroupsLoadGroupCrossReference_6_0.eContents().get(1);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cLoadgroupsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cLoadgroupsLoadGroupCrossReference_7_1_0 = (CrossReference)cLoadgroupsAssignment_7_1.eContents().get(0);
-		private final RuleCall cLoadgroupsLoadGroupIDTerminalRuleCall_7_1_0_1 = (RuleCall)cLoadgroupsLoadGroupCrossReference_7_1_0.eContents().get(1);
-		private final Assignment cScheduleAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cScheduleScheduleParserRuleCall_8_0 = (RuleCall)cScheduleAssignment_8.eContents().get(0);
-		private final Assignment cReportAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cReportReportParserRuleCall_9_0 = (RuleCall)cReportAssignment_9.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cPurposeKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cPurposeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cPurposeSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cPurposeAssignment_5_1.eContents().get(0);
+		private final Keyword cLoadGroupsKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cLoadgroupsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cLoadgroupsLoadGroupCrossReference_7_0 = (CrossReference)cLoadgroupsAssignment_7.eContents().get(0);
+		private final RuleCall cLoadgroupsLoadGroupIDTerminalRuleCall_7_0_1 = (RuleCall)cLoadgroupsLoadGroupCrossReference_7_0.eContents().get(1);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cCommaKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cLoadgroupsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cLoadgroupsLoadGroupCrossReference_8_1_0 = (CrossReference)cLoadgroupsAssignment_8_1.eContents().get(0);
+		private final RuleCall cLoadgroupsLoadGroupIDTerminalRuleCall_8_1_0_1 = (RuleCall)cLoadgroupsLoadGroupCrossReference_8_1_0.eContents().get(1);
+		private final Assignment cScheduleAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cScheduleScheduleParserRuleCall_9_0 = (RuleCall)cScheduleAssignment_9.eContents().get(0);
+		private final Assignment cReportAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cReportReportParserRuleCall_10_0 = (RuleCall)cReportAssignment_10.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//LoadTest:
-		//	("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? //per loadtest schedule
+		//	("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? ("Purpose" purpose=STRING)? //per loadtest schedule
 		//	"LoadGroups" loadgroups+=[LoadGroup] ("," loadgroups+=[LoadGroup])* schedule=Schedule? report=Report "}";
 		public ParserRule getRule() { return rule; }
 
-		//("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? //per loadtest schedule
+		//("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? ("Purpose" purpose=STRING)? //per loadtest schedule
 		//"LoadGroups" loadgroups+=[LoadGroup] ("," loadgroups+=[LoadGroup])* schedule=Schedule? report=Report "}"
 		public Group getGroup() { return cGroup; }
 
@@ -255,48 +275,60 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getLoadtestnameSTRINGTerminalRuleCall_4_1_0() { return cLoadtestnameSTRINGTerminalRuleCall_4_1_0; }
 
+		//("Purpose" purpose=STRING)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"Purpose"
+		public Keyword getPurposeKeyword_5_0() { return cPurposeKeyword_5_0; }
+
+		//purpose=STRING
+		public Assignment getPurposeAssignment_5_1() { return cPurposeAssignment_5_1; }
+
+		//STRING
+		public RuleCall getPurposeSTRINGTerminalRuleCall_5_1_0() { return cPurposeSTRINGTerminalRuleCall_5_1_0; }
+
 		////per loadtest schedule
 		//"LoadGroups"
-		public Keyword getLoadGroupsKeyword_5() { return cLoadGroupsKeyword_5; }
+		public Keyword getLoadGroupsKeyword_6() { return cLoadGroupsKeyword_6; }
 
 		//loadgroups+=[LoadGroup]
-		public Assignment getLoadgroupsAssignment_6() { return cLoadgroupsAssignment_6; }
+		public Assignment getLoadgroupsAssignment_7() { return cLoadgroupsAssignment_7; }
 
 		//[LoadGroup]
-		public CrossReference getLoadgroupsLoadGroupCrossReference_6_0() { return cLoadgroupsLoadGroupCrossReference_6_0; }
+		public CrossReference getLoadgroupsLoadGroupCrossReference_7_0() { return cLoadgroupsLoadGroupCrossReference_7_0; }
 
 		//ID
-		public RuleCall getLoadgroupsLoadGroupIDTerminalRuleCall_6_0_1() { return cLoadgroupsLoadGroupIDTerminalRuleCall_6_0_1; }
+		public RuleCall getLoadgroupsLoadGroupIDTerminalRuleCall_7_0_1() { return cLoadgroupsLoadGroupIDTerminalRuleCall_7_0_1; }
 
 		//("," loadgroups+=[LoadGroup])*
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_8() { return cGroup_8; }
 
 		//","
-		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
+		public Keyword getCommaKeyword_8_0() { return cCommaKeyword_8_0; }
 
 		//loadgroups+=[LoadGroup]
-		public Assignment getLoadgroupsAssignment_7_1() { return cLoadgroupsAssignment_7_1; }
+		public Assignment getLoadgroupsAssignment_8_1() { return cLoadgroupsAssignment_8_1; }
 
 		//[LoadGroup]
-		public CrossReference getLoadgroupsLoadGroupCrossReference_7_1_0() { return cLoadgroupsLoadGroupCrossReference_7_1_0; }
+		public CrossReference getLoadgroupsLoadGroupCrossReference_8_1_0() { return cLoadgroupsLoadGroupCrossReference_8_1_0; }
 
 		//ID
-		public RuleCall getLoadgroupsLoadGroupIDTerminalRuleCall_7_1_0_1() { return cLoadgroupsLoadGroupIDTerminalRuleCall_7_1_0_1; }
+		public RuleCall getLoadgroupsLoadGroupIDTerminalRuleCall_8_1_0_1() { return cLoadgroupsLoadGroupIDTerminalRuleCall_8_1_0_1; }
 
 		//schedule=Schedule?
-		public Assignment getScheduleAssignment_8() { return cScheduleAssignment_8; }
+		public Assignment getScheduleAssignment_9() { return cScheduleAssignment_9; }
 
 		//Schedule
-		public RuleCall getScheduleScheduleParserRuleCall_8_0() { return cScheduleScheduleParserRuleCall_8_0; }
+		public RuleCall getScheduleScheduleParserRuleCall_9_0() { return cScheduleScheduleParserRuleCall_9_0; }
 
 		//report=Report
-		public Assignment getReportAssignment_9() { return cReportAssignment_9; }
+		public Assignment getReportAssignment_10() { return cReportAssignment_10; }
 
 		//Report
-		public RuleCall getReportReportParserRuleCall_9_0() { return cReportReportParserRuleCall_9_0; }
+		public RuleCall getReportReportParserRuleCall_10_0() { return cReportReportParserRuleCall_10_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 
 	public class LoadGroupElements extends AbstractParserRuleElementFinder {
@@ -1307,7 +1339,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Manifest:
 	//	("Manifest" | "Mn") "{" "Id" name=ID ("Name" manifestname=STRING)? ("Version" | "ver") version=STRING ("InstanceType"
-	//	instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? "}";
+	//	instancetype=InstanceType)? ("ModelInstancedPath" modelinstancedpath=STRING)? ("Corpname" corpname=STRING)? "}";
 	public ManifestElements getManifestAccess() {
 		return (pManifest != null) ? pManifest : (pManifest = new ManifestElements());
 	}
@@ -1317,7 +1349,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LoadTest:
-	//	("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? //per loadtest schedule
+	//	("LoadTest" | "Lt") "{" "Id" name=ID ("Name" loadtestname=STRING)? ("Purpose" purpose=STRING)? //per loadtest schedule
 	//	"LoadGroups" loadgroups+=[LoadGroup] ("," loadgroups+=[LoadGroup])* schedule=Schedule? report=Report "}";
 	public LoadTestElements getLoadTestAccess() {
 		return (pLoadTest != null) ? pLoadTest : (pLoadTest = new LoadTestElements());

@@ -105,7 +105,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Cc' | 'ConccurentCount'
+	 *     'ConccurentCount' | 'Cc'
 	 */
 	protected void emit_LoadGroup_CcKeyword_5_1_or_ConccurentCountKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -137,7 +137,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'ver' | 'Version'
+	 *     'Version' | 'ver'
 	 */
 	protected void emit_Manifest_VerKeyword_5_1_or_VersionKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -161,7 +161,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Included' | 'Exist' | 'NotExist'
+	 *     'Exist' | 'Included' | 'NotExist'
 	 */
 	protected void emit_Transaction_ExistKeyword_16_2_0_or_IncludedKeyword_16_2_2_or_NotExistKeyword_16_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -21,6 +21,7 @@ Manifest:
         ("Version"|"ver") version=STRING
         ("InstanceType" instancetype=InstanceType)?
         ("ModelInstancedPath" modelinstancedpath=STRING)?
+        ("Corpname" corpname=STRING)?
     "}"
 ;
 
@@ -29,6 +30,7 @@ LoadTest:
     "{"
         "Id" name=ID
         ("Name" loadtestname=STRING)?
+        ("Purpose" purpose=STRING)?
         //per loadtest schedule
         "LoadGroups" loadgroups+=[LoadGroup](',' loadgroups+=[LoadGroup])*
         (schedule=Schedule)?

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.ino9dev.ltml.LoadTest#getLoadtestname <em>Loadtestname</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.LoadTest#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadTest#getLoadgroups <em>Loadgroups</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadTest#getSchedule <em>Schedule</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadTest#getReport <em>Report</em>}</li>
@@ -50,6 +51,32 @@ public interface LoadTest extends Statement
    * @generated
    */
   void setLoadtestname(String value);
+
+  /**
+   * Returns the value of the '<em><b>Purpose</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Purpose</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Purpose</em>' attribute.
+   * @see #setPurpose(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getLoadTest_Purpose()
+   * @model
+   * @generated
+   */
+  String getPurpose();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.LoadTest#getPurpose <em>Purpose</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Purpose</em>' attribute.
+   * @see #getPurpose()
+   * @generated
+   */
+  void setPurpose(String value);
 
   /**
    * Returns the value of the '<em><b>Loadgroups</b></em>' reference list.

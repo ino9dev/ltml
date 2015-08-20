@@ -131,11 +131,6 @@ Workflow {
     		// provides a compare view
     		fragment = compare.CompareFragment auto-inject {}
     		
-    		// provides a interpriter
-//    		fragment = de.itemis.interpriter.generator.InterpriterGenerator {
-//    		    statementRootClassName = "Element"
-//    		    expressionRootClassName = "Expr"
-//    		}
     	}
     }
 }

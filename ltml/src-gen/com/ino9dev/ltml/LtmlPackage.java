@@ -169,13 +169,22 @@ public interface LtmlPackage extends EPackage
   int MANIFEST__MODELINSTANCEDPATH = STATEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Corpname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANIFEST__CORPNAME = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>Manifest</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MANIFEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
+  int MANIFEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.LoadTestImpl <em>Load Test</em>}' class.
@@ -206,13 +215,22 @@ public interface LtmlPackage extends EPackage
   int LOAD_TEST__LOADTESTNAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Purpose</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOAD_TEST__PURPOSE = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Loadgroups</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOAD_TEST__LOADGROUPS = STATEMENT_FEATURE_COUNT + 1;
+  int LOAD_TEST__LOADGROUPS = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Schedule</b></em>' containment reference.
@@ -221,7 +239,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST__SCHEDULE = STATEMENT_FEATURE_COUNT + 2;
+  int LOAD_TEST__SCHEDULE = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Report</b></em>' containment reference.
@@ -230,7 +248,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST__REPORT = STATEMENT_FEATURE_COUNT + 3;
+  int LOAD_TEST__REPORT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Load Test</em>' class.
@@ -239,7 +257,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOAD_TEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
+  int LOAD_TEST_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.LoadGroupImpl <em>Load Group</em>}' class.
@@ -871,6 +889,17 @@ public interface LtmlPackage extends EPackage
   EAttribute getManifest_Modelinstancedpath();
 
   /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Manifest#getCorpname <em>Corpname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Corpname</em>'.
+   * @see com.ino9dev.ltml.Manifest#getCorpname()
+   * @see #getManifest()
+   * @generated
+   */
+  EAttribute getManifest_Corpname();
+
+  /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.LoadTest <em>Load Test</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -890,6 +919,17 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EAttribute getLoadTest_Loadtestname();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadTest#getPurpose <em>Purpose</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Purpose</em>'.
+   * @see com.ino9dev.ltml.LoadTest#getPurpose()
+   * @see #getLoadTest()
+   * @generated
+   */
+  EAttribute getLoadTest_Purpose();
 
   /**
    * Returns the meta object for the reference list '{@link com.ino9dev.ltml.LoadTest#getLoadgroups <em>Loadgroups</em>}'.
@@ -1544,6 +1584,14 @@ public interface LtmlPackage extends EPackage
     EAttribute MANIFEST__MODELINSTANCEDPATH = eINSTANCE.getManifest_Modelinstancedpath();
 
     /**
+     * The meta object literal for the '<em><b>Corpname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MANIFEST__CORPNAME = eINSTANCE.getManifest_Corpname();
+
+    /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.LoadTestImpl <em>Load Test</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1560,6 +1608,14 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EAttribute LOAD_TEST__LOADTESTNAME = eINSTANCE.getLoadTest_Loadtestname();
+
+    /**
+     * The meta object literal for the '<em><b>Purpose</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOAD_TEST__PURPOSE = eINSTANCE.getLoadTest_Purpose();
 
     /**
      * The meta object literal for the '<em><b>Loadgroups</b></em>' reference list feature.
