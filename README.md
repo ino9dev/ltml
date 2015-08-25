@@ -60,25 +60,41 @@ Manifest {
     Id testcase1
     Version "1.0"
     InstanceType JMeter
-    ModelInstancedPath "C:\\temp\\case2\\senarios"
+    ModelInstancedPath "C:\\apache-jmeter-2.13\\bin"
 }
 
 //Testcase 1
 LoadTest {
     Id lt001
-    LoadGroups LG01
+    LoadGroups LG01,LG02
     Report {
        Summary
        Result "C:\\temp\\results\\report_result.csv"
        HitPerSecond
        TransactionPerSecond
+       CheckResponse
     }
 }
 
 LoadGroup {
     Id LG01
-    Cc 20
+    Name "BP01's Load Simulated"
+    Cc 2
     Script BP01
+    Iteration "INFINITY"
+    LoadGenerator LGen01
+    RampUp "20/1min"
+    Schedule {
+        Duration 500
+        Delay 0
+    }
+}
+
+LoadGroup {
+    Id LG02
+    Name "BP02's Load Simulated"
+    Cc 3
+    Script BP02
     Iteration "INFINITY"
     LoadGenerator LGen01
     RampUp "20/1min"
@@ -92,11 +108,12 @@ LoadGenerator {
     Id LGen01
     TargetIp "192.168.0.5"
     TargetPort "1008"
-    Location "America"
+    Region "Japan"
     AuthUsername "test001"
     AuthPassword "test001"
 }
 
+//Business Operation1(e.g search)
 Script {
     Id BP01
     Name "BusinessProcess01"
@@ -108,7 +125,7 @@ Script {
             Method GET
             Server "localhost"
             Path "/"
-            CaptureFileName "C:\\temp\\result\\image001"
+            CaptureFileName "C:\\temp\\result\\image002"
         }
         Tr {
             Id BP01_02
@@ -118,12 +135,52 @@ Script {
             Server "localhost"
             Path "/"
             RequestParameters [
-                "ka"="va"
+                "ka"="${datatable1.id}"
                 "kb"="vb"
             ]
             CaptureFileName "C:\\temp\\result\\image002"
         }
     }
+    DataTable datatable1
+}
+
+//Business Operation2(e.g purchase)
+Script {
+    Id BP02
+    Name "BusinessProcess02"
+    Trs {
+        Tr {
+            Id BP02_01
+            Name "BP02_01"
+            Protocol HTTP
+            Method GET
+            Server "localhost"
+            Path "/"
+            CaptureFileName "C:\\temp\\result\\image002"
+        }
+        Tr {
+            Id BP02_02
+            Name "BP02_02"
+            Protocol HTTP
+            Method POST
+            Server "localhost"
+            Path "/"
+            Body "key=value"
+            CaptureFileName "C:\\temp\\result\\image002"
+        }
+    }
+}
+
+DataTable {
+    Id datatable1
+    Name "Login Account Data"
+    EncodingType UTF8
+    Delimiter ","
+    Type CSV
+    Layout "id","pass"
+    Path "C:\\temp\\userdata1.txt"
+    AsignMode ITERATION
+    ShareMode ALLTHREAD
 }
 ```
 
