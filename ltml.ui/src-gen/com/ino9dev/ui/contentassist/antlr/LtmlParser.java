@@ -117,7 +117,7 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLoadGeneratorAccess().getLoadgeneratornameAssignment_4_1(), "rule__LoadGenerator__LoadgeneratornameAssignment_4_1");
 					put(grammarAccess.getLoadGeneratorAccess().getIpAssignment_6(), "rule__LoadGenerator__IpAssignment_6");
 					put(grammarAccess.getLoadGeneratorAccess().getPortAssignment_8(), "rule__LoadGenerator__PortAssignment_8");
-					put(grammarAccess.getLoadGeneratorAccess().getLocationAssignment_10(), "rule__LoadGenerator__LocationAssignment_10");
+					put(grammarAccess.getLoadGeneratorAccess().getRegionAssignment_10(), "rule__LoadGenerator__RegionAssignment_10");
 					put(grammarAccess.getLoadGeneratorAccess().getUsernameAssignment_12(), "rule__LoadGenerator__UsernameAssignment_12");
 					put(grammarAccess.getLoadGeneratorAccess().getPasswordAssignment_14(), "rule__LoadGenerator__PasswordAssignment_14");
 					put(grammarAccess.getScheduleAccess().getStartAssignment_2_0_1(), "rule__Schedule__StartAssignment_2_0_1");

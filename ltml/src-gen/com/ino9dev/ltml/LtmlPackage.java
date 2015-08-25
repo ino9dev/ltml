@@ -397,13 +397,13 @@ public interface LtmlPackage extends EPackage
   int LOAD_GENERATOR__PORT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * The feature id for the '<em><b>Region</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOAD_GENERATOR__LOCATION = STATEMENT_FEATURE_COUNT + 3;
+  int LOAD_GENERATOR__REGION = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Username</b></em>' attribute.
@@ -1253,15 +1253,15 @@ public interface LtmlPackage extends EPackage
   EAttribute getLoadGenerator_Port();
 
   /**
-   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadGenerator#getLocation <em>Location</em>}'.
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadGenerator#getRegion <em>Region</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Location</em>'.
-   * @see com.ino9dev.ltml.LoadGenerator#getLocation()
+   * @return the meta object for the attribute '<em>Region</em>'.
+   * @see com.ino9dev.ltml.LoadGenerator#getRegion()
    * @see #getLoadGenerator()
    * @generated
    */
-  EAttribute getLoadGenerator_Location();
+  EAttribute getLoadGenerator_Region();
 
   /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.LoadGenerator#getUsername <em>Username</em>}'.
@@ -2060,12 +2060,12 @@ public interface LtmlPackage extends EPackage
     EAttribute LOAD_GENERATOR__PORT = eINSTANCE.getLoadGenerator_Port();
 
     /**
-     * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Region</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LOAD_GENERATOR__LOCATION = eINSTANCE.getLoadGenerator_Location();
+    EAttribute LOAD_GENERATOR__REGION = eINSTANCE.getLoadGenerator_Region();
 
     /**
      * The meta object literal for the '<em><b>Username</b></em>' attribute feature.

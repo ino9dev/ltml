@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getLoadgeneratorname <em>Loadgeneratorname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getIp <em>Ip</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getPort <em>Port</em>}</li>
- *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getRegion <em>Region</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getUsername <em>Username</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGeneratorImpl#getPassword <em>Password</em>}</li>
  * </ul>
@@ -92,24 +92,24 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
   protected String port = PORT_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+   * The default value of the '{@link #getRegion() <em>Region</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLocation()
+   * @see #getRegion()
    * @generated
    * @ordered
    */
-  protected static final String LOCATION_EDEFAULT = null;
+  protected static final String REGION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+   * The cached value of the '{@link #getRegion() <em>Region</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLocation()
+   * @see #getRegion()
    * @generated
    * @ordered
    */
-  protected String location = LOCATION_EDEFAULT;
+  protected String region = REGION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
@@ -246,9 +246,9 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLocation()
+  public String getRegion()
   {
-    return location;
+    return region;
   }
 
   /**
@@ -256,12 +256,12 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLocation(String newLocation)
+  public void setRegion(String newRegion)
   {
-    String oldLocation = location;
-    location = newLocation;
+    String oldRegion = region;
+    region = newRegion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_GENERATOR__LOCATION, oldLocation, location));
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_GENERATOR__REGION, oldRegion, region));
   }
 
   /**
@@ -326,8 +326,8 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
         return getIp();
       case LtmlPackage.LOAD_GENERATOR__PORT:
         return getPort();
-      case LtmlPackage.LOAD_GENERATOR__LOCATION:
-        return getLocation();
+      case LtmlPackage.LOAD_GENERATOR__REGION:
+        return getRegion();
       case LtmlPackage.LOAD_GENERATOR__USERNAME:
         return getUsername();
       case LtmlPackage.LOAD_GENERATOR__PASSWORD:
@@ -355,8 +355,8 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
       case LtmlPackage.LOAD_GENERATOR__PORT:
         setPort((String)newValue);
         return;
-      case LtmlPackage.LOAD_GENERATOR__LOCATION:
-        setLocation((String)newValue);
+      case LtmlPackage.LOAD_GENERATOR__REGION:
+        setRegion((String)newValue);
         return;
       case LtmlPackage.LOAD_GENERATOR__USERNAME:
         setUsername((String)newValue);
@@ -387,8 +387,8 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
       case LtmlPackage.LOAD_GENERATOR__PORT:
         setPort(PORT_EDEFAULT);
         return;
-      case LtmlPackage.LOAD_GENERATOR__LOCATION:
-        setLocation(LOCATION_EDEFAULT);
+      case LtmlPackage.LOAD_GENERATOR__REGION:
+        setRegion(REGION_EDEFAULT);
         return;
       case LtmlPackage.LOAD_GENERATOR__USERNAME:
         setUsername(USERNAME_EDEFAULT);
@@ -416,8 +416,8 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
         return IP_EDEFAULT == null ? ip != null : !IP_EDEFAULT.equals(ip);
       case LtmlPackage.LOAD_GENERATOR__PORT:
         return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
-      case LtmlPackage.LOAD_GENERATOR__LOCATION:
-        return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+      case LtmlPackage.LOAD_GENERATOR__REGION:
+        return REGION_EDEFAULT == null ? region != null : !REGION_EDEFAULT.equals(region);
       case LtmlPackage.LOAD_GENERATOR__USERNAME:
         return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
       case LtmlPackage.LOAD_GENERATOR__PASSWORD:
@@ -443,8 +443,8 @@ public class LoadGeneratorImpl extends StatementImpl implements LoadGenerator
     result.append(ip);
     result.append(", port: ");
     result.append(port);
-    result.append(", location: ");
-    result.append(location);
+    result.append(", region: ");
+    result.append(region);
     result.append(", username: ");
     result.append(username);
     result.append(", password: ");

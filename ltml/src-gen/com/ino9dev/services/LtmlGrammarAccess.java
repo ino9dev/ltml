@@ -513,9 +513,9 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTargetPortKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cPortAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cPortSTRINGTerminalRuleCall_8_0 = (RuleCall)cPortAssignment_8.eContents().get(0);
-		private final Keyword cLocationKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cLocationAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cLocationSTRINGTerminalRuleCall_10_0 = (RuleCall)cLocationAssignment_10.eContents().get(0);
+		private final Keyword cRegionKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cRegionAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cRegionSTRINGTerminalRuleCall_10_0 = (RuleCall)cRegionAssignment_10.eContents().get(0);
 		private final Keyword cAuthUsernameKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Assignment cUsernameAssignment_12 = (Assignment)cGroup.eContents().get(12);
 		private final RuleCall cUsernameSTRINGTerminalRuleCall_12_0 = (RuleCall)cUsernameAssignment_12.eContents().get(0);
@@ -527,12 +527,12 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//LoadGenerator:
 		//	("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip= //todo IPADDR
 		//	STRING "TargetPort" port= //todo PORT
-		//	STRING "Location" location=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}";
+		//	STRING "Region" region=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}";
 		public ParserRule getRule() { return rule; }
 
 		//("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip= //todo IPADDR
 		//STRING "TargetPort" port= //todo PORT
-		//STRING "Location" location=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}"
+		//STRING "Region" region=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}"
 		public Group getGroup() { return cGroup; }
 
 		//"LoadGenerator" | "Lgen"
@@ -590,14 +590,14 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getPortSTRINGTerminalRuleCall_8_0() { return cPortSTRINGTerminalRuleCall_8_0; }
 
-		//"Location"
-		public Keyword getLocationKeyword_9() { return cLocationKeyword_9; }
+		//"Region"
+		public Keyword getRegionKeyword_9() { return cRegionKeyword_9; }
 
-		//location=STRING
-		public Assignment getLocationAssignment_10() { return cLocationAssignment_10; }
+		//region=STRING
+		public Assignment getRegionAssignment_10() { return cRegionAssignment_10; }
 
 		//STRING
-		public RuleCall getLocationSTRINGTerminalRuleCall_10_0() { return cLocationSTRINGTerminalRuleCall_10_0; }
+		public RuleCall getRegionSTRINGTerminalRuleCall_10_0() { return cRegionSTRINGTerminalRuleCall_10_0; }
 
 		//"AuthUsername"
 		public Keyword getAuthUsernameKeyword_11() { return cAuthUsernameKeyword_11; }
@@ -1696,7 +1696,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	//LoadGenerator:
 	//	("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip= //todo IPADDR
 	//	STRING "TargetPort" port= //todo PORT
-	//	STRING "Location" location=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}";
+	//	STRING "Region" region=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}";
 	public LoadGeneratorElements getLoadGeneratorAccess() {
 		return (pLoadGenerator != null) ? pLoadGenerator : (pLoadGenerator = new LoadGeneratorElements());
 	}

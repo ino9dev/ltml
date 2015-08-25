@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLtmlParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SL_COMMENT", "RULE_STRING", "RULE_IPADDRESS", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ALLTHREAD'", "'Manifest'", "'Mn'", "'Version'", "'ver'", "'LoadTest'", "'Lt'", "'LoadGroup'", "'Lgrp'", "'ConccurentCount'", "'Cc'", "'INFINITY'", "'LoadGenerator'", "'Lgen'", "'Script'", "'Sc'", "'Transactions'", "'Trs'", "'Transaction'", "'Tr'", "'Exist'", "'NotExist'", "'Included'", "'GET'", "'POST'", "'DELETE'", "'PUT'", "'OPTION'", "'JMeter'", "'LoadRunner'", "'HTTP'", "'HTTPS'", "'SMTP'", "'FTP'", "'CSV'", "'TSV'", "'ITERATION'", "'RANDOM'", "'UNIQUE'", "'SHIFT_JIS'", "'UTF-8'", "'{'", "'Id'", "'}'", "'Name'", "'InstanceType'", "'ModelInstancedPath'", "'Corpname'", "'LoadGroups'", "'Purpose'", "','", "'Iteration'", "'RampUp'", "'TargetIp'", "'TargetPort'", "'Location'", "'AuthUsername'", "'AuthPassword'", "'Schedule'", "'Start'", "'End'", "'Duration'", "'Delay'", "'DataTable'", "'Protocol'", "'Method'", "'Server'", "'Path'", "'RequestParameters'", "'['", "']'", "'Body'", "'CaptureFileName'", "'ResponseExpected'", "'EncodingType'", "'Delimiter'", "'Type'", "'Layout'", "'AsignMode'", "'ShareMode'", "'Report'", "'Result'", "'='", "'NoReport'", "'Summary'", "'HitPerSecond'", "'TransactionPerSecond'", "'ResponseTime'", "'CheckResponse'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SL_COMMENT", "RULE_STRING", "RULE_IPADDRESS", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ALLTHREAD'", "'Manifest'", "'Mn'", "'Version'", "'ver'", "'LoadTest'", "'Lt'", "'LoadGroup'", "'Lgrp'", "'ConccurentCount'", "'Cc'", "'INFINITY'", "'LoadGenerator'", "'Lgen'", "'Script'", "'Sc'", "'Transactions'", "'Trs'", "'Transaction'", "'Tr'", "'Exist'", "'NotExist'", "'Included'", "'GET'", "'POST'", "'DELETE'", "'PUT'", "'OPTION'", "'JMeter'", "'LoadRunner'", "'HTTP'", "'HTTPS'", "'SMTP'", "'FTP'", "'CSV'", "'TSV'", "'ITERATION'", "'RANDOM'", "'UNIQUE'", "'SHIFT_JIS'", "'UTF-8'", "'{'", "'Id'", "'}'", "'Name'", "'InstanceType'", "'ModelInstancedPath'", "'Corpname'", "'LoadGroups'", "'Purpose'", "','", "'Iteration'", "'RampUp'", "'TargetIp'", "'TargetPort'", "'Region'", "'AuthUsername'", "'AuthPassword'", "'Schedule'", "'Start'", "'End'", "'Duration'", "'Delay'", "'DataTable'", "'Protocol'", "'Method'", "'Server'", "'Path'", "'RequestParameters'", "'['", "']'", "'Body'", "'CaptureFileName'", "'ResponseExpected'", "'EncodingType'", "'Delimiter'", "'Type'", "'Layout'", "'AsignMode'", "'ShareMode'", "'Report'", "'Result'", "'='", "'NoReport'", "'Summary'", "'HitPerSecond'", "'TransactionPerSecond'", "'ResponseTime'", "'CheckResponse'"
     };
     public static final int RULE_ID=7;
     public static final int T__29=29;
@@ -9008,21 +9008,21 @@ public class InternalLtmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LoadGenerator__Group__9__Impl"
-    // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3240:1: rule__LoadGenerator__Group__9__Impl : ( 'Location' ) ;
+    // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3240:1: rule__LoadGenerator__Group__9__Impl : ( 'Region' ) ;
     public final void rule__LoadGenerator__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3244:1: ( ( 'Location' ) )
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3245:1: ( 'Location' )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3244:1: ( ( 'Region' ) )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3245:1: ( 'Region' )
             {
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3245:1: ( 'Location' )
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3246:1: 'Location'
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3245:1: ( 'Region' )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3246:1: 'Region'
             {
-             before(grammarAccess.getLoadGeneratorAccess().getLocationKeyword_9()); 
+             before(grammarAccess.getLoadGeneratorAccess().getRegionKeyword_9()); 
             match(input,67,FOLLOW_67_in_rule__LoadGenerator__Group__9__Impl6648); 
-             after(grammarAccess.getLoadGeneratorAccess().getLocationKeyword_9()); 
+             after(grammarAccess.getLoadGeneratorAccess().getRegionKeyword_9()); 
 
             }
 
@@ -9083,31 +9083,31 @@ public class InternalLtmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LoadGenerator__Group__10__Impl"
-    // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3271:1: rule__LoadGenerator__Group__10__Impl : ( ( rule__LoadGenerator__LocationAssignment_10 ) ) ;
+    // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3271:1: rule__LoadGenerator__Group__10__Impl : ( ( rule__LoadGenerator__RegionAssignment_10 ) ) ;
     public final void rule__LoadGenerator__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3275:1: ( ( ( rule__LoadGenerator__LocationAssignment_10 ) ) )
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3276:1: ( ( rule__LoadGenerator__LocationAssignment_10 ) )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3275:1: ( ( ( rule__LoadGenerator__RegionAssignment_10 ) ) )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3276:1: ( ( rule__LoadGenerator__RegionAssignment_10 ) )
             {
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3276:1: ( ( rule__LoadGenerator__LocationAssignment_10 ) )
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3277:1: ( rule__LoadGenerator__LocationAssignment_10 )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3276:1: ( ( rule__LoadGenerator__RegionAssignment_10 ) )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3277:1: ( rule__LoadGenerator__RegionAssignment_10 )
             {
-             before(grammarAccess.getLoadGeneratorAccess().getLocationAssignment_10()); 
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3278:1: ( rule__LoadGenerator__LocationAssignment_10 )
-            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3278:2: rule__LoadGenerator__LocationAssignment_10
+             before(grammarAccess.getLoadGeneratorAccess().getRegionAssignment_10()); 
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3278:1: ( rule__LoadGenerator__RegionAssignment_10 )
+            // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:3278:2: rule__LoadGenerator__RegionAssignment_10
             {
-            pushFollow(FOLLOW_rule__LoadGenerator__LocationAssignment_10_in_rule__LoadGenerator__Group__10__Impl6709);
-            rule__LoadGenerator__LocationAssignment_10();
+            pushFollow(FOLLOW_rule__LoadGenerator__RegionAssignment_10_in_rule__LoadGenerator__Group__10__Impl6709);
+            rule__LoadGenerator__RegionAssignment_10();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getLoadGeneratorAccess().getLocationAssignment_10()); 
+             after(grammarAccess.getLoadGeneratorAccess().getRegionAssignment_10()); 
 
             }
 
@@ -18358,9 +18358,9 @@ public class InternalLtmlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__LoadGenerator__PortAssignment_8"
 
 
-    // $ANTLR start "rule__LoadGenerator__LocationAssignment_10"
-    // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:6962:1: rule__LoadGenerator__LocationAssignment_10 : ( RULE_STRING ) ;
-    public final void rule__LoadGenerator__LocationAssignment_10() throws RecognitionException {
+    // $ANTLR start "rule__LoadGenerator__RegionAssignment_10"
+    // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:6962:1: rule__LoadGenerator__RegionAssignment_10 : ( RULE_STRING ) ;
+    public final void rule__LoadGenerator__RegionAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -18371,9 +18371,9 @@ public class InternalLtmlParser extends AbstractInternalContentAssistParser {
             // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:6967:1: ( RULE_STRING )
             // ../ltml.ui/src-gen/com/ino9dev/ui/contentassist/antlr/internal/InternalLtml.g:6968:1: RULE_STRING
             {
-             before(grammarAccess.getLoadGeneratorAccess().getLocationSTRINGTerminalRuleCall_10_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LoadGenerator__LocationAssignment_1013982); 
-             after(grammarAccess.getLoadGeneratorAccess().getLocationSTRINGTerminalRuleCall_10_0()); 
+             before(grammarAccess.getLoadGeneratorAccess().getRegionSTRINGTerminalRuleCall_10_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LoadGenerator__RegionAssignment_1013982); 
+             after(grammarAccess.getLoadGeneratorAccess().getRegionSTRINGTerminalRuleCall_10_0()); 
 
             }
 
@@ -18392,7 +18392,7 @@ public class InternalLtmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__LoadGenerator__LocationAssignment_10"
+    // $ANTLR end "rule__LoadGenerator__RegionAssignment_10"
 
 
     // $ANTLR start "rule__LoadGenerator__UsernameAssignment_12"
@@ -20323,7 +20323,7 @@ public class InternalLtmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_67_in_rule__LoadGenerator__Group__9__Impl6648 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__LoadGenerator__Group__10__Impl_in_rule__LoadGenerator__Group__106679 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
     public static final BitSet FOLLOW_rule__LoadGenerator__Group__11_in_rule__LoadGenerator__Group__106682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LoadGenerator__LocationAssignment_10_in_rule__LoadGenerator__Group__10__Impl6709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LoadGenerator__RegionAssignment_10_in_rule__LoadGenerator__Group__10__Impl6709 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__LoadGenerator__Group__11__Impl_in_rule__LoadGenerator__Group__116739 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__LoadGenerator__Group__12_in_rule__LoadGenerator__Group__116742 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_68_in_rule__LoadGenerator__Group__11__Impl6770 = new BitSet(new long[]{0x0000000000000002L});
@@ -20636,7 +20636,7 @@ public class InternalLtmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_STRING_in_rule__LoadGenerator__LoadgeneratornameAssignment_4_113889 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__LoadGenerator__IpAssignment_613920 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__LoadGenerator__PortAssignment_813951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__LoadGenerator__LocationAssignment_1013982 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__LoadGenerator__RegionAssignment_1013982 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__LoadGenerator__UsernameAssignment_1214013 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__LoadGenerator__PasswordAssignment_1414044 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Schedule__StartAssignment_2_0_114075 = new BitSet(new long[]{0x0000000000000002L});

@@ -5,6 +5,7 @@ grammar InternalLtml;
 
 options {
 	superClass=AbstractInternalAntlrParser;
+	backtrack=true;
 	
 }
 
@@ -35,6 +36,11 @@ import com.ino9dev.services.LtmlGrammarAccess;
 
 @parser::members {
 
+/*
+  This grammar contains a lot of empty actions to work around a bug in ANTLR.
+  Otherwise the ANTLR tool will create synpreds that cannot be compiled in some rare cases.
+*/
+ 
  	private LtmlGrammarAccess grammarAccess;
  	
     public InternalLtmlParser(TokenStream input, LtmlGrammarAccess grammarAccess) {
@@ -118,6 +124,9 @@ ruleStatement returns [EObject current=null]
     }
     @after { leaveRule(); }:
 (
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getManifestParserRuleCall_0()); 
     }
@@ -128,6 +137,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getLoadTestParserRuleCall_1()); 
     }
@@ -138,6 +150,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getLoadGroupParserRuleCall_2()); 
     }
@@ -148,6 +163,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getLoadGeneratorParserRuleCall_3()); 
     }
@@ -158,6 +176,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getScriptParserRuleCall_4()); 
     }
@@ -168,6 +189,9 @@ ruleStatement returns [EObject current=null]
     }
 
     |
+	{ 
+	  /* */ 
+	}
     { 
         newCompositeNode(grammarAccess.getStatementAccess().getDataTableParserRuleCall_5()); 
     }
@@ -462,6 +486,9 @@ ruleLoadTest returns [EObject current=null]
     }
 (
 (
+		{ 
+		  /* */ 
+		}
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getLoadTestRule());
@@ -479,6 +506,9 @@ ruleLoadTest returns [EObject current=null]
     }
 (
 (
+		{ 
+		  /* */ 
+		}
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getLoadTestRule());
@@ -641,6 +671,9 @@ ruleLoadGroup returns [EObject current=null]
     }
 (
 (
+		{ 
+		  /* */ 
+		}
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getLoadGroupRule());
@@ -695,6 +728,9 @@ ruleLoadGroup returns [EObject current=null]
     }
 (
 (
+		{ 
+		  /* */ 
+		}
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getLoadGroupRule());
@@ -872,15 +908,15 @@ ruleLoadGenerator returns [EObject current=null]
 	    }
 
 )
-)	otherlv_11='Location' 
+)	otherlv_11='Region' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getLoadGeneratorAccess().getLocationKeyword_9());
+    	newLeafNode(otherlv_11, grammarAccess.getLoadGeneratorAccess().getRegionKeyword_9());
     }
 (
 (
-		lv_location_12_0=RULE_STRING
+		lv_region_12_0=RULE_STRING
 		{
-			newLeafNode(lv_location_12_0, grammarAccess.getLoadGeneratorAccess().getLocationSTRINGTerminalRuleCall_10_0()); 
+			newLeafNode(lv_region_12_0, grammarAccess.getLoadGeneratorAccess().getRegionSTRINGTerminalRuleCall_10_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -888,8 +924,8 @@ ruleLoadGenerator returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"location",
-        		lv_location_12_0, 
+       			"region",
+        		lv_region_12_0, 
         		"STRING");
 	    }
 
@@ -1183,6 +1219,9 @@ ruleScript returns [EObject current=null]
     }
 (
 (
+		{ 
+		  /* */ 
+		}
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getScriptRule());
@@ -1200,6 +1239,9 @@ ruleScript returns [EObject current=null]
     }
 (
 (
+		{ 
+		  /* */ 
+		}
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getScriptRule());

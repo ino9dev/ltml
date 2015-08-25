@@ -72,7 +72,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/loadgeneratorname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/ip"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/port"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/region"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/username"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/password"/>
     </genClasses>

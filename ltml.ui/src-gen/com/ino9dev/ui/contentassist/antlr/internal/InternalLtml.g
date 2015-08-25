@@ -3243,11 +3243,11 @@ rule__LoadGenerator__Group__9__Impl
     }
 :
 (
-{ before(grammarAccess.getLoadGeneratorAccess().getLocationKeyword_9()); }
+{ before(grammarAccess.getLoadGeneratorAccess().getRegionKeyword_9()); }
 
-	'Location' 
+	'Region' 
 
-{ after(grammarAccess.getLoadGeneratorAccess().getLocationKeyword_9()); }
+{ after(grammarAccess.getLoadGeneratorAccess().getRegionKeyword_9()); }
 )
 
 ;
@@ -3274,9 +3274,9 @@ rule__LoadGenerator__Group__10__Impl
     }
 :
 (
-{ before(grammarAccess.getLoadGeneratorAccess().getLocationAssignment_10()); }
-(rule__LoadGenerator__LocationAssignment_10)
-{ after(grammarAccess.getLoadGeneratorAccess().getLocationAssignment_10()); }
+{ before(grammarAccess.getLoadGeneratorAccess().getRegionAssignment_10()); }
+(rule__LoadGenerator__RegionAssignment_10)
+{ after(grammarAccess.getLoadGeneratorAccess().getRegionAssignment_10()); }
 )
 
 ;
@@ -6959,14 +6959,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LoadGenerator__LocationAssignment_10
+rule__LoadGenerator__RegionAssignment_10
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLoadGeneratorAccess().getLocationSTRINGTerminalRuleCall_10_0()); }
-	RULE_STRING{ after(grammarAccess.getLoadGeneratorAccess().getLocationSTRINGTerminalRuleCall_10_0()); }
+{ before(grammarAccess.getLoadGeneratorAccess().getRegionSTRINGTerminalRuleCall_10_0()); }
+	RULE_STRING{ after(grammarAccess.getLoadGeneratorAccess().getRegionSTRINGTerminalRuleCall_10_0()); }
 )
 
 ;

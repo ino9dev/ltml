@@ -14,7 +14,7 @@ package com.ino9dev.ltml;
  *   <li>{@link com.ino9dev.ltml.LoadGenerator#getLoadgeneratorname <em>Loadgeneratorname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadGenerator#getIp <em>Ip</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadGenerator#getPort <em>Port</em>}</li>
- *   <li>{@link com.ino9dev.ltml.LoadGenerator#getLocation <em>Location</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.LoadGenerator#getRegion <em>Region</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadGenerator#getUsername <em>Username</em>}</li>
  *   <li>{@link com.ino9dev.ltml.LoadGenerator#getPassword <em>Password</em>}</li>
  * </ul>
@@ -105,30 +105,30 @@ public interface LoadGenerator extends Statement
   void setPort(String value);
 
   /**
-   * Returns the value of the '<em><b>Location</b></em>' attribute.
+   * Returns the value of the '<em><b>Region</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Location</em>' attribute isn't clear,
+   * If the meaning of the '<em>Region</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Location</em>' attribute.
-   * @see #setLocation(String)
-   * @see com.ino9dev.ltml.LtmlPackage#getLoadGenerator_Location()
+   * @return the value of the '<em>Region</em>' attribute.
+   * @see #setRegion(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getLoadGenerator_Region()
    * @model
    * @generated
    */
-  String getLocation();
+  String getRegion();
 
   /**
-   * Sets the value of the '{@link com.ino9dev.ltml.LoadGenerator#getLocation <em>Location</em>}' attribute.
+   * Sets the value of the '{@link com.ino9dev.ltml.LoadGenerator#getRegion <em>Region</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Location</em>' attribute.
-   * @see #getLocation()
+   * @param value the new value of the '<em>Region</em>' attribute.
+   * @see #getRegion()
    * @generated
    */
-  void setLocation(String value);
+  void setRegion(String value);
 
   /**
    * Returns the value of the '<em><b>Username</b></em>' attribute.

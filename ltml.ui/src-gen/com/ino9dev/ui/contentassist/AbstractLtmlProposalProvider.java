@@ -92,7 +92,7 @@ public class AbstractLtmlProposalProvider extends org.eclipse.xtext.common.ui.co
 	public void completeLoadGenerator_Port(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeLoadGenerator_Location(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void completeLoadGenerator_Region(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeLoadGenerator_Username(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {

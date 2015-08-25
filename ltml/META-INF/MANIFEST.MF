@@ -21,14 +21,15 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: com.ino9dev,
- com.ino9dev.services,
+ com.ino9dev.formatting,
+ com.ino9dev.generator,
+ com.ino9dev.interpreter,
  com.ino9dev.ltml,
  com.ino9dev.ltml.impl,
  com.ino9dev.ltml.util,
- com.ino9dev.serializer,
  com.ino9dev.parser.antlr,
  com.ino9dev.parser.antlr.internal,
- com.ino9dev.validation,
  com.ino9dev.scoping,
- com.ino9dev.generator,
- com.ino9dev.formatting
+ com.ino9dev.serializer,
+ com.ino9dev.services,
+ com.ino9dev.validation

@@ -517,7 +517,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoadGenerator_Location()
+  public EAttribute getLoadGenerator_Region()
   {
     return (EAttribute)loadGeneratorEClass.getEStructuralFeatures().get(3);
   }
@@ -1085,7 +1085,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__LOADGENERATORNAME);
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__IP);
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__PORT);
-    createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__LOCATION);
+    createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__REGION);
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__USERNAME);
     createEAttribute(loadGeneratorEClass, LOAD_GENERATOR__PASSWORD);
 
@@ -1216,7 +1216,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getLoadGenerator_Loadgeneratorname(), ecorePackage.getEString(), "loadgeneratorname", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGenerator_Ip(), ecorePackage.getEString(), "ip", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGenerator_Port(), ecorePackage.getEString(), "port", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLoadGenerator_Location(), ecorePackage.getEString(), "location", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLoadGenerator_Region(), ecorePackage.getEString(), "region", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGenerator_Username(), ecorePackage.getEString(), "username", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLoadGenerator_Password(), ecorePackage.getEString(), "password", null, 0, 1, LoadGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
