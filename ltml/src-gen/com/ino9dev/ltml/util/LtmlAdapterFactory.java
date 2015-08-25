@@ -120,6 +120,11 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
         return createTransactionAdapter();
       }
       @Override
+      public Adapter caseDataTable(DataTable object)
+      {
+        return createDataTableAdapter();
+      }
+      @Override
       public Adapter caseReport(Report object)
       {
         return createReportAdapter();
@@ -282,6 +287,21 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTransactionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ino9dev.ltml.DataTable <em>Data Table</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ino9dev.ltml.DataTable
+   * @generated
+   */
+  public Adapter createDataTableAdapter()
   {
     return null;
   }

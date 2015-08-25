@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.Script#getScriptname <em>Scriptname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Script#getTransactions <em>Transactions</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Script#getDatatable <em>Datatable</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,5 +65,21 @@ public interface Script extends Statement
    * @generated
    */
   EList<Transaction> getTransactions();
+
+  /**
+   * Returns the value of the '<em><b>Datatable</b></em>' reference list.
+   * The list contents are of type {@link com.ino9dev.ltml.DataTable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Datatable</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Datatable</em>' reference list.
+   * @see com.ino9dev.ltml.LtmlPackage#getScript_Datatable()
+   * @model
+   * @generated
+   */
+  EList<DataTable> getDatatable();
 
 } // Script

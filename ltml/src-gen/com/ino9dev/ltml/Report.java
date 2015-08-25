@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.ino9dev.ltml.Report#isTps <em>Tps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isResptime <em>Resptime</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Report#isCc <em>Cc</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Report#isCheckresponse <em>Checkresponse</em>}</li>
  * </ul>
  * </p>
  *
@@ -209,5 +210,31 @@ public interface Report extends EObject
    * @generated
    */
   void setCc(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Checkresponse</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Checkresponse</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Checkresponse</em>' attribute.
+   * @see #setCheckresponse(boolean)
+   * @see com.ino9dev.ltml.LtmlPackage#getReport_Checkresponse()
+   * @model
+   * @generated
+   */
+  boolean isCheckresponse();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Report#isCheckresponse <em>Checkresponse</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Checkresponse</em>' attribute.
+   * @see #isCheckresponse()
+   * @generated
+   */
+  void setCheckresponse(boolean value);
 
 } // Report

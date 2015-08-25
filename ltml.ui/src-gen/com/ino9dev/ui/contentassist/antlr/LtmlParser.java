@@ -57,6 +57,9 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getAlternatives(), "rule__Method__Alternatives");
 					put(grammarAccess.getInstanceTypeAccess().getAlternatives(), "rule__InstanceType__Alternatives");
 					put(grammarAccess.getProtocolAccess().getAlternatives(), "rule__Protocol__Alternatives");
+					put(grammarAccess.getDATATABLETYPEAccess().getAlternatives(), "rule__DATATABLETYPE__Alternatives");
+					put(grammarAccess.getASIGNMODEAccess().getAlternatives(), "rule__ASIGNMODE__Alternatives");
+					put(grammarAccess.getENCODINGTYPEAccess().getAlternatives(), "rule__ENCODINGTYPE__Alternatives");
 					put(grammarAccess.getManifestAccess().getGroup(), "rule__Manifest__Group__0");
 					put(grammarAccess.getManifestAccess().getGroup_4(), "rule__Manifest__Group_4__0");
 					put(grammarAccess.getManifestAccess().getGroup_7(), "rule__Manifest__Group_7__0");
@@ -74,11 +77,15 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScheduleAccess().getGroup_2_0(), "rule__Schedule__Group_2_0__0");
 					put(grammarAccess.getScheduleAccess().getGroup_2_1(), "rule__Schedule__Group_2_1__0");
 					put(grammarAccess.getScriptAccess().getGroup(), "rule__Script__Group__0");
+					put(grammarAccess.getScriptAccess().getGroup_10(), "rule__Script__Group_10__0");
+					put(grammarAccess.getScriptAccess().getGroup_10_2(), "rule__Script__Group_10_2__0");
 					put(grammarAccess.getTransactionAccess().getGroup(), "rule__Transaction__Group__0");
 					put(grammarAccess.getTransactionAccess().getGroup_14_0(), "rule__Transaction__Group_14_0__0");
 					put(grammarAccess.getTransactionAccess().getGroup_14_1(), "rule__Transaction__Group_14_1__0");
 					put(grammarAccess.getTransactionAccess().getGroup_15(), "rule__Transaction__Group_15__0");
 					put(grammarAccess.getTransactionAccess().getGroup_16(), "rule__Transaction__Group_16__0");
+					put(grammarAccess.getDataTableAccess().getGroup(), "rule__DataTable__Group__0");
+					put(grammarAccess.getDataTableAccess().getGroup_14(), "rule__DataTable__Group_14__0");
 					put(grammarAccess.getReportAccess().getGroup(), "rule__Report__Group__0");
 					put(grammarAccess.getReportAccess().getGroup_2_1(), "rule__Report__Group_2_1__0");
 					put(grammarAccess.getReportAccess().getGroup_2_1_0(), "rule__Report__Group_2_1_0__0");
@@ -120,6 +127,8 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScriptAccess().getNameAssignment_3(), "rule__Script__NameAssignment_3");
 					put(grammarAccess.getScriptAccess().getScriptnameAssignment_5(), "rule__Script__ScriptnameAssignment_5");
 					put(grammarAccess.getScriptAccess().getTransactionsAssignment_8(), "rule__Script__TransactionsAssignment_8");
+					put(grammarAccess.getScriptAccess().getDatatableAssignment_10_1(), "rule__Script__DatatableAssignment_10_1");
+					put(grammarAccess.getScriptAccess().getDatatableAssignment_10_2_1(), "rule__Script__DatatableAssignment_10_2_1");
 					put(grammarAccess.getTransactionAccess().getNameAssignment_3(), "rule__Transaction__NameAssignment_3");
 					put(grammarAccess.getTransactionAccess().getTransactionanmeAssignment_5(), "rule__Transaction__TransactionanmeAssignment_5");
 					put(grammarAccess.getTransactionAccess().getProtocolAssignment_7(), "rule__Transaction__ProtocolAssignment_7");
@@ -130,6 +139,16 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransactionAccess().getBodyAssignment_14_1_1(), "rule__Transaction__BodyAssignment_14_1_1");
 					put(grammarAccess.getTransactionAccess().getCapturefilenameAssignment_15_1(), "rule__Transaction__CapturefilenameAssignment_15_1");
 					put(grammarAccess.getTransactionAccess().getTextAssignment_16_1(), "rule__Transaction__TextAssignment_16_1");
+					put(grammarAccess.getDataTableAccess().getNameAssignment_3(), "rule__DataTable__NameAssignment_3");
+					put(grammarAccess.getDataTableAccess().getNamefordatatableAssignment_5(), "rule__DataTable__NamefordatatableAssignment_5");
+					put(grammarAccess.getDataTableAccess().getEncodingtypeAssignment_7(), "rule__DataTable__EncodingtypeAssignment_7");
+					put(grammarAccess.getDataTableAccess().getDelimiterAssignment_9(), "rule__DataTable__DelimiterAssignment_9");
+					put(grammarAccess.getDataTableAccess().getTypeAssignment_11(), "rule__DataTable__TypeAssignment_11");
+					put(grammarAccess.getDataTableAccess().getLayoutAssignment_13(), "rule__DataTable__LayoutAssignment_13");
+					put(grammarAccess.getDataTableAccess().getLayoutAssignment_14_1(), "rule__DataTable__LayoutAssignment_14_1");
+					put(grammarAccess.getDataTableAccess().getPathAssignment_16(), "rule__DataTable__PathAssignment_16");
+					put(grammarAccess.getDataTableAccess().getAsignmodeAssignment_18(), "rule__DataTable__AsignmodeAssignment_18");
+					put(grammarAccess.getDataTableAccess().getSharemodeAssignment_20(), "rule__DataTable__SharemodeAssignment_20");
 					put(grammarAccess.getReportAccess().getNoreportAssignment_2_0(), "rule__Report__NoreportAssignment_2_0");
 					put(grammarAccess.getReportAccess().getSummaryAssignment_2_1_0_0(), "rule__Report__SummaryAssignment_2_1_0_0");
 					put(grammarAccess.getReportAccess().getResultpathAssignment_2_1_0_1_1(), "rule__Report__ResultpathAssignment_2_1_0_1_1");
@@ -137,6 +156,7 @@ public class LtmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReportAccess().getTpsAssignment_2_1_1_1(), "rule__Report__TpsAssignment_2_1_1_1");
 					put(grammarAccess.getReportAccess().getResptimeAssignment_2_1_1_2(), "rule__Report__ResptimeAssignment_2_1_1_2");
 					put(grammarAccess.getReportAccess().getCcAssignment_2_1_1_3(), "rule__Report__CcAssignment_2_1_1_3");
+					put(grammarAccess.getReportAccess().getCheckresponseAssignment_2_1_1_4(), "rule__Report__CheckresponseAssignment_2_1_1_4");
 					put(grammarAccess.getParamAccess().getKeyAssignment_0(), "rule__Param__KeyAssignment_0");
 					put(grammarAccess.getParamAccess().getValueAssignment_2(), "rule__Param__ValueAssignment_2");
 				}

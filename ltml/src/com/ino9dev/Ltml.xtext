@@ -10,6 +10,7 @@ Statement:
     |LoadGroup
     |LoadGenerator
     |Script
+    |DataTable
     |SL_COMMENT
 ;
 
@@ -60,7 +61,7 @@ LoadGenerator:
         ("Name" loadgeneratorname=STRING)?
         "TargetIp" ip=STRING //todo IPADDR
         "TargetPort" port=STRING //todo PORT
-        "Location" location=STRING
+        "Region" region=STRING
         "AuthUsername" username=STRING
         "AuthPassword" password=STRING
     "}"
@@ -88,6 +89,7 @@ Script:
         "{"
             (transactions+=Transaction)*
         "}"
+        ("DataTable" datatable+=[DataTable]("," datatable+=[DataTable])*)?
     "}"
 ;
 
@@ -102,13 +104,26 @@ Transaction:
         "Path" path=STRING
         ("RequestParameters" "["
             param+=Param*
-         "]"|"Body" body=STRING
-        )?
+         "]"|"Body" body=STRING)?
         ("CaptureFileName" capturefilename=STRING)?
         ("ResponseExpected" text=STRING ("Exist"|"NotExist"|"Included"))?
     "}"
 ;
 
+DataTable:
+    "DataTable"
+    "{"
+        "Id" name=ID
+        "Name" namefordatatable=STRING
+        "EncodingType" encodingtype=ENCODINGTYPE
+        "Delimiter" delimiter=STRING
+        "Type" type=DATATABLETYPE
+        "Layout" layout+=STRING(","layout+=STRING)*
+        "Path" path=STRING
+        "AsignMode" asignmode=ASIGNMODE
+        "ShareMode" sharemode=SHAREMODE
+    "}"
+;
 
 terminal IPADDRESS:
     ('1'..'2''0'..'5''0'..'5'
@@ -137,7 +152,8 @@ Report:
              (hps?="HitPerSecond"
               |tps?="TransactionPerSecond"
               |resptime?="ResponseTime"
-              |cc?="ConccurentCount")*
+              |cc?="ConccurentCount"
+              |checkresponse?="CheckResponse")*
         )
     "}"
 ;
@@ -166,3 +182,25 @@ enum Protocol:
     |FTP="FTP"
     //others when if those are needed
 ;
+
+ enum DATATABLETYPE:
+     datatabletype="CSV"
+     |datatabletype="TSV"
+     //others whe if those are needed
+ ;
+ 
+ enum ASIGNMODE:
+     ITERATION="ITERATION"
+     |RANDOM="RANDOM"
+     |UNIQUE="UNIQUE"
+     //others whe if those are needed
+ ;
+ 
+ enum SHAREMODE:
+     ALLTHREAD="ALLTHREAD"
+ ;
+ 
+ enum ENCODINGTYPE:
+     SHIFTJIS="SHIFT_JIS"
+     |UTF8="UTF-8"
+ ;

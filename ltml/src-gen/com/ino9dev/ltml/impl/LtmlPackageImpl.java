@@ -2,6 +2,7 @@
  */
 package com.ino9dev.ltml.impl;
 
+import com.ino9dev.ltml.DataTable;
 import com.ino9dev.ltml.InstanceType;
 import com.ino9dev.ltml.LoadGenerator;
 import com.ino9dev.ltml.LoadGroup;
@@ -103,6 +104,13 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass dataTableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass reportEClass = null;
 
   /**
@@ -132,6 +140,34 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * @generated
    */
   private EEnum protocolEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum datatabletypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum asignmodeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum sharemodeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum encodingtypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -591,6 +627,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getScript_Datatable()
+  {
+    return (EReference)scriptEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTransaction()
   {
     return transactionEClass;
@@ -701,6 +747,96 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDataTable()
+  {
+    return dataTableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Namefordatatable()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Encodingtype()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Delimiter()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Type()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Layout()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Path()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Asignmode()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTable_Sharemode()
+  {
+    return (EAttribute)dataTableEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getReport()
   {
     return reportEClass;
@@ -781,6 +917,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getReport_Checkresponse()
+  {
+    return (EAttribute)reportEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getParam()
   {
     return paramEClass;
@@ -834,6 +980,46 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
   public EEnum getProtocol()
   {
     return protocolEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getDATATABLETYPE()
+  {
+    return datatabletypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getASIGNMODE()
+  {
+    return asignmodeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getSHAREMODE()
+  {
+    return sharemodeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getENCODINGTYPE()
+  {
+    return encodingtypeEEnum;
   }
 
   /**
@@ -912,6 +1098,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     scriptEClass = createEClass(SCRIPT);
     createEAttribute(scriptEClass, SCRIPT__SCRIPTNAME);
     createEReference(scriptEClass, SCRIPT__TRANSACTIONS);
+    createEReference(scriptEClass, SCRIPT__DATATABLE);
 
     transactionEClass = createEClass(TRANSACTION);
     createEAttribute(transactionEClass, TRANSACTION__NAME);
@@ -925,6 +1112,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(transactionEClass, TRANSACTION__CAPTUREFILENAME);
     createEAttribute(transactionEClass, TRANSACTION__TEXT);
 
+    dataTableEClass = createEClass(DATA_TABLE);
+    createEAttribute(dataTableEClass, DATA_TABLE__NAMEFORDATATABLE);
+    createEAttribute(dataTableEClass, DATA_TABLE__ENCODINGTYPE);
+    createEAttribute(dataTableEClass, DATA_TABLE__DELIMITER);
+    createEAttribute(dataTableEClass, DATA_TABLE__TYPE);
+    createEAttribute(dataTableEClass, DATA_TABLE__LAYOUT);
+    createEAttribute(dataTableEClass, DATA_TABLE__PATH);
+    createEAttribute(dataTableEClass, DATA_TABLE__ASIGNMODE);
+    createEAttribute(dataTableEClass, DATA_TABLE__SHAREMODE);
+
     reportEClass = createEClass(REPORT);
     createEAttribute(reportEClass, REPORT__NOREPORT);
     createEAttribute(reportEClass, REPORT__SUMMARY);
@@ -933,6 +1130,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(reportEClass, REPORT__TPS);
     createEAttribute(reportEClass, REPORT__RESPTIME);
     createEAttribute(reportEClass, REPORT__CC);
+    createEAttribute(reportEClass, REPORT__CHECKRESPONSE);
 
     paramEClass = createEClass(PARAM);
     createEAttribute(paramEClass, PARAM__KEY);
@@ -942,6 +1140,10 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     methodEEnum = createEEnum(METHOD);
     instanceTypeEEnum = createEEnum(INSTANCE_TYPE);
     protocolEEnum = createEEnum(PROTOCOL);
+    datatabletypeEEnum = createEEnum(DATATABLETYPE);
+    asignmodeEEnum = createEEnum(ASIGNMODE);
+    sharemodeEEnum = createEEnum(SHAREMODE);
+    encodingtypeEEnum = createEEnum(ENCODINGTYPE);
   }
 
   /**
@@ -978,6 +1180,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     loadGroupEClass.getESuperTypes().add(this.getStatement());
     loadGeneratorEClass.getESuperTypes().add(this.getStatement());
     scriptEClass.getESuperTypes().add(this.getStatement());
+    dataTableEClass.getESuperTypes().add(this.getStatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1026,6 +1229,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScript_Scriptname(), ecorePackage.getEString(), "scriptname", null, 0, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScript_Transactions(), this.getTransaction(), null, "transactions", null, 0, -1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScript_Datatable(), this.getDataTable(), null, "datatable", null, 0, -1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(transactionEClass, Transaction.class, "Transaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTransaction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1039,6 +1243,16 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getTransaction_Capturefilename(), ecorePackage.getEString(), "capturefilename", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Text(), ecorePackage.getEString(), "text", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(dataTableEClass, DataTable.class, "DataTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDataTable_Namefordatatable(), ecorePackage.getEString(), "namefordatatable", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataTable_Encodingtype(), this.getENCODINGTYPE(), "encodingtype", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataTable_Delimiter(), ecorePackage.getEString(), "delimiter", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataTable_Type(), this.getDATATABLETYPE(), "type", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataTable_Layout(), ecorePackage.getEString(), "layout", null, 0, -1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataTable_Path(), ecorePackage.getEString(), "path", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataTable_Asignmode(), this.getASIGNMODE(), "asignmode", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataTable_Sharemode(), this.getSHAREMODE(), "sharemode", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReport_Noreport(), ecorePackage.getEBoolean(), "noreport", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReport_Summary(), ecorePackage.getEBoolean(), "summary", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1047,6 +1261,7 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getReport_Tps(), ecorePackage.getEBoolean(), "tps", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReport_Resptime(), ecorePackage.getEBoolean(), "resptime", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReport_Cc(), ecorePackage.getEBoolean(), "cc", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getReport_Checkresponse(), ecorePackage.getEBoolean(), "checkresponse", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paramEClass, Param.class, "Param", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParam_Key(), ecorePackage.getEString(), "key", null, 0, 1, Param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1069,6 +1284,21 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     addEEnumLiteral(protocolEEnum, Protocol.HTTPS);
     addEEnumLiteral(protocolEEnum, Protocol.SMTP);
     addEEnumLiteral(protocolEEnum, Protocol.FTP);
+
+    initEEnum(datatabletypeEEnum, com.ino9dev.ltml.DATATABLETYPE.class, "DATATABLETYPE");
+    addEEnumLiteral(datatabletypeEEnum, com.ino9dev.ltml.DATATABLETYPE.DATATABLETYPE);
+
+    initEEnum(asignmodeEEnum, com.ino9dev.ltml.ASIGNMODE.class, "ASIGNMODE");
+    addEEnumLiteral(asignmodeEEnum, com.ino9dev.ltml.ASIGNMODE.ITERATION);
+    addEEnumLiteral(asignmodeEEnum, com.ino9dev.ltml.ASIGNMODE.RANDOM);
+    addEEnumLiteral(asignmodeEEnum, com.ino9dev.ltml.ASIGNMODE.UNIQUE);
+
+    initEEnum(sharemodeEEnum, com.ino9dev.ltml.SHAREMODE.class, "SHAREMODE");
+    addEEnumLiteral(sharemodeEEnum, com.ino9dev.ltml.SHAREMODE.ALLTHREAD);
+
+    initEEnum(encodingtypeEEnum, com.ino9dev.ltml.ENCODINGTYPE.class, "ENCODINGTYPE");
+    addEEnumLiteral(encodingtypeEEnum, com.ino9dev.ltml.ENCODINGTYPE.SHIFTJIS);
+    addEEnumLiteral(encodingtypeEEnum, com.ino9dev.ltml.ENCODINGTYPE.UTF8);
 
     // Create resource
     createResource(eNS_URI);

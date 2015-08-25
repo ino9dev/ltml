@@ -2,6 +2,7 @@ package com.ino9dev.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.ino9dev.ltml.DataTable;
 import com.ino9dev.ltml.LoadGenerator;
 import com.ino9dev.ltml.LoadGroup;
 import com.ino9dev.ltml.LoadTest;
@@ -34,6 +35,13 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == LtmlPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case LtmlPackage.DATA_TABLE:
+				if(context == grammarAccess.getDataTableRule() ||
+				   context == grammarAccess.getStatementRule()) {
+					sequence_DataTable(context, (DataTable) semanticObject); 
+					return; 
+				}
+				else break;
 			case LtmlPackage.LOAD_GENERATOR:
 				if(context == grammarAccess.getLoadGeneratorRule() ||
 				   context == grammarAccess.getStatementRule()) {
@@ -102,6 +110,26 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         namefordatatable=STRING 
+	 *         encodingtype=ENCODINGTYPE 
+	 *         delimiter=STRING 
+	 *         type=DATATABLETYPE 
+	 *         layout+=STRING 
+	 *         layout+=STRING* 
+	 *         path=STRING 
+	 *         asignmode=ASIGNMODE 
+	 *         sharemode=SHAREMODE
+	 *     )
+	 */
+	protected void sequence_DataTable(EObject context, DataTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -203,7 +231,11 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         noreport?='NoReport' | 
-	 *         (summary?='Summary' resultpath=STRING? (hps?='HitPerSecond' | tps?='TransactionPerSecond' | resptime?='ResponseTime' | cc?='ConccurentCount')*)
+	 *         (
+	 *             summary?='Summary' 
+	 *             resultpath=STRING? 
+	 *             (hps?='HitPerSecond' | tps?='TransactionPerSecond' | resptime?='ResponseTime' | cc?='ConccurentCount' | checkresponse?='CheckResponse')*
+	 *         )
 	 *     )
 	 */
 	protected void sequence_Report(EObject context, Report semanticObject) {
@@ -222,7 +254,7 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID scriptname=STRING transactions+=Transaction*)
+	 *     (name=ID scriptname=STRING transactions+=Transaction* (datatable+=[DataTable|ID] datatable+=[DataTable|ID]*)?)
 	 */
 	protected void sequence_Script(EObject context, Script semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

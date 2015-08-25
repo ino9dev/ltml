@@ -42,13 +42,14 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLoadGroupParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cLoadGeneratorParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cScriptParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cDataTableParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Statement:
-		//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | SL_COMMENT;
+		//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | DataTable | SL_COMMENT;
 		public ParserRule getRule() { return rule; }
 
-		//Manifest | LoadTest | LoadGroup | LoadGenerator | Script | SL_COMMENT
+		//Manifest | LoadTest | LoadGroup | LoadGenerator | Script | DataTable | SL_COMMENT
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Manifest
@@ -66,8 +67,11 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Script
 		public RuleCall getScriptParserRuleCall_4() { return cScriptParserRuleCall_4; }
 
+		//DataTable
+		public RuleCall getDataTableParserRuleCall_5() { return cDataTableParserRuleCall_5; }
+
 		//SL_COMMENT
-		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+		public RuleCall getSL_COMMENTTerminalRuleCall_6() { return cSL_COMMENTTerminalRuleCall_6; }
 	}
 
 	public class ManifestElements extends AbstractParserRuleElementFinder {
@@ -721,15 +725,25 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTransactionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cTransactionsTransactionParserRuleCall_8_0 = (RuleCall)cTransactionsAssignment_8.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cDataTableKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cDatatableAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cDatatableDataTableCrossReference_10_1_0 = (CrossReference)cDatatableAssignment_10_1.eContents().get(0);
+		private final RuleCall cDatatableDataTableIDTerminalRuleCall_10_1_0_1 = (RuleCall)cDatatableDataTableCrossReference_10_1_0.eContents().get(1);
+		private final Group cGroup_10_2 = (Group)cGroup_10.eContents().get(2);
+		private final Keyword cCommaKeyword_10_2_0 = (Keyword)cGroup_10_2.eContents().get(0);
+		private final Assignment cDatatableAssignment_10_2_1 = (Assignment)cGroup_10_2.eContents().get(1);
+		private final CrossReference cDatatableDataTableCrossReference_10_2_1_0 = (CrossReference)cDatatableAssignment_10_2_1.eContents().get(0);
+		private final RuleCall cDatatableDataTableIDTerminalRuleCall_10_2_1_0_1 = (RuleCall)cDatatableDataTableCrossReference_10_2_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Script:
 		//	("Script" | "Sc") "{" "Id" name=ID "Name" scriptname=STRING ("Transactions" | "Trs") "{" transactions+=Transaction*
-		//	"}" "}";
+		//	"}" ("DataTable" datatable+=[DataTable] ("," datatable+=[DataTable])*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//("Script" | "Sc") "{" "Id" name=ID "Name" scriptname=STRING ("Transactions" | "Trs") "{" transactions+=Transaction* "}"
-		//"}"
+		//("DataTable" datatable+=[DataTable] ("," datatable+=[DataTable])*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Script" | "Sc"
@@ -783,8 +797,38 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 
+		//("DataTable" datatable+=[DataTable] ("," datatable+=[DataTable])*)?
+		public Group getGroup_10() { return cGroup_10; }
+
+		//"DataTable"
+		public Keyword getDataTableKeyword_10_0() { return cDataTableKeyword_10_0; }
+
+		//datatable+=[DataTable]
+		public Assignment getDatatableAssignment_10_1() { return cDatatableAssignment_10_1; }
+
+		//[DataTable]
+		public CrossReference getDatatableDataTableCrossReference_10_1_0() { return cDatatableDataTableCrossReference_10_1_0; }
+
+		//ID
+		public RuleCall getDatatableDataTableIDTerminalRuleCall_10_1_0_1() { return cDatatableDataTableIDTerminalRuleCall_10_1_0_1; }
+
+		//("," datatable+=[DataTable])*
+		public Group getGroup_10_2() { return cGroup_10_2; }
+
+		//","
+		public Keyword getCommaKeyword_10_2_0() { return cCommaKeyword_10_2_0; }
+
+		//datatable+=[DataTable]
+		public Assignment getDatatableAssignment_10_2_1() { return cDatatableAssignment_10_2_1; }
+
+		//[DataTable]
+		public CrossReference getDatatableDataTableCrossReference_10_2_1_0() { return cDatatableDataTableCrossReference_10_2_1_0; }
+
+		//ID
+		public RuleCall getDatatableDataTableIDTerminalRuleCall_10_2_1_0_1() { return cDatatableDataTableIDTerminalRuleCall_10_2_1_0_1; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 
 	public class TransactionElements extends AbstractParserRuleElementFinder {
@@ -997,6 +1041,158 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_17() { return cRightCurlyBracketKeyword_17; }
 	}
 
+	public class DataTableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DataTable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDataTableKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cIdKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cNameKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cNamefordatatableAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNamefordatatableSTRINGTerminalRuleCall_5_0 = (RuleCall)cNamefordatatableAssignment_5.eContents().get(0);
+		private final Keyword cEncodingTypeKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cEncodingtypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cEncodingtypeENCODINGTYPEEnumRuleCall_7_0 = (RuleCall)cEncodingtypeAssignment_7.eContents().get(0);
+		private final Keyword cDelimiterKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDelimiterAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDelimiterSTRINGTerminalRuleCall_9_0 = (RuleCall)cDelimiterAssignment_9.eContents().get(0);
+		private final Keyword cTypeKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cTypeAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cTypeDATATABLETYPEEnumRuleCall_11_0 = (RuleCall)cTypeAssignment_11.eContents().get(0);
+		private final Keyword cLayoutKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cLayoutAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cLayoutSTRINGTerminalRuleCall_13_0 = (RuleCall)cLayoutAssignment_13.eContents().get(0);
+		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
+		private final Keyword cCommaKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
+		private final Assignment cLayoutAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
+		private final RuleCall cLayoutSTRINGTerminalRuleCall_14_1_0 = (RuleCall)cLayoutAssignment_14_1.eContents().get(0);
+		private final Keyword cPathKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Assignment cPathAssignment_16 = (Assignment)cGroup.eContents().get(16);
+		private final RuleCall cPathSTRINGTerminalRuleCall_16_0 = (RuleCall)cPathAssignment_16.eContents().get(0);
+		private final Keyword cAsignModeKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Assignment cAsignmodeAssignment_18 = (Assignment)cGroup.eContents().get(18);
+		private final RuleCall cAsignmodeASIGNMODEEnumRuleCall_18_0 = (RuleCall)cAsignmodeAssignment_18.eContents().get(0);
+		private final Keyword cShareModeKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Assignment cSharemodeAssignment_20 = (Assignment)cGroup.eContents().get(20);
+		private final RuleCall cSharemodeSHAREMODEEnumRuleCall_20_0 = (RuleCall)cSharemodeAssignment_20.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
+		
+		//DataTable:
+		//	"DataTable" "{" "Id" name=ID "Name" namefordatatable=STRING "EncodingType" encodingtype=ENCODINGTYPE "Delimiter"
+		//	delimiter=STRING "Type" type=DATATABLETYPE "Layout" layout+=STRING ("," layout+=STRING)* "Path" path=STRING
+		//	"AsignMode" asignmode=ASIGNMODE "ShareMode" sharemode=SHAREMODE "}";
+		public ParserRule getRule() { return rule; }
+
+		//"DataTable" "{" "Id" name=ID "Name" namefordatatable=STRING "EncodingType" encodingtype=ENCODINGTYPE "Delimiter"
+		//delimiter=STRING "Type" type=DATATABLETYPE "Layout" layout+=STRING ("," layout+=STRING)* "Path" path=STRING
+		//"AsignMode" asignmode=ASIGNMODE "ShareMode" sharemode=SHAREMODE "}"
+		public Group getGroup() { return cGroup; }
+
+		//"DataTable"
+		public Keyword getDataTableKeyword_0() { return cDataTableKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//"Id"
+		public Keyword getIdKeyword_2() { return cIdKeyword_2; }
+
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//"Name"
+		public Keyword getNameKeyword_4() { return cNameKeyword_4; }
+
+		//namefordatatable=STRING
+		public Assignment getNamefordatatableAssignment_5() { return cNamefordatatableAssignment_5; }
+
+		//STRING
+		public RuleCall getNamefordatatableSTRINGTerminalRuleCall_5_0() { return cNamefordatatableSTRINGTerminalRuleCall_5_0; }
+
+		//"EncodingType"
+		public Keyword getEncodingTypeKeyword_6() { return cEncodingTypeKeyword_6; }
+
+		//encodingtype=ENCODINGTYPE
+		public Assignment getEncodingtypeAssignment_7() { return cEncodingtypeAssignment_7; }
+
+		//ENCODINGTYPE
+		public RuleCall getEncodingtypeENCODINGTYPEEnumRuleCall_7_0() { return cEncodingtypeENCODINGTYPEEnumRuleCall_7_0; }
+
+		//"Delimiter"
+		public Keyword getDelimiterKeyword_8() { return cDelimiterKeyword_8; }
+
+		//delimiter=STRING
+		public Assignment getDelimiterAssignment_9() { return cDelimiterAssignment_9; }
+
+		//STRING
+		public RuleCall getDelimiterSTRINGTerminalRuleCall_9_0() { return cDelimiterSTRINGTerminalRuleCall_9_0; }
+
+		//"Type"
+		public Keyword getTypeKeyword_10() { return cTypeKeyword_10; }
+
+		//type=DATATABLETYPE
+		public Assignment getTypeAssignment_11() { return cTypeAssignment_11; }
+
+		//DATATABLETYPE
+		public RuleCall getTypeDATATABLETYPEEnumRuleCall_11_0() { return cTypeDATATABLETYPEEnumRuleCall_11_0; }
+
+		//"Layout"
+		public Keyword getLayoutKeyword_12() { return cLayoutKeyword_12; }
+
+		//layout+=STRING
+		public Assignment getLayoutAssignment_13() { return cLayoutAssignment_13; }
+
+		//STRING
+		public RuleCall getLayoutSTRINGTerminalRuleCall_13_0() { return cLayoutSTRINGTerminalRuleCall_13_0; }
+
+		//("," layout+=STRING)*
+		public Group getGroup_14() { return cGroup_14; }
+
+		//","
+		public Keyword getCommaKeyword_14_0() { return cCommaKeyword_14_0; }
+
+		//layout+=STRING
+		public Assignment getLayoutAssignment_14_1() { return cLayoutAssignment_14_1; }
+
+		//STRING
+		public RuleCall getLayoutSTRINGTerminalRuleCall_14_1_0() { return cLayoutSTRINGTerminalRuleCall_14_1_0; }
+
+		//"Path"
+		public Keyword getPathKeyword_15() { return cPathKeyword_15; }
+
+		//path=STRING
+		public Assignment getPathAssignment_16() { return cPathAssignment_16; }
+
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_16_0() { return cPathSTRINGTerminalRuleCall_16_0; }
+
+		//"AsignMode"
+		public Keyword getAsignModeKeyword_17() { return cAsignModeKeyword_17; }
+
+		//asignmode=ASIGNMODE
+		public Assignment getAsignmodeAssignment_18() { return cAsignmodeAssignment_18; }
+
+		//ASIGNMODE
+		public RuleCall getAsignmodeASIGNMODEEnumRuleCall_18_0() { return cAsignmodeASIGNMODEEnumRuleCall_18_0; }
+
+		//"ShareMode"
+		public Keyword getShareModeKeyword_19() { return cShareModeKeyword_19; }
+
+		//sharemode=SHAREMODE
+		public Assignment getSharemodeAssignment_20() { return cSharemodeAssignment_20; }
+
+		//SHAREMODE
+		public RuleCall getSharemodeSHAREMODEEnumRuleCall_20_0() { return cSharemodeSHAREMODEEnumRuleCall_20_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_21() { return cRightCurlyBracketKeyword_21; }
+	}
+
 	public class ReportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Report");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1022,15 +1218,18 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cResptimeResponseTimeKeyword_2_1_1_2_0 = (Keyword)cResptimeAssignment_2_1_1_2.eContents().get(0);
 		private final Assignment cCcAssignment_2_1_1_3 = (Assignment)cAlternatives_2_1_1.eContents().get(3);
 		private final Keyword cCcConccurentCountKeyword_2_1_1_3_0 = (Keyword)cCcAssignment_2_1_1_3.eContents().get(0);
+		private final Assignment cCheckresponseAssignment_2_1_1_4 = (Assignment)cAlternatives_2_1_1.eContents().get(4);
+		private final Keyword cCheckresponseCheckResponseKeyword_2_1_1_4_0 = (Keyword)cCheckresponseAssignment_2_1_1_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Report:
 		//	"Report" "{" (noreport?="NoReport" | (summary?="Summary" ("Result" resultpath=STRING)?) (hps?="HitPerSecond" |
-		//	tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount")*) "}";
+		//	tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount" | checkresponse?="CheckResponse")*)
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
 		//"Report" "{" (noreport?="NoReport" | (summary?="Summary" ("Result" resultpath=STRING)?) (hps?="HitPerSecond" |
-		//tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount")*) "}"
+		//tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount" | checkresponse?="CheckResponse")*) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Report"
@@ -1040,7 +1239,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//noreport?="NoReport" | (summary?="Summary" ("Result" resultpath=STRING)?) (hps?="HitPerSecond" |
-		//tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount")*
+		//tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount" | checkresponse?="CheckResponse")*
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//noreport?="NoReport"
@@ -1050,7 +1249,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getNoreportNoReportKeyword_2_0_0() { return cNoreportNoReportKeyword_2_0_0; }
 
 		//(summary?="Summary" ("Result" resultpath=STRING)?) (hps?="HitPerSecond" | tps?="TransactionPerSecond" |
-		//resptime?="ResponseTime" | cc?="ConccurentCount")*
+		//resptime?="ResponseTime" | cc?="ConccurentCount" | checkresponse?="CheckResponse")*
 		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//summary?="Summary" ("Result" resultpath=STRING)?
@@ -1074,7 +1273,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getResultpathSTRINGTerminalRuleCall_2_1_0_1_1_0() { return cResultpathSTRINGTerminalRuleCall_2_1_0_1_1_0; }
 
-		//(hps?="HitPerSecond" | tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount")*
+		//(hps?="HitPerSecond" | tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount" |
+		//checkresponse?="CheckResponse")*
 		public Alternatives getAlternatives_2_1_1() { return cAlternatives_2_1_1; }
 
 		//hps?="HitPerSecond"
@@ -1100,6 +1300,12 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"ConccurentCount"
 		public Keyword getCcConccurentCountKeyword_2_1_1_3_0() { return cCcConccurentCountKeyword_2_1_1_3_0; }
+
+		//checkresponse?="CheckResponse"
+		public Assignment getCheckresponseAssignment_2_1_1_4() { return cCheckresponseAssignment_2_1_1_4; }
+
+		//"CheckResponse"
+		public Keyword getCheckresponseCheckResponseKeyword_2_1_1_4_0() { return cCheckresponseCheckResponseKeyword_2_1_1_4_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
@@ -1262,6 +1468,116 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"FTP"
 		public Keyword getFTPFTPKeyword_3_0() { return cFTPFTPKeyword_3_0; }
 	}
+
+	public class DATATABLETYPEElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "DATATABLETYPE");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cDatatabletypeEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cDatatabletypeCSVKeyword_0_0 = (Keyword)cDatatabletypeEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cDatatabletypeEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cDatatabletypeTSVKeyword_1_0 = (Keyword)cDatatabletypeEnumLiteralDeclaration_1.eContents().get(0);
+		
+		////others whe if those are needed
+		//enum DATATABLETYPE:
+		//	datatabletype="CSV" | datatabletype="TSV";
+		public EnumRule getRule() { return rule; }
+
+		//datatabletype="CSV" | datatabletype="TSV"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//datatabletype="CSV"
+		public EnumLiteralDeclaration getDatatabletypeEnumLiteralDeclaration_0() { return cDatatabletypeEnumLiteralDeclaration_0; }
+
+		//"CSV"
+		public Keyword getDatatabletypeCSVKeyword_0_0() { return cDatatabletypeCSVKeyword_0_0; }
+
+		//datatabletype="TSV"
+		public EnumLiteralDeclaration getDatatabletypeEnumLiteralDeclaration_1() { return cDatatabletypeEnumLiteralDeclaration_1; }
+
+		//"TSV"
+		public Keyword getDatatabletypeTSVKeyword_1_0() { return cDatatabletypeTSVKeyword_1_0; }
+	}
+
+	public class ASIGNMODEElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "ASIGNMODE");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cITERATIONEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cITERATIONITERATIONKeyword_0_0 = (Keyword)cITERATIONEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cRANDOMEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cRANDOMRANDOMKeyword_1_0 = (Keyword)cRANDOMEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cUNIQUEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cUNIQUEUNIQUEKeyword_2_0 = (Keyword)cUNIQUEEnumLiteralDeclaration_2.eContents().get(0);
+		
+		////others whe if those are needed
+		//enum ASIGNMODE:
+		//	ITERATION | RANDOM | UNIQUE;
+		public EnumRule getRule() { return rule; }
+
+		//ITERATION | RANDOM | UNIQUE
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ITERATION
+		public EnumLiteralDeclaration getITERATIONEnumLiteralDeclaration_0() { return cITERATIONEnumLiteralDeclaration_0; }
+
+		//"ITERATION"
+		public Keyword getITERATIONITERATIONKeyword_0_0() { return cITERATIONITERATIONKeyword_0_0; }
+
+		//RANDOM
+		public EnumLiteralDeclaration getRANDOMEnumLiteralDeclaration_1() { return cRANDOMEnumLiteralDeclaration_1; }
+
+		//"RANDOM"
+		public Keyword getRANDOMRANDOMKeyword_1_0() { return cRANDOMRANDOMKeyword_1_0; }
+
+		//UNIQUE
+		public EnumLiteralDeclaration getUNIQUEEnumLiteralDeclaration_2() { return cUNIQUEEnumLiteralDeclaration_2; }
+
+		//"UNIQUE"
+		public Keyword getUNIQUEUNIQUEKeyword_2_0() { return cUNIQUEUNIQUEKeyword_2_0; }
+	}
+
+	public class SHAREMODEElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "SHAREMODE");
+		private final EnumLiteralDeclaration cALLTHREADEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cALLTHREADALLTHREADKeyword_0 = (Keyword)cALLTHREADEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum SHAREMODE:
+		//	ALLTHREAD;
+		public EnumRule getRule() { return rule; }
+
+		//ALLTHREAD
+		public EnumLiteralDeclaration getALLTHREADEnumLiteralDeclaration() { return cALLTHREADEnumLiteralDeclaration; }
+
+		//"ALLTHREAD"
+		public Keyword getALLTHREADALLTHREADKeyword_0() { return cALLTHREADALLTHREADKeyword_0; }
+	}
+
+	public class ENCODINGTYPEElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "ENCODINGTYPE");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cSHIFTJISEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cSHIFTJISSHIFT_JISKeyword_0_0 = (Keyword)cSHIFTJISEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cUTF8EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cUTF8UTF8Keyword_1_0 = (Keyword)cUTF8EnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum ENCODINGTYPE:
+		//	SHIFTJIS="SHIFT_JIS" | UTF8="UTF-8";
+		public EnumRule getRule() { return rule; }
+
+		//SHIFTJIS="SHIFT_JIS" | UTF8="UTF-8"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//SHIFTJIS="SHIFT_JIS"
+		public EnumLiteralDeclaration getSHIFTJISEnumLiteralDeclaration_0() { return cSHIFTJISEnumLiteralDeclaration_0; }
+
+		//"SHIFT_JIS"
+		public Keyword getSHIFTJISSHIFT_JISKeyword_0_0() { return cSHIFTJISSHIFT_JISKeyword_0_0; }
+
+		//UTF8="UTF-8"
+		public EnumLiteralDeclaration getUTF8EnumLiteralDeclaration_1() { return cUTF8EnumLiteralDeclaration_1; }
+
+		//"UTF-8"
+		public Keyword getUTF8UTF8Keyword_1_0() { return cUTF8UTF8Keyword_1_0; }
+	}
 	
 	private ModelElements pModel;
 	private StatementElements pStatement;
@@ -1272,12 +1588,17 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	private ScheduleElements pSchedule;
 	private ScriptElements pScript;
 	private TransactionElements pTransaction;
+	private DataTableElements pDataTable;
 	private TerminalRule tIPADDRESS;
 	private ReportElements pReport;
 	private ParamElements pParam;
 	private MethodElements unknownRuleMethod;
 	private InstanceTypeElements unknownRuleInstanceType;
 	private ProtocolElements unknownRuleProtocol;
+	private DATATABLETYPEElements unknownRuleDATATABLETYPE;
+	private ASIGNMODEElements unknownRuleASIGNMODE;
+	private SHAREMODEElements unknownRuleSHAREMODE;
+	private ENCODINGTYPEElements unknownRuleENCODINGTYPE;
 	
 	private final Grammar grammar;
 
@@ -1328,7 +1649,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statement:
-	//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | SL_COMMENT;
+	//	Manifest | LoadTest | LoadGroup | LoadGenerator | Script | DataTable | SL_COMMENT;
 	public StatementElements getStatementAccess() {
 		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
 	}
@@ -1396,7 +1717,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Script:
 	//	("Script" | "Sc") "{" "Id" name=ID "Name" scriptname=STRING ("Transactions" | "Trs") "{" transactions+=Transaction*
-	//	"}" "}";
+	//	"}" ("DataTable" datatable+=[DataTable] ("," datatable+=[DataTable])*)? "}";
 	public ScriptElements getScriptAccess() {
 		return (pScript != null) ? pScript : (pScript = new ScriptElements());
 	}
@@ -1418,6 +1739,18 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransactionAccess().getRule();
 	}
 
+	//DataTable:
+	//	"DataTable" "{" "Id" name=ID "Name" namefordatatable=STRING "EncodingType" encodingtype=ENCODINGTYPE "Delimiter"
+	//	delimiter=STRING "Type" type=DATATABLETYPE "Layout" layout+=STRING ("," layout+=STRING)* "Path" path=STRING
+	//	"AsignMode" asignmode=ASIGNMODE "ShareMode" sharemode=SHAREMODE "}";
+	public DataTableElements getDataTableAccess() {
+		return (pDataTable != null) ? pDataTable : (pDataTable = new DataTableElements());
+	}
+	
+	public ParserRule getDataTableRule() {
+		return getDataTableAccess().getRule();
+	}
+
 	//terminal IPADDRESS:
 	//	("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" |
 	//	"0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9"
@@ -1428,7 +1761,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Report:
 	//	"Report" "{" (noreport?="NoReport" | (summary?="Summary" ("Result" resultpath=STRING)?) (hps?="HitPerSecond" |
-	//	tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount")*) "}";
+	//	tps?="TransactionPerSecond" | resptime?="ResponseTime" | cc?="ConccurentCount" | checkresponse?="CheckResponse")*)
+	//	"}";
 	public ReportElements getReportAccess() {
 		return (pReport != null) ? pReport : (pReport = new ReportElements());
 	}
@@ -1476,6 +1810,48 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getProtocolRule() {
 		return getProtocolAccess().getRule();
+	}
+
+	////others whe if those are needed
+	//enum DATATABLETYPE:
+	//	datatabletype="CSV" | datatabletype="TSV";
+	public DATATABLETYPEElements getDATATABLETYPEAccess() {
+		return (unknownRuleDATATABLETYPE != null) ? unknownRuleDATATABLETYPE : (unknownRuleDATATABLETYPE = new DATATABLETYPEElements());
+	}
+	
+	public EnumRule getDATATABLETYPERule() {
+		return getDATATABLETYPEAccess().getRule();
+	}
+
+	////others whe if those are needed
+	//enum ASIGNMODE:
+	//	ITERATION | RANDOM | UNIQUE;
+	public ASIGNMODEElements getASIGNMODEAccess() {
+		return (unknownRuleASIGNMODE != null) ? unknownRuleASIGNMODE : (unknownRuleASIGNMODE = new ASIGNMODEElements());
+	}
+	
+	public EnumRule getASIGNMODERule() {
+		return getASIGNMODEAccess().getRule();
+	}
+
+	//enum SHAREMODE:
+	//	ALLTHREAD;
+	public SHAREMODEElements getSHAREMODEAccess() {
+		return (unknownRuleSHAREMODE != null) ? unknownRuleSHAREMODE : (unknownRuleSHAREMODE = new SHAREMODEElements());
+	}
+	
+	public EnumRule getSHAREMODERule() {
+		return getSHAREMODEAccess().getRule();
+	}
+
+	//enum ENCODINGTYPE:
+	//	SHIFTJIS="SHIFT_JIS" | UTF8="UTF-8";
+	public ENCODINGTYPEElements getENCODINGTYPEAccess() {
+		return (unknownRuleENCODINGTYPE != null) ? unknownRuleENCODINGTYPE : (unknownRuleENCODINGTYPE = new ENCODINGTYPEElements());
+	}
+	
+	public EnumRule getENCODINGTYPERule() {
+		return getENCODINGTYPEAccess().getRule();
 	}
 
 	//terminal ID:

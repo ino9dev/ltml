@@ -525,13 +525,22 @@ public interface LtmlPackage extends EPackage
   int SCRIPT__TRANSACTIONS = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Datatable</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCRIPT__DATATABLE = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Script</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCRIPT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int SCRIPT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.TransactionImpl <em>Transaction</em>}' class.
@@ -643,6 +652,106 @@ public interface LtmlPackage extends EPackage
   int TRANSACTION_FEATURE_COUNT = 10;
 
   /**
+   * The meta object id for the '{@link com.ino9dev.ltml.impl.DataTableImpl <em>Data Table</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.impl.DataTableImpl
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getDataTable()
+   * @generated
+   */
+  int DATA_TABLE = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__NAME = STATEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Namefordatatable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__NAMEFORDATATABLE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Encodingtype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__ENCODINGTYPE = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Delimiter</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__DELIMITER = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__TYPE = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Layout</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__LAYOUT = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__PATH = STATEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Asignmode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__ASIGNMODE = STATEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Sharemode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE__SHAREMODE = STATEMENT_FEATURE_COUNT + 7;
+
+  /**
+   * The number of structural features of the '<em>Data Table</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TABLE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 8;
+
+  /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ReportImpl <em>Report</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -650,7 +759,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getReport()
    * @generated
    */
-  int REPORT = 9;
+  int REPORT = 10;
 
   /**
    * The feature id for the '<em><b>Noreport</b></em>' attribute.
@@ -716,13 +825,22 @@ public interface LtmlPackage extends EPackage
   int REPORT__CC = 6;
 
   /**
+   * The feature id for the '<em><b>Checkresponse</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__CHECKRESPONSE = 7;
+
+  /**
    * The number of structural features of the '<em>Report</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPORT_FEATURE_COUNT = 7;
+  int REPORT_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.ParamImpl <em>Param</em>}' class.
@@ -732,7 +850,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getParam()
    * @generated
    */
-  int PARAM = 10;
+  int PARAM = 11;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -769,7 +887,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 11;
+  int METHOD = 12;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}' enum.
@@ -779,7 +897,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getInstanceType()
    * @generated
    */
-  int INSTANCE_TYPE = 12;
+  int INSTANCE_TYPE = 13;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.Protocol <em>Protocol</em>}' enum.
@@ -789,7 +907,47 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getProtocol()
    * @generated
    */
-  int PROTOCOL = 13;
+  int PROTOCOL = 14;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.DATATABLETYPE <em>DATATABLETYPE</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.DATATABLETYPE
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getDATATABLETYPE()
+   * @generated
+   */
+  int DATATABLETYPE = 15;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.ASIGNMODE <em>ASIGNMODE</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.ASIGNMODE
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getASIGNMODE()
+   * @generated
+   */
+  int ASIGNMODE = 16;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.SHAREMODE <em>SHAREMODE</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.SHAREMODE
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getSHAREMODE()
+   * @generated
+   */
+  int SHAREMODE = 17;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.ENCODINGTYPE <em>ENCODINGTYPE</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.ENCODINGTYPE
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getENCODINGTYPE()
+   * @generated
+   */
+  int ENCODINGTYPE = 18;
 
 
   /**
@@ -1214,6 +1372,17 @@ public interface LtmlPackage extends EPackage
   EReference getScript_Transactions();
 
   /**
+   * Returns the meta object for the reference list '{@link com.ino9dev.ltml.Script#getDatatable <em>Datatable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Datatable</em>'.
+   * @see com.ino9dev.ltml.Script#getDatatable()
+   * @see #getScript()
+   * @generated
+   */
+  EReference getScript_Datatable();
+
+  /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.Transaction <em>Transaction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1334,6 +1503,104 @@ public interface LtmlPackage extends EPackage
   EAttribute getTransaction_Text();
 
   /**
+   * Returns the meta object for class '{@link com.ino9dev.ltml.DataTable <em>Data Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Table</em>'.
+   * @see com.ino9dev.ltml.DataTable
+   * @generated
+   */
+  EClass getDataTable();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.DataTable#getNamefordatatable <em>Namefordatatable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Namefordatatable</em>'.
+   * @see com.ino9dev.ltml.DataTable#getNamefordatatable()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Namefordatatable();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.DataTable#getEncodingtype <em>Encodingtype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Encodingtype</em>'.
+   * @see com.ino9dev.ltml.DataTable#getEncodingtype()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Encodingtype();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.DataTable#getDelimiter <em>Delimiter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Delimiter</em>'.
+   * @see com.ino9dev.ltml.DataTable#getDelimiter()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Delimiter();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.DataTable#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see com.ino9dev.ltml.DataTable#getType()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Type();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.ino9dev.ltml.DataTable#getLayout <em>Layout</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Layout</em>'.
+   * @see com.ino9dev.ltml.DataTable#getLayout()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Layout();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.DataTable#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see com.ino9dev.ltml.DataTable#getPath()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Path();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.DataTable#getAsignmode <em>Asignmode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Asignmode</em>'.
+   * @see com.ino9dev.ltml.DataTable#getAsignmode()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Asignmode();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.DataTable#getSharemode <em>Sharemode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sharemode</em>'.
+   * @see com.ino9dev.ltml.DataTable#getSharemode()
+   * @see #getDataTable()
+   * @generated
+   */
+  EAttribute getDataTable_Sharemode();
+
+  /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.Report <em>Report</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1421,6 +1688,17 @@ public interface LtmlPackage extends EPackage
   EAttribute getReport_Cc();
 
   /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Report#isCheckresponse <em>Checkresponse</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Checkresponse</em>'.
+   * @see com.ino9dev.ltml.Report#isCheckresponse()
+   * @see #getReport()
+   * @generated
+   */
+  EAttribute getReport_Checkresponse();
+
+  /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.Param <em>Param</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1481,6 +1759,46 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EEnum getProtocol();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.DATATABLETYPE <em>DATATABLETYPE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>DATATABLETYPE</em>'.
+   * @see com.ino9dev.ltml.DATATABLETYPE
+   * @generated
+   */
+  EEnum getDATATABLETYPE();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.ASIGNMODE <em>ASIGNMODE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>ASIGNMODE</em>'.
+   * @see com.ino9dev.ltml.ASIGNMODE
+   * @generated
+   */
+  EEnum getASIGNMODE();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.SHAREMODE <em>SHAREMODE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>SHAREMODE</em>'.
+   * @see com.ino9dev.ltml.SHAREMODE
+   * @generated
+   */
+  EEnum getSHAREMODE();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.ENCODINGTYPE <em>ENCODINGTYPE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>ENCODINGTYPE</em>'.
+   * @see com.ino9dev.ltml.ENCODINGTYPE
+   * @generated
+   */
+  EEnum getENCODINGTYPE();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1834,6 +2152,14 @@ public interface LtmlPackage extends EPackage
     EReference SCRIPT__TRANSACTIONS = eINSTANCE.getScript_Transactions();
 
     /**
+     * The meta object literal for the '<em><b>Datatable</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCRIPT__DATATABLE = eINSTANCE.getScript_Datatable();
+
+    /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.TransactionImpl <em>Transaction</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1924,6 +2250,80 @@ public interface LtmlPackage extends EPackage
     EAttribute TRANSACTION__TEXT = eINSTANCE.getTransaction_Text();
 
     /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.impl.DataTableImpl <em>Data Table</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.impl.DataTableImpl
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getDataTable()
+     * @generated
+     */
+    EClass DATA_TABLE = eINSTANCE.getDataTable();
+
+    /**
+     * The meta object literal for the '<em><b>Namefordatatable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__NAMEFORDATATABLE = eINSTANCE.getDataTable_Namefordatatable();
+
+    /**
+     * The meta object literal for the '<em><b>Encodingtype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__ENCODINGTYPE = eINSTANCE.getDataTable_Encodingtype();
+
+    /**
+     * The meta object literal for the '<em><b>Delimiter</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__DELIMITER = eINSTANCE.getDataTable_Delimiter();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__TYPE = eINSTANCE.getDataTable_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Layout</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__LAYOUT = eINSTANCE.getDataTable_Layout();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__PATH = eINSTANCE.getDataTable_Path();
+
+    /**
+     * The meta object literal for the '<em><b>Asignmode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__ASIGNMODE = eINSTANCE.getDataTable_Asignmode();
+
+    /**
+     * The meta object literal for the '<em><b>Sharemode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_TABLE__SHAREMODE = eINSTANCE.getDataTable_Sharemode();
+
+    /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.ReportImpl <em>Report</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1990,6 +2390,14 @@ public interface LtmlPackage extends EPackage
     EAttribute REPORT__CC = eINSTANCE.getReport_Cc();
 
     /**
+     * The meta object literal for the '<em><b>Checkresponse</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPORT__CHECKRESPONSE = eINSTANCE.getReport_Checkresponse();
+
+    /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.ParamImpl <em>Param</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2044,6 +2452,46 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EEnum PROTOCOL = eINSTANCE.getProtocol();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.DATATABLETYPE <em>DATATABLETYPE</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.DATATABLETYPE
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getDATATABLETYPE()
+     * @generated
+     */
+    EEnum DATATABLETYPE = eINSTANCE.getDATATABLETYPE();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.ASIGNMODE <em>ASIGNMODE</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.ASIGNMODE
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getASIGNMODE()
+     * @generated
+     */
+    EEnum ASIGNMODE = eINSTANCE.getASIGNMODE();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.SHAREMODE <em>SHAREMODE</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.SHAREMODE
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getSHAREMODE()
+     * @generated
+     */
+    EEnum SHAREMODE = eINSTANCE.getSHAREMODE();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.ENCODINGTYPE <em>ENCODINGTYPE</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.ENCODINGTYPE
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getENCODINGTYPE()
+     * @generated
+     */
+    EEnum ENCODINGTYPE = eINSTANCE.getENCODINGTYPE();
 
   }
 

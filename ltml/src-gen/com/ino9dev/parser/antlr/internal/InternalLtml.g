@@ -167,9 +167,19 @@ ruleStatement returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
-    |this_SL_COMMENT_5=RULE_SL_COMMENT
+    |
     { 
-    newLeafNode(this_SL_COMMENT_5, grammarAccess.getStatementAccess().getSL_COMMENTTerminalRuleCall_5()); 
+        newCompositeNode(grammarAccess.getStatementAccess().getDataTableParserRuleCall_5()); 
+    }
+    this_DataTable_5=ruleDataTable
+    { 
+        $current = $this_DataTable_5.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |this_SL_COMMENT_6=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_6, grammarAccess.getStatementAccess().getSL_COMMENTTerminalRuleCall_6()); 
     }
 )
 ;
@@ -1167,9 +1177,43 @@ ruleScript returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getScriptAccess().getRightCurlyBracketKeyword_9());
     }
-	otherlv_12='}' 
+(	otherlv_12='DataTable' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getScriptAccess().getRightCurlyBracketKeyword_10());
+    	newLeafNode(otherlv_12, grammarAccess.getScriptAccess().getDataTableKeyword_10_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getScriptRule());
+	        }
+        }
+	otherlv_13=RULE_ID
+	{
+		newLeafNode(otherlv_13, grammarAccess.getScriptAccess().getDatatableDataTableCrossReference_10_1_0()); 
+	}
+
+)
+)(	otherlv_14=',' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getScriptAccess().getCommaKeyword_10_2_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getScriptRule());
+	        }
+        }
+	otherlv_15=RULE_ID
+	{
+		newLeafNode(otherlv_15, grammarAccess.getScriptAccess().getDatatableDataTableCrossReference_10_2_1_0()); 
+	}
+
+)
+))*)?	otherlv_16='}' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getScriptAccess().getRightCurlyBracketKeyword_11());
     }
 )
 ;
@@ -1477,6 +1521,259 @@ ruleTransaction returns [EObject current=null]
 
 
 
+// Entry rule entryRuleDataTable
+entryRuleDataTable returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDataTableRule()); }
+	 iv_ruleDataTable=ruleDataTable 
+	 { $current=$iv_ruleDataTable.current; } 
+	 EOF 
+;
+
+// Rule DataTable
+ruleDataTable returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='DataTable' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getDataTableAccess().getDataTableKeyword_0());
+    }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getDataTableAccess().getLeftCurlyBracketKeyword_1());
+    }
+	otherlv_2='Id' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getDataTableAccess().getIdKeyword_2());
+    }
+(
+(
+		lv_name_3_0=RULE_ID
+		{
+			newLeafNode(lv_name_3_0, grammarAccess.getDataTableAccess().getNameIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDataTableRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_3_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_4='Name' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getDataTableAccess().getNameKeyword_4());
+    }
+(
+(
+		lv_namefordatatable_5_0=RULE_STRING
+		{
+			newLeafNode(lv_namefordatatable_5_0, grammarAccess.getDataTableAccess().getNamefordatatableSTRINGTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDataTableRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"namefordatatable",
+        		lv_namefordatatable_5_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_6='EncodingType' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getDataTableAccess().getEncodingTypeKeyword_6());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDataTableAccess().getEncodingtypeENCODINGTYPEEnumRuleCall_7_0()); 
+	    }
+		lv_encodingtype_7_0=ruleENCODINGTYPE		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDataTableRule());
+	        }
+       		set(
+       			$current, 
+       			"encodingtype",
+        		lv_encodingtype_7_0, 
+        		"ENCODINGTYPE");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_8='Delimiter' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getDataTableAccess().getDelimiterKeyword_8());
+    }
+(
+(
+		lv_delimiter_9_0=RULE_STRING
+		{
+			newLeafNode(lv_delimiter_9_0, grammarAccess.getDataTableAccess().getDelimiterSTRINGTerminalRuleCall_9_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDataTableRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"delimiter",
+        		lv_delimiter_9_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_10='Type' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getDataTableAccess().getTypeKeyword_10());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDataTableAccess().getTypeDATATABLETYPEEnumRuleCall_11_0()); 
+	    }
+		lv_type_11_0=ruleDATATABLETYPE		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDataTableRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_11_0, 
+        		"DATATABLETYPE");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_12='Layout' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getDataTableAccess().getLayoutKeyword_12());
+    }
+(
+(
+		lv_layout_13_0=RULE_STRING
+		{
+			newLeafNode(lv_layout_13_0, grammarAccess.getDataTableAccess().getLayoutSTRINGTerminalRuleCall_13_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDataTableRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"layout",
+        		lv_layout_13_0, 
+        		"STRING");
+	    }
+
+)
+)(	otherlv_14=',' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getDataTableAccess().getCommaKeyword_14_0());
+    }
+(
+(
+		lv_layout_15_0=RULE_STRING
+		{
+			newLeafNode(lv_layout_15_0, grammarAccess.getDataTableAccess().getLayoutSTRINGTerminalRuleCall_14_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDataTableRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"layout",
+        		lv_layout_15_0, 
+        		"STRING");
+	    }
+
+)
+))*	otherlv_16='Path' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getDataTableAccess().getPathKeyword_15());
+    }
+(
+(
+		lv_path_17_0=RULE_STRING
+		{
+			newLeafNode(lv_path_17_0, grammarAccess.getDataTableAccess().getPathSTRINGTerminalRuleCall_16_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDataTableRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"path",
+        		lv_path_17_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_18='AsignMode' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getDataTableAccess().getAsignModeKeyword_17());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDataTableAccess().getAsignmodeASIGNMODEEnumRuleCall_18_0()); 
+	    }
+		lv_asignmode_19_0=ruleASIGNMODE		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDataTableRule());
+	        }
+       		set(
+       			$current, 
+       			"asignmode",
+        		lv_asignmode_19_0, 
+        		"ASIGNMODE");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_20='ShareMode' 
+    {
+    	newLeafNode(otherlv_20, grammarAccess.getDataTableAccess().getShareModeKeyword_19());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDataTableAccess().getSharemodeSHAREMODEEnumRuleCall_20_0()); 
+	    }
+		lv_sharemode_21_0=ruleSHAREMODE		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDataTableRule());
+	        }
+       		set(
+       			$current, 
+       			"sharemode",
+        		lv_sharemode_21_0, 
+        		"SHAREMODE");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_22='}' 
+    {
+    	newLeafNode(otherlv_22, grammarAccess.getDataTableAccess().getRightCurlyBracketKeyword_21());
+    }
+)
+;
+
+
+
+
+
 // Entry rule entryRuleReport
 entryRuleReport returns [EObject current=null] 
 	:
@@ -1615,9 +1912,25 @@ ruleReport returns [EObject current=null]
 	    }
 
 )
-))*))	otherlv_10='}' 
+)
+    |(
+(
+		lv_checkresponse_10_0=	'CheckResponse' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_3());
+        newLeafNode(lv_checkresponse_10_0, grammarAccess.getReportAccess().getCheckresponseCheckResponseKeyword_2_1_1_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReportRule());
+	        }
+       		setWithLastConsumed($current, "checkresponse", true, "CheckResponse");
+	    }
+
+)
+))*))	otherlv_11='}' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_3());
     }
 )
 ;
@@ -1769,6 +2082,82 @@ ruleProtocol returns [Enumerator current=null]
 	{
         $current = grammarAccess.getProtocolAccess().getFTPEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_3, grammarAccess.getProtocolAccess().getFTPEnumLiteralDeclaration_3()); 
+    }
+));
+
+
+
+// Rule DATATABLETYPE
+ruleDATATABLETYPE returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='CSV' 
+	{
+        $current = grammarAccess.getDATATABLETYPEAccess().getDatatabletypeEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getDATATABLETYPEAccess().getDatatabletypeEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='TSV' 
+	{
+        $current = grammarAccess.getDATATABLETYPEAccess().getDatatabletypeEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getDATATABLETYPEAccess().getDatatabletypeEnumLiteralDeclaration_1()); 
+    }
+));
+
+
+
+// Rule ASIGNMODE
+ruleASIGNMODE returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='ITERATION' 
+	{
+        $current = grammarAccess.getASIGNMODEAccess().getITERATIONEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getASIGNMODEAccess().getITERATIONEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='RANDOM' 
+	{
+        $current = grammarAccess.getASIGNMODEAccess().getRANDOMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getASIGNMODEAccess().getRANDOMEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='UNIQUE' 
+	{
+        $current = grammarAccess.getASIGNMODEAccess().getUNIQUEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getASIGNMODEAccess().getUNIQUEEnumLiteralDeclaration_2()); 
+    }
+));
+
+
+
+// Rule SHAREMODE
+ruleSHAREMODE returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+(	enumLiteral_0='ALLTHREAD' 
+	{
+        $current = grammarAccess.getSHAREMODEAccess().getALLTHREADEnumLiteralDeclaration().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getSHAREMODEAccess().getALLTHREADEnumLiteralDeclaration()); 
+    }
+);
+
+
+
+// Rule ENCODINGTYPE
+ruleENCODINGTYPE returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='SHIFT_JIS' 
+	{
+        $current = grammarAccess.getENCODINGTYPEAccess().getSHIFTJISEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getENCODINGTYPEAccess().getSHIFTJISEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='UTF-8' 
+	{
+        $current = grammarAccess.getENCODINGTYPEAccess().getUTF8EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getENCODINGTYPEAccess().getUTF8EnumLiteralDeclaration_1()); 
     }
 ));
 

@@ -140,6 +140,14 @@ public class LtmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LtmlPackage.DATA_TABLE:
+      {
+        DataTable dataTable = (DataTable)theEObject;
+        T result = caseDataTable(dataTable);
+        if (result == null) result = caseStatement(dataTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LtmlPackage.REPORT:
       {
         Report report = (Report)theEObject;
@@ -298,6 +306,22 @@ public class LtmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTransaction(Transaction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataTable(DataTable object)
   {
     return null;
   }

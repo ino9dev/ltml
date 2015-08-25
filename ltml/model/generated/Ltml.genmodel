@@ -24,6 +24,21 @@
       <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//Protocol/SMTP"/>
       <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//Protocol/FTP"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//DATATABLETYPE">
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//DATATABLETYPE/datatabletype"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//ASIGNMODE">
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//ASIGNMODE/ITERATION"/>
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//ASIGNMODE/RANDOM"/>
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//ASIGNMODE/UNIQUE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//SHAREMODE">
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//SHAREMODE/ALLTHREAD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//ENCODINGTYPE">
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//ENCODINGTYPE/SHIFTJIS"/>
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//ENCODINGTYPE/UTF8"/>
+    </genEnums>
     <genClasses ecoreClass="Ltml.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Model/statements"/>
     </genClasses>
@@ -70,6 +85,7 @@
     <genClasses ecoreClass="Ltml.ecore#//Script">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Script/scriptname"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Script/transactions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//Script/datatable"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Transaction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/name"/>
@@ -83,6 +99,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/capturefilename"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/text"/>
     </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//DataTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/namefordatatable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/encodingtype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/delimiter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/layout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/asignmode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/sharemode"/>
+    </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Report">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/noreport"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/summary"/>
@@ -91,6 +117,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/tps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/resptime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/cc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Report/checkresponse"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Param">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Param/key"/>

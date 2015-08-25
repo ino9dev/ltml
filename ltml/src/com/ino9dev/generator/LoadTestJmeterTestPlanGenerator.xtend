@@ -14,6 +14,9 @@ import com.ino9dev.ltml.impl.ScheduleImpl
 import com.ino9dev.ltml.impl.LtmlFactoryImpl
 import java.io.File
 import org.eclipse.xtext.generator.AbstractFileSystemAccess
+import com.ino9dev.ltml.impl.DataTableImpl
+import com.ino9dev.ltml.SHAREMODE
+import com.ino9dev.ltml.ENCODINGTYPE
 
 class LoadTestJmeterTestPlanGenerator implements IGenerator {
     
@@ -55,6 +58,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
         Manifest manifest,
         LoadTest loadtest
     ){
+                
         '''
         <?xml version="1.0" encoding="UTF-8"?>
         <jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
@@ -102,6 +106,26 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                 <stringProp name="ThreadGroup.duration">«schedule.duration»</stringProp>
                 <stringProp name="ThreadGroup.delay">«schedule.delay»</stringProp>
               </ThreadGroup>
+              <hashTree>
+              «IF (lg.script.datatable != null && lg.script.datatable.length != 0)»
+              «FOR dt:lg.script.datatable»
+              <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="«dt.name»" enabled="true">
+                  <stringProp name="delimiter">«dt.delimiter»</stringProp>
+                  <stringProp name="fileEncoding">«dt.encodingtype.instantiate»</stringProp>
+                  <stringProp name="filename">«dt.path»</stringProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <stringProp name="shareMode">«dt.sharemode.instantiate»</stringProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="variableNames">«FOR l:dt.layout BEFORE "" SEPARATOR "," AFTER "" »«dt.name».«l»«ENDFOR»</stringProp>
+              </CSVDataSet>
+              <hashTree/>
+              «ENDFOR»
+              «ENDIF»
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="«lg.loadgroupname»" enabled="true">
+                <boolProp name="TransactionController.includeTimers">false</boolProp>
+                <boolProp name="TransactionController.parent">false</boolProp>
+              </TransactionController>
               <hashTree>
               «FOR t:lg.script.transactions»
                 <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="«t.name»" enabled="true">
@@ -154,6 +178,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                   «ENDIF»
                 </hashTree>
               «ENDFOR»
+              </hashTree>
               </hashTree>
             «ENDFOR»
             «IF(report.summary == true)»
@@ -363,6 +388,41 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
               </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
               <hashTree/>
             «ENDIF»
+            «IF(report.checkresponse)»
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Check for sampler results with treeview" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>false</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <threadCounts>true</threadCounts>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            «ENDIF»
             «IF report.resultpath != ""»
               <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="SimpleDataWriter" enabled="true">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -420,5 +480,20 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
     def createFolder(String target){
         var folder = new File(target)
         if(!folder.exists){folder.mkdir}
+    }
+    
+    def instantiate(SHAREMODE sharemode){
+        var s = switch(sharemode) {
+            case SHAREMODE.ALLTHREAD:"shareMode.all"
+            default:"shareMode.all"
+        }
+        s
+    }
+    def instantiate(ENCODINGTYPE enctype){
+        var e = switch(enctype) {
+            case ENCODINGTYPE.UTF8:"utf-8"
+            default:"utf-8"
+        }
+        e
     }
 }

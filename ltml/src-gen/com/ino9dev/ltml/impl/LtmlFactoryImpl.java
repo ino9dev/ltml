@@ -74,6 +74,7 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
       case LtmlPackage.SCHEDULE: return createSchedule();
       case LtmlPackage.SCRIPT: return createScript();
       case LtmlPackage.TRANSACTION: return createTransaction();
+      case LtmlPackage.DATA_TABLE: return createDataTable();
       case LtmlPackage.REPORT: return createReport();
       case LtmlPackage.PARAM: return createParam();
       default:
@@ -97,6 +98,14 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
         return createInstanceTypeFromString(eDataType, initialValue);
       case LtmlPackage.PROTOCOL:
         return createProtocolFromString(eDataType, initialValue);
+      case LtmlPackage.DATATABLETYPE:
+        return createDATATABLETYPEFromString(eDataType, initialValue);
+      case LtmlPackage.ASIGNMODE:
+        return createASIGNMODEFromString(eDataType, initialValue);
+      case LtmlPackage.SHAREMODE:
+        return createSHAREMODEFromString(eDataType, initialValue);
+      case LtmlPackage.ENCODINGTYPE:
+        return createENCODINGTYPEFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -118,6 +127,14 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
         return convertInstanceTypeToString(eDataType, instanceValue);
       case LtmlPackage.PROTOCOL:
         return convertProtocolToString(eDataType, instanceValue);
+      case LtmlPackage.DATATABLETYPE:
+        return convertDATATABLETYPEToString(eDataType, instanceValue);
+      case LtmlPackage.ASIGNMODE:
+        return convertASIGNMODEToString(eDataType, instanceValue);
+      case LtmlPackage.SHAREMODE:
+        return convertSHAREMODEToString(eDataType, instanceValue);
+      case LtmlPackage.ENCODINGTYPE:
+        return convertENCODINGTYPEToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -227,6 +244,17 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public DataTable createDataTable()
+  {
+    DataTableImpl dataTable = new DataTableImpl();
+    return dataTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Report createReport()
   {
     ReportImpl report = new ReportImpl();
@@ -306,6 +334,94 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
    * @generated
    */
   public String convertProtocolToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DATATABLETYPE createDATATABLETYPEFromString(EDataType eDataType, String initialValue)
+  {
+    DATATABLETYPE result = DATATABLETYPE.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertDATATABLETYPEToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ASIGNMODE createASIGNMODEFromString(EDataType eDataType, String initialValue)
+  {
+    ASIGNMODE result = ASIGNMODE.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertASIGNMODEToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SHAREMODE createSHAREMODEFromString(EDataType eDataType, String initialValue)
+  {
+    SHAREMODE result = SHAREMODE.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertSHAREMODEToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ENCODINGTYPE createENCODINGTYPEFromString(EDataType eDataType, String initialValue)
+  {
+    ENCODINGTYPE result = ENCODINGTYPE.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertENCODINGTYPEToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

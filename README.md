@@ -140,7 +140,7 @@ A Jmx file image is following
 ![Alt text](ltml/instancedbyjmeter.png)
 
 # Task list
-- Phase1
+- Phase1 Ltml
 - [x] implement to handle Report/TransactionPerSecond syntax (20150811 done)
 - [x] implement to handle Report/HitPerSecond syntax (20150811 done)
 - [x] implement to handle Report/ResponseTimeOverTime syntax (20150811 done)
@@ -151,14 +151,23 @@ A Jmx file image is following
 - [x] implement to handle Transaction/Procotol syntax
 - [x] implement to handle Transaction syntax for CaptureFileName
 - [x] implement to handle Report/Result syntax
-- [ ] implement to handle Transaction/Body syntax
-- [ ] implement to handle Parameter syntax
+- [x] implement to handle Report/CheckResult syntax
+- [x] implement to handle Transaction/Body syntax
+- [x] implement to handle Parameter syntax
 - [ ] implement to handle Correlation(this name will be changed) syntax
+- [ ] implement to handle Variables
 - [ ] implement to generateor for Documentation and Imaging
+- [ ] implement to validate ids(uniq id) and values(path notation)
 - [ ] unit tests / tests for acceptance test 
+- Phase1 JMeter extension library 
+- [ ] implement to controller element "Finish Controller"
+- [ ] implement to setting element ""
+- [ ] implement to setting element "DB Parameter"
+- [ ] implement to listener element "Result DB Writer"
+- [ ] implement to listener element "JMeter Execution Result Collector"
 - Phase2
+- [ ] implement to handle Parameter/Data syntax
 - [ ] implement to package syntax
-- [ ] implement to validate ids and values
 - [ ] implement to handle Load Generator syntax and new method for generating load(e.g using JMeter server or other methods)
 - [ ] implement to handle LoadTest/rampup syntax
 - [ ] implement to handle Transactions syntax
@@ -173,6 +182,7 @@ A Jmx file image is following
 - [ ] implement to gather performance data from Load Generator
 - [ ] implement to define performance objects(it normally means SLA)
 - [ ] implement to analysis performance data and new method for gathering(e.g using JMeter)
+- [ ] implement to handle Bigdata/DistributedFilesystems/MapReduce/BigQuery
 
 # Architecture
 ## current
@@ -188,7 +198,7 @@ A Jmx file image is following
 - Software defined middleware/server (Like a chef/vagrant .. for deploy loadtest generator to remote servers 
 - Jetty(and so on) on SD middleware/server..  for handling remote execution as restful api and load generator instance
 
-### image
+## imagination
 
 Actors :  
 System users and Load testers exist  
@@ -204,7 +214,7 @@ Behaviors :
 License is MIT (MIT license http://opensource.org/licenses/mit-license.php)  
 Copyright (c) 2015 ino9dev
 
-# Use Libraries
+# Depend Libraries
 
 Flotr2 Copyright (c) 2008-2011 Pivotal Labs  
 

@@ -53,6 +53,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transactions" upperBound="-1"
         eType="#//Transaction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatable" unique="false"
+        upperBound="-1" eType="#//DataTable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transaction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -67,6 +69,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capturefilename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTable" eSuperTypes="#//Statement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namefordatatable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="encodingtype" eType="#//ENCODINGTYPE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delimiter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DATATABLETYPE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="layout" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asignmode" eType="#//ASIGNMODE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sharemode" eType="#//SHAREMODE"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Report">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noreport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -75,6 +88,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tps" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resptime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkresponse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Param">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -96,5 +110,20 @@
     <eLiterals name="HTTPS" value="1" literal="HTTPS"/>
     <eLiterals name="SMTP" value="2" literal="SMTP"/>
     <eLiterals name="FTP" value="3" literal="FTP"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DATATABLETYPE">
+    <eLiterals name="datatabletype" literal="CSV"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ASIGNMODE">
+    <eLiterals name="ITERATION" literal="ITERATION"/>
+    <eLiterals name="RANDOM" value="1" literal="RANDOM"/>
+    <eLiterals name="UNIQUE" value="2" literal="UNIQUE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SHAREMODE">
+    <eLiterals name="ALLTHREAD" literal="ALLTHREAD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ENCODINGTYPE">
+    <eLiterals name="SHIFTJIS" literal="SHIFT_JIS"/>
+    <eLiterals name="UTF8" value="1" literal="UTF-8"/>
   </eClassifiers>
 </ecore:EPackage>

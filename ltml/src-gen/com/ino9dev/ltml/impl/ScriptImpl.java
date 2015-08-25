@@ -2,6 +2,7 @@
  */
 package com.ino9dev.ltml.impl;
 
+import com.ino9dev.ltml.DataTable;
 import com.ino9dev.ltml.LtmlPackage;
 import com.ino9dev.ltml.Script;
 import com.ino9dev.ltml.Transaction;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.ino9dev.ltml.impl.ScriptImpl#getScriptname <em>Scriptname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ScriptImpl#getTransactions <em>Transactions</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ScriptImpl#getDatatable <em>Datatable</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +69,16 @@ public class ScriptImpl extends StatementImpl implements Script
    * @ordered
    */
   protected EList<Transaction> transactions;
+
+  /**
+   * The cached value of the '{@link #getDatatable() <em>Datatable</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDatatable()
+   * @generated
+   * @ordered
+   */
+  protected EList<DataTable> datatable;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,6 +143,20 @@ public class ScriptImpl extends StatementImpl implements Script
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<DataTable> getDatatable()
+  {
+    if (datatable == null)
+    {
+      datatable = new EObjectResolvingEList<DataTable>(DataTable.class, this, LtmlPackage.SCRIPT__DATATABLE);
+    }
+    return datatable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -155,6 +182,8 @@ public class ScriptImpl extends StatementImpl implements Script
         return getScriptname();
       case LtmlPackage.SCRIPT__TRANSACTIONS:
         return getTransactions();
+      case LtmlPackage.SCRIPT__DATATABLE:
+        return getDatatable();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,6 +206,10 @@ public class ScriptImpl extends StatementImpl implements Script
         getTransactions().clear();
         getTransactions().addAll((Collection<? extends Transaction>)newValue);
         return;
+      case LtmlPackage.SCRIPT__DATATABLE:
+        getDatatable().clear();
+        getDatatable().addAll((Collection<? extends DataTable>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -197,6 +230,9 @@ public class ScriptImpl extends StatementImpl implements Script
       case LtmlPackage.SCRIPT__TRANSACTIONS:
         getTransactions().clear();
         return;
+      case LtmlPackage.SCRIPT__DATATABLE:
+        getDatatable().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -215,6 +251,8 @@ public class ScriptImpl extends StatementImpl implements Script
         return SCRIPTNAME_EDEFAULT == null ? scriptname != null : !SCRIPTNAME_EDEFAULT.equals(scriptname);
       case LtmlPackage.SCRIPT__TRANSACTIONS:
         return transactions != null && !transactions.isEmpty();
+      case LtmlPackage.SCRIPT__DATATABLE:
+        return datatable != null && !datatable.isEmpty();
     }
     return super.eIsSet(featureID);
   }

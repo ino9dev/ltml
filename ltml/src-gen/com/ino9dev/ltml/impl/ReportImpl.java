@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isTps <em>Tps</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isResptime <em>Resptime</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isCc <em>Cc</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.ReportImpl#isCheckresponse <em>Checkresponse</em>}</li>
  * </ul>
  * </p>
  *
@@ -172,6 +173,26 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * @ordered
    */
   protected boolean cc = CC_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isCheckresponse() <em>Checkresponse</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isCheckresponse()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean CHECKRESPONSE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isCheckresponse() <em>Checkresponse</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isCheckresponse()
+   * @generated
+   * @ordered
+   */
+  protected boolean checkresponse = CHECKRESPONSE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -360,6 +381,29 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isCheckresponse()
+  {
+    return checkresponse;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCheckresponse(boolean newCheckresponse)
+  {
+    boolean oldCheckresponse = checkresponse;
+    checkresponse = newCheckresponse;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.REPORT__CHECKRESPONSE, oldCheckresponse, checkresponse));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -379,6 +423,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return isResptime();
       case LtmlPackage.REPORT__CC:
         return isCc();
+      case LtmlPackage.REPORT__CHECKRESPONSE:
+        return isCheckresponse();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -413,6 +459,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return;
       case LtmlPackage.REPORT__CC:
         setCc((Boolean)newValue);
+        return;
+      case LtmlPackage.REPORT__CHECKRESPONSE:
+        setCheckresponse((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -449,6 +498,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
       case LtmlPackage.REPORT__CC:
         setCc(CC_EDEFAULT);
         return;
+      case LtmlPackage.REPORT__CHECKRESPONSE:
+        setCheckresponse(CHECKRESPONSE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -477,6 +529,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
         return resptime != RESPTIME_EDEFAULT;
       case LtmlPackage.REPORT__CC:
         return cc != CC_EDEFAULT;
+      case LtmlPackage.REPORT__CHECKRESPONSE:
+        return checkresponse != CHECKRESPONSE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -506,6 +560,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     result.append(resptime);
     result.append(", cc: ");
     result.append(cc);
+    result.append(", checkresponse: ");
+    result.append(checkresponse);
     result.append(')');
     return result.toString();
   }
