@@ -121,7 +121,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'LoadTest' | 'Lt'
+	 *     'Lt' | 'LoadTest'
 	 */
 	protected void emit_LoadTest_LoadTestKeyword_0_0_or_LtKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -145,7 +145,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Script' | 'Sc'
+	 *     'Sc' | 'Script'
 	 */
 	protected void emit_Script_ScKeyword_0_1_or_ScriptKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -153,7 +153,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Transactions' | 'Trs'
+	 *     'Trs' | 'Transactions'
 	 */
 	protected void emit_Script_TransactionsKeyword_6_0_or_TrsKeyword_6_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -169,7 +169,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Transaction' | 'Tr'
+	 *     'Tr' | 'Transaction'
 	 */
 	protected void emit_Transaction_TrKeyword_0_1_or_TransactionKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
