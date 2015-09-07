@@ -116,7 +116,7 @@ LoadGenerator {
 //Business Operation1(e.g search)
 Script {
     Id BP01
-    Name "BusinessProcess01"
+    Name "BP01_search"
     Trs {
         Tr {
             Id BP01_01
@@ -135,9 +135,17 @@ Script {
             Server "localhost"
             Path "/"
             RequestParameters [
-                "ka"="${datatable1.id}"
-                "kb"="vb"
+                "id"="${datatable1.id}"
+                "password"="${datatable.pass}"
             ]
+            ResponseHandler {
+                Id resp1
+                Protocol HTTP
+                QueryType REGEX
+                QueryString "<input type=\"hidden\" name=\"name\" value=(.*) />"
+                Ordnial 1
+                SearchLocation BODY
+            }
             CaptureFileName "C:\\temp\\result\\image002"
         }
     }
@@ -147,7 +155,7 @@ Script {
 //Business Operation2(e.g purchase)
 Script {
     Id BP02
-    Name "BusinessProcess02"
+    Name "BP02_purchase"
     Trs {
         Tr {
             Id BP02_01
@@ -171,6 +179,12 @@ Script {
     }
 }
 
+//DataTable
+// SourceType defines CSV or TSV or XML
+// Layout defines columns name
+// Path defines source data file path
+// AsignMode defines per ITERATION(LOOP), RANDOM, ONCE(if it gets parameter 1 record, that parameter is used every time)
+// ShareMode defines ALLTHREAD(parameter is shared by all threads), NOTSHARE
 DataTable {
     Id datatable1
     Name "Login Account Data"
@@ -211,7 +225,7 @@ A Jmx file image is following
 - [x] implement to handle Report/CheckResult syntax(-20150905 done)
 - [x] implement to handle Transaction/Body syntax(-20150905 done)
 - [x] implement to handle Parameter syntax(-20150905 done)
-- [ ] implement to handle ResponseHandler(it always means 'Correlation') syntax(20150907 done only REGEX)
+- [x] implement to handle ResponseHandler(it always means 'Correlation') syntax(20150907 done only REGEX)
 - [ ] implement to handle Variables
 - [ ] implement to generate for Documentation and Imaging
 - [ ] implement to hanlde validator (e.g unique numbers, correct values)
