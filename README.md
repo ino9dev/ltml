@@ -6,13 +6,12 @@ It could generate not only a JMeter Test Plan (jmx file) but other documentation
 
 # Motivations
 
-- System users could write loadmodel
-- it is often diffiecult for system users
-- Load testers coudd write with model(MDD)
+- System users could understand and write Load Test with model
+- Load testers could write Load Test with model
 - Load testers and System users could communicate with model
+- (It becomes a role of system users and testers are closely.)
 - A lot of load testing tools exists. However, A load tester would not want to learn about these tools and languages.
-- We(load testers) needs a unified modeling language
-- (I think it becomese a role of system users and devs/testers are closely.)
+- We(load testers) needs only to learn a unified modeling language
 
 # How to get Ltml
 
@@ -200,10 +199,10 @@ DataTable {
 
 # Output
 
-A model instanced file(JMeter jmx file) is generated to following path
+A model instanced file(JMeter jmx file) is generated to following path(is designated with Manifest syntax)
 
 ```
-C:\temp\senarios\testcase1_ver1.0_lt001.jmx
+C:\apache-jmeter-2.13\bin\testcase1_ver1.0_lt001.jmx
 ```
 
 A Jmx file image is following
@@ -225,8 +224,7 @@ A Jmx file image is following
 - [x] implement to handle Report/CheckResult syntax(-20150905 done)
 - [x] implement to handle Transaction/Body syntax(-20150905 done)
 - [x] implement to handle Parameter syntax(-20150905 done)
-- [x] implement to handle ResponseHandler(it always means 'Correlation') syntax(20150907 done only REGEX)
-- [ ] implement to handle Variables
+- [x] implement to handle ResponseHandler(it normally means 'Correlation') syntax(20150907 done only REGEX)
 - [ ] implement to generate for Documentation and Imaging
 - [ ] implement to hanlde validator (e.g unique numbers, correct values)
 - [ ] unit tests / tests for acceptance test 
@@ -236,6 +234,7 @@ A Jmx file image is following
 - [ ] implement to listener element "Result DB Writer"
 - [ ] implement to listener element "JMeter Execution Result Collector"
 - Phase2
+- [ ] implement to handle Variables
 - [ ] implement to handle Parameter/Data syntax
 - [ ] implement to package syntax
 - [ ] implement to handle Load Generator syntax and new method for generating load(e.g using JMeter server or other methods)
@@ -285,7 +284,7 @@ License is MIT (MIT license http://opensource.org/licenses/mit-license.php)
 Copyright (c) 2015 ino9dev
 
 # Depend Libraries
-
+Xtext/Xtend
 Flotr2 Copyright (c) 2008-2011 Pivotal Labs  
 
 # more information
