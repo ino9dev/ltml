@@ -3,7 +3,7 @@ generate ltml "http://www.ino9dev.com/Ltml"
 
 Model:
     statements+=Statement*;
-    
+
 Statement:
     Manifest
     |LoadTest
@@ -103,10 +103,24 @@ Transaction:
         "Server" server=(STRING|IPADDRESS)
         "Path" path=STRING
         ("RequestParameters" "["
-            param+=Param*
+            param+=Param*   
          "]"|"Body" body=STRING)?
+        (responsehandler+=ResponseHandler)*
         ("CaptureFileName" capturefilename=STRING)?
         ("ResponseExpected" text=STRING ("Exist"|"NotExist"|"Included"))?
+    "}"
+;
+
+ResponseHandler:
+    "ResponseHandler"
+    "{"
+        "Id" name=ID
+        "Name" responsehandlername=STRING
+        "Protocol" protocol=Protocol
+        "QueryType" querytype=QueryType
+        "QueryString" querystring=STRING
+        "Ordinal" ordinal=INT
+        "SearchLocation" searchlocation=SearchLocation
     "}"
 ;
 
@@ -123,6 +137,26 @@ DataTable:
         "AsignMode" asignmode=ASIGNMODE
         "ShareMode" sharemode=SHAREMODE
     "}"
+;
+
+
+Report:
+    "Report"
+    "{"
+        (noreport?="NoReport"|
+            (summary?="Summary"
+             ("Result" resultpath=STRING)?)
+             (hps?="HitPerSecond"
+              |tps?="TransactionPerSecond"
+              |resptime?="ResponseTime"
+              |cc?="ConccurentCount"
+              |checkresponse?="CheckResponse")*
+        )
+    "}"
+;
+
+Param:
+    key=STRING"="value=STRING
 ;
 
 terminal IPADDRESS:
@@ -143,23 +177,15 @@ terminal IPADDRESS:
         |'0'..'9')
 ;
 
-Report:
-    "Report"
-    "{"
-        (noreport?="NoReport"|
-            (summary?="Summary"
-             ("Result" resultpath=STRING)?)
-             (hps?="HitPerSecond"
-              |tps?="TransactionPerSecond"
-              |resptime?="ResponseTime"
-              |cc?="ConccurentCount"
-              |checkresponse?="CheckResponse")*
-        )
-    "}"
+enum QueryType:
+    REGEX="REGEX"
+    |XPATH="XPATH"
+    |CSS="CSS"
 ;
 
-Param:
-    key=STRING"="value=STRING
+enum SearchLocation:
+    HEADER="HEADER"
+    |BODY="BODY"
 ;
 
 enum Method:

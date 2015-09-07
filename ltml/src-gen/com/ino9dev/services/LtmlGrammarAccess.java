@@ -869,31 +869,33 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBodyKeyword_14_1_0 = (Keyword)cGroup_14_1.eContents().get(0);
 		private final Assignment cBodyAssignment_14_1_1 = (Assignment)cGroup_14_1.eContents().get(1);
 		private final RuleCall cBodySTRINGTerminalRuleCall_14_1_1_0 = (RuleCall)cBodyAssignment_14_1_1.eContents().get(0);
-		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
-		private final Keyword cCaptureFileNameKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
-		private final Assignment cCapturefilenameAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
-		private final RuleCall cCapturefilenameSTRINGTerminalRuleCall_15_1_0 = (RuleCall)cCapturefilenameAssignment_15_1.eContents().get(0);
+		private final Assignment cResponsehandlerAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cResponsehandlerResponseHandlerParserRuleCall_15_0 = (RuleCall)cResponsehandlerAssignment_15.eContents().get(0);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
-		private final Keyword cResponseExpectedKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
-		private final Assignment cTextAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
-		private final RuleCall cTextSTRINGTerminalRuleCall_16_1_0 = (RuleCall)cTextAssignment_16_1.eContents().get(0);
-		private final Alternatives cAlternatives_16_2 = (Alternatives)cGroup_16.eContents().get(2);
-		private final Keyword cExistKeyword_16_2_0 = (Keyword)cAlternatives_16_2.eContents().get(0);
-		private final Keyword cNotExistKeyword_16_2_1 = (Keyword)cAlternatives_16_2.eContents().get(1);
-		private final Keyword cIncludedKeyword_16_2_2 = (Keyword)cAlternatives_16_2.eContents().get(2);
-		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Keyword cCaptureFileNameKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
+		private final Assignment cCapturefilenameAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
+		private final RuleCall cCapturefilenameSTRINGTerminalRuleCall_16_1_0 = (RuleCall)cCapturefilenameAssignment_16_1.eContents().get(0);
+		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
+		private final Keyword cResponseExpectedKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
+		private final Assignment cTextAssignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
+		private final RuleCall cTextSTRINGTerminalRuleCall_17_1_0 = (RuleCall)cTextAssignment_17_1.eContents().get(0);
+		private final Alternatives cAlternatives_17_2 = (Alternatives)cGroup_17.eContents().get(2);
+		private final Keyword cExistKeyword_17_2_0 = (Keyword)cAlternatives_17_2.eContents().get(0);
+		private final Keyword cNotExistKeyword_17_2_1 = (Keyword)cAlternatives_17_2.eContents().get(1);
+		private final Keyword cIncludedKeyword_17_2_2 = (Keyword)cAlternatives_17_2.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_18 = (Keyword)cGroup.eContents().get(18);
 		
 		//Transaction:
 		//	("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "Protocol" protocol=Protocol "Method"
 		//	method=Method "Server" server=(STRING | IPADDRESS) "Path" path=STRING ("RequestParameters" "[" param+=Param* "]" |
-		//	"Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)? ("ResponseExpected" text=STRING ("Exist" |
-		//	"NotExist" | "Included"))? "}";
+		//	"Body" body=STRING)? responsehandler+=ResponseHandler* ("CaptureFileName" capturefilename=STRING)?
+		//	("ResponseExpected" text=STRING ("Exist" | "NotExist" | "Included"))? "}";
 		public ParserRule getRule() { return rule; }
 
 		//("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "Protocol" protocol=Protocol "Method"
 		//method=Method "Server" server=(STRING | IPADDRESS) "Path" path=STRING ("RequestParameters" "[" param+=Param* "]" |
-		//"Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)? ("ResponseExpected" text=STRING ("Exist" | "NotExist"
-		//| "Included"))? "}"
+		//"Body" body=STRING)? responsehandler+=ResponseHandler* ("CaptureFileName" capturefilename=STRING)? ("ResponseExpected"
+		//text=STRING ("Exist" | "NotExist" | "Included"))? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Transaction" | "Tr"
@@ -1001,44 +1003,162 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getBodySTRINGTerminalRuleCall_14_1_1_0() { return cBodySTRINGTerminalRuleCall_14_1_1_0; }
 
+		//responsehandler+=ResponseHandler*
+		public Assignment getResponsehandlerAssignment_15() { return cResponsehandlerAssignment_15; }
+
+		//ResponseHandler
+		public RuleCall getResponsehandlerResponseHandlerParserRuleCall_15_0() { return cResponsehandlerResponseHandlerParserRuleCall_15_0; }
+
 		//("CaptureFileName" capturefilename=STRING)?
-		public Group getGroup_15() { return cGroup_15; }
-
-		//"CaptureFileName"
-		public Keyword getCaptureFileNameKeyword_15_0() { return cCaptureFileNameKeyword_15_0; }
-
-		//capturefilename=STRING
-		public Assignment getCapturefilenameAssignment_15_1() { return cCapturefilenameAssignment_15_1; }
-
-		//STRING
-		public RuleCall getCapturefilenameSTRINGTerminalRuleCall_15_1_0() { return cCapturefilenameSTRINGTerminalRuleCall_15_1_0; }
-
-		//("ResponseExpected" text=STRING ("Exist" | "NotExist" | "Included"))?
 		public Group getGroup_16() { return cGroup_16; }
 
-		//"ResponseExpected"
-		public Keyword getResponseExpectedKeyword_16_0() { return cResponseExpectedKeyword_16_0; }
+		//"CaptureFileName"
+		public Keyword getCaptureFileNameKeyword_16_0() { return cCaptureFileNameKeyword_16_0; }
 
-		//text=STRING
-		public Assignment getTextAssignment_16_1() { return cTextAssignment_16_1; }
+		//capturefilename=STRING
+		public Assignment getCapturefilenameAssignment_16_1() { return cCapturefilenameAssignment_16_1; }
 
 		//STRING
-		public RuleCall getTextSTRINGTerminalRuleCall_16_1_0() { return cTextSTRINGTerminalRuleCall_16_1_0; }
+		public RuleCall getCapturefilenameSTRINGTerminalRuleCall_16_1_0() { return cCapturefilenameSTRINGTerminalRuleCall_16_1_0; }
+
+		//("ResponseExpected" text=STRING ("Exist" | "NotExist" | "Included"))?
+		public Group getGroup_17() { return cGroup_17; }
+
+		//"ResponseExpected"
+		public Keyword getResponseExpectedKeyword_17_0() { return cResponseExpectedKeyword_17_0; }
+
+		//text=STRING
+		public Assignment getTextAssignment_17_1() { return cTextAssignment_17_1; }
+
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_17_1_0() { return cTextSTRINGTerminalRuleCall_17_1_0; }
 
 		//"Exist" | "NotExist" | "Included"
-		public Alternatives getAlternatives_16_2() { return cAlternatives_16_2; }
+		public Alternatives getAlternatives_17_2() { return cAlternatives_17_2; }
 
 		//"Exist"
-		public Keyword getExistKeyword_16_2_0() { return cExistKeyword_16_2_0; }
+		public Keyword getExistKeyword_17_2_0() { return cExistKeyword_17_2_0; }
 
 		//"NotExist"
-		public Keyword getNotExistKeyword_16_2_1() { return cNotExistKeyword_16_2_1; }
+		public Keyword getNotExistKeyword_17_2_1() { return cNotExistKeyword_17_2_1; }
 
 		//"Included"
-		public Keyword getIncludedKeyword_16_2_2() { return cIncludedKeyword_16_2_2; }
+		public Keyword getIncludedKeyword_17_2_2() { return cIncludedKeyword_17_2_2; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_17() { return cRightCurlyBracketKeyword_17; }
+		public Keyword getRightCurlyBracketKeyword_18() { return cRightCurlyBracketKeyword_18; }
+	}
+
+	public class ResponseHandlerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ResponseHandler");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cResponseHandlerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cIdKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cNameKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cResponsehandlernameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cResponsehandlernameSTRINGTerminalRuleCall_5_0 = (RuleCall)cResponsehandlernameAssignment_5.eContents().get(0);
+		private final Keyword cProtocolKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cProtocolAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cProtocolProtocolEnumRuleCall_7_0 = (RuleCall)cProtocolAssignment_7.eContents().get(0);
+		private final Keyword cQueryTypeKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cQuerytypeAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cQuerytypeQueryTypeEnumRuleCall_9_0 = (RuleCall)cQuerytypeAssignment_9.eContents().get(0);
+		private final Keyword cQueryStringKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cQuerystringAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cQuerystringSTRINGTerminalRuleCall_11_0 = (RuleCall)cQuerystringAssignment_11.eContents().get(0);
+		private final Keyword cOrdinalKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cOrdinalAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cOrdinalINTTerminalRuleCall_13_0 = (RuleCall)cOrdinalAssignment_13.eContents().get(0);
+		private final Keyword cSearchLocationKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Assignment cSearchlocationAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cSearchlocationSearchLocationEnumRuleCall_15_0 = (RuleCall)cSearchlocationAssignment_15.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		
+		//ResponseHandler:
+		//	"ResponseHandler" "{" "Id" name=ID "Name" responsehandlername=STRING "Protocol" protocol=Protocol "QueryType"
+		//	querytype=QueryType "QueryString" querystring=STRING "Ordinal" ordinal=INT "SearchLocation"
+		//	searchlocation=SearchLocation "}";
+		public ParserRule getRule() { return rule; }
+
+		//"ResponseHandler" "{" "Id" name=ID "Name" responsehandlername=STRING "Protocol" protocol=Protocol "QueryType"
+		//querytype=QueryType "QueryString" querystring=STRING "Ordinal" ordinal=INT "SearchLocation"
+		//searchlocation=SearchLocation "}"
+		public Group getGroup() { return cGroup; }
+
+		//"ResponseHandler"
+		public Keyword getResponseHandlerKeyword_0() { return cResponseHandlerKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//"Id"
+		public Keyword getIdKeyword_2() { return cIdKeyword_2; }
+
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//"Name"
+		public Keyword getNameKeyword_4() { return cNameKeyword_4; }
+
+		//responsehandlername=STRING
+		public Assignment getResponsehandlernameAssignment_5() { return cResponsehandlernameAssignment_5; }
+
+		//STRING
+		public RuleCall getResponsehandlernameSTRINGTerminalRuleCall_5_0() { return cResponsehandlernameSTRINGTerminalRuleCall_5_0; }
+
+		//"Protocol"
+		public Keyword getProtocolKeyword_6() { return cProtocolKeyword_6; }
+
+		//protocol=Protocol
+		public Assignment getProtocolAssignment_7() { return cProtocolAssignment_7; }
+
+		//Protocol
+		public RuleCall getProtocolProtocolEnumRuleCall_7_0() { return cProtocolProtocolEnumRuleCall_7_0; }
+
+		//"QueryType"
+		public Keyword getQueryTypeKeyword_8() { return cQueryTypeKeyword_8; }
+
+		//querytype=QueryType
+		public Assignment getQuerytypeAssignment_9() { return cQuerytypeAssignment_9; }
+
+		//QueryType
+		public RuleCall getQuerytypeQueryTypeEnumRuleCall_9_0() { return cQuerytypeQueryTypeEnumRuleCall_9_0; }
+
+		//"QueryString"
+		public Keyword getQueryStringKeyword_10() { return cQueryStringKeyword_10; }
+
+		//querystring=STRING
+		public Assignment getQuerystringAssignment_11() { return cQuerystringAssignment_11; }
+
+		//STRING
+		public RuleCall getQuerystringSTRINGTerminalRuleCall_11_0() { return cQuerystringSTRINGTerminalRuleCall_11_0; }
+
+		//"Ordinal"
+		public Keyword getOrdinalKeyword_12() { return cOrdinalKeyword_12; }
+
+		//ordinal=INT
+		public Assignment getOrdinalAssignment_13() { return cOrdinalAssignment_13; }
+
+		//INT
+		public RuleCall getOrdinalINTTerminalRuleCall_13_0() { return cOrdinalINTTerminalRuleCall_13_0; }
+
+		//"SearchLocation"
+		public Keyword getSearchLocationKeyword_14() { return cSearchLocationKeyword_14; }
+
+		//searchlocation=SearchLocation
+		public Assignment getSearchlocationAssignment_15() { return cSearchlocationAssignment_15; }
+
+		//SearchLocation
+		public RuleCall getSearchlocationSearchLocationEnumRuleCall_15_0() { return cSearchlocationSearchLocationEnumRuleCall_15_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 	}
 
 	public class DataTableElements extends AbstractParserRuleElementFinder {
@@ -1344,6 +1464,70 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	public class QueryTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "QueryType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cREGEXEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cREGEXREGEXKeyword_0_0 = (Keyword)cREGEXEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cXPATHEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cXPATHXPATHKeyword_1_0 = (Keyword)cXPATHEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cCSSEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cCSSCSSKeyword_2_0 = (Keyword)cCSSEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum QueryType:
+		//	REGEX | XPATH | CSS;
+		public EnumRule getRule() { return rule; }
+
+		//REGEX | XPATH | CSS
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//REGEX
+		public EnumLiteralDeclaration getREGEXEnumLiteralDeclaration_0() { return cREGEXEnumLiteralDeclaration_0; }
+
+		//"REGEX"
+		public Keyword getREGEXREGEXKeyword_0_0() { return cREGEXREGEXKeyword_0_0; }
+
+		//XPATH
+		public EnumLiteralDeclaration getXPATHEnumLiteralDeclaration_1() { return cXPATHEnumLiteralDeclaration_1; }
+
+		//"XPATH"
+		public Keyword getXPATHXPATHKeyword_1_0() { return cXPATHXPATHKeyword_1_0; }
+
+		//CSS
+		public EnumLiteralDeclaration getCSSEnumLiteralDeclaration_2() { return cCSSEnumLiteralDeclaration_2; }
+
+		//"CSS"
+		public Keyword getCSSCSSKeyword_2_0() { return cCSSCSSKeyword_2_0; }
+	}
+
+	public class SearchLocationElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "SearchLocation");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cHEADEREnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cHEADERHEADERKeyword_0_0 = (Keyword)cHEADEREnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cBODYEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cBODYBODYKeyword_1_0 = (Keyword)cBODYEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum SearchLocation:
+		//	HEADER | BODY;
+		public EnumRule getRule() { return rule; }
+
+		//HEADER | BODY
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//HEADER
+		public EnumLiteralDeclaration getHEADEREnumLiteralDeclaration_0() { return cHEADEREnumLiteralDeclaration_0; }
+
+		//"HEADER"
+		public Keyword getHEADERHEADERKeyword_0_0() { return cHEADERHEADERKeyword_0_0; }
+
+		//BODY
+		public EnumLiteralDeclaration getBODYEnumLiteralDeclaration_1() { return cBODYEnumLiteralDeclaration_1; }
+
+		//"BODY"
+		public Keyword getBODYBODYKeyword_1_0() { return cBODYBODYKeyword_1_0; }
+	}
+
 	public class MethodElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Method");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1588,10 +1772,13 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	private ScheduleElements pSchedule;
 	private ScriptElements pScript;
 	private TransactionElements pTransaction;
+	private ResponseHandlerElements pResponseHandler;
 	private DataTableElements pDataTable;
-	private TerminalRule tIPADDRESS;
 	private ReportElements pReport;
 	private ParamElements pParam;
+	private TerminalRule tIPADDRESS;
+	private QueryTypeElements unknownRuleQueryType;
+	private SearchLocationElements unknownRuleSearchLocation;
 	private MethodElements unknownRuleMethod;
 	private InstanceTypeElements unknownRuleInstanceType;
 	private ProtocolElements unknownRuleProtocol;
@@ -1729,14 +1916,26 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	//Transaction:
 	//	("Transaction" | "Tr") "{" "Id" name=ID "Name" transactionanme=STRING "Protocol" protocol=Protocol "Method"
 	//	method=Method "Server" server=(STRING | IPADDRESS) "Path" path=STRING ("RequestParameters" "[" param+=Param* "]" |
-	//	"Body" body=STRING)? ("CaptureFileName" capturefilename=STRING)? ("ResponseExpected" text=STRING ("Exist" |
-	//	"NotExist" | "Included"))? "}";
+	//	"Body" body=STRING)? responsehandler+=ResponseHandler* ("CaptureFileName" capturefilename=STRING)?
+	//	("ResponseExpected" text=STRING ("Exist" | "NotExist" | "Included"))? "}";
 	public TransactionElements getTransactionAccess() {
 		return (pTransaction != null) ? pTransaction : (pTransaction = new TransactionElements());
 	}
 	
 	public ParserRule getTransactionRule() {
 		return getTransactionAccess().getRule();
+	}
+
+	//ResponseHandler:
+	//	"ResponseHandler" "{" "Id" name=ID "Name" responsehandlername=STRING "Protocol" protocol=Protocol "QueryType"
+	//	querytype=QueryType "QueryString" querystring=STRING "Ordinal" ordinal=INT "SearchLocation"
+	//	searchlocation=SearchLocation "}";
+	public ResponseHandlerElements getResponseHandlerAccess() {
+		return (pResponseHandler != null) ? pResponseHandler : (pResponseHandler = new ResponseHandlerElements());
+	}
+	
+	public ParserRule getResponseHandlerRule() {
+		return getResponseHandlerAccess().getRule();
 	}
 
 	//DataTable:
@@ -1750,14 +1949,6 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	public ParserRule getDataTableRule() {
 		return getDataTableAccess().getRule();
 	}
-
-	//terminal IPADDRESS:
-	//	("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" |
-	//	"0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9"
-	//	"0".."9" | "0".."9");
-	public TerminalRule getIPADDRESSRule() {
-		return (tIPADDRESS != null) ? tIPADDRESS : (tIPADDRESS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IPADDRESS"));
-	} 
 
 	//Report:
 	//	"Report" "{" (noreport?="NoReport" | (summary?="Summary" ("Result" resultpath=STRING)?) (hps?="HitPerSecond" |
@@ -1779,6 +1970,34 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getParamRule() {
 		return getParamAccess().getRule();
+	}
+
+	//terminal IPADDRESS:
+	//	("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" |
+	//	"0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9"
+	//	"0".."9" | "0".."9");
+	public TerminalRule getIPADDRESSRule() {
+		return (tIPADDRESS != null) ? tIPADDRESS : (tIPADDRESS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IPADDRESS"));
+	} 
+
+	//enum QueryType:
+	//	REGEX | XPATH | CSS;
+	public QueryTypeElements getQueryTypeAccess() {
+		return (unknownRuleQueryType != null) ? unknownRuleQueryType : (unknownRuleQueryType = new QueryTypeElements());
+	}
+	
+	public EnumRule getQueryTypeRule() {
+		return getQueryTypeAccess().getRule();
+	}
+
+	//enum SearchLocation:
+	//	HEADER | BODY;
+	public SearchLocationElements getSearchLocationAccess() {
+		return (unknownRuleSearchLocation != null) ? unknownRuleSearchLocation : (unknownRuleSearchLocation = new SearchLocationElements());
+	}
+	
+	public EnumRule getSearchLocationRule() {
+		return getSearchLocationAccess().getRule();
 	}
 
 	//enum Method:

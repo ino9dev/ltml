@@ -28,212 +28,6 @@ class TestLtml {
     @Inject IGenerator underTest
     @Inject ParseHelper<Model> parseHelper 
 
-//    def void mainTest(){
-//        Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap( ).put("ltml",resourceFactory);
-//        var resourceSet = new ResourceSetImpl()
-//        var uri = URI.createFileURI("src/ltml/tests/test.ltml")
-//        var resource = resourceSet.getResource(uri, true);
-//        var model = resource.getContents().get(0) as Model;
-//        var injector = new LtmlStandaloneSetup().createInjectorAndDoEMFRegistration();
-//        var rs = new ResourceSetImpl();
-//        var resource = rs.getResource(URI.createURI("src/ltml/tests/test.ltml"), true);
-//        var model = resource.getContents().get(0) as Model
-//    }
- 
-//    def void generatorTest1(){
-//        val model = parseHelper.parse('''
-//        Manifest {
-//            Id manifest01
-//            Name "SYSTEM A Load Test Plan"
-//            Version "1.0"
-//            InstanceType JMeter
-//            ModelInstancedPath "C:\\temp\\senarios\\case1\\"
-//            Corpname "LOADSTAR.CO.LTD"
-//        }
-//
-//        //Testcase 1
-//        LoadTest {
-//            Id case1
-//            LoadGroups LG01
-//            Report {
-//                NoReport
-//            }
-//        }
-//        //Testcase 2
-//        LoadTest {
-//            Id case2
-//            LoadGroups LG02
-//            Report {
-//                Summary
-//            }
-//        }
-//
-//        //Testcase 3
-//        //result path need escape for pathchar(\ is incorrect.\\ is correct.)
-//        LoadTest {
-//            Id case3
-//            LoadGroups LG03
-//            Report {
-//                Summary
-//                Result "C:\\temp\\gege.csv"
-//            }
-//        }
-//
-//        //Testcase 4
-//        LoadTest {
-//            Id case4
-//            LoadGroups LG01
-//            Report {
-//                Summary     
-//                ResponseTime
-//                HitPerSecond
-//                TransactionPerSecond
-//                ConccurentCount
-//            }
-//        }
-//        
-//        LoadGroup {
-//            Id LG01
-//            Cc 20
-//            Script BP01
-//            Iteration "INFINITY"
-//            LoadGenerator LGen01
-//            RampUp "20/1min"
-//        }
-//
-//        LoadGroup {
-//            Id LG02
-//            Cc 40
-//            Script BP01
-//            Iteration "INFINITY"
-//            LoadGenerator LGen01
-//            RampUp "20/1min"
-//            Schedule {
-//                Start "2015/01/04 00:00:09"
-//                End "2015/01/05 00:00:10"
-//            }
-//        }
-//
-//        LoadGroup {
-//            Id LG03
-//            Cc 10
-//            Script BP03
-//            Iteration "INFINITY"
-//            LoadGenerator LGen01
-//            RampUp "20/1min"
-//        }
-//
-//        LoadGenerator {
-//            Id LGen01
-//            TargetIp "192.168.0.5"
-//            TargetPort "1008"
-//            Location "America"
-//            AuthUsername "test001"
-//            AuthPassword "test001"
-//        }
-//
-//        Script {
-//            Id BP01
-//            Name "BusinessProcess01"
-//            Trs {
-//                Tr {
-//                    Id BP01_01
-//                    Name "BP01_01"
-//                    No 001
-//                    Method GET
-//                    URL "http://localhost/test1"
-//                    CaptureFileName "image001"
-//                }
-//                Tr {
-//                    Id BP01_02
-//                    Name "BP01_02"
-//                    No 002
-//                    Method GET
-//                    URL "http://localhost/test2"
-//                    CaptureFileName "image002"
-//                }
-//            }
-//        }
-//
-//        Script {
-//            Id BP02
-//            Name "BusinessProcess02"
-//            Trs {
-//                Tr {
-//                    Id BP02_01
-//                    Name "BP02_01"
-//                    No 201
-//                    Method GET
-//                    URL "http://localhost/test1"
-//                    CaptureFileName "image001"
-//                }
-//                Tr {
-//                    Id BP02_01
-//                    Name "BP02_01"
-//                    No 202
-//                    Method POST
-//                    URL "http://localhost/test2"
-//                    Body a=asvalue&b=bsvalue
-//                    CaptureFileName "image002"
-//                }
-//            }
-//        }
-//
-//        Script {
-//            Id BP03
-//            Name "BusinessProcess03"
-//            Trs {
-//                Tr {
-//                    Id BP03_01
-//                    Name "BP03_01"
-//                    No 002
-//                    Method GET
-//                    URL "http://localhost/test/"
-//                    CaptureFileName "image001"
-//                }
-//            }
-//        }
-//
-//        //Parameter
-//        // SourceType CSV or TSV or XML
-//        // Layout 
-//        Parameter {
-//            Id param1
-//            Type CSV
-//            Layout "id,pass"
-//            SourcePath "C:\\temp\userdata1.txt"
-//            AsignMode ITERATION
-//        }
-//
-//        ''')
-//
-//        /*
-//        Parameter {
-//            Name account
-//            Type CSVFILE
-//            Layout id,pass
-//            File "hoge.csv"
-//        }
-//        Reports {
-//            Summary
-//            TransactionsPerSecond
-//            HitPerSecond
-//            ResponseTimeOverTime
-//            ConccurentCountOverTime
-//        }        
-//         */
-//        
-//        //val fsa = new InMemoryFileSystemAccess()
-//        //fsa.setOutputConfigurations(newHashMap(""->new OutputConfiguration(IFileSystemAccess::DEFAULT_OUTPUT)))
-//        //underTest.doGenerate(model.eResource, fsa)
-//        
-//        val fsa = new JavaIoFileSystemAccess()
-//
-//        //fsa.setOutputPath(".")
-//        Guice::createInjector(new GenericModule).injectMembers(fsa)
-//        underTest.doGenerate(model.eResource, fsa)
-//    }
-    
     @Test
     def void testCase1(){
         var model = parseHelper.parse(
@@ -298,7 +92,7 @@ class TestLtml {
         //Business Operation1(e.g search)
         Script {
             Id BP01
-            Name "BusinessProcess01"
+            Name "BP01_search"
             Trs {
                 Tr {
                     Id BP01_01
@@ -317,19 +111,27 @@ class TestLtml {
                     Server "localhost"
                     Path "/"
                     RequestParameters [
-                        "ka"="${datatable1.id}"
-                        "kb"="vb"
+                        "id"="${datatable1.id}"
+                        "password"="${datatable.pass}"
                     ]
+                    ResponseHandler {
+                        Id resp1
+                        Protocol HTTP
+                        QueryType REGEX
+                        QueryString "<input type=\"hidden\" name=\"name\" value=(.*) />"
+                        Ordnial 1
+                        SearchLocation BODY
+                    }
                     CaptureFileName "C:\\temp\\result\\image002"
                 }
             }
             DataTable datatable1
         }
-
+        
         //Business Operation2(e.g purchase)
         Script {
             Id BP02
-            Name "BusinessProcess02"
+            Name "BP02_purchase"
             Trs {
                 Tr {
                     Id BP02_01
@@ -370,10 +172,21 @@ class TestLtml {
             AsignMode ITERATION
             ShareMode ALLTHREAD
         }
-        '''   
+        '''
         )
         val fsa = new JavaIoFileSystemAccess()
         Guice::createInjector(new GenericModule).injectMembers(fsa)
         underTest.doGenerate(model.eResource, fsa)
+
+//        //val fsa = new InMemoryFileSystemAccess()
+//        //fsa.setOutputConfigurations(newHashMap(""->new OutputConfiguration(IFileSystemAccess::DEFAULT_OUTPUT)))
+//        //underTest.doGenerate(model.eResource, fsa)
+//        
+//        val fsa = new JavaIoFileSystemAccess()
+//
+//        //fsa.setOutputPath(".")
+//        Guice::createInjector(new GenericModule).injectMembers(fsa)
+//        underTest.doGenerate(model.eResource, fsa)
+
     }
 }

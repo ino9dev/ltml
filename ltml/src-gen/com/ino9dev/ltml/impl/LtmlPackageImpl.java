@@ -14,9 +14,12 @@ import com.ino9dev.ltml.Method;
 import com.ino9dev.ltml.Model;
 import com.ino9dev.ltml.Param;
 import com.ino9dev.ltml.Protocol;
+import com.ino9dev.ltml.QueryType;
 import com.ino9dev.ltml.Report;
+import com.ino9dev.ltml.ResponseHandler;
 import com.ino9dev.ltml.Schedule;
 import com.ino9dev.ltml.Script;
+import com.ino9dev.ltml.SearchLocation;
 import com.ino9dev.ltml.Statement;
 import com.ino9dev.ltml.Transaction;
 
@@ -104,6 +107,13 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass responseHandlerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass dataTableEClass = null;
 
   /**
@@ -119,6 +129,20 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * @generated
    */
   private EClass paramEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum queryTypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum searchLocationEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -727,9 +751,19 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTransaction_Responsehandler()
+  {
+    return (EReference)transactionEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getTransaction_Capturefilename()
   {
-    return (EAttribute)transactionEClass.getEStructuralFeatures().get(8);
+    return (EAttribute)transactionEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -739,7 +773,87 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    */
   public EAttribute getTransaction_Text()
   {
-    return (EAttribute)transactionEClass.getEStructuralFeatures().get(9);
+    return (EAttribute)transactionEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getResponseHandler()
+  {
+    return responseHandlerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResponseHandler_Name()
+  {
+    return (EAttribute)responseHandlerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResponseHandler_Responsehandlername()
+  {
+    return (EAttribute)responseHandlerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResponseHandler_Protocol()
+  {
+    return (EAttribute)responseHandlerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResponseHandler_Querytype()
+  {
+    return (EAttribute)responseHandlerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResponseHandler_Querystring()
+  {
+    return (EAttribute)responseHandlerEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResponseHandler_Ordinal()
+  {
+    return (EAttribute)responseHandlerEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResponseHandler_Searchlocation()
+  {
+    return (EAttribute)responseHandlerEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -957,6 +1071,26 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getQueryType()
+  {
+    return queryTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getSearchLocation()
+  {
+    return searchLocationEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getMethod()
   {
     return methodEEnum;
@@ -1109,8 +1243,18 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(transactionEClass, TRANSACTION__PATH);
     createEReference(transactionEClass, TRANSACTION__PARAM);
     createEAttribute(transactionEClass, TRANSACTION__BODY);
+    createEReference(transactionEClass, TRANSACTION__RESPONSEHANDLER);
     createEAttribute(transactionEClass, TRANSACTION__CAPTUREFILENAME);
     createEAttribute(transactionEClass, TRANSACTION__TEXT);
+
+    responseHandlerEClass = createEClass(RESPONSE_HANDLER);
+    createEAttribute(responseHandlerEClass, RESPONSE_HANDLER__NAME);
+    createEAttribute(responseHandlerEClass, RESPONSE_HANDLER__RESPONSEHANDLERNAME);
+    createEAttribute(responseHandlerEClass, RESPONSE_HANDLER__PROTOCOL);
+    createEAttribute(responseHandlerEClass, RESPONSE_HANDLER__QUERYTYPE);
+    createEAttribute(responseHandlerEClass, RESPONSE_HANDLER__QUERYSTRING);
+    createEAttribute(responseHandlerEClass, RESPONSE_HANDLER__ORDINAL);
+    createEAttribute(responseHandlerEClass, RESPONSE_HANDLER__SEARCHLOCATION);
 
     dataTableEClass = createEClass(DATA_TABLE);
     createEAttribute(dataTableEClass, DATA_TABLE__NAMEFORDATATABLE);
@@ -1137,6 +1281,8 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     createEAttribute(paramEClass, PARAM__VALUE);
 
     // Create enums
+    queryTypeEEnum = createEEnum(QUERY_TYPE);
+    searchLocationEEnum = createEEnum(SEARCH_LOCATION);
     methodEEnum = createEEnum(METHOD);
     instanceTypeEEnum = createEEnum(INSTANCE_TYPE);
     protocolEEnum = createEEnum(PROTOCOL);
@@ -1240,8 +1386,18 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getTransaction_Path(), ecorePackage.getEString(), "path", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransaction_Param(), this.getParam(), null, "param", null, 0, -1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Body(), ecorePackage.getEString(), "body", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransaction_Responsehandler(), this.getResponseHandler(), null, "responsehandler", null, 0, -1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Capturefilename(), ecorePackage.getEString(), "capturefilename", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransaction_Text(), ecorePackage.getEString(), "text", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(responseHandlerEClass, ResponseHandler.class, "ResponseHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getResponseHandler_Name(), ecorePackage.getEString(), "name", null, 0, 1, ResponseHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResponseHandler_Responsehandlername(), ecorePackage.getEString(), "responsehandlername", null, 0, 1, ResponseHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResponseHandler_Protocol(), this.getProtocol(), "protocol", null, 0, 1, ResponseHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResponseHandler_Querytype(), this.getQueryType(), "querytype", null, 0, 1, ResponseHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResponseHandler_Querystring(), ecorePackage.getEString(), "querystring", null, 0, 1, ResponseHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResponseHandler_Ordinal(), ecorePackage.getEInt(), "ordinal", null, 0, 1, ResponseHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResponseHandler_Searchlocation(), this.getSearchLocation(), "searchlocation", null, 0, 1, ResponseHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataTableEClass, DataTable.class, "DataTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDataTable_Namefordatatable(), ecorePackage.getEString(), "namefordatatable", null, 0, 1, DataTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1268,6 +1424,15 @@ public class LtmlPackageImpl extends EPackageImpl implements LtmlPackage
     initEAttribute(getParam_Value(), ecorePackage.getEString(), "value", null, 0, 1, Param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
+    initEEnum(queryTypeEEnum, QueryType.class, "QueryType");
+    addEEnumLiteral(queryTypeEEnum, QueryType.REGEX);
+    addEEnumLiteral(queryTypeEEnum, QueryType.XPATH);
+    addEEnumLiteral(queryTypeEEnum, QueryType.CSS);
+
+    initEEnum(searchLocationEEnum, SearchLocation.class, "SearchLocation");
+    addEEnumLiteral(searchLocationEEnum, SearchLocation.HEADER);
+    addEEnumLiteral(searchLocationEEnum, SearchLocation.BODY);
+
     initEEnum(methodEEnum, Method.class, "Method");
     addEEnumLiteral(methodEEnum, Method.GET);
     addEEnumLiteral(methodEEnum, Method.POST);

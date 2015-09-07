@@ -6,6 +6,7 @@ import com.ino9dev.ltml.LtmlPackage;
 import com.ino9dev.ltml.Method;
 import com.ino9dev.ltml.Param;
 import com.ino9dev.ltml.Protocol;
+import com.ino9dev.ltml.ResponseHandler;
 import com.ino9dev.ltml.Transaction;
 
 import java.util.Collection;
@@ -39,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getParam <em>Param</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getResponsehandler <em>Responsehandler</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getCapturefilename <em>Capturefilename</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getText <em>Text</em>}</li>
  * </ul>
@@ -197,6 +199,16 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * @ordered
    */
   protected String body = BODY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getResponsehandler() <em>Responsehandler</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResponsehandler()
+   * @generated
+   * @ordered
+   */
+  protected EList<ResponseHandler> responsehandler;
 
   /**
    * The default value of the '{@link #getCapturefilename() <em>Capturefilename</em>}' attribute.
@@ -439,6 +451,20 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ResponseHandler> getResponsehandler()
+  {
+    if (responsehandler == null)
+    {
+      responsehandler = new EObjectContainmentEList<ResponseHandler>(ResponseHandler.class, this, LtmlPackage.TRANSACTION__RESPONSEHANDLER);
+    }
+    return responsehandler;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getCapturefilename()
   {
     return capturefilename;
@@ -492,6 +518,8 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
     {
       case LtmlPackage.TRANSACTION__PARAM:
         return ((InternalEList<?>)getParam()).basicRemove(otherEnd, msgs);
+      case LtmlPackage.TRANSACTION__RESPONSEHANDLER:
+        return ((InternalEList<?>)getResponsehandler()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -522,6 +550,8 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return getParam();
       case LtmlPackage.TRANSACTION__BODY:
         return getBody();
+      case LtmlPackage.TRANSACTION__RESPONSEHANDLER:
+        return getResponsehandler();
       case LtmlPackage.TRANSACTION__CAPTUREFILENAME:
         return getCapturefilename();
       case LtmlPackage.TRANSACTION__TEXT:
@@ -565,6 +595,10 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return;
       case LtmlPackage.TRANSACTION__BODY:
         setBody((String)newValue);
+        return;
+      case LtmlPackage.TRANSACTION__RESPONSEHANDLER:
+        getResponsehandler().clear();
+        getResponsehandler().addAll((Collection<? extends ResponseHandler>)newValue);
         return;
       case LtmlPackage.TRANSACTION__CAPTUREFILENAME:
         setCapturefilename((String)newValue);
@@ -610,6 +644,9 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
       case LtmlPackage.TRANSACTION__BODY:
         setBody(BODY_EDEFAULT);
         return;
+      case LtmlPackage.TRANSACTION__RESPONSEHANDLER:
+        getResponsehandler().clear();
+        return;
       case LtmlPackage.TRANSACTION__CAPTUREFILENAME:
         setCapturefilename(CAPTUREFILENAME_EDEFAULT);
         return;
@@ -646,6 +683,8 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return param != null && !param.isEmpty();
       case LtmlPackage.TRANSACTION__BODY:
         return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
+      case LtmlPackage.TRANSACTION__RESPONSEHANDLER:
+        return responsehandler != null && !responsehandler.isEmpty();
       case LtmlPackage.TRANSACTION__CAPTUREFILENAME:
         return CAPTUREFILENAME_EDEFAULT == null ? capturefilename != null : !CAPTUREFILENAME_EDEFAULT.equals(capturefilename);
       case LtmlPackage.TRANSACTION__TEXT:

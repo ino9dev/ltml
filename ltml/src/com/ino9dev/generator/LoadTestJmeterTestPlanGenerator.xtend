@@ -162,7 +162,20 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                     <boolProp name="HTTPSampler.monitor">false</boolProp>
                     <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
                   </HTTPSamplerProxy>
-                  <hashTree/>
+                  <hashTree>
+                    «FOR r:t.responsehandler»
+                    <!-- todo for query change -->
+                    <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="«r.name»" enabled="true">
+                      <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                      <stringProp name="RegexExtractor.refname">«r.name»</stringProp>
+                      <stringProp name="RegexExtractor.regex">«r.querystring»</stringProp>
+                      <stringProp name="RegexExtractor.template">$1$</stringProp>
+                      <stringProp name="RegexExtractor.default">NOTMATCHED</stringProp>
+                      <stringProp name="RegexExtractor.match_number">«r.ordinal»</stringProp>
+                    </RegexExtractor>
+                    <hashTree/>
+                    «ENDFOR»
+                  </hashTree>
                   «IF t.capturefilename != ""»
                   <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
                     <stringProp name="FileSaver.filename">«t.capturefilename»</stringProp>
@@ -476,6 +489,16 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
         } else{
             target.split(separate).toList
         }
+    }
+    
+    def toXmlentity(String target){
+        target.toCharArray.map[
+            e|switch(e){
+                case "\"":"&quot;"
+                case "<":"&lt;"
+                case ">":"&gt;"
+            }
+        ]
     }
     def createFolder(String target){
         var folder = new File(target)

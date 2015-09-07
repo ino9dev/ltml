@@ -120,6 +120,11 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
         return createTransactionAdapter();
       }
       @Override
+      public Adapter caseResponseHandler(ResponseHandler object)
+      {
+        return createResponseHandlerAdapter();
+      }
+      @Override
       public Adapter caseDataTable(DataTable object)
       {
         return createDataTableAdapter();
@@ -287,6 +292,21 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTransactionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ino9dev.ltml.ResponseHandler <em>Response Handler</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ino9dev.ltml.ResponseHandler
+   * @generated
+   */
+  public Adapter createResponseHandlerAdapter()
   {
     return null;
   }

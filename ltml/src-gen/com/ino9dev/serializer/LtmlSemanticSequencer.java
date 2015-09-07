@@ -11,6 +11,7 @@ import com.ino9dev.ltml.Manifest;
 import com.ino9dev.ltml.Model;
 import com.ino9dev.ltml.Param;
 import com.ino9dev.ltml.Report;
+import com.ino9dev.ltml.ResponseHandler;
 import com.ino9dev.ltml.Schedule;
 import com.ino9dev.ltml.Script;
 import com.ino9dev.ltml.Transaction;
@@ -85,6 +86,12 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case LtmlPackage.REPORT:
 				if(context == grammarAccess.getReportRule()) {
 					sequence_Report(context, (Report) semanticObject); 
+					return; 
+				}
+				else break;
+			case LtmlPackage.RESPONSE_HANDLER:
+				if(context == grammarAccess.getResponseHandlerRule()) {
+					sequence_ResponseHandler(context, (ResponseHandler) semanticObject); 
 					return; 
 				}
 				else break;
@@ -245,6 +252,48 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         responsehandlername=STRING 
+	 *         protocol=Protocol 
+	 *         querytype=QueryType 
+	 *         querystring=STRING 
+	 *         ordinal=INT 
+	 *         searchlocation=SearchLocation
+	 *     )
+	 */
+	protected void sequence_ResponseHandler(EObject context, ResponseHandler semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__NAME));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__RESPONSEHANDLERNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__RESPONSEHANDLERNAME));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__PROTOCOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__PROTOCOL));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__QUERYTYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__QUERYTYPE));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__QUERYSTRING) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__QUERYSTRING));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__ORDINAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__ORDINAL));
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__SEARCHLOCATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RESPONSE_HANDLER__SEARCHLOCATION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getResponseHandlerAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getResponseHandlerAccess().getResponsehandlernameSTRINGTerminalRuleCall_5_0(), semanticObject.getResponsehandlername());
+		feeder.accept(grammarAccess.getResponseHandlerAccess().getProtocolProtocolEnumRuleCall_7_0(), semanticObject.getProtocol());
+		feeder.accept(grammarAccess.getResponseHandlerAccess().getQuerytypeQueryTypeEnumRuleCall_9_0(), semanticObject.getQuerytype());
+		feeder.accept(grammarAccess.getResponseHandlerAccess().getQuerystringSTRINGTerminalRuleCall_11_0(), semanticObject.getQuerystring());
+		feeder.accept(grammarAccess.getResponseHandlerAccess().getOrdinalINTTerminalRuleCall_13_0(), semanticObject.getOrdinal());
+		feeder.accept(grammarAccess.getResponseHandlerAccess().getSearchlocationSearchLocationEnumRuleCall_15_0(), semanticObject.getSearchlocation());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     ((start=STRING end=STRING) | (duration=INT delay=INT))
 	 */
 	protected void sequence_Schedule(EObject context, Schedule semanticObject) {
@@ -271,6 +320,7 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (server=STRING | server=IPADDRESS) 
 	 *         path=STRING 
 	 *         (param+=Param* | body=STRING)? 
+	 *         responsehandler+=ResponseHandler* 
 	 *         capturefilename=STRING? 
 	 *         text=STRING?
 	 *     )

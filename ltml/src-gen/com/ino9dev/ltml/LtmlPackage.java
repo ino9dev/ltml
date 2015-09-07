@@ -625,13 +625,22 @@ public interface LtmlPackage extends EPackage
   int TRANSACTION__BODY = 7;
 
   /**
+   * The feature id for the '<em><b>Responsehandler</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSACTION__RESPONSEHANDLER = 8;
+
+  /**
    * The feature id for the '<em><b>Capturefilename</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSACTION__CAPTUREFILENAME = 8;
+  int TRANSACTION__CAPTUREFILENAME = 9;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -640,7 +649,7 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSACTION__TEXT = 9;
+  int TRANSACTION__TEXT = 10;
 
   /**
    * The number of structural features of the '<em>Transaction</em>' class.
@@ -649,7 +658,89 @@ public interface LtmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSACTION_FEATURE_COUNT = 10;
+  int TRANSACTION_FEATURE_COUNT = 11;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.impl.ResponseHandlerImpl <em>Response Handler</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.impl.ResponseHandlerImpl
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getResponseHandler()
+   * @generated
+   */
+  int RESPONSE_HANDLER = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Responsehandlername</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER__RESPONSEHANDLERNAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Protocol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER__PROTOCOL = 2;
+
+  /**
+   * The feature id for the '<em><b>Querytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER__QUERYTYPE = 3;
+
+  /**
+   * The feature id for the '<em><b>Querystring</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER__QUERYSTRING = 4;
+
+  /**
+   * The feature id for the '<em><b>Ordinal</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER__ORDINAL = 5;
+
+  /**
+   * The feature id for the '<em><b>Searchlocation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER__SEARCHLOCATION = 6;
+
+  /**
+   * The number of structural features of the '<em>Response Handler</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESPONSE_HANDLER_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.impl.DataTableImpl <em>Data Table</em>}' class.
@@ -659,7 +750,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getDataTable()
    * @generated
    */
-  int DATA_TABLE = 9;
+  int DATA_TABLE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -759,7 +850,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getReport()
    * @generated
    */
-  int REPORT = 10;
+  int REPORT = 11;
 
   /**
    * The feature id for the '<em><b>Noreport</b></em>' attribute.
@@ -850,7 +941,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getParam()
    * @generated
    */
-  int PARAM = 11;
+  int PARAM = 12;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -880,6 +971,26 @@ public interface LtmlPackage extends EPackage
   int PARAM_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.ino9dev.ltml.QueryType <em>Query Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.QueryType
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getQueryType()
+   * @generated
+   */
+  int QUERY_TYPE = 13;
+
+  /**
+   * The meta object id for the '{@link com.ino9dev.ltml.SearchLocation <em>Search Location</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ino9dev.ltml.SearchLocation
+   * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getSearchLocation()
+   * @generated
+   */
+  int SEARCH_LOCATION = 14;
+
+  /**
    * The meta object id for the '{@link com.ino9dev.ltml.Method <em>Method</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -887,7 +998,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 12;
+  int METHOD = 15;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.InstanceType <em>Instance Type</em>}' enum.
@@ -897,7 +1008,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getInstanceType()
    * @generated
    */
-  int INSTANCE_TYPE = 13;
+  int INSTANCE_TYPE = 16;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.Protocol <em>Protocol</em>}' enum.
@@ -907,7 +1018,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getProtocol()
    * @generated
    */
-  int PROTOCOL = 14;
+  int PROTOCOL = 17;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.DATATABLETYPE <em>DATATABLETYPE</em>}' enum.
@@ -917,7 +1028,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getDATATABLETYPE()
    * @generated
    */
-  int DATATABLETYPE = 15;
+  int DATATABLETYPE = 18;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.ASIGNMODE <em>ASIGNMODE</em>}' enum.
@@ -927,7 +1038,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getASIGNMODE()
    * @generated
    */
-  int ASIGNMODE = 16;
+  int ASIGNMODE = 19;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.SHAREMODE <em>SHAREMODE</em>}' enum.
@@ -937,7 +1048,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getSHAREMODE()
    * @generated
    */
-  int SHAREMODE = 17;
+  int SHAREMODE = 20;
 
   /**
    * The meta object id for the '{@link com.ino9dev.ltml.ENCODINGTYPE <em>ENCODINGTYPE</em>}' enum.
@@ -947,7 +1058,7 @@ public interface LtmlPackage extends EPackage
    * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getENCODINGTYPE()
    * @generated
    */
-  int ENCODINGTYPE = 18;
+  int ENCODINGTYPE = 21;
 
 
   /**
@@ -1481,6 +1592,17 @@ public interface LtmlPackage extends EPackage
   EAttribute getTransaction_Body();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.ino9dev.ltml.Transaction#getResponsehandler <em>Responsehandler</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Responsehandler</em>'.
+   * @see com.ino9dev.ltml.Transaction#getResponsehandler()
+   * @see #getTransaction()
+   * @generated
+   */
+  EReference getTransaction_Responsehandler();
+
+  /**
    * Returns the meta object for the attribute '{@link com.ino9dev.ltml.Transaction#getCapturefilename <em>Capturefilename</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1501,6 +1623,93 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EAttribute getTransaction_Text();
+
+  /**
+   * Returns the meta object for class '{@link com.ino9dev.ltml.ResponseHandler <em>Response Handler</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Response Handler</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler
+   * @generated
+   */
+  EClass getResponseHandler();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.ResponseHandler#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler#getName()
+   * @see #getResponseHandler()
+   * @generated
+   */
+  EAttribute getResponseHandler_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.ResponseHandler#getResponsehandlername <em>Responsehandlername</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Responsehandlername</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler#getResponsehandlername()
+   * @see #getResponseHandler()
+   * @generated
+   */
+  EAttribute getResponseHandler_Responsehandlername();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.ResponseHandler#getProtocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Protocol</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler#getProtocol()
+   * @see #getResponseHandler()
+   * @generated
+   */
+  EAttribute getResponseHandler_Protocol();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.ResponseHandler#getQuerytype <em>Querytype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Querytype</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler#getQuerytype()
+   * @see #getResponseHandler()
+   * @generated
+   */
+  EAttribute getResponseHandler_Querytype();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.ResponseHandler#getQuerystring <em>Querystring</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Querystring</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler#getQuerystring()
+   * @see #getResponseHandler()
+   * @generated
+   */
+  EAttribute getResponseHandler_Querystring();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.ResponseHandler#getOrdinal <em>Ordinal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ordinal</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler#getOrdinal()
+   * @see #getResponseHandler()
+   * @generated
+   */
+  EAttribute getResponseHandler_Ordinal();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ino9dev.ltml.ResponseHandler#getSearchlocation <em>Searchlocation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Searchlocation</em>'.
+   * @see com.ino9dev.ltml.ResponseHandler#getSearchlocation()
+   * @see #getResponseHandler()
+   * @generated
+   */
+  EAttribute getResponseHandler_Searchlocation();
 
   /**
    * Returns the meta object for class '{@link com.ino9dev.ltml.DataTable <em>Data Table</em>}'.
@@ -1729,6 +1938,26 @@ public interface LtmlPackage extends EPackage
    * @generated
    */
   EAttribute getParam_Value();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.QueryType <em>Query Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Query Type</em>'.
+   * @see com.ino9dev.ltml.QueryType
+   * @generated
+   */
+  EEnum getQueryType();
+
+  /**
+   * Returns the meta object for enum '{@link com.ino9dev.ltml.SearchLocation <em>Search Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Search Location</em>'.
+   * @see com.ino9dev.ltml.SearchLocation
+   * @generated
+   */
+  EEnum getSearchLocation();
 
   /**
    * Returns the meta object for enum '{@link com.ino9dev.ltml.Method <em>Method</em>}'.
@@ -2234,6 +2463,14 @@ public interface LtmlPackage extends EPackage
     EAttribute TRANSACTION__BODY = eINSTANCE.getTransaction_Body();
 
     /**
+     * The meta object literal for the '<em><b>Responsehandler</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSACTION__RESPONSEHANDLER = eINSTANCE.getTransaction_Responsehandler();
+
+    /**
      * The meta object literal for the '<em><b>Capturefilename</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2248,6 +2485,72 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EAttribute TRANSACTION__TEXT = eINSTANCE.getTransaction_Text();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.impl.ResponseHandlerImpl <em>Response Handler</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.impl.ResponseHandlerImpl
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getResponseHandler()
+     * @generated
+     */
+    EClass RESPONSE_HANDLER = eINSTANCE.getResponseHandler();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESPONSE_HANDLER__NAME = eINSTANCE.getResponseHandler_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Responsehandlername</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESPONSE_HANDLER__RESPONSEHANDLERNAME = eINSTANCE.getResponseHandler_Responsehandlername();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESPONSE_HANDLER__PROTOCOL = eINSTANCE.getResponseHandler_Protocol();
+
+    /**
+     * The meta object literal for the '<em><b>Querytype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESPONSE_HANDLER__QUERYTYPE = eINSTANCE.getResponseHandler_Querytype();
+
+    /**
+     * The meta object literal for the '<em><b>Querystring</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESPONSE_HANDLER__QUERYSTRING = eINSTANCE.getResponseHandler_Querystring();
+
+    /**
+     * The meta object literal for the '<em><b>Ordinal</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESPONSE_HANDLER__ORDINAL = eINSTANCE.getResponseHandler_Ordinal();
+
+    /**
+     * The meta object literal for the '<em><b>Searchlocation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESPONSE_HANDLER__SEARCHLOCATION = eINSTANCE.getResponseHandler_Searchlocation();
 
     /**
      * The meta object literal for the '{@link com.ino9dev.ltml.impl.DataTableImpl <em>Data Table</em>}' class.
@@ -2422,6 +2725,26 @@ public interface LtmlPackage extends EPackage
      * @generated
      */
     EAttribute PARAM__VALUE = eINSTANCE.getParam_Value();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.QueryType <em>Query Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.QueryType
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getQueryType()
+     * @generated
+     */
+    EEnum QUERY_TYPE = eINSTANCE.getQueryType();
+
+    /**
+     * The meta object literal for the '{@link com.ino9dev.ltml.SearchLocation <em>Search Location</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ino9dev.ltml.SearchLocation
+     * @see com.ino9dev.ltml.impl.LtmlPackageImpl#getSearchLocation()
+     * @generated
+     */
+    EEnum SEARCH_LOCATION = eINSTANCE.getSearchLocation();
 
     /**
      * The meta object literal for the '{@link com.ino9dev.ltml.Method <em>Method</em>}' enum.

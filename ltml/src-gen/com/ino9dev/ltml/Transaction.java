@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.ino9dev.ltml.Transaction#getPath <em>Path</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getParam <em>Param</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getBody <em>Body</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getResponsehandler <em>Responsehandler</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getCapturefilename <em>Capturefilename</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getText <em>Text</em>}</li>
  * </ul>
@@ -236,6 +237,22 @@ public interface Transaction extends EObject
    * @generated
    */
   void setBody(String value);
+
+  /**
+   * Returns the value of the '<em><b>Responsehandler</b></em>' containment reference list.
+   * The list contents are of type {@link com.ino9dev.ltml.ResponseHandler}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Responsehandler</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Responsehandler</em>' containment reference list.
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Responsehandler()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ResponseHandler> getResponsehandler();
 
   /**
    * Returns the value of the '<em><b>Capturefilename</b></em>' attribute.

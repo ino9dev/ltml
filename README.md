@@ -204,21 +204,20 @@ A Jmx file image is following
 - [x] implement to handle Report/ConccurentCountOverTime syntax (20150811 done)
 - [x] modify Manifest syntax for designation of outputpath(20150813 done)
 - [x] modify Manifest syntax for designation of instance type(like JMeter/LoadRunner/OtherTools)(20150813 only JMeter done)
-- [x] implement to handle Transaction/Method syntax
-- [x] implement to handle Transaction/Procotol syntax
-- [x] implement to handle Transaction syntax for CaptureFileName
-- [x] implement to handle Report/Result syntax
-- [x] implement to handle Report/CheckResult syntax
-- [x] implement to handle Transaction/Body syntax
-- [x] implement to handle Parameter syntax
-- [ ] implement to handle Correlation(this name will be changed) syntax
+- [x] implement to handle Transaction/Method syntax(-20150905 done only GET/POST/PUT/DELETE)
+- [x] implement to handle Transaction/Procotol syntax(-20150905 done only HTTP)
+- [x] implement to handle Transaction syntax for CaptureFileName(-20150905 done)
+- [x] implement to handle Report/Result syntax(-20150905 done)
+- [x] implement to handle Report/CheckResult syntax(-20150905 done)
+- [x] implement to handle Transaction/Body syntax(-20150905 done)
+- [x] implement to handle Parameter syntax(-20150905 done)
+- [ ] implement to handle ResponseHandler(it always means 'Correlation') syntax(20150907 done only REGEX)
 - [ ] implement to handle Variables
-- [ ] implement to generateor for Documentation and Imaging
-- [ ] implement to validate ids(uniq id) and values(path notation)
+- [ ] implement to generate for Documentation and Imaging
+- [ ] implement to hanlde validator (e.g unique numbers, correct values)
 - [ ] unit tests / tests for acceptance test 
 - Phase1 JMeter extension library 
 - [ ] implement to controller element "Finish Controller"
-- [ ] implement to setting element ""
 - [ ] implement to setting element "DB Parameter"
 - [ ] implement to listener element "Result DB Writer"
 - [ ] implement to listener element "JMeter Execution Result Collector"

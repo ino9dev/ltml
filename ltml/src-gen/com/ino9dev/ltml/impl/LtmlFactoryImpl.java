@@ -74,6 +74,7 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
       case LtmlPackage.SCHEDULE: return createSchedule();
       case LtmlPackage.SCRIPT: return createScript();
       case LtmlPackage.TRANSACTION: return createTransaction();
+      case LtmlPackage.RESPONSE_HANDLER: return createResponseHandler();
       case LtmlPackage.DATA_TABLE: return createDataTable();
       case LtmlPackage.REPORT: return createReport();
       case LtmlPackage.PARAM: return createParam();
@@ -92,6 +93,10 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case LtmlPackage.QUERY_TYPE:
+        return createQueryTypeFromString(eDataType, initialValue);
+      case LtmlPackage.SEARCH_LOCATION:
+        return createSearchLocationFromString(eDataType, initialValue);
       case LtmlPackage.METHOD:
         return createMethodFromString(eDataType, initialValue);
       case LtmlPackage.INSTANCE_TYPE:
@@ -121,6 +126,10 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case LtmlPackage.QUERY_TYPE:
+        return convertQueryTypeToString(eDataType, instanceValue);
+      case LtmlPackage.SEARCH_LOCATION:
+        return convertSearchLocationToString(eDataType, instanceValue);
       case LtmlPackage.METHOD:
         return convertMethodToString(eDataType, instanceValue);
       case LtmlPackage.INSTANCE_TYPE:
@@ -244,6 +253,17 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ResponseHandler createResponseHandler()
+  {
+    ResponseHandlerImpl responseHandler = new ResponseHandlerImpl();
+    return responseHandler;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DataTable createDataTable()
   {
     DataTableImpl dataTable = new DataTableImpl();
@@ -270,6 +290,50 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
   {
     ParamImpl param = new ParamImpl();
     return param;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QueryType createQueryTypeFromString(EDataType eDataType, String initialValue)
+  {
+    QueryType result = QueryType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertQueryTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SearchLocation createSearchLocationFromString(EDataType eDataType, String initialValue)
+  {
+    SearchLocation result = SearchLocation.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertSearchLocationToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

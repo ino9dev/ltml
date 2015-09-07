@@ -7,6 +7,15 @@
     runtimeVersion="2.9">
   <genPackages prefix="Ltml" basePackage="com.ino9dev" disposableProviderFactory="true"
       fileExtensions="ltml" ecorePackage="Ltml.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//QueryType">
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//QueryType/REGEX"/>
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//QueryType/XPATH"/>
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//QueryType/CSS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//SearchLocation">
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//SearchLocation/HEADER"/>
+      <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//SearchLocation/BODY"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ltml.ecore#//Method">
       <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//Method/GET"/>
       <genEnumLiterals ecoreEnumLiteral="Ltml.ecore#//Method/POST"/>
@@ -96,8 +105,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/path"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Transaction/param"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Transaction/responsehandler"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/capturefilename"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/text"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//ResponseHandler">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/responsehandlername"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/querytype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/querystring"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/ordinal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/searchlocation"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//DataTable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/namefordatatable"/>
