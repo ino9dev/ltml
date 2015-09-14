@@ -97,7 +97,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'LoadGenerator' | 'Lgen'
+	 *     'Lgen' | 'LoadGenerator'
 	 */
 	protected void emit_LoadGenerator_LgenKeyword_0_1_or_LoadGeneratorKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -105,7 +105,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Cc' | 'ConccurentCount'
+	 *     'ConccurentCount' | 'Cc'
 	 */
 	protected void emit_LoadGroup_CcKeyword_5_1_or_ConccurentCountKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -129,7 +129,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Mn' | 'Manifest'
+	 *     'Manifest' | 'Mn'
 	 */
 	protected void emit_Manifest_ManifestKeyword_0_0_or_MnKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -137,7 +137,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'ver' | 'Version'
+	 *     'Version' | 'ver'
 	 */
 	protected void emit_Manifest_VerKeyword_5_1_or_VersionKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -145,7 +145,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Sc' | 'Script'
+	 *     'Script' | 'Sc'
 	 */
 	protected void emit_Script_ScKeyword_0_1_or_ScriptKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -161,7 +161,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Exist' | 'Included' | 'NotExist'
+	 *     'Exist' | 'NotExist' | 'Included'
 	 */
 	protected void emit_Transaction_ExistKeyword_17_2_0_or_IncludedKeyword_17_2_2_or_NotExistKeyword_17_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -169,7 +169,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Transaction' | 'Tr'
+	 *     'Tr' | 'Transaction'
 	 */
 	protected void emit_Transaction_TrKeyword_0_1_or_TransactionKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

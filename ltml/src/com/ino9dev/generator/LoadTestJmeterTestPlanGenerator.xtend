@@ -52,6 +52,9 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                )
             )
         ]
+        
+        //instanced file を invokeできるinvokerも併せて生成しておく
+        
     }
 
     def toJmeterTestPlan(

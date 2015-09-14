@@ -8,6 +8,9 @@ import org.eclipse.xtext.parser.IParser
 import org.eclipse.xtext.util.StringInputStream
 import org.eclipse.xtext.parser.IParseResult
 import org.eclipse.xtext.parser.ParseResult
+import com.google.inject.Inject
+import com.ino9dev.invoker.JMeterRuntimeInvoker
+import com.google.inject.Guice
 
 enum Mode {
     Run,
@@ -15,15 +18,19 @@ enum Mode {
 }
 
 class LtmlInterpreter {
+    
+    @Inject JMeterRuntimeInvoker invoker
 
     def static void main(String[] args){
-        (new LtmlInterpreter).main
+        var injector = Guice.createInjector()
+        var interpreter = injector.getInstance(LtmlInterpreter)
+        interpreter.main
     }
     
     def main(){
+        
         var guiceInjector = new LtmlStandaloneSetup().createInjectorAndDoEMFRegistration();
         var parser = guiceInjector.getInstance(IParser);
-
         var scannar = new Scanner(System.in).useDelimiter(System.getProperty("line.separator")+System.getProperty("line.separator")); //[\r\n\r\n|\n\n]
         var input = new StringBuffer
         var status = Mode.Define
@@ -43,6 +50,7 @@ class LtmlInterpreter {
                 switch(status){
                     case Mode.Run:
                     {
+                        invoker.invoke
                         println("todo execution parse")
                     }
                     case Mode.Define:

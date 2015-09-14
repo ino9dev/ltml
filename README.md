@@ -224,7 +224,7 @@ A Jmx file image is following
 - [x] implement to handle Report/CheckResult syntax(-20150905 done)
 - [x] implement to handle Transaction/Body syntax(-20150905 done)
 - [x] implement to handle Parameter syntax(-20150905 done)
-- [x] implement to handle ResponseHandler(it normally means 'Correlation') syntax(20150907 done only REGEX)
+- [x] implement to handle ResponseHandler(it normally means 'Correlation') syntax(20150907 done REGEX only)
 - [ ] implement to generate for Documentation and Imaging
 - [ ] implement to hanlde validator (e.g unique numbers, correct values)
 - [ ] unit tests / tests for acceptance test 

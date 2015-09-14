@@ -2,9 +2,12 @@ package com.ino9dev.interpreter;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
+import com.google.inject.Guice;
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.ino9dev.LtmlStandaloneSetup;
 import com.ino9dev.interpreter.Mode;
+import com.ino9dev.invoker.JMeterRuntimeInvoker;
 import com.ino9dev.ltml.impl.ManifestImpl;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -28,9 +31,13 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class LtmlInterpreter {
+  @Inject
+  private JMeterRuntimeInvoker invoker;
+  
   public static void main(final String[] args) {
-    LtmlInterpreter _ltmlInterpreter = new LtmlInterpreter();
-    _ltmlInterpreter.main();
+    Injector injector = Guice.createInjector();
+    LtmlInterpreter interpreter = injector.<LtmlInterpreter>getInstance(LtmlInterpreter.class);
+    interpreter.main();
   }
   
   public String main() {
@@ -92,6 +99,7 @@ public class LtmlInterpreter {
                 if (!_matched) {
                   if (Objects.equal(status,Mode.Run)) {
                     _matched=true;
+                    this.invoker.invoke();
                     InputOutput.<String>println("todo execution parse");
                   }
                 }

@@ -51,6 +51,20 @@ class TestLtml {
                CheckResponse
             }
         }
+        
+        //Testcase 2
+        LoadTest {
+            Id lt002
+            LoadGroups LG03
+            Report {
+               Summary
+               Result "C:\\temp\\results\\report_result.csv"
+               HitPerSecond
+               TransactionPerSecond
+               CheckResponse
+            }
+        }
+        
 
         LoadGroup {
             Id LG01
@@ -79,7 +93,21 @@ class TestLtml {
                 Delay 0
             }
         }
-        
+
+        LoadGroup {
+            Id LG03
+            Name "BP03's Load Simulated"
+            Cc 1
+            Script BP01
+            Iteration "INFINITY"
+            LoadGenerator LGen01
+            RampUp "20/1min"
+            Schedule {
+                Duration 500
+                Delay 0
+            }
+        }
+
         LoadGenerator {
             Id LGen01
             TargetIp "192.168.0.5"
