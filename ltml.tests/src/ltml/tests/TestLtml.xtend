@@ -29,6 +29,28 @@ class TestLtml {
     @Inject ParseHelper<Model> parseHelper 
 
     @Test
+    def void testPrintParseHelper(){
+        println(parseHelper.class.name)
+    }
+    
+    @Test
+    def void testCaseValidator(){
+        var model = parseHelper.parse(
+            '''
+            Manifest {
+                Id testcase1
+                Version "1.0"
+                InstanceType JMeter
+                ModelInstancedPath "C:\\apache-jmeter-2.13\\bin"
+            }
+            '''
+        )
+        
+        val fsa = new JavaIoFileSystemAccess()
+        Guice::createInjector(new GenericModule).injectMembers(fsa)
+        underTest.doGenerate(model.eResource, fsa)
+    }
+    @Test
     def void testCase1(){
         var model = parseHelper.parse(
         '''

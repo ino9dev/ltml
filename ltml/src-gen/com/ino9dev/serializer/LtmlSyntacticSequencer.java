@@ -97,7 +97,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'Lgen' | 'LoadGenerator'
+	 *     'LoadGenerator' | 'Lgen'
 	 */
 	protected void emit_LoadGenerator_LgenKeyword_0_1_or_LoadGeneratorKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -105,7 +105,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'ConccurentCount' | 'Cc'
+	 *     'Cc' | 'ConccurentCount'
 	 */
 	protected void emit_LoadGroup_CcKeyword_5_1_or_ConccurentCountKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -121,7 +121,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Lt' | 'LoadTest'
+	 *     'LoadTest' | 'Lt'
 	 */
 	protected void emit_LoadTest_LoadTestKeyword_0_0_or_LtKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -137,7 +137,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Version' | 'ver'
+	 *     'ver' | 'Version'
 	 */
 	protected void emit_Manifest_VerKeyword_5_1_or_VersionKeyword_5_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -153,7 +153,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Transactions' | 'Trs'
+	 *     'Trs' | 'Transactions'
 	 */
 	protected void emit_Script_TransactionsKeyword_6_0_or_TrsKeyword_6_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -161,7 +161,7 @@ public class LtmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Exist' | 'NotExist' | 'Included'
+	 *     'Exist' | 'Included' | 'NotExist'
 	 */
 	protected void emit_Transaction_ExistKeyword_17_2_0_or_IncludedKeyword_17_2_2_or_NotExistKeyword_17_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -16,7 +16,6 @@ import java.util.Scanner;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.parser.IParser;
@@ -68,25 +67,23 @@ public class LtmlInterpreter {
       boolean _while = _not;
       while (_while) {
         {
-          StringConcatenation _builder = new StringConcatenation();
-          _builder.append("[ltml][Mode=");
-          _builder.append(status, "");
-          _builder.append("]$");
-          InputOutput.<String>print(_builder.toString());
+          String _plus_1 = ("[ltml][Mode=" + status);
+          String _plus_2 = (_plus_1 + "]$");
+          InputOutput.<String>print(_plus_2);
           String _next = scannar.next();
           input.append(_next);
           String _string = input.toString();
-          boolean _equals_2 = _string.equals("Run");
+          boolean _equals_2 = _string.equals("Mode Run");
           if (_equals_2) {
             status = Mode.Run;
           } else {
             String _string_1 = input.toString();
-            boolean _equals_3 = _string_1.equals("Define");
+            boolean _equals_3 = _string_1.equals("Mode Define");
             if (_equals_3) {
               status = Mode.Define;
             } else {
               String _string_2 = input.toString();
-              boolean _equals_4 = _string_2.equals("Show");
+              boolean _equals_4 = _string_2.equals("Show Defines");
               if (_equals_4) {
                 final Procedure1<EObject> _function = new Procedure1<EObject>() {
                   public void apply(final EObject e) {
@@ -100,7 +97,6 @@ public class LtmlInterpreter {
                   if (Objects.equal(status,Mode.Run)) {
                     _matched=true;
                     this.invoker.invoke();
-                    InputOutput.<String>println("todo execution parse");
                   }
                 }
                 if (!_matched) {

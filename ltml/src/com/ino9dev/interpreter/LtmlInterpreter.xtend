@@ -1,5 +1,4 @@
 package com.ino9dev.interpreter
-
 import com.ino9dev.LtmlStandaloneSetup
 import com.ino9dev.ltml.impl.ManifestImpl
 import java.io.InputStreamReader
@@ -26,7 +25,6 @@ class LtmlInterpreter {
         var interpreter = injector.getInstance(LtmlInterpreter)
         interpreter.main
     }
-    
     def main(){
         
         var guiceInjector = new LtmlStandaloneSetup().createInjectorAndDoEMFRegistration();
@@ -37,11 +35,11 @@ class LtmlInterpreter {
         var IParseResult parseresult = null
         var memory = newArrayList()
         while(!(input.equals("quit") || input.equals("exit"))) {
-            print('''[ltml][Mode=«status»]$''')
+            print("[ltml][Mode=" + status + "]$")
             input.append(scannar.next());
-            if(input.toString.equals("Run")){status = Mode.Run}
-            else if(input.toString.equals("Define")){status = Mode.Define}
-            else if(input.toString.equals("Show")){
+            if(input.toString.equals("Mode Run")){status = Mode.Run}
+            else if(input.toString.equals("Mode Define")){status = Mode.Define}
+            else if(input.toString.equals("Show Defines")){
                 memory.forEach[e|
                     println(e)
                 ]
@@ -50,8 +48,8 @@ class LtmlInterpreter {
                 switch(status){
                     case Mode.Run:
                     {
+                        //todo implement 
                         invoker.invoke
-                        println("todo execution parse")
                     }
                     case Mode.Define:
                     {
@@ -71,7 +69,7 @@ class LtmlInterpreter {
                             //todo to save on memory
                             //todo to load from file
                         }
-                        //todo to move syntax defin Mode
+                        //todo to move syntax define Mode
                     }
                 }
             }

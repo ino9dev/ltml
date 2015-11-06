@@ -15,12 +15,10 @@ public class JMeterRuntimeInvoker implements RuntimeInvoker {
         
         // JMeter Engine
         val JMETER_HOME = "C:\\apache-jmeter-2.13\\"
-        
         JMeterUtils.loadJMeterProperties(JMETER_HOME+"bin\\jmeter.properties")
         JMeterUtils::setJMeterHome(JMETER_HOME)
         JMeterUtils::initLogging()
         JMeterUtils::initLocale()
-
         SaveService::loadProperties()
 
         //var in = new FileInputStream(JMETER_HOME+"testcase1_ver_1.0_lt002.jmx");

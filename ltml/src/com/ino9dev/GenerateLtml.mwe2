@@ -3,6 +3,8 @@ module com.ino9dev.GenerateLtml
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
+import com.ino9dev.*
+import org.xtext.xpand2.*
 
 var grammarURI = "classpath:/com/ino9dev/Ltml.xtext"
 var fileExtensions = "ltml"
@@ -131,12 +133,12 @@ Workflow {
     		// provides a compare view
     		fragment = compare.CompareFragment auto-inject {}
     		
-//    		fragment = org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment {
-//               options = {
-//                    backtrack = false
-//                    backtrackLexer = false
-//                }
-//            }
+    		// provide a interpreter
+    		fragment = fragment.LtmlInterpreterGeneratorFragment auto-inject{
+                //outlet = "src-gen/com/ino9dev/interpreterx"
+                fsa = JavaIoFileSystemAccess{}
+                generator = generator.LtmlInterpreterGenerator{}
+    		}
     	}
     }
 }

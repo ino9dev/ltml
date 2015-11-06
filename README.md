@@ -284,7 +284,7 @@ License is MIT (MIT license http://opensource.org/licenses/mit-license.php)
 Copyright (c) 2015 ino9dev
 
 # Depend Libraries
-Xtext/Xtend
+Xtext/Xtend  (c) Eclipse Public Lisence
 Flotr2 Copyright (c) 2008-2011 Pivotal Labs  
 
 # more information
