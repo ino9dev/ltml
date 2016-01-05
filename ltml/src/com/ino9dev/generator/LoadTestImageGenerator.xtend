@@ -26,7 +26,7 @@ class LoadTestImageGenerator implements IGenerator {
         val path = if(manifest.modelinstancedpath != null || manifest.modelinstancedpath != ""){manifest.modelinstancedpath}else{"."+PATHSEPARATOR}
 
         //pathに対してフォルダを作り、pathを出力先とする
-        afsa.setOutputPath(".")
+        afsa.setOutputPath(path)
         path.createFolder
 
         //todo deplory resource folder
@@ -36,37 +36,26 @@ class LoadTestImageGenerator implements IGenerator {
            '''
             <html>
             <head>
-                <style type="text/css">
-                  #loadimage {
-                    width : 600px;
-                    height: 384px;
-                    margin: 8px auto;
-                  }
+                <style>
                   body {
-                    width:960px;
-                    margin:20px auto;
+                    width:1024px;
+                    margin:20px;
                   }
                   header, nav, section, footer {
                     display:block;
-                    border:1px solid #ccc;
-                    margin:5px;
+                    border:2px solid #ccc;
+                    margin:0px;
                     padding:20px;
                   }
                   header {
                     text-align:center;
                     padding:30px;
                   }
-                  header ul, header li {
-                    list-style-type:none;
-                    display:inline;
-                  }
-                  nav {
-                    float:right;
-                    width:236px; 
+                  nav ul, nav li{
+                      list-style-type:none;display:inline;
                   }
                   section {
-                    float:right;
-                    width:620px;
+                    float:center;
                   }
                   footer {
                     clear:both !important;
@@ -75,20 +64,12 @@ class LoadTestImageGenerator implements IGenerator {
                 </style>
             </head>
             <body>
-            
             <header>
                 <hgroup>
                     <h1>«manifest.manifestname»</h1>
                     <h2>version «manifest.version»</h2>
                 </hgroup>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu 1</a></li>
-                    <li><a href="#">Menu 2</a></li>
-                    <li><a href="#">Menu 3</a></li>
-                </ul>
             </header>
-
             <nav>
               <h1>Navigation</h1>
               <ul>
@@ -110,45 +91,19 @@ class LoadTestImageGenerator implements IGenerator {
                     «manifest.version»'s Test Plan
                 <article>
             </section>
-            «FOR l:loadtests»
-            <sction>
-                <h1>«l.name»</h1>
-                <p></p>
-                <h1>«l.purpose»</h1>
-                <h2>Schedule</h2>
-                <!-- include image here -->
-            </sction>
-            «ENDFOR»
             <section>
-                <h1>Test Case</h1>
-                <div id="loadimage" />
+            «FOR l:loadtests.sortBy([k|k.name])»
+                <h1>TestName</h1><p>«l.name»</p>
+                <h1>Purpose</h1><p>«l.purpose»</p>
+                «FOR lg:l.loadgroups»
+                <h2>Connccurent Num</h2><p>«lg.cc»</p>
+                <h2>Rampup</h2><p>«lg.rampup»</p>
+                <h2>LoadGenerator</h2><p>«lg.rampup»</p>
+                <h2>Load Images</h2><p><!-- insert load images --></p>
+                «ENDFOR»
+            «ENDFOR»
             </section>
             <hooter>Copyright «manifest.corpname»</hooter>
-
-            <script type="text/javascript" src="resources/flotr2/flotr2.min.js"></script>
-            <script type="text/javascript">
-                (function basic(container) {
-                var
-                d1 = [[0, 0], [1, 8],[1, 8],[1, 8],[1, 8],[1, 8],[1, 8], [8, 5], [9, 13]], // First data series
-                d2 = [],                                // Second data series
-                i, graph;
-            
-                // Generate first data set
-                //for (i = 0; i < 14; i += 0.5) {
-                //    d2.push([i, Math.sin(i)]);
-                //}
-                // Draw Graph
-                graph = Flotr.draw(container, [ d1, d2 ], {
-                    xaxis: {
-                        minorTickFreq: 4
-                    }, 
-                    grid: {
-                        minorVerticalLines: true
-                    }
-                });
-            })(document.getElementById("loadimage"));
-            </script>
-
             </body>
             </html>
            '''

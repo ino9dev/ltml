@@ -205,6 +205,19 @@ ruleStatement returns [EObject current=null]
     { 
     newLeafNode(this_SL_COMMENT_6, grammarAccess.getStatementAccess().getSL_COMMENTTerminalRuleCall_6()); 
     }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getStatementAccess().getRunParserRuleCall_7()); 
+    }
+    this_Run_7=ruleRun
+    { 
+        $current = $this_Run_7.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -1357,38 +1370,60 @@ ruleTransaction returns [EObject current=null]
 	    }
 
 )
-)	otherlv_9='Method' 
+)(	otherlv_9='Port' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getTransactionAccess().getMethodKeyword_8());
+    	newLeafNode(otherlv_9, grammarAccess.getTransactionAccess().getPortKeyword_8_0());
+    }
+(
+(
+		lv_port_10_0=RULE_INT
+		{
+			newLeafNode(lv_port_10_0, grammarAccess.getTransactionAccess().getPortINTTerminalRuleCall_8_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTransactionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"port",
+        		lv_port_10_0, 
+        		"INT");
+	    }
+
+)
+))?	otherlv_11='Method' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getTransactionAccess().getMethodKeyword_9());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTransactionAccess().getMethodMethodEnumRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getTransactionAccess().getMethodMethodEnumRuleCall_10_0()); 
 	    }
-		lv_method_10_0=ruleMethod		{
+		lv_method_12_0=ruleMethod		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTransactionRule());
 	        }
        		set(
        			$current, 
        			"method",
-        		lv_method_10_0, 
+        		lv_method_12_0, 
         		"Method");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_11='Server' 
+)	otherlv_13='Server' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getTransactionAccess().getServerKeyword_10());
+    	newLeafNode(otherlv_13, grammarAccess.getTransactionAccess().getServerKeyword_11());
     }
 (
 (
 (
-		lv_server_12_1=RULE_STRING
+		lv_server_14_1=RULE_STRING
 		{
-			newLeafNode(lv_server_12_1, grammarAccess.getTransactionAccess().getServerSTRINGTerminalRuleCall_11_0_0()); 
+			newLeafNode(lv_server_14_1, grammarAccess.getTransactionAccess().getServerSTRINGTerminalRuleCall_12_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1397,13 +1432,13 @@ ruleTransaction returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"server",
-        		lv_server_12_1, 
+        		lv_server_14_1, 
         		"STRING");
 	    }
 
-    |		lv_server_12_2=RULE_IPADDRESS
+    |		lv_server_14_2=RULE_IPADDRESS
 		{
-			newLeafNode(lv_server_12_2, grammarAccess.getTransactionAccess().getServerIPADDRESSTerminalRuleCall_11_0_1()); 
+			newLeafNode(lv_server_14_2, grammarAccess.getTransactionAccess().getServerIPADDRESSTerminalRuleCall_12_0_1()); 
 		}
 		{
 	        if ($current==null) {
@@ -1412,22 +1447,22 @@ ruleTransaction returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"server",
-        		lv_server_12_2, 
+        		lv_server_14_2, 
         		"IPADDRESS");
 	    }
 
 )
 
 )
-)	otherlv_13='Path' 
+)	otherlv_15='Path' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getTransactionAccess().getPathKeyword_12());
+    	newLeafNode(otherlv_15, grammarAccess.getTransactionAccess().getPathKeyword_13());
     }
 (
 (
-		lv_path_14_0=RULE_STRING
+		lv_path_16_0=RULE_STRING
 		{
-			newLeafNode(lv_path_14_0, grammarAccess.getTransactionAccess().getPathSTRINGTerminalRuleCall_13_0()); 
+			newLeafNode(lv_path_16_0, grammarAccess.getTransactionAccess().getPathSTRINGTerminalRuleCall_14_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1436,51 +1471,95 @@ ruleTransaction returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"path",
-        		lv_path_14_0, 
+        		lv_path_16_0, 
         		"STRING");
 	    }
 
 )
-)((	otherlv_15='RequestParameters' 
+)(	otherlv_17='ConnectTimeout' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getTransactionAccess().getRequestParametersKeyword_14_0_0());
+    	newLeafNode(otherlv_17, grammarAccess.getTransactionAccess().getConnectTimeoutKeyword_15_0());
     }
-	otherlv_16='[' 
+(
+(
+		lv_connecttimeout_18_0=RULE_INT
+		{
+			newLeafNode(lv_connecttimeout_18_0, grammarAccess.getTransactionAccess().getConnecttimeoutINTTerminalRuleCall_15_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTransactionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"connecttimeout",
+        		lv_connecttimeout_18_0, 
+        		"INT");
+	    }
+
+)
+))?(	otherlv_19='ResponseTimeout' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getTransactionAccess().getLeftSquareBracketKeyword_14_0_1());
+    	newLeafNode(otherlv_19, grammarAccess.getTransactionAccess().getResponseTimeoutKeyword_16_0());
+    }
+(
+(
+		lv_responsetimeout_20_0=RULE_INT
+		{
+			newLeafNode(lv_responsetimeout_20_0, grammarAccess.getTransactionAccess().getResponsetimeoutINTTerminalRuleCall_16_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTransactionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"responsetimeout",
+        		lv_responsetimeout_20_0, 
+        		"INT");
+	    }
+
+)
+))?((	otherlv_21='RequestParameters' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getTransactionAccess().getRequestParametersKeyword_17_0_0());
+    }
+	otherlv_22='[' 
+    {
+    	newLeafNode(otherlv_22, grammarAccess.getTransactionAccess().getLeftSquareBracketKeyword_17_0_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTransactionAccess().getParamParamParserRuleCall_14_0_2_0()); 
+	        newCompositeNode(grammarAccess.getTransactionAccess().getParamParamParserRuleCall_17_0_2_0()); 
 	    }
-		lv_param_17_0=ruleParam		{
+		lv_param_23_0=ruleParam		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTransactionRule());
 	        }
        		add(
        			$current, 
        			"param",
-        		lv_param_17_0, 
+        		lv_param_23_0, 
         		"Param");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_18=']' 
+)*	otherlv_24=']' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getTransactionAccess().getRightSquareBracketKeyword_14_0_3());
+    	newLeafNode(otherlv_24, grammarAccess.getTransactionAccess().getRightSquareBracketKeyword_17_0_3());
     }
 )
-    |(	otherlv_19='Body' 
+    |(	otherlv_25='Body' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getTransactionAccess().getBodyKeyword_14_1_0());
+    	newLeafNode(otherlv_25, grammarAccess.getTransactionAccess().getBodyKeyword_17_1_0());
     }
 (
 (
-		lv_body_20_0=RULE_STRING
+		lv_body_26_0=RULE_STRING
 		{
-			newLeafNode(lv_body_20_0, grammarAccess.getTransactionAccess().getBodySTRINGTerminalRuleCall_14_1_1_0()); 
+			newLeafNode(lv_body_26_0, grammarAccess.getTransactionAccess().getBodySTRINGTerminalRuleCall_17_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1489,7 +1568,7 @@ ruleTransaction returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"body",
-        		lv_body_20_0, 
+        		lv_body_26_0, 
         		"STRING");
 	    }
 
@@ -1497,30 +1576,30 @@ ruleTransaction returns [EObject current=null]
 )))?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTransactionAccess().getResponsehandlerResponseHandlerParserRuleCall_15_0()); 
+	        newCompositeNode(grammarAccess.getTransactionAccess().getResponsehandlerResponseHandlerParserRuleCall_18_0()); 
 	    }
-		lv_responsehandler_21_0=ruleResponseHandler		{
+		lv_responsehandler_27_0=ruleResponseHandler		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTransactionRule());
 	        }
        		add(
        			$current, 
        			"responsehandler",
-        		lv_responsehandler_21_0, 
+        		lv_responsehandler_27_0, 
         		"ResponseHandler");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(	otherlv_22='CaptureFileName' 
+)*(	otherlv_28='CaptureFileName' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getTransactionAccess().getCaptureFileNameKeyword_16_0());
+    	newLeafNode(otherlv_28, grammarAccess.getTransactionAccess().getCaptureFileNameKeyword_19_0());
     }
 (
 (
-		lv_capturefilename_23_0=RULE_STRING
+		lv_capturefilename_29_0=RULE_STRING
 		{
-			newLeafNode(lv_capturefilename_23_0, grammarAccess.getTransactionAccess().getCapturefilenameSTRINGTerminalRuleCall_16_1_0()); 
+			newLeafNode(lv_capturefilename_29_0, grammarAccess.getTransactionAccess().getCapturefilenameSTRINGTerminalRuleCall_19_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1529,20 +1608,20 @@ ruleTransaction returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"capturefilename",
-        		lv_capturefilename_23_0, 
+        		lv_capturefilename_29_0, 
         		"STRING");
 	    }
 
 )
-))?(	otherlv_24='ResponseExpected' 
+))?(	otherlv_30='ResponseExpected' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getTransactionAccess().getResponseExpectedKeyword_17_0());
+    	newLeafNode(otherlv_30, grammarAccess.getTransactionAccess().getResponseExpectedKeyword_20_0());
     }
 (
 (
-		lv_text_25_0=RULE_STRING
+		lv_text_31_0=RULE_STRING
 		{
-			newLeafNode(lv_text_25_0, grammarAccess.getTransactionAccess().getTextSTRINGTerminalRuleCall_17_1_0()); 
+			newLeafNode(lv_text_31_0, grammarAccess.getTransactionAccess().getTextSTRINGTerminalRuleCall_20_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1551,28 +1630,28 @@ ruleTransaction returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"text",
-        		lv_text_25_0, 
+        		lv_text_31_0, 
         		"STRING");
 	    }
 
 )
-)(	otherlv_26='Exist' 
+)(	otherlv_32='Exist' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getTransactionAccess().getExistKeyword_17_2_0());
+    	newLeafNode(otherlv_32, grammarAccess.getTransactionAccess().getExistKeyword_20_2_0());
     }
 
-    |	otherlv_27='NotExist' 
+    |	otherlv_33='NotExist' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getTransactionAccess().getNotExistKeyword_17_2_1());
+    	newLeafNode(otherlv_33, grammarAccess.getTransactionAccess().getNotExistKeyword_20_2_1());
     }
 
-    |	otherlv_28='Included' 
+    |	otherlv_34='Included' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getTransactionAccess().getIncludedKeyword_17_2_2());
+    	newLeafNode(otherlv_34, grammarAccess.getTransactionAccess().getIncludedKeyword_20_2_2());
     }
-))?	otherlv_29='}' 
+))?	otherlv_35='}' 
     {
-    	newLeafNode(otherlv_29, grammarAccess.getTransactionAccess().getRightCurlyBracketKeyword_18());
+    	newLeafNode(otherlv_35, grammarAccess.getTransactionAccess().getRightCurlyBracketKeyword_21());
     }
 )
 ;
@@ -2236,6 +2315,49 @@ ruleParam returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
+        		"STRING");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleRun
+entryRuleRun returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRunRule()); }
+	 iv_ruleRun=ruleRun 
+	 { $current=$iv_ruleRun.current; } 
+	 EOF 
+;
+
+// Rule Run
+ruleRun returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Run' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getRunAccess().getRunKeyword_0());
+    }
+(
+(
+		lv_target_1_0=RULE_STRING
+		{
+			newLeafNode(lv_target_1_0, grammarAccess.getRunAccess().getTargetSTRINGTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRunRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"target",
+        		lv_target_1_0, 
         		"STRING");
 	    }
 

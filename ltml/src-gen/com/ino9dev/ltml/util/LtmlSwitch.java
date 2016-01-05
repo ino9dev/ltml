@@ -169,6 +169,14 @@ public class LtmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LtmlPackage.RUN:
+      {
+        Run run = (Run)theEObject;
+        T result = caseRun(run);
+        if (result == null) result = caseStatement(run);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -377,6 +385,22 @@ public class LtmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParam(Param object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Run</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Run</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRun(Run object)
   {
     return null;
   }

@@ -17,6 +17,7 @@ import org.eclipse.xtext.generator.AbstractFileSystemAccess
 import com.ino9dev.ltml.impl.DataTableImpl
 import com.ino9dev.ltml.SHAREMODE
 import com.ino9dev.ltml.ENCODINGTYPE
+import com.ino9dev.ltml.QueryType
 
 class LoadTestJmeterTestPlanGenerator implements IGenerator {
     
@@ -151,9 +152,9 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                       </collectionProp>
                     </elementProp>
                     <stringProp name="HTTPSampler.domain">«t.server»</stringProp>
-                    <stringProp name="HTTPSampler.port">80</stringProp>
-                    <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                    <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                    <stringProp name="HTTPSampler.port">«if(t.port!=0){t.port}»</stringProp>
+                    <stringProp name="HTTPSampler.connect_timeout">«if(t.connecttimeout!=0){t.connecttimeout}»</stringProp>
+                    <stringProp name="HTTPSampler.response_timeout">«if(t.responsetimeout!=0){t.responsetimeout}»</stringProp>
                     <stringProp name="HTTPSampler.protocol">«t.protocol»</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                     <stringProp name="HTTPSampler.path">«t.path»</stringProp>
@@ -167,7 +168,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                   </HTTPSamplerProxy>
                   <hashTree>
                     «FOR r:t.responsehandler»
-                    <!-- todo for query change -->
+                    «IF r.querytype.equals(QueryType::REGEX)»
                     <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="«r.name»" enabled="true">
                       <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                       <stringProp name="RegexExtractor.refname">«r.name»</stringProp>
@@ -177,6 +178,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                       <stringProp name="RegexExtractor.match_number">«r.ordinal»</stringProp>
                     </RegexExtractor>
                     <hashTree/>
+                    «ENDIF»
                     «ENDFOR»
                   </hashTree>
                   «IF t.capturefilename != ""»

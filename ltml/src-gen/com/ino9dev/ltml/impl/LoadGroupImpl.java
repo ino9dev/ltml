@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.impl.LoadGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGroupImpl#getLoadgroupname <em>Loadgroupname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGroupImpl#getCc <em>Cc</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.LoadGroupImpl#getScript <em>Script</em>}</li>
@@ -37,6 +38,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LoadGroupImpl extends StatementImpl implements LoadGroup
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getLoadgroupname() <em>Loadgroupname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -166,6 +187,29 @@ public class LoadGroupImpl extends StatementImpl implements LoadGroup
   protected EClass eStaticClass()
   {
     return LtmlPackage.Literals.LOAD_GROUP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.LOAD_GROUP__NAME, oldName, name));
   }
 
   /**
@@ -420,6 +464,8 @@ public class LoadGroupImpl extends StatementImpl implements LoadGroup
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_GROUP__NAME:
+        return getName();
       case LtmlPackage.LOAD_GROUP__LOADGROUPNAME:
         return getLoadgroupname();
       case LtmlPackage.LOAD_GROUP__CC:
@@ -450,6 +496,9 @@ public class LoadGroupImpl extends StatementImpl implements LoadGroup
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_GROUP__NAME:
+        setName((String)newValue);
+        return;
       case LtmlPackage.LOAD_GROUP__LOADGROUPNAME:
         setLoadgroupname((String)newValue);
         return;
@@ -485,6 +534,9 @@ public class LoadGroupImpl extends StatementImpl implements LoadGroup
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_GROUP__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case LtmlPackage.LOAD_GROUP__LOADGROUPNAME:
         setLoadgroupname(LOADGROUPNAME_EDEFAULT);
         return;
@@ -520,6 +572,8 @@ public class LoadGroupImpl extends StatementImpl implements LoadGroup
   {
     switch (featureID)
     {
+      case LtmlPackage.LOAD_GROUP__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.LOAD_GROUP__LOADGROUPNAME:
         return LOADGROUPNAME_EDEFAULT == null ? loadgroupname != null : !LOADGROUPNAME_EDEFAULT.equals(loadgroupname);
       case LtmlPackage.LOAD_GROUP__CC:
@@ -549,7 +603,9 @@ public class LoadGroupImpl extends StatementImpl implements LoadGroup
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (loadgroupname: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", loadgroupname: ");
     result.append(loadgroupname);
     result.append(", cc: ");
     result.append(cc);

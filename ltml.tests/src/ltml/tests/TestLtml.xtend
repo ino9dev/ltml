@@ -50,6 +50,7 @@ class TestLtml {
         Guice::createInjector(new GenericModule).injectMembers(fsa)
         underTest.doGenerate(model.eResource, fsa)
     }
+
     @Test
     def void testCase1(){
         var model = parseHelper.parse(
@@ -58,7 +59,8 @@ class TestLtml {
             Id testcase1
             Version "1.0"
             InstanceType JMeter
-            ModelInstancedPath "C:\\apache-jmeter-2.13\\bin"
+            ModelInstancedPath "C:\\apache-jmeter-2.13\\bin\\gen"
+            Corpname "testcorp"
         }
         
         //Testcase 1
@@ -73,7 +75,7 @@ class TestLtml {
                CheckResponse
             }
         }
-        
+
         //Testcase 2
         LoadTest {
             Id lt002
@@ -86,8 +88,6 @@ class TestLtml {
                CheckResponse
             }
         }
-        
-
         LoadGroup {
             Id LG01
             Name "BP01's Load Simulated"
@@ -196,6 +196,7 @@ class TestLtml {
                     Id BP02_02
                     Name "BP02_02"
                     Protocol HTTP
+                    Port 8080
                     Method POST
                     Server "localhost"
                     Path "/"

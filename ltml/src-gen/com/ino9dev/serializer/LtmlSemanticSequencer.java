@@ -12,6 +12,7 @@ import com.ino9dev.ltml.Model;
 import com.ino9dev.ltml.Param;
 import com.ino9dev.ltml.Report;
 import com.ino9dev.ltml.ResponseHandler;
+import com.ino9dev.ltml.Run;
 import com.ino9dev.ltml.Schedule;
 import com.ino9dev.ltml.Script;
 import com.ino9dev.ltml.Transaction;
@@ -92,6 +93,13 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case LtmlPackage.RESPONSE_HANDLER:
 				if(context == grammarAccess.getResponseHandlerRule()) {
 					sequence_ResponseHandler(context, (ResponseHandler) semanticObject); 
+					return; 
+				}
+				else break;
+			case LtmlPackage.RUN:
+				if(context == grammarAccess.getRunRule() ||
+				   context == grammarAccess.getStatementRule()) {
+					sequence_Run(context, (Run) semanticObject); 
 					return; 
 				}
 				else break;
@@ -294,6 +302,22 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     target=STRING
+	 */
+	protected void sequence_Run(EObject context, Run semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LtmlPackage.Literals.RUN__TARGET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LtmlPackage.Literals.RUN__TARGET));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRunAccess().getTargetSTRINGTerminalRuleCall_1_0(), semanticObject.getTarget());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     ((start=STRING end=STRING) | (duration=INT delay=INT))
 	 */
 	protected void sequence_Schedule(EObject context, Schedule semanticObject) {
@@ -316,9 +340,12 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         transactionanme=STRING 
 	 *         protocol=Protocol 
+	 *         port=INT? 
 	 *         method=Method 
 	 *         (server=STRING | server=IPADDRESS) 
 	 *         path=STRING 
+	 *         connecttimeout=INT? 
+	 *         responsetimeout=INT? 
 	 *         (param+=Param* | body=STRING)? 
 	 *         responsehandler+=ResponseHandler* 
 	 *         capturefilename=STRING? 

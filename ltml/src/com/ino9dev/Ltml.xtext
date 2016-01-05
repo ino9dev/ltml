@@ -12,6 +12,7 @@ Statement:
     |Script
     |DataTable
     |SL_COMMENT
+    |Run
 ;
 
 Manifest:
@@ -99,9 +100,12 @@ Transaction:
         "Id" name=ID
         "Name" transactionanme=STRING
         "Protocol" protocol=Protocol
+        ("Port" port=INT)?
         "Method" method=Method
         "Server" server=(STRING|IPADDRESS)
         "Path" path=STRING
+        ("ConnectTimeout" connecttimeout=INT)?
+        ("ResponseTimeout" responsetimeout=INT)?
         ("RequestParameters" "["
             param+=Param*   
          "]"|"Body" body=STRING)?
@@ -139,7 +143,6 @@ DataTable:
     "}"
 ;
 
-
 Report:
     "Report"
     "{"
@@ -157,6 +160,13 @@ Report:
 
 Param:
     key=STRING"="value=STRING
+;
+
+/**
+ * for only interpreter use
+ **/
+Run:
+    "Run" target=STRING
 ;
 
 terminal IPADDRESS:

@@ -18,6 +18,9 @@ class LtmlValidator extends AbstractLtmlValidator {
 
     public static val INVALID_NAME = 'invalidName'
 
+    //manifest check
+    // id is requireed
+    // name is not nothing (!= "")
     @Check
     def checkNoManifestName(Manifest manifest) {
         if (manifest.manifestname == "") {

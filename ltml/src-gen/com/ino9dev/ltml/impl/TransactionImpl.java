@@ -35,9 +35,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getTransactionanme <em>Transactionanme</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getPort <em>Port</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getServer <em>Server</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getConnecttimeout <em>Connecttimeout</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getResponsetimeout <em>Responsetimeout</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getParam <em>Param</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getBody <em>Body</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.TransactionImpl#getResponsehandler <em>Responsehandler</em>}</li>
@@ -111,6 +114,26 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   protected Protocol protocol = PROTOCOL_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPort()
+   * @generated
+   * @ordered
+   */
+  protected static final int PORT_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPort()
+   * @generated
+   * @ordered
+   */
+  protected int port = PORT_EDEFAULT;
+
+  /**
    * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -169,6 +192,46 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * @ordered
    */
   protected String path = PATH_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getConnecttimeout() <em>Connecttimeout</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConnecttimeout()
+   * @generated
+   * @ordered
+   */
+  protected static final int CONNECTTIMEOUT_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getConnecttimeout() <em>Connecttimeout</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConnecttimeout()
+   * @generated
+   * @ordered
+   */
+  protected int connecttimeout = CONNECTTIMEOUT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getResponsetimeout() <em>Responsetimeout</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResponsetimeout()
+   * @generated
+   * @ordered
+   */
+  protected static final int RESPONSETIMEOUT_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getResponsetimeout() <em>Responsetimeout</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResponsetimeout()
+   * @generated
+   * @ordered
+   */
+  protected int responsetimeout = RESPONSETIMEOUT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference list.
@@ -345,6 +408,29 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getPort()
+  {
+    return port;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPort(int newPort)
+  {
+    int oldPort = port;
+    port = newPort;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__PORT, oldPort, port));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Method getMethod()
   {
     return method;
@@ -407,6 +493,52 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
     path = newPath;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__PATH, oldPath, path));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getConnecttimeout()
+  {
+    return connecttimeout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConnecttimeout(int newConnecttimeout)
+  {
+    int oldConnecttimeout = connecttimeout;
+    connecttimeout = newConnecttimeout;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__CONNECTTIMEOUT, oldConnecttimeout, connecttimeout));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getResponsetimeout()
+  {
+    return responsetimeout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setResponsetimeout(int newResponsetimeout)
+  {
+    int oldResponsetimeout = responsetimeout;
+    responsetimeout = newResponsetimeout;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.TRANSACTION__RESPONSETIMEOUT, oldResponsetimeout, responsetimeout));
   }
 
   /**
@@ -540,12 +672,18 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return getTransactionanme();
       case LtmlPackage.TRANSACTION__PROTOCOL:
         return getProtocol();
+      case LtmlPackage.TRANSACTION__PORT:
+        return getPort();
       case LtmlPackage.TRANSACTION__METHOD:
         return getMethod();
       case LtmlPackage.TRANSACTION__SERVER:
         return getServer();
       case LtmlPackage.TRANSACTION__PATH:
         return getPath();
+      case LtmlPackage.TRANSACTION__CONNECTTIMEOUT:
+        return getConnecttimeout();
+      case LtmlPackage.TRANSACTION__RESPONSETIMEOUT:
+        return getResponsetimeout();
       case LtmlPackage.TRANSACTION__PARAM:
         return getParam();
       case LtmlPackage.TRANSACTION__BODY:
@@ -580,6 +718,9 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
       case LtmlPackage.TRANSACTION__PROTOCOL:
         setProtocol((Protocol)newValue);
         return;
+      case LtmlPackage.TRANSACTION__PORT:
+        setPort((Integer)newValue);
+        return;
       case LtmlPackage.TRANSACTION__METHOD:
         setMethod((Method)newValue);
         return;
@@ -588,6 +729,12 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return;
       case LtmlPackage.TRANSACTION__PATH:
         setPath((String)newValue);
+        return;
+      case LtmlPackage.TRANSACTION__CONNECTTIMEOUT:
+        setConnecttimeout((Integer)newValue);
+        return;
+      case LtmlPackage.TRANSACTION__RESPONSETIMEOUT:
+        setResponsetimeout((Integer)newValue);
         return;
       case LtmlPackage.TRANSACTION__PARAM:
         getParam().clear();
@@ -629,6 +776,9 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
       case LtmlPackage.TRANSACTION__PROTOCOL:
         setProtocol(PROTOCOL_EDEFAULT);
         return;
+      case LtmlPackage.TRANSACTION__PORT:
+        setPort(PORT_EDEFAULT);
+        return;
       case LtmlPackage.TRANSACTION__METHOD:
         setMethod(METHOD_EDEFAULT);
         return;
@@ -637,6 +787,12 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return;
       case LtmlPackage.TRANSACTION__PATH:
         setPath(PATH_EDEFAULT);
+        return;
+      case LtmlPackage.TRANSACTION__CONNECTTIMEOUT:
+        setConnecttimeout(CONNECTTIMEOUT_EDEFAULT);
+        return;
+      case LtmlPackage.TRANSACTION__RESPONSETIMEOUT:
+        setResponsetimeout(RESPONSETIMEOUT_EDEFAULT);
         return;
       case LtmlPackage.TRANSACTION__PARAM:
         getParam().clear();
@@ -673,12 +829,18 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
         return TRANSACTIONANME_EDEFAULT == null ? transactionanme != null : !TRANSACTIONANME_EDEFAULT.equals(transactionanme);
       case LtmlPackage.TRANSACTION__PROTOCOL:
         return protocol != PROTOCOL_EDEFAULT;
+      case LtmlPackage.TRANSACTION__PORT:
+        return port != PORT_EDEFAULT;
       case LtmlPackage.TRANSACTION__METHOD:
         return method != METHOD_EDEFAULT;
       case LtmlPackage.TRANSACTION__SERVER:
         return SERVER_EDEFAULT == null ? server != null : !SERVER_EDEFAULT.equals(server);
       case LtmlPackage.TRANSACTION__PATH:
         return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+      case LtmlPackage.TRANSACTION__CONNECTTIMEOUT:
+        return connecttimeout != CONNECTTIMEOUT_EDEFAULT;
+      case LtmlPackage.TRANSACTION__RESPONSETIMEOUT:
+        return responsetimeout != RESPONSETIMEOUT_EDEFAULT;
       case LtmlPackage.TRANSACTION__PARAM:
         return param != null && !param.isEmpty();
       case LtmlPackage.TRANSACTION__BODY:
@@ -710,12 +872,18 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
     result.append(transactionanme);
     result.append(", protocol: ");
     result.append(protocol);
+    result.append(", port: ");
+    result.append(port);
     result.append(", method: ");
     result.append(method);
     result.append(", server: ");
     result.append(server);
     result.append(", path: ");
     result.append(path);
+    result.append(", connecttimeout: ");
+    result.append(connecttimeout);
+    result.append(", responsetimeout: ");
+    result.append(responsetimeout);
     result.append(", body: ");
     result.append(body);
     result.append(", capturefilename: ");

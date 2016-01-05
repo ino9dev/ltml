@@ -140,6 +140,11 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
         return createParamAdapter();
       }
       @Override
+      public Adapter caseRun(Run object)
+      {
+        return createRunAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -352,6 +357,21 @@ public class LtmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParamAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ino9dev.ltml.Run <em>Run</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ino9dev.ltml.Run
+   * @generated
+   */
+  public Adapter createRunAdapter()
   {
     return null;
   }

@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.DataTable#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.DataTable#getNamefordatatable <em>Namefordatatable</em>}</li>
  *   <li>{@link com.ino9dev.ltml.DataTable#getEncodingtype <em>Encodingtype</em>}</li>
  *   <li>{@link com.ino9dev.ltml.DataTable#getDelimiter <em>Delimiter</em>}</li>
@@ -29,6 +30,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DataTable extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see com.ino9dev.ltml.LtmlPackage#getDataTable_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.DataTable#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Namefordatatable</b></em>' attribute.
    * <!-- begin-user-doc -->

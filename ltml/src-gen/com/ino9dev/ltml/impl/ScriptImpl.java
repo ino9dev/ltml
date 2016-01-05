@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.impl.ScriptImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ScriptImpl#getScriptname <em>Scriptname</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ScriptImpl#getTransactions <em>Transactions</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.ScriptImpl#getDatatable <em>Datatable</em>}</li>
@@ -40,6 +41,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ScriptImpl extends StatementImpl implements Script
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getScriptname() <em>Scriptname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -99,6 +120,29 @@ public class ScriptImpl extends StatementImpl implements Script
   protected EClass eStaticClass()
   {
     return LtmlPackage.Literals.SCRIPT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.SCRIPT__NAME, oldName, name));
   }
 
   /**
@@ -178,6 +222,8 @@ public class ScriptImpl extends StatementImpl implements Script
   {
     switch (featureID)
     {
+      case LtmlPackage.SCRIPT__NAME:
+        return getName();
       case LtmlPackage.SCRIPT__SCRIPTNAME:
         return getScriptname();
       case LtmlPackage.SCRIPT__TRANSACTIONS:
@@ -199,6 +245,9 @@ public class ScriptImpl extends StatementImpl implements Script
   {
     switch (featureID)
     {
+      case LtmlPackage.SCRIPT__NAME:
+        setName((String)newValue);
+        return;
       case LtmlPackage.SCRIPT__SCRIPTNAME:
         setScriptname((String)newValue);
         return;
@@ -224,6 +273,9 @@ public class ScriptImpl extends StatementImpl implements Script
   {
     switch (featureID)
     {
+      case LtmlPackage.SCRIPT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case LtmlPackage.SCRIPT__SCRIPTNAME:
         setScriptname(SCRIPTNAME_EDEFAULT);
         return;
@@ -247,6 +299,8 @@ public class ScriptImpl extends StatementImpl implements Script
   {
     switch (featureID)
     {
+      case LtmlPackage.SCRIPT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.SCRIPT__SCRIPTNAME:
         return SCRIPTNAME_EDEFAULT == null ? scriptname != null : !SCRIPTNAME_EDEFAULT.equals(scriptname);
       case LtmlPackage.SCRIPT__TRANSACTIONS:
@@ -268,7 +322,9 @@ public class ScriptImpl extends StatementImpl implements Script
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (scriptname: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", scriptname: ");
     result.append(scriptname);
     result.append(')');
     return result.toString();

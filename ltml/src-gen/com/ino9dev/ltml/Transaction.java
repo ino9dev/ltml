@@ -17,9 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.ino9dev.ltml.Transaction#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getTransactionanme <em>Transactionanme</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getPort <em>Port</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getMethod <em>Method</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getServer <em>Server</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getPath <em>Path</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getConnecttimeout <em>Connecttimeout</em>}</li>
+ *   <li>{@link com.ino9dev.ltml.Transaction#getResponsetimeout <em>Responsetimeout</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getParam <em>Param</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getBody <em>Body</em>}</li>
  *   <li>{@link com.ino9dev.ltml.Transaction#getResponsehandler <em>Responsehandler</em>}</li>
@@ -116,6 +119,32 @@ public interface Transaction extends EObject
   void setProtocol(Protocol value);
 
   /**
+   * Returns the value of the '<em><b>Port</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Port</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Port</em>' attribute.
+   * @see #setPort(int)
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Port()
+   * @model
+   * @generated
+   */
+  int getPort();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getPort <em>Port</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Port</em>' attribute.
+   * @see #getPort()
+   * @generated
+   */
+  void setPort(int value);
+
+  /**
    * Returns the value of the '<em><b>Method</b></em>' attribute.
    * The literals are from the enumeration {@link com.ino9dev.ltml.Method}.
    * <!-- begin-user-doc -->
@@ -195,6 +224,58 @@ public interface Transaction extends EObject
    * @generated
    */
   void setPath(String value);
+
+  /**
+   * Returns the value of the '<em><b>Connecttimeout</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Connecttimeout</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Connecttimeout</em>' attribute.
+   * @see #setConnecttimeout(int)
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Connecttimeout()
+   * @model
+   * @generated
+   */
+  int getConnecttimeout();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getConnecttimeout <em>Connecttimeout</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Connecttimeout</em>' attribute.
+   * @see #getConnecttimeout()
+   * @generated
+   */
+  void setConnecttimeout(int value);
+
+  /**
+   * Returns the value of the '<em><b>Responsetimeout</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Responsetimeout</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Responsetimeout</em>' attribute.
+   * @see #setResponsetimeout(int)
+   * @see com.ino9dev.ltml.LtmlPackage#getTransaction_Responsetimeout()
+   * @model
+   * @generated
+   */
+  int getResponsetimeout();
+
+  /**
+   * Sets the value of the '{@link com.ino9dev.ltml.Transaction#getResponsetimeout <em>Responsetimeout</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Responsetimeout</em>' attribute.
+   * @see #getResponsetimeout()
+   * @generated
+   */
+  void setResponsetimeout(int value);
 
   /**
    * Returns the value of the '<em><b>Param</b></em>' containment reference list.

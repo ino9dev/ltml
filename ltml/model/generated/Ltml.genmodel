@@ -51,10 +51,9 @@
     <genClasses ecoreClass="Ltml.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Model/statements"/>
     </genClasses>
-    <genClasses ecoreClass="Ltml.ecore#//Statement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Statement/name"/>
-    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Statement"/>
     <genClasses ecoreClass="Ltml.ecore#//Manifest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/manifestname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/instancetype"/>
@@ -62,6 +61,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Manifest/corpname"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadTest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/loadtestname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadTest/purpose"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/loadgroups"/>
@@ -69,6 +69,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadTest/report"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/loadgroupname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGroup/cc"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadGroup/script"/>
@@ -78,6 +79,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//LoadGroup/schedule"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//LoadGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/loadgeneratorname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/ip"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//LoadGenerator/port"/>
@@ -92,6 +94,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Schedule/delay"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//Script">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Script/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Script/scriptname"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Script/transactions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ltml.ecore#//Script/datatable"/>
@@ -100,9 +103,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/transactionanme"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/port"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/method"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/server"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/connecttimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/responsetimeout"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Transaction/param"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Transaction/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ltml.ecore#//Transaction/responsehandler"/>
@@ -119,6 +125,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//ResponseHandler/searchlocation"/>
     </genClasses>
     <genClasses ecoreClass="Ltml.ecore#//DataTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/namefordatatable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/encodingtype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//DataTable/delimiter"/>
@@ -141,6 +148,9 @@
     <genClasses ecoreClass="Ltml.ecore#//Param">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Param/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Param/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Ltml.ecore#//Run">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ltml.ecore#//Run/target"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

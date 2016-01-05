@@ -78,6 +78,7 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
       case LtmlPackage.DATA_TABLE: return createDataTable();
       case LtmlPackage.REPORT: return createReport();
       case LtmlPackage.PARAM: return createParam();
+      case LtmlPackage.RUN: return createRun();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -290,6 +291,17 @@ public class LtmlFactoryImpl extends EFactoryImpl implements LtmlFactory
   {
     ParamImpl param = new ParamImpl();
     return param;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Run createRun()
+  {
+    RunImpl run = new RunImpl();
+    return run;
   }
 
   /**

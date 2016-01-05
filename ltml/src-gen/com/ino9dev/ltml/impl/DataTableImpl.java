@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.ino9dev.ltml.impl.DataTableImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.DataTableImpl#getNamefordatatable <em>Namefordatatable</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.DataTableImpl#getEncodingtype <em>Encodingtype</em>}</li>
  *   <li>{@link com.ino9dev.ltml.impl.DataTableImpl#getDelimiter <em>Delimiter</em>}</li>
@@ -43,6 +44,26 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  */
 public class DataTableImpl extends StatementImpl implements DataTable
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getNamefordatatable() <em>Namefordatatable</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -212,6 +233,29 @@ public class DataTableImpl extends StatementImpl implements DataTable
   protected EClass eStaticClass()
   {
     return LtmlPackage.Literals.DATA_TABLE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LtmlPackage.DATA_TABLE__NAME, oldName, name));
   }
 
   /**
@@ -399,6 +443,8 @@ public class DataTableImpl extends StatementImpl implements DataTable
   {
     switch (featureID)
     {
+      case LtmlPackage.DATA_TABLE__NAME:
+        return getName();
       case LtmlPackage.DATA_TABLE__NAMEFORDATATABLE:
         return getNamefordatatable();
       case LtmlPackage.DATA_TABLE__ENCODINGTYPE:
@@ -430,6 +476,9 @@ public class DataTableImpl extends StatementImpl implements DataTable
   {
     switch (featureID)
     {
+      case LtmlPackage.DATA_TABLE__NAME:
+        setName((String)newValue);
+        return;
       case LtmlPackage.DATA_TABLE__NAMEFORDATATABLE:
         setNamefordatatable((String)newValue);
         return;
@@ -469,6 +518,9 @@ public class DataTableImpl extends StatementImpl implements DataTable
   {
     switch (featureID)
     {
+      case LtmlPackage.DATA_TABLE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case LtmlPackage.DATA_TABLE__NAMEFORDATATABLE:
         setNamefordatatable(NAMEFORDATATABLE_EDEFAULT);
         return;
@@ -507,6 +559,8 @@ public class DataTableImpl extends StatementImpl implements DataTable
   {
     switch (featureID)
     {
+      case LtmlPackage.DATA_TABLE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LtmlPackage.DATA_TABLE__NAMEFORDATATABLE:
         return NAMEFORDATATABLE_EDEFAULT == null ? namefordatatable != null : !NAMEFORDATATABLE_EDEFAULT.equals(namefordatatable);
       case LtmlPackage.DATA_TABLE__ENCODINGTYPE:
@@ -538,7 +592,9 @@ public class DataTableImpl extends StatementImpl implements DataTable
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (namefordatatable: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", namefordatatable: ");
     result.append(namefordatatable);
     result.append(", encodingtype: ");
     result.append(encodingtype);
