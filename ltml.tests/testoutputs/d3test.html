@@ -1,0 +1,105 @@
+<html>
+<body>
+    <style>
+      .chart {
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+      }
+    
+      .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+    
+      .bar {
+        fill: steelblue;
+      }
+    </style>
+
+    <section>
+    <h1>TestName</h1><p>l.name</p>
+    <h1>Purpose</h1><p>l.purpose</p>
+    <h2>Connccurent Num</h2><p>5</p>
+    <h2>Rampup</h2><p></p>
+    <h2>LoadImage</h2>
+    <p>
+    <span id="result" />
+    </section>
+    
+    <script src="../lib/3rdparty/d3.min.js"></script>
+    <script>
+    var formatDate = d3.time.format("%Y/%m/%d %H:%M:%S");
+    
+    var data = [
+      {"date"  : "2016/1/1 00:00:00", "close":   0}
+      ,{"date" : "2016/1/1 00:05:00", "close":   5}
+      ,{"date" : "2016/1/1 00:10:00", "close":  10}
+      ,{"date" : "2016/1/1 00:15:00", "close":  10}
+      ,{"date" : "2016/1/1 00:20:00", "close":   5}
+      ,{"date" : "2016/1/1 00:25:00", "close":   0}
+    ];
+    
+    var dataset = data.map(function(d) {
+      return {
+        'date' : new Date(d.date)
+        ,'close': d.close
+      };
+    });
+    
+    var margin = {top: 20, right: 20, bottom: 30, left: 50};
+    width = 960 - margin.left - margin.right;
+    height = 500 - margin.top - margin.bottom;
+        
+    var x = d3.time.scale().range([0, width]);
+    var y = d3.scale.linear().range([height, 0]);
+    
+    x.domain(d3.extent(dataset, function(d) {return d.date;}));
+    y.domain(d3.extent(dataset, function(d) {return d.close;}));
+    
+    var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom")
+      .tickFormat(d3.time.format('%H:%M:%S'));
+    
+    var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left");
+    
+    var line = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.close); });
+    
+    var svg = d3.select("#result")
+        .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+        .attr('class', 'chart')
+        .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      .append("text")
+      .text("Time(sec)");
+    
+    svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("A mount of Users");
+    
+    svg.append("path")
+      .datum(dataset)
+      .attr("class", "line")
+      .attr("d", line);
+      
+    </script>
+</body>
+</html>

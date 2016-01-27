@@ -513,7 +513,7 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLoadgeneratornameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cLoadgeneratornameAssignment_4_1.eContents().get(0);
 		private final Keyword cTargetIpKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cIpAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cIpSTRINGTerminalRuleCall_6_0 = (RuleCall)cIpAssignment_6.eContents().get(0);
+		private final RuleCall cIpIPADDRESSTerminalRuleCall_6_0 = (RuleCall)cIpAssignment_6.eContents().get(0);
 		private final Keyword cTargetPortKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cPortAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cPortSTRINGTerminalRuleCall_8_0 = (RuleCall)cPortAssignment_8.eContents().get(0);
@@ -529,13 +529,13 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
 		
 		//LoadGenerator:
-		//	("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip= //todo IPADDR
-		//	STRING "TargetPort" port= //todo PORT
+		//	("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip=IPADDRESS "TargetPort"
+		//	port= //todo PORT
 		//	STRING "Region" region=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}";
 		public ParserRule getRule() { return rule; }
 
-		//("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip= //todo IPADDR
-		//STRING "TargetPort" port= //todo PORT
+		//("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip=IPADDRESS "TargetPort"
+		//port= //todo PORT
 		//STRING "Region" region=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}"
 		public Group getGroup() { return cGroup; }
 
@@ -575,13 +575,11 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"TargetIp"
 		public Keyword getTargetIpKeyword_5() { return cTargetIpKeyword_5; }
 
-		//ip= //todo IPADDR
-		//STRING
+		//ip=IPADDRESS
 		public Assignment getIpAssignment_6() { return cIpAssignment_6; }
 
-		////todo IPADDR
-		//STRING
-		public RuleCall getIpSTRINGTerminalRuleCall_6_0() { return cIpSTRINGTerminalRuleCall_6_0; }
+		//IPADDRESS
+		public RuleCall getIpIPADDRESSTerminalRuleCall_6_0() { return cIpIPADDRESSTerminalRuleCall_6_0; }
 
 		//"TargetPort"
 		public Keyword getTargetPortKeyword_7() { return cTargetPortKeyword_7; }
@@ -1962,8 +1960,8 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LoadGenerator:
-	//	("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip= //todo IPADDR
-	//	STRING "TargetPort" port= //todo PORT
+	//	("LoadGenerator" | "Lgen") "{" "Id" name=ID ("Name" loadgeneratorname=STRING)? "TargetIp" ip=IPADDRESS "TargetPort"
+	//	port= //todo PORT
 	//	STRING "Region" region=STRING "AuthUsername" username=STRING "AuthPassword" password=STRING "}";
 	public LoadGeneratorElements getLoadGeneratorAccess() {
 		return (pLoadGenerator != null) ? pLoadGenerator : (pLoadGenerator = new LoadGeneratorElements());
@@ -2067,9 +2065,9 @@ public class LtmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal IPADDRESS:
-	//	("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" |
-	//	"0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9" "0".."9" | "0".."9") "." ("1".."2" "0".."5" "0".."5" | "1".."9"
-	//	"0".."9" | "0".."9");
+	//	("1".."2" "0".."9" "0".."9" | "1".."9" "0".."9" | "1".."9") "." ("1".."2" "0".."9" "0".."9" | "1".."9" "0".."9" |
+	//	"1".."9") "." ("1".."2" "0".."9" "0".."9" | "1".."9" "0".."9" | "1".."9") "." ("1".."2" "0".."9" "0".."9" | "1".."9"
+	//	"0".."9" | "1".."9");
 	public TerminalRule getIPADDRESSRule() {
 		return (tIPADDRESS != null) ? tIPADDRESS : (tIPADDRESS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IPADDRESS"));
 	} 

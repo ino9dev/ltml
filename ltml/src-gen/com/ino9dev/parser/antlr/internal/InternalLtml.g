@@ -883,9 +883,9 @@ ruleLoadGenerator returns [EObject current=null]
     }
 (
 (
-		lv_ip_8_0=RULE_STRING
+		lv_ip_8_0=RULE_IPADDRESS
 		{
-			newLeafNode(lv_ip_8_0, grammarAccess.getLoadGeneratorAccess().getIpSTRINGTerminalRuleCall_6_0()); 
+			newLeafNode(lv_ip_8_0, grammarAccess.getLoadGeneratorAccess().getIpIPADDRESSTerminalRuleCall_6_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -895,7 +895,7 @@ ruleLoadGenerator returns [EObject current=null]
        			$current, 
        			"ip",
         		lv_ip_8_0, 
-        		"STRING");
+        		"IPADDRESS");
 	    }
 
 )
@@ -2576,7 +2576,7 @@ ruleENCODINGTYPE returns [Enumerator current=null]
 
 
 
-RULE_IPADDRESS : ('1'..'2' '0'..'5' '0'..'5'|'1'..'9' '0'..'9'|'0'..'9') '.' ('1'..'2' '0'..'5' '0'..'5'|'1'..'9' '0'..'9'|'0'..'9') '.' ('1'..'2' '0'..'5' '0'..'5'|'1'..'9' '0'..'9'|'0'..'9') '.' ('1'..'2' '0'..'5' '0'..'5'|'1'..'9' '0'..'9'|'0'..'9');
+RULE_IPADDRESS : ('1'..'2' '0'..'9' '0'..'9'|'1'..'9' '0'..'9'|'1'..'9') '.' ('1'..'2' '0'..'9' '0'..'9'|'1'..'9' '0'..'9'|'1'..'9') '.' ('1'..'2' '0'..'9' '0'..'9'|'1'..'9' '0'..'9'|'1'..'9') '.' ('1'..'2' '0'..'9' '0'..'9'|'1'..'9' '0'..'9'|'1'..'9');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

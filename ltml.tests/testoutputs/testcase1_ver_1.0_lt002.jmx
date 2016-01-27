@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="testcase1" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="userdefine" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+    
+    <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="LG03" enabled="true">
+      <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="loopcontroller" enabled="true">
+        <boolProp name="LoopController.continue_forever">false</boolProp>
+        <stringProp name="LoopController.loops"></stringProp>
+      </elementProp>
+      <stringProp name="ThreadGroup.num_threads">1</stringProp>
+      <stringProp name="ThreadGroup.ramp_time">60</stringProp>
+      <boolProp name="ThreadGroup.scheduler">true</boolProp>
+      <longProp name="ThreadGroup.start_time">1453555698858</longProp>
+      <longProp name="ThreadGroup.end_time">1453555698858</longProp>
+      <stringProp name="ThreadGroup.duration">500</stringProp>
+      <stringProp name="ThreadGroup.delay">0</stringProp>
+    </ThreadGroup>
+    <hashTree>
+    <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="BP03's Load Simulated" enabled="true">
+      <boolProp name="TransactionController.includeTimers">false</boolProp>
+      <boolProp name="TransactionController.parent">false</boolProp>
+    </TransactionController>
+    <hashTree>
+    <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="BP01_01" enabled="true">
+      <boolProp name="TransactionController.includeTimers">false</boolProp>
+      <boolProp name="TransactionController.parent">false</boolProp>
+    </TransactionController>
+    <hashTree>
+      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BP01_01" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="userdefinedvariable" enabled="true">
+          <collectionProp name="Arguments.arguments">
+          </collectionProp>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">localhost</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path">/</stringProp>
+        <stringProp name="HTTPSampler.method">GET</stringProp>
+        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+        <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+        <boolProp name="HTTPSampler.monitor">false</boolProp>
+        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+      </HTTPSamplerProxy>
+      <hashTree>
+      </hashTree>
+      <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+        <stringProp name="FileSaver.filename">C:\temp\result\image002</stringProp>
+        <boolProp name="FileSaver.errorsonly">false</boolProp>
+        <boolProp name="FileSaver.skipautonumber">true</boolProp>
+        <boolProp name="FileSaver.skipsuffix">false</boolProp>
+        <boolProp name="FileSaver.successonly">false</boolProp>
+        <boolProp name="FileSaver.addTimstamp">true</boolProp>
+        <stringProp name="FileSaver.variablename"></stringProp>
+        <stringProp name="FileSaver.numberPadLen"></stringProp>
+      </ResultSaver>
+      <hashTree/>
+    </hashTree>
+    <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="BP01_02" enabled="true">
+      <boolProp name="TransactionController.includeTimers">false</boolProp>
+      <boolProp name="TransactionController.parent">false</boolProp>
+    </TransactionController>
+    <hashTree>
+      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BP01_02" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="userdefinedvariable" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="id" elementType="HTTPArgument">
+              <stringProp name="Argument.name">id</stringProp>
+              <stringProp name="Argument.value">${datatable1.id}</stringProp>
+              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+            </elementProp>
+            <elementProp name="password" elementType="HTTPArgument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">${datatable.pass}</stringProp>
+              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">localhost</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.protocol">HTTP</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path">/</stringProp>
+        <stringProp name="HTTPSampler.method">POST</stringProp>
+        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+        <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+        <boolProp name="HTTPSampler.monitor">false</boolProp>
+        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+      </HTTPSamplerProxy>
+      <hashTree>
+        <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="resp1" enabled="true">
+          <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+          <stringProp name="RegexExtractor.refname">resp1</stringProp>
+          <stringProp name="RegexExtractor.regex"></stringProp>
+          <stringProp name="RegexExtractor.template">$1$</stringProp>
+          <stringProp name="RegexExtractor.default">NOTMATCHED</stringProp>
+          <stringProp name="RegexExtractor.match_number">0</stringProp>
+        </RegexExtractor>
+        <hashTree/>
+      </hashTree>
+      <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+        <stringProp name="FileSaver.filename"></stringProp>
+        <boolProp name="FileSaver.errorsonly">false</boolProp>
+        <boolProp name="FileSaver.skipautonumber">true</boolProp>
+        <boolProp name="FileSaver.skipsuffix">false</boolProp>
+        <boolProp name="FileSaver.successonly">false</boolProp>
+        <boolProp name="FileSaver.addTimstamp">true</boolProp>
+        <stringProp name="FileSaver.variablename"></stringProp>
+        <stringProp name="FileSaver.numberPadLen"></stringProp>
+      </ResultSaver>
+      <hashTree/>
+    </hashTree>
+    </hashTree>
+    </hashTree>
+    <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="SummaryReport" enabled="true">
+      <boolProp name="ResultCollector.error_logging">false</boolProp>
+      <objProp>
+        <name>saveConfig</name>
+        <value class="SampleSaveConfiguration">
+          <time>true</time>
+          <latency>true</latency>
+          <timestamp>true</timestamp>
+          <success>true</success>
+          <label>true</label>
+          <code>true</code>
+          <message>true</message>
+          <threadName>true</threadName>
+          <dataType>true</dataType>
+          <encoding>false</encoding>
+          <assertions>true</assertions>
+          <subresults>true</subresults>
+          <responseData>false</responseData>
+          <samplerData>false</samplerData>
+          <xml>false</xml>
+          <fieldNames>false</fieldNames>
+          <responseHeaders>false</responseHeaders>
+          <requestHeaders>false</requestHeaders>
+          <responseDataOnError>false</responseDataOnError>
+          <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+          <assertionsResultsToSave>0</assertionsResultsToSave>
+          <bytes>true</bytes>
+          <threadCounts>true</threadCounts>
+        </value>
+      </objProp>
+      <stringProp name="filename"></stringProp>
+    </ResultCollector>
+    <hashTree/>
+    <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.HitsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Hits per Second" enabled="true">
+      <boolProp name="ResultCollector.error_logging">false</boolProp>
+      <objProp>
+        <name>saveConfig</name>
+        <value class="SampleSaveConfiguration">
+          <time>true</time>
+          <latency>true</latency>
+          <timestamp>true</timestamp>
+          <success>true</success>
+          <label>true</label>
+          <code>true</code>
+          <message>true</message>
+          <threadName>true</threadName>
+          <dataType>true</dataType>
+          <encoding>false</encoding>
+          <assertions>true</assertions>
+          <subresults>true</subresults>
+          <responseData>false</responseData>
+          <samplerData>false</samplerData>
+          <xml>false</xml>
+          <fieldNames>false</fieldNames>
+          <responseHeaders>false</responseHeaders>
+          <requestHeaders>false</requestHeaders>
+          <responseDataOnError>false</responseDataOnError>
+          <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+          <assertionsResultsToSave>0</assertionsResultsToSave>
+          <bytes>true</bytes>
+          <threadCounts>true</threadCounts>
+        </value>
+      </objProp>
+      <stringProp name="filename"></stringProp>
+      <longProp name="interval_grouping">1000</longProp>
+      <boolProp name="graph_aggregated">false</boolProp>
+      <stringProp name="include_sample_labels"></stringProp>
+      <stringProp name="exclude_sample_labels"></stringProp>
+      <stringProp name="start_offset"></stringProp>
+      <stringProp name="end_offset"></stringProp>
+      <boolProp name="include_checkbox_state">false</boolProp>
+      <boolProp name="exclude_checkbox_state">false</boolProp>
+    </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+    <hashTree/>
+    <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second" enabled="true">
+      <boolProp name="ResultCollector.error_logging">false</boolProp>
+      <objProp>
+        <name>saveConfig</name>
+        <value class="SampleSaveConfiguration">
+          <time>true</time>
+          <latency>true</latency>
+          <timestamp>true</timestamp>
+          <success>true</success>
+          <label>true</label>
+          <code>true</code>
+          <message>true</message>
+          <threadName>true</threadName>
+          <dataType>true</dataType>
+          <encoding>false</encoding>
+          <assertions>true</assertions>
+          <subresults>true</subresults>
+          <responseData>false</responseData>
+          <samplerData>false</samplerData>
+          <xml>false</xml>
+          <fieldNames>false</fieldNames>
+          <responseHeaders>false</responseHeaders>
+          <requestHeaders>false</requestHeaders>
+          <responseDataOnError>false</responseDataOnError>
+          <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+          <assertionsResultsToSave>0</assertionsResultsToSave>
+          <bytes>true</bytes>
+          <threadCounts>true</threadCounts>
+        </value>
+      </objProp>
+      <stringProp name="filename"></stringProp>
+      <longProp name="interval_grouping">1000</longProp>
+      <boolProp name="graph_aggregated">false</boolProp>
+      <stringProp name="include_sample_labels"></stringProp>
+      <stringProp name="exclude_sample_labels"></stringProp>
+      <stringProp name="start_offset"></stringProp>
+      <stringProp name="end_offset"></stringProp>
+      <boolProp name="include_checkbox_state">false</boolProp>
+      <boolProp name="exclude_checkbox_state">false</boolProp>
+    </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+    <hashTree/>
+    <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Check for sampler results with treeview" enabled="true">
+      <boolProp name="ResultCollector.error_logging">false</boolProp>
+      <objProp>
+        <name>saveConfig</name>
+        <value class="SampleSaveConfiguration">
+          <time>true</time>
+          <latency>true</latency>
+          <timestamp>true</timestamp>
+          <success>true</success>
+          <label>true</label>
+          <code>true</code>
+          <message>true</message>
+          <threadName>true</threadName>
+          <dataType>true</dataType>
+          <encoding>false</encoding>
+          <assertions>true</assertions>
+          <subresults>true</subresults>
+          <responseData>false</responseData>
+          <samplerData>false</samplerData>
+          <xml>false</xml>
+          <fieldNames>false</fieldNames>
+          <responseHeaders>false</responseHeaders>
+          <requestHeaders>false</requestHeaders>
+          <responseDataOnError>false</responseDataOnError>
+          <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+          <assertionsResultsToSave>0</assertionsResultsToSave>
+          <bytes>true</bytes>
+          <threadCounts>true</threadCounts>
+        </value>
+      </objProp>
+      <stringProp name="filename"></stringProp>
+    </ResultCollector>
+    <hashTree/>
+    <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="SimpleDataWriter" enabled="true">
+      <boolProp name="ResultCollector.error_logging">false</boolProp>
+      <objProp>
+        <name>saveConfig</name>
+        <value class="SampleSaveConfiguration">
+          <time>true</time>
+          <latency>true</latency>
+          <timestamp>true</timestamp>
+          <success>true</success>
+          <label>true</label>
+          <code>true</code>
+          <message>true</message>
+          <threadName>true</threadName>
+          <dataType>true</dataType>
+          <encoding>true</encoding>
+          <assertions>true</assertions>
+          <subresults>true</subresults>
+          <responseData>false</responseData>
+          <samplerData>false</samplerData>
+          <xml>false</xml>
+          <fieldNames>true</fieldNames>
+          <responseHeaders>false</responseHeaders>
+          <requestHeaders>false</requestHeaders>
+          <responseDataOnError>false</responseDataOnError>
+          <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+          <assertionsResultsToSave>0</assertionsResultsToSave>
+          <bytes>true</bytes>
+          <url>true</url>
+          <fileName>true</fileName>
+          <hostname>true</hostname>
+          <threadCounts>true</threadCounts>
+          <sampleCount>true</sampleCount>
+          <idleTime>true</idleTime>
+          <connectTime>true</connectTime>
+        </value>
+      </objProp>
+      <stringProp name="filename">C:\temp\results\report_result.csv</stringProp>
+    </ResultCollector>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

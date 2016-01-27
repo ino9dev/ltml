@@ -1,0 +1,148 @@
+<html>
+<head>
+    <style>
+      body {
+        width:1024px;
+        margin:20px;
+      }
+      header, nav, section, footer {
+        display:block;
+        border:2px solid #ccc;
+        margin:0px;
+        padding:20px;
+      }
+      header {
+        text-align:center;
+        padding:30px;
+      }
+      nav ul, nav li{
+          list-style-type:none;display:inline;
+      }
+      section {
+        float:center;
+      }
+      footer {
+        clear:both !important;
+        text-align: center;
+      }
+    </style>
+</head>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<body>
+<header>
+    <hgroup>
+        <h1></h1>
+        <h2>version 1.0</h2>
+    </hgroup>
+</header>
+<nav>
+  <h1>Navigation</h1>
+  <ul>
+    <li><a href="#">example 1 </a></li>
+    <li><a href="#">example 2 </a></li>
+    <li><a href="#">example 3 </a></li>
+    <li><a href="#">example 4 </a></li>
+    <li><a href="#">example 5 </a></li>
+    <li><a href="#">example 6 </a></li>
+    <li><a href="#">example 7 </a></li>
+    <li><a href="#">example 8 </a></li>
+  </ul>
+</nav>          
+<section>
+    <article>
+        testcase1's Test Plan
+    <article>
+    <article>
+        1.0's Test Plan
+    <article>
+</section>
+<section>
+<h1>TestName</h1><p>lt001</p>
+<h1>Purpose</h1><p></p>
+<h2>Connccurent Num</h2><p>10</p>
+<h2>Rampup</h2><p></p>
+<h2>LoadGenerator</h2><p></p>
+<h2>Load Images</h2><p><!-- insert load images --></p>
+<span class="result"></span>
+</section>
+<hooter>Copyright testcorp</hooter>
+
+<script>
+function type(d) {
+  d.date = formatDate.parse(d.date);
+  d.close = +d.close;
+  return d;
+}
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var formatDate = d3.time.format("%d-%b-%y");
+
+var x = d3.time.scale()
+    .range([0, width]);            
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.close); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//d3.tsv("data.tsv", type, function(error, data) {
+//  if (error) throw error;
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain(d3.extent(data, function(d) { return d.close; }));
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Price ($)");
+            
+var data = [
+    {"date": "24-Apr-07", "close": 93.24}
+    ,{"date": "25-Apr-07", "close": 95.35}
+    ,{"date": "8-May-07", "close": 105.06}
+];
+
+var formatteddata = data.map(function(d) {
+    return {
+        date: formatDate.parse(d.date);
+        close: +d.close;
+};
+
+svg.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line);
+//});
+
+</script>
+
+</body>
+</html>

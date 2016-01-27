@@ -30,7 +30,6 @@ Workflow {
     	directory = "${runtimeProject}/model"
     }
     
-    
     component = DirectoryCleaner {
     	directory = "${runtimeProject}.ui/src-gen"
     }

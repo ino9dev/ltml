@@ -88,6 +88,7 @@ class LoadTestJmeterTestPlanGenerator implements IGenerator {
                   else if(lg.schedule != null){lg.schedule}»
               «var schedule_starttime = if(schedule.start == null){Calendar.instance.time.time}else{dateformatter.parse(schedule.start).time} »
               «var schedule_endtime = if(schedule.end == null){Calendar.instance.time.time}else{dateformatter.parse(schedule.end).time} »
+              
               «var rampup = lg.rampup.splitaslist("/")»
               «var pertime = rampup.get(1).toString»
               «var ramptime = switch pertime {

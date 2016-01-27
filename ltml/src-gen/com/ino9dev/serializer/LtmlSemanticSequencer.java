@@ -151,7 +151,7 @@ public class LtmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         loadgeneratorname=STRING? 
-	 *         ip=STRING 
+	 *         ip=IPADDRESS 
 	 *         port=STRING 
 	 *         region=STRING 
 	 *         username=STRING 

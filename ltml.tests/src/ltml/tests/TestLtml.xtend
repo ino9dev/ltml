@@ -57,9 +57,10 @@ class TestLtml {
         '''
         Manifest {
             Id testcase1
+            Name "For X Site Load Test Plan Document"
             Version "1.0"
             InstanceType JMeter
-            ModelInstancedPath "C:\\apache-jmeter-2.13\\bin\\gen"
+            ModelInstancedPath "C:\\Users\\oni\\git\\jmeter\\bin"
             Corpname "testcorp"
         }
         
@@ -88,6 +89,8 @@ class TestLtml {
                CheckResponse
             }
         }
+        
+        //LoadGroup 1
         LoadGroup {
             Id LG01
             Name "BP01's Load Simulated"
@@ -102,6 +105,7 @@ class TestLtml {
             }
         }
 
+        //LoadGroup 2
         LoadGroup {
             Id LG02
             Name "BP02's Load Simulated"
@@ -115,7 +119,6 @@ class TestLtml {
                 Delay 0
             }
         }
-
         LoadGroup {
             Id LG03
             Name "BP03's Load Simulated"
@@ -132,7 +135,7 @@ class TestLtml {
 
         LoadGenerator {
             Id LGen01
-            TargetIp "192.168.0.5"
+            TargetIp 192.168.0.5
             TargetPort "1008"
             Region "Japan"
             AuthUsername "test001"
@@ -196,7 +199,7 @@ class TestLtml {
                     Id BP02_02
                     Name "BP02_02"
                     Protocol HTTP
-                    Port 8080
+                    Port 80
                     Method POST
                     Server "localhost"
                     Path "/"
@@ -222,6 +225,106 @@ class TestLtml {
             Path "C:\\temp\\userdata1.txt"
             AsignMode ITERATION
             ShareMode ALLTHREAD
+        }
+        
+        //DataTable other definition
+        // handle raw CSV Data
+        // AsignMode defines per ITERATION(LOOP), RANDOM, ONCE(if it gets parameter 1 record, that parameter is used every time)
+        // ShareMode defines ALLTHREAD(parameter is shared by all threads), NOTSHARE
+        //DataTable {
+        //    Id datatable2
+        //    Name "Login Account Data(for CSV)"
+        //    EncodingType UTF8
+        //    Delimiter ","
+        //    Data {
+        //        1,"jojo","bean"
+        //        2,"ino9","oni"
+        //    }
+        //    AsignMode ITERATION
+        //    ShareMode ALLTHREAD
+        //}
+        '''
+        )
+        val fsa = new JavaIoFileSystemAccess()
+        Guice::createInjector(new GenericModule).injectMembers(fsa)
+        underTest.doGenerate(model.eResource, fsa)
+
+//        //val fsa = new InMemoryFileSystemAccess()
+//        //fsa.setOutputConfigurations(newHashMap(""->new OutputConfiguration(IFileSystemAccess::DEFAULT_OUTPUT)))
+//        //underTest.doGenerate(model.eResource, fsa)
+//        
+//        val fsa = new JavaIoFileSystemAccess()
+//
+//        //fsa.setOutputPath(".")
+//        Guice::createInjector(new GenericModule).injectMembers(fsa)
+//        underTest.doGenerate(model.eResource, fsa)
+
+    }
+    
+    @Test
+    def void testCase2(){
+         var model = parseHelper.parse(
+        '''
+        Manifest {
+            Id testcase1
+            Version "1.0"
+            InstanceType JMeter
+            ModelInstancedPath "C:\\Users\\oni\\git\\ltml\\ltml.tests\\testoutputs"
+            Corpname "testcorp"
+        }
+        
+        //Testcase 1
+        LoadTest {
+            Id lt001
+            LoadGroups LG01
+            Report {
+               Summary
+               Result "C:\\temp\\results\\report_result.csv"
+               HitPerSecond
+               TransactionPerSecond
+               CheckResponse
+            }
+        }
+        
+        //LoadGroup 1
+        LoadGroup {
+            Id LG01
+            Name "LG01"
+            ConccurentCount 10
+            Script BP01
+            LoadGenerator LGen01
+            RampUp "20/1min"
+            Schedule {
+                Duration 500
+                Delay 0
+            }
+        }
+
+        LoadGenerator {
+            Id LGen01
+            Name "LGen01"
+            TargetIp "192.168.0.5"
+            TargetPort "1008"
+            Region "Japan"
+            AuthUsername "test001"
+            AuthPassword "test001"
+        }
+        
+        //Business Operation1(e.g search)
+        Script {
+            Id BP01
+            Name "BP01_search"
+            Trs {
+                Tr {
+                    Id BP0101
+                    Name "BP0101"
+                    Protocol HTTP
+                    Method GET
+                    Server "localhost"
+                    Path "/"
+                    CaptureFileName "C:\\temp\\result\\image002"
+                }
+            }
         }
         '''
         )

@@ -2203,7 +2203,7 @@ public class InternalLtmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLoadGenerator"
-    // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:819:1: ruleLoadGenerator returns [EObject current=null] : ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_STRING ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' ) ;
+    // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:819:1: ruleLoadGenerator returns [EObject current=null] : ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_IPADDRESS ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' ) ;
     public final EObject ruleLoadGenerator() throws RecognitionException {
         EObject current = null;
 
@@ -2229,11 +2229,11 @@ public class InternalLtmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:822:28: ( ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_STRING ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' ) )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:823:1: ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_STRING ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:822:28: ( ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_IPADDRESS ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' ) )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:823:1: ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_IPADDRESS ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' )
             {
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:823:1: ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_STRING ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:823:2: (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_STRING ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}'
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:823:1: ( (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_IPADDRESS ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}' )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:823:2: (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' ) otherlv_2= '{' otherlv_3= 'Id' ( (lv_name_4_0= RULE_ID ) ) (otherlv_5= 'Name' ( (lv_loadgeneratorname_6_0= RULE_STRING ) ) )? otherlv_7= 'TargetIp' ( (lv_ip_8_0= RULE_IPADDRESS ) ) otherlv_9= 'TargetPort' ( (lv_port_10_0= RULE_STRING ) ) otherlv_11= 'Region' ( (lv_region_12_0= RULE_STRING ) ) otherlv_13= 'AuthUsername' ( (lv_username_14_0= RULE_STRING ) ) otherlv_15= 'AuthPassword' ( (lv_password_16_0= RULE_STRING ) ) otherlv_17= '}'
             {
             // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:823:2: (otherlv_0= 'LoadGenerator' | otherlv_1= 'Lgen' )
             int alt19=2;
@@ -2381,16 +2381,16 @@ public class InternalLtmlParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_7, grammarAccess.getLoadGeneratorAccess().getTargetIpKeyword_5());
                   
             }
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:884:1: ( (lv_ip_8_0= RULE_STRING ) )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:885:1: (lv_ip_8_0= RULE_STRING )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:884:1: ( (lv_ip_8_0= RULE_IPADDRESS ) )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:885:1: (lv_ip_8_0= RULE_IPADDRESS )
             {
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:885:1: (lv_ip_8_0= RULE_STRING )
-            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:886:3: lv_ip_8_0= RULE_STRING
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:885:1: (lv_ip_8_0= RULE_IPADDRESS )
+            // ../ltml/src-gen/com/ino9dev/parser/antlr/internal/InternalLtml.g:886:3: lv_ip_8_0= RULE_IPADDRESS
             {
-            lv_ip_8_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleLoadGenerator1805); if (state.failed) return current;
+            lv_ip_8_0=(Token)match(input,RULE_IPADDRESS,FOLLOW_RULE_IPADDRESS_in_ruleLoadGenerator1805); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(lv_ip_8_0, grammarAccess.getLoadGeneratorAccess().getIpSTRINGTerminalRuleCall_6_0()); 
+              			newLeafNode(lv_ip_8_0, grammarAccess.getLoadGeneratorAccess().getIpIPADDRESSTerminalRuleCall_6_0()); 
               		
             }
             if ( state.backtracking==0 ) {
@@ -2402,7 +2402,7 @@ public class InternalLtmlParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"ip",
                       		lv_ip_8_0, 
-                      		"STRING");
+                      		"IPADDRESS");
               	    
             }
 
@@ -6981,8 +6981,8 @@ public class InternalLtmlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleLoadGenerator1734 = new BitSet(new long[]{0x0000004000010000L});
     public static final BitSet FOLLOW_16_in_ruleLoadGenerator1752 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleLoadGenerator1769 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_ruleLoadGenerator1788 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleLoadGenerator1805 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_38_in_ruleLoadGenerator1788 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_RULE_IPADDRESS_in_ruleLoadGenerator1805 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_39_in_ruleLoadGenerator1822 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleLoadGenerator1839 = new BitSet(new long[]{0x0000010000000000L});
     public static final BitSet FOLLOW_40_in_ruleLoadGenerator1856 = new BitSet(new long[]{0x0000000000000040L});
